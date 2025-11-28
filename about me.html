@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Kesineni Naveen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Auto fit to screen */
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: url('Untitled design (1).png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #1e3a8a;
+            color: white;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, background 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #ff5722;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(0, 238, 255, 0.8));
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background: #facc15;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: #ff5722;
+            color: white;
+        }
+
+        body {
+            background: #87CEFA;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        .about-section {
+            padding: 50px;
+        }
+
+        .details {
+            background: rgba(85, 107, 47, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            text-align: left;
+        }
+
+        /* Auto-fit modifications */
+        .details {
+            width: 90%;
+            max-width: 700px;
+        }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 2em; }
+            header { flex-direction: column; text-align: center; }
+            nav { flex-wrap: wrap; justify-content: center; }
+        }
+
+        h2 {
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="about me.html">About me</a>
+            <a href="skills.html">Skills</a>
+			<a href="services.html">Course</a>
+            <a href="Projects.html">Projects</a>
+            
+            <a href="Note.html">Notes</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h2>Kesineni Naveen</h2>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p><strong>Profession:</strong> Data Analyst | Python Developer | BI Specialist</p>
+        </div>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p>Enthusiastic and detail-oriented Entry-Level SQL & Power BI Developer with a strong foundation in
+            database management, data visualization, ETL processes, and report development...</p>
+        </div>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p><strong>Education:</strong> B-Tech in Engineering</p>
+            <p>Dhanekula Institute of Engineering and Technology</p>
+            <p>Graduation Year: 2022</p>
+            <p>CGPA: 6.5</p>
+        </div>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p><strong>Technical Skills:</strong></p>
+            <ul>
+                <li>SQL (MySQL, PostgreSQL, SQL Server, Query Optimization)</li>
+                <li>Power BI (DAX, Power Query, Dashboard Development)</li>
+                <li>Python (NumPy, Pandas, Matplotlib, Seaborn)</li>
+                <li>ETL & Data Integration (SSIS, Data Warehousing)</li>
+                <li>Data Visualization & Business Intelligence</li>
+            </ul>
+        </div>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p><strong>Hobbies & Interests:</strong></p>
+            <ul>
+                <li>Coding</li>
+                <li>Traveling</li>
+                <li>Reading</li>
+            </ul>
+        </div>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p><strong>Personal Statement:</strong></p>
+            <p>A dedicated and results-driven Data Analyst and BI Developer...</p>
+        </div>
+
+        <div class="details" style="margin-bottom: 20px;">
+            <p><strong>Languages:</strong></p>
+            <ul>
+                <li>English</li>
+                <li>Telugu</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        console.log("About page loaded successfully");
+    </script>
+
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        });
+    </script>
+
+</body>
+</html>

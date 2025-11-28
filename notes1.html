@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PDF Reader (no download / no print)</title>
+  <style>
+    :root{ --bg:#f6f8fb; --toolbar:#fff; --btn:#222 }
+    html,body{ height:100%; margin:0; font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg);}
+    .container{ display:flex; flex-direction:column; height:100vh; }
+    .toolbar{
+      display:flex; gap:8px; align-items:center; padding:8px;
+      background:var(--toolbar); box-shadow:0 1px 3px rgba(0,0,0,.08);
+    }
+    .toolbar button{ padding:8px 12px; border-radius:8px; border:1px solid #ddd; background:white; cursor:pointer; color:var(--btn) }
+    .toolbar input[type="number"]{ width:80px; padding:6px; border-radius:6px; border:1px solid #ddd; }
+    .viewer{ flex:1; overflow:auto; display:flex; justify-content:center; align-items:center; padding:12px; }
+    canvas{ box-shadow:0 2px 10px rgba(0,0,0,.12); max-width:100%; height:auto; }
+    /* Hide selection/dragging */
+    .viewer, canvas { -webkit-user-select: none; -moz-user-select: none; user-select:none; -webkit-touch-callout: none; }
+    /* Small responsive tweaks */
+    @media (max-width:640px){ .toolbar{flex-wrap:wrap} .toolbar input[type="number"]{ width:64px } }
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <div class="toolbar" role="toolbar" aria-label="PDF controls">
+      <button id="prevBtn" title="Previous page">◀ Prev</button>
+      <button id="nextBtn" title="Next page">Next ▶</button>
+      <label>
+        Page
+        <input id="pageNum" type="number" min="1" value="1" />
+        / <span id="pageCount">0</span>
+      </label>
+      <label style="margin-left:8px">
+        Zoom
+        <input id="zoom" type="number" step="0.1" value="1" min="0.25" max="3" />
+      </label>
+      <div style="flex:1"></div>
+      <!-- Deliberately no download / print buttons -->
+      <small style="opacity:.7">Reader mode — download & print hidden</small>
+    </div>
+
+    <div class="viewer" id="viewer" tabindex="0" aria-live="polite">
+      <!-- canvas will be injected here -->
+    </div>
+  </div>
+
+  <!-- PDF.js from CDN -->
+  <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
+  <script>
+  // ========= EDIT THIS: put path/URL to your PDF here =========
+  const url = 'your.pdf'; // e.g. 'files/book.pdf' or absolute URL (ensure CORS)
+  // ===========================================================
+
+  // Basic PDF.js usage
+  const pdfjsLib = window['pdfjs-dist/build/pdf'];
+  // Worker from same CDN (recommended)
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist/build/pdf.worker.min.js';
+
+  let pdfDoc = null, pageNum = 1, pageRendering = false, pageNumPending = null, scale = 1.0;
+  const viewer = document.getElementById('viewer');
+  const pageNumInput = document.getElementById('pageNum');
+  const pageCountSpan = document.getElementById('pageCount');
+  const zoomInput = document.getElementById('zoom');
+
+  function renderPage(num) {
+    pageRendering = true;
+    // Clear previous canvas while loading
+    viewer.innerHTML = '';
+    pdfDoc.getPage(num).then(function(page) {
+      const viewport = page.getViewport({ scale: scale });
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d', { alpha: false });
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      // make canvas not draggable/selectable
+      canvas.setAttribute('role','img');
+      canvas.setAttribute('aria-label', 'Page ' + num);
+      viewer.appendChild(canvas);
+      const renderContext = { canvasContext: context, viewport: viewport };
+      const renderTask = page.render(renderContext);
+      renderTask.promise.then(function() {
+        pageRendering = false;
+        if (pageNumPending !== null) {
+          renderPage(pageNumPending);
+          pageNumPending = null;
+        }
+      });
+    });
+    document.getElementById('pageNum').value = num;
+  }
+
+  function queueRenderPage(num) {
+    if (pageRendering) {
+      pageNumPending = num;
+    } else {
+      renderPage(num);
+    }
+  }
+
+  function onPrevPage() { if (pageNum <= 1) return; pageNum--; queueRenderPage(pageNum); }
+  function onNextPage() { if (pageNum >= pdfDoc.numPages) return; pageNum++; queueRenderPage(pageNum); }
+
+  // Load PDF
+  pdfjsLib.getDocument(url).promise.then(function(pdf) {
+    pdfDoc = pdf;
+    pageCountSpan.textContent = pdf.numPages;
+    pageNum = 1;
+    renderPage(pageNum);
+  }).catch(function(err){
+    viewer.innerHTML = '<p style="color:#b00">Failed to load PDF: ' + err.message + '</p>';
+    console.error(err);
+  });
+
+  // Controls
+  document.getElementById('prevBtn').addEventListener('click', onPrevPage);
+  document.getElementById('nextBtn').addEventListener('click', onNextPage);
+  pageNumInput.addEventListener('change', function(e){
+    let v = Number(e.target.value);
+    if (isNaN(v)) return;
+    v = Math.max(1, Math.min(pdfDoc ? pdfDoc.numPages : 1, v));
+    pageNum = v;
+    queueRenderPage(pageNum);
+  });
+  zoomInput.addEventListener('change', function(e){
+    let z = parseFloat(e.target.value);
+    if (isNaN(z) || z <= 0) return;
+    scale = z;
+    queueRenderPage(pageNum);
+  });
+
+  // Accessibility: keyboard navigation inside viewer
+  viewer.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); onNextPage(); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp')   { e.preventDefault(); onPrevPage(); }
+  });
+
+  // ====== Measures to hinder download/print ======
+  // 1) Block context menu on viewer (right click)
+  viewer.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+
+  // 2) Intercept common save/print shortcuts
+  window.addEventListener('keydown', function(e){
+    // Ctrl+S or Cmd+S, Ctrl+P or Cmd+P, Ctrl+Shift+S, Ctrl+Shift+P
+    const s = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && (s === 's' || s === 'p')) {
+      e.preventDefault();
+      // give visual feedback briefly
+      flashNotice('Action disabled in reader');
+    }
+  });
+
+  // small notification flash
+  function flashNotice(msg){
+    const n = document.createElement('div');
+    n.textContent = msg;
+    Object.assign(n.style, {
+      position:'fixed', top:'16px', right:'16px', background:'#111', color:'#fff', padding:'8px 12px', borderRadius:'8px', zIndex:9999, opacity:0.95
+    });
+    document.body.appendChild(n);
+    setTimeout(()=> n.remove(), 1400);
+  }
+
+  // 3) Remove drag/drop behavior and other obvious saving paths
+  window.addEventListener('dragstart', e => e.preventDefault());
+  window.addEventListener('drop', e => e.preventDefault());
+  // disable selection on body (already CSS), but also prevent copy via keyboard
+  window.addEventListener('keydown', function(e){
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==='c') { e.preventDefault(); }
+  });
+
+  // Prevent opening PDF in new tab by middle click on canvas (basic)
+  viewer.addEventListener('mousedown', function(e){
+    if (e.button === 1) e.preventDefault();
+  });
+
+  // Helpful hint if user wants to change the PDF quickly via URL param: ?file=...
+  (function checkQueryFile(){
+    try{
+      const params = new URLSearchParams(location.search);
+      const f = params.get('file');
+      if (f) {
+        // note: CORS same-origin still applies for fetching
+        // replace url and reload
+        // not auto-loading here to avoid messing with user edits; but you can copy-paste
+      }
+    }catch(e){}
+  })();
+
+  // End of script
+  </script>
+</body>
+</html>

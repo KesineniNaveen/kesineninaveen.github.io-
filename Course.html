@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <title>Courses - Kesineni Naveen</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: skyblue;
+            color: #000;
+        }
+
+        /* HEADER */
+        header {
+            background: #1e3a8a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #facc15;
+            color: black;
+        }
+
+        /* MAIN SECTION */
+        .courses-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #1e3a8a;
+            font-size: 32px;
+        }
+
+        /* GRID WRAPPER */
+        .courses-wrapper {
+            display: grid;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        /* Desktop - 4 columns */
+        .courses-wrapper {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* COURSE CARD */
+        .course-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border: 2px solid #1e3a8a;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px #1e3a8a;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .view-btn, .enroll-btn {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .view-btn {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .view-btn:hover {
+            background: #ff5722;
+        }
+
+        /* ENROLL BUTTON */
+        .enroll-btn {
+            background: #0d9488;
+            color: white;
+            margin-top: 8px;
+        }
+
+        .enroll-btn:hover {
+            background: #065f46;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1024px) {
+            .courses-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            header {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .courses-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .courses-wrapper {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav a {
+                margin: 10px 5px;
+                display: inline-block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Courses</h1>
+        <nav>
+            <a href="Home.html">Home</a>
+			<a href="about me.html">About me</a>
+            <a href="skills.html">Skills</a>
+			<a href="Course.html">Course</a>
+            <a href="projects.html">Projects</a>
+            
+            <a href="Notes.html">Notes</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="courses-section">
+        <h2>Top Courses I Offer</h2>
+
+        <div class="courses-wrapper">
+
+            <!-- COURSE 1 -->
+            <div class="course-card">
+                <img src="python12.avif" alt="Python">
+                <h3>Python Full Course</h3>
+                <p class="skills">Variables, Loops, OOP, Modules, Projects, Automation</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 2 -->
+            <div class="course-card">
+                <img src="sql12.avif" alt="SQL">
+                <h3>SQL Mastery</h3>
+                <p class="skills">DDL, DML, Joins, Subqueries, Windows, Projects</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 3 -->
+            <div class="course-card">
+                <img src="powerbi12.jpg" alt="Power BI">
+                <h3>Power BI & DAX</h3>
+                <p class="skills">Power Query, DAX, Dashboards, Data Modeling</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 4 -->
+            <div class="course-card">
+                <img src="excel12.avif" alt="Excel">
+                <h3>Advanced Excel</h3>
+                <p class="skills">Formulas, PivotTables, Charts, Automation</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 5 -->
+            <div class="course-card">
+                <img src="ml12.avif" alt="Machine Learning">
+                <h3>Machine Learning</h3>
+                <p class="skills">Regression, Classification, NLP, Real Projects</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 6 -->
+            <div class="course-card">
+                <img src="wb12.avif" alt="Web Dev">
+                <h3>Web Development</h3>
+                <p class="skills">HTML, CSS, JS, Bootstrap, Hosting</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 7 -->
+            <div class="course-card">
+                <img src="dj14.png" alt="Django">
+                <h3>Django Full Stack</h3>
+                <p class="skills">Backend, Templates, CRUD, Authentication</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 8 -->
+            <div class="course-card">
+                <img src="ds12.jpg" alt="Data Science">
+                <h3>Data Science</h3>
+                <p class="skills">Pandas, NumPy, ML, Visualizations</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 9 -->
+            <div class="course-card">
+                <img src="cc12.avif" alt="Cloud">
+                <h3>Cloud Computing</h3>
+                <p class="skills">AWS, Azure, Deployment, CI/CD</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+            <!-- COURSE 10 -->
+            <div class="course-card">
+                <img src="cb12.jpg" alt="Cyber Security">
+                <h3>Cyber Security</h3>
+                <p class="skills">Ethical Hacking, Security Tools, Networks</p>
+                <a class="view-btn" href="#">View Roadmap</a><br>
+                <a class="enroll-btn" href="contact.html">Enroll Now</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
