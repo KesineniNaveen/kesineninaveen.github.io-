@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Excel Notes — Naveen IT Training</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#ffffff;--accent:#005eff;--text:#111}
+  body{font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text);margin:0}
+  header{background:linear-gradient(90deg,var(--accent),#00c3ff);color:white;padding:18px 24px}
+  header h1{margin:0;font-size:20px}
+  .container{max-width:980px;margin:28px auto;padding:0 18px}
+  .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.06);margin-bottom:18px}
+  h2{color:var(--accent)}
+  pre{background:#0b1720;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto}
+  nav.breadcrumb a{color:var(--accent);text-decoration:none;margin-right:8px}
+  .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:8px}
+  .toc a{padding:8px;display:block;background:#eef6ff;color:var(--accent);border-radius:8px;text-decoration:none}
+  a.button{padding:10px 14px;background:var(--accent);color:white;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}
+  ul{margin-left:18px}
+  footer{text-align:center;padding:20px;color:#666}
+</style>
+</head>
+<body>
+<header>
+  <div class="container"><h1>Excel Notes — Naveen IT Training</h1></div>
+</header>
+
+<main class="container">
+
+  <div class="card">
+    <nav class="breadcrumb"><a href="/">Home</a> / <a href="/">Notes</a> / Excel</nav>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <div>
+        <h2>Excel — Complete Notes</h2>
+        <p>Covers formulas, PivotTables, charts, dashboards, automation, and real-time business use cases.</p>
+      </div>
+      <div>
+        <a class="button" href="excel_notes.pdf" target="_blank">Download Notes</a>
+        <a class="button" href="excel_codes.pdf" style="background:#00b894" target="_blank">Download Practice Files</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Table of Contents</h3>
+    <div class="toc">
+      <a href="#intro">Introduction</a>
+      <a href="#basics">Excel Basics</a>
+      <a href="#formulas">Important Formulas</a>
+      <a href="#lookup">Lookup Functions</a>
+      <a href="#pivot">PivotTables</a>
+      <a href="#charts">Charts</a>
+      <a href="#cleaning">Data Cleaning</a>
+      <a href="#dashboard">Dashboards</a>
+      <a href="#shortcuts">Shortcuts</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </div>
+
+  <div class="card" id="intro">
+    <h3>Introduction</h3>
+    <p>Excel is one of the most widely used tools for data analysis, reporting, dashboarding, and business insights.</p>
+  </div>
+
+  <div class="card" id="basics">
+    <h3>Excel Basics</h3>
+    <ul>
+      <li>Workbook, worksheet, cells</li>
+      <li>Formatting basics</li>
+      <li>Absolute & relative references</li>
+    </ul>
+    <pre>=A1
+=$A$1
+=A$1</pre>
+  </div>
+
+  <div class="card" id="formulas">
+    <h3>Important Formulas</h3>
+    <ul>
+      <li>SUM, AVERAGE, COUNT</li>
+      <li>IF, AND, OR</li>
+      <li>TEXT functions</li>
+    </ul>
+    <pre>=IF(A2>50,"Pass","Fail")</pre>
+  </div>
+
+  <div class="card" id="lookup">
+    <h3>Lookup Functions</h3>
+    <ul>
+      <li>VLOOKUP</li>
+      <li>XLOOKUP</li>
+      <li>INDEX + MATCH</li>
+    </ul>
+    <pre>=XLOOKUP(E2,A:A,B:B)</pre>
+  </div>
+
+  <div class="card" id="pivot">
+    <h3>PivotTables</h3>
+    <p>Used to summarize and analyze data. Drag fields into Rows, Columns, Values, and Filters.</p>
+  </div>
+
+  <div class="card" id="charts">
+    <h3>Charts</h3>
+    <ul>
+      <li>Line chart</li>
+      <li>Bar chart</li>
+      <li>Pie chart</li>
+      <li>Combo chart</li>
+    </ul>
+  </div>
+
+  <div class="card" id="cleaning">
+    <h3>Data Cleaning</h3>
+    <ul>
+      <li>TRIM, CLEAN</li>
+      <li>Remove Duplicates</li>
+      <li>Text-to-Columns</li>
+    </ul>
+  </div>
+
+  <div class="card" id="dashboard">
+    <h3>Dashboard Design</h3>
+    <ul>
+      <li>Use slicers</li>
+      <li>Use consistent colors</li>
+      <li>Use PivotCharts</li>
+      <li>Keep layout clean</li>
+    </ul>
+  </div>
+
+  <div class="card" id="shortcuts">
+    <h3>Useful Shortcuts</h3>
+    <pre>Ctrl + Shift + L  → Filter
+Ctrl + T          → Table
+Alt + =           → AutoSum</pre>
+  </div>
+
+  <div class="card" id="projects">
+    <h3>Excel Projects</h3>
+    <ol>
+      <li>Sales Dashboard</li>
+      <li>HR Employee Analysis</li>
+      <li>Inventory Tracker</li>
+      <li>Financial KPI Report</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Excel Notes Completed 🎉</h3>
+    <p>Want Excel:</p>
+    <ul>
+      <li>MCQs Page</li>
+      <li>Interview Questions Page</li>
+      <li>Practice Assignments Page</li>
+    </ul>
+    <p>Just tell me!</p>
+  </div>
+
+</main>
+<footer>© 2025 Naveen IT Training</footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Power BI Notes — Naveen IT Training</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#fff;--accent:#005eff;--text:#111}
+  body{font-family:Inter, system-ui, Arial;background:var(--bg);color:var(--text);margin:0}
+  header{background:linear-gradient(90deg,var(--accent),#00c3ff);color:white;padding:18px 24px}
+  header h1{margin:0;font-size:20px}
+  .container{max-width:980px;margin:28px auto;padding:0 18px}
+  .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.06);margin-bottom:18px}
+  h2{color:var(--accent)}
+  pre{background:#0b1720;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto}
+  nav.breadcrumb a{color:var(--accent);text-decoration:none;margin-right:8px}
+  .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:8px}
+  .toc a{padding:8px;display:block;background:#eef6ff;color:var(--accent);border-radius:8px;text-decoration:none}
+  a.button{padding:10px 14px;background:var(--accent);color:white;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}
+  ul{margin-left:18px}
+  footer{text-align:center;padding:20px;color:#666}
+</style>
+</head>
+<body>
+<header>
+  <div class="container"><h1>Power BI Notes — Naveen IT Training</h1></div>
+</header>
+
+<main class="container">
+
+  <div class="card">
+    <nav class="breadcrumb"><a href="/">Home</a> / <a href="/">Notes</a> / Power BI</nav>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <div>
+        <h2>Power BI — Complete Notes & Concepts</h2>
+        <p>Covers Power Query, Data Modeling, DAX, Visuals, Performance, and Deployment.</p>
+      </div>
+      <div>
+        <a class="button" href="powerbi_notes.pdf" target="_blank">Download Notes</a>
+        <a class="button" href="powerbi_codes.pdf" style="background:#00b894" target="_blank">Download Samples</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Table of Contents</h3>
+    <div class="toc">
+      <a href="#intro">Introduction</a>
+      <a href="#pq">Power Query (M)</a>
+      <a href="#model">Data Modeling</a>
+      <a href="#dax">DAX Basics</a>
+      <a href="#advanced">Advanced DAX</a>
+      <a href="#visuals">Visuals & Formatting</a>
+      <a href="#perf">Performance Tips</a>
+      <a href="#deploy">Deployment</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </div>
+
+  <div class="card" id="intro">
+    <h3>Introduction</h3>
+    <p>Power BI Desktop is a tool to connect, transform, model, and visualize data. Use Power BI Service to publish and share dashboards.</p>
+  </div>
+
+  <div class="card" id="pq">
+    <h3>Power Query (M)</h3>
+    <p>Used for ETL: extract, transform, load. Common tasks: merging queries, pivot/unpivot, data type conversion.</p>
+    <pre>// Example: remove top rows in M
+let
+  Source = Excel.Workbook(File.Contents("file.xlsx"), null, true),
+  Sheet = Source{[Name="Sheet1"]}[Data],
+  RemovedTop = Table.Skip(Sheet,4)
+in
+  RemovedTop</pre>
+  </div>
+
+  <div class="card" id="model">
+    <h3>Data Modeling</h3>
+    <p>Star schema recommended: fact table + dimension tables. Create relationships on keys, set cross-filter direction carefully.</p>
+    <ul>
+      <li>Fact table: transactional data</li>
+      <li>Dimension tables: products, customers, dates</li>
+      <li>Use surrogate keys where necessary</li>
+    </ul>
+  </div>
+
+  <div class="card" id="dax">
+    <h3>DAX Basics</h3>
+    <p>Calculated columns vs measures. Use CALCULATE to change filter context.</p>
+    <pre>Total Sales = SUM(Sales[Amount])
+Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))</pre>
+  </div>
+
+  <div class="card" id="advanced">
+    <h3>Advanced DAX</h3>
+    <ul>
+      <li>Time intelligence (TOTALYTD, SAMEPERIODLASTYEAR)</li>
+      <li>Maintain filter context with ALL, ALLEXCEPT</li>
+      <li>Use variables for complex calculations</li>
+    </ul>
+  </div>
+
+  <div class="card" id="visuals">
+    <h3>Visuals & Formatting</h3>
+    <p>Choose visuals that match the story. Use bookmarks & drill-through for interactivity. Keep visuals minimal and use consistent colors.</p>
+  </div>
+
+  <div class="card" id="perf">
+    <h3>Performance Tips</h3>
+    <ul>
+      <li>Reduce columns in the data model</li>
+      <li>Avoid calculated columns where possible</li>
+      <li>Use measures and aggregations</li>
+      <li>Manage relationships and cardinality</li>
+    </ul>
+  </div>
+
+  <div class="card" id="deploy">
+    <h3>Deployment</h3>
+    <p>Publish to Power BI Service, configure refresh, set workspace permissions, and use Power BI apps for distribution.</p>
+  </div>
+
+  <div class="card" id="projects">
+    <h3>Hands-on Projects</h3>
+    <ol>
+      <li>Sales Performance Dashboard</li>
+      <li>Marketing Campaign Analysis</li>
+      <li>Mobile Sales Dashboard</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Next?</h3>
+    <p>Reply <b>next</b> and I'll create the <b>Data Science Notes</b> page.</p>
+  </div>
+
+</main>
+
+<footer>© 2025 Naveen IT Training</footer>
+</body>
+</html>
