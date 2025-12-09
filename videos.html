@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naveen IT Trainer | Videos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="logo">
+          Naveen <span>IT Trainer</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="notes.html">Notes</a>
+          <a href="projects.html">Projects</a>
+          <a href="videos.html" class="active">Videos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Demo & Recorded Sessions</h2>
+          <p class="section-subtitle">
+            Embed your YouTube or hosted training videos here.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Python Introduction</h3>
+            <p style="margin-bottom: 0.5rem; font-size: 0.8rem; opacity: 0.9">
+              Sample session: What is Python? Career paths and syllabus overview.
+            </p>
+            <!-- Replace src with your YouTube video URL -->
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.8rem;">
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_1"
+                frameborder="0"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Power BI Dashboard Walkthrough</h3>
+            <p style="margin-bottom: 0.5rem; font-size: 0.8rem; opacity: 0.9">
+              Demo of building a simple interactive dashboard from Excel data.
+            </p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.8rem;">
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_2"
+                frameborder="0"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Advanced Excel Tips</h3>
+            <p style="margin-bottom: 0.5rem; font-size: 0.8rem; opacity: 0.9">
+              Short tricks on formulas, filters and PivotTables.
+            </p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.8rem;">
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_3"
+                frameborder="0"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.9">
+          🔧 To update videos, replace <code>VIDEO_ID_x</code> with your real YouTube
+          video IDs.
+        </p>
+      </section>
+    </main>
+
+    <!-- WhatsApp & Chatbot -->
+    <a
+      href="https://wa.me/919676630130"
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      WhatsApp Naveen
+    </a>
+
+    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <span>Naveen IT Assistant</span>
+        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
+      </div>
+      <div id="chatbot-body" class="chatbot-body"></div>
+      <div class="chatbot-footer">
+        <input id="chatbot-input" type="text" placeholder="Ask about demo videos..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Naveen IT Trainer</strong><br />
+          Watch demo sessions before you join.
+        </div>
+        <div>📞 9676630130</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

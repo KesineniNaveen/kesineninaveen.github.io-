@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naveen IT Trainer | Courses</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="logo">
+          Naveen <span>IT Trainer</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="courses.html" class="active">Courses</a>
+          <a href="notes.html">Notes</a>
+          <a href="projects.html">Projects</a>
+          <a href="videos.html">Videos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Courses & Fees</h2>
+          <p class="section-subtitle">
+            All courses include notes, assignments, and interview questions.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <span class="badge-small">Programming</span>
+            <h3>Python (Core + Advanced)</h3>
+            <p>
+              From basics to advanced concepts including OOP, modules, file
+              handling, and basic libraries.
+            </p>
+            <p>Mode: Online / Offline</p>
+            <div class="card-footer">
+              <span>Duration: 2.5 months</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Programming</span>
+            <h3>Java (Core + OOP)</h3>
+            <p>
+              Learn Java syntax, OOP concepts, collections, and basics of JDBC /
+              real-time examples.
+            </p>
+            <p>Mode: Online / Offline</p>
+            <div class="card-footer">
+              <span>Duration: 2.5–3 months</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Reports & Dashboards</span>
+            <h3>Power BI</h3>
+            <p>
+              Data loading, cleaning, visuals, dashboards, DAX functions, and
+              publishing reports.
+            </p>
+            <p>Mode: Online / Offline</p>
+            <div class="card-footer">
+              <span>Duration: 1.5–2 months</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">MS Office</span>
+            <h3>Advanced Excel</h3>
+            <p>
+              Formulas, functions, lookup, PivotTables, dashboards, and
+              real-time reporting examples.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 1 month</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Databases</span>
+            <h3>SQL (MySQL / SQL Server)</h3>
+            <p>
+              DDL, DML, joins, subqueries, indexing, normalization, and real
+              project queries.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 1.5 months</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Marketing</span>
+            <h3>Digital Marketing</h3>
+            <p>
+              SEO, SEM, social media, content marketing, Google Ads & Analytics,
+              live campaign practice.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 2 months</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Foundation</span>
+            <h3>C Programming</h3>
+            <p>
+              Logic building, control statements, arrays, pointers, functions,
+              structures and basic projects.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 1.5–2 months</span>
+              <span>Fees: ₹ Contact</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.9">
+          📌 <strong>Note:</strong> Actual fees may vary based on batch type
+          (regular/fast-track/one-to-one). For exact fees and offers, contact on
+          WhatsApp:
+          <a href="https://wa.me/919676630130" target="_blank">9676630130</a>.
+        </div>
+      </section>
+    </main>
+
+    <!-- WhatsApp & Chatbot -->
+    <a
+      href="https://wa.me/919676630130"
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      WhatsApp Naveen
+    </a>
+
+    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <span>Naveen IT Assistant</span>
+        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
+      </div>
+      <div id="chatbot-body" class="chatbot-body"></div>
+      <div class="chatbot-footer">
+        <input id="chatbot-input" type="text" placeholder="Ask about fees & duration..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Naveen IT Trainer</strong><br />
+          Courses designed for job-ready skills.
+        </div>
+        <div>
+          📞 9676630130 ·
+          📧
+          <a href="mailto:kesineninaveen1908@gmail.com"
+            >kesineninaveen1908@gmail.com</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

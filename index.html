@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naveen IT Trainer | Home</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="logo">
+          Naveen <span>IT Trainer</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="notes.html">Notes</a>
+          <a href="projects.html">Projects</a>
+          <a href="videos.html">Videos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main class="container">
+      <section class="hero">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Personal IT Training · Hyderabad & Online
+          </div>
+          <h1>
+            Transform your career with
+            <span>Practical IT Training</span>
+          </h1>
+          <p>
+            I’m <strong>Naveen</strong>, a dedicated IT trainer helping students and
+            working professionals learn Python, Java, Power BI, Excel, SQL,
+            Digital Marketing & more — with real-time projects and interview
+            preparation.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="courses.html" class="btn-primary">View All Courses →</a>
+            <a href="https://wa.me/919676630130" class="btn-outline" target="_blank"
+              >Chat on WhatsApp</a
+            >
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <h3>5+</h3>
+              <p>Courses with Real Projects</p>
+            </div>
+            <div class="hero-stat">
+              <h3>1–1</h3>
+              <p>Personal Guidance</p>
+            </div>
+            <div class="hero-stat">
+              <h3>Hybrid</h3>
+              <p>Online & Offline Training</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Card -->
+        <aside class="hero-card">
+          <h2>Popular Courses Now</h2>
+          <div class="hero-chip-row">
+            <span class="chip">Python + Projects</span>
+            <span class="chip">Java</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Advanced Excel</span>
+            <span class="chip">Digital Marketing</span>
+          </div>
+
+          <p class="card-section-title">Highlights</p>
+          <ul class="card-list">
+            <li>✅ Concept + Practical + Projects</li>
+            <li>✅ Notes, Assignments & Interview Q&A</li>
+            <li>✅ Resume & Career Guidance</li>
+          </ul>
+
+          <p class="card-section-title">Modes</p>
+          <ul class="card-list">
+            <li>🏫 Classroom – Hyderabad, Telangana</li>
+            <li>💻 Live Online – via Zoom / Google Meet</li>
+          </ul>
+
+          <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.5rem">
+            Want details? Visit the
+            <strong>Courses</strong> page or send a message via
+            <strong>Contact</strong> page.
+          </p>
+        </aside>
+      </section>
+
+      <!-- Quick Courses Preview -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Top Courses</h2>
+          <p class="section-subtitle">
+            Carefully designed to help you move from basics to job-ready level.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <span class="badge-small">Beginner to Advanced</span>
+            <h3>Python with Projects</h3>
+            <p>
+              Learn Python from scratch with control flow, functions, OOP,
+              file handling, and real-time mini-projects.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 2.5 months</span>
+              <a href="courses.html" style="font-size: 0.8rem">Details →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Industry Demand</span>
+            <h3>Power BI + SQL</h3>
+            <p>
+              Become a data analyst with Power BI dashboards, DAX, and SQL
+              querying for real-world datasets.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 2 months</span>
+              <a href="courses.html" style="font-size: 0.8rem">Details →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Job Oriented</span>
+            <h3>Advanced Excel</h3>
+            <p>
+              Master formulas, PivotTables, charts, dashboards and automation basics
+              used in corporate reporting.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 1 month</span>
+              <a href="courses.html" style="font-size: 0.8rem">Details →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Career Switch</span>
+            <h3>Digital Marketing</h3>
+            <p>
+              Learn SEO, Social Media, Ads, Analytics and build campaigns for
+              real brands and projects.
+            </p>
+            <div class="card-footer">
+              <span>Duration: 2 months</span>
+              <a href="courses.html" style="font-size: 0.8rem">Details →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/919676630130"
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      WhatsApp Naveen
+    </a>
+
+    <!-- Chatbot -->
+    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <span>Naveen IT Assistant</span>
+        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
+      </div>
+      <div id="chatbot-body" class="chatbot-body"></div>
+      <div class="chatbot-footer">
+        <input
+          id="chatbot-input"
+          type="text"
+          placeholder="Ask about courses, fees, mode..."
+        />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Naveen IT Trainer</strong><br />
+          Hyderabad, Telangana · Online & Offline
+        </div>
+        <div>
+          📞 9676630130 ·
+          📧
+          <a href="mailto:kesineninaveen1908@gmail.com"
+            >kesineninaveen1908@gmail.com</a
+          ><br />
+          🌐 <a href="https://kesineninaveen.in" target="_blank">kesineninaveen.in</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

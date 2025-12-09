@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naveen IT Trainer | Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="logo">
+          Naveen <span>IT Trainer</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="notes.html" class="active">Notes</a>
+          <a href="projects.html">Projects</a>
+          <a href="videos.html">Videos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Downloadable Notes</h2>
+          <p class="section-subtitle">
+            Upload your PDF files to the website folder and link them here.
+          </p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Topic</th>
+                <th>Format</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Python</td>
+                <td>Basics + Control Flow</td>
+                <td>PDF</td>
+                <td><a href="notes/python_basics.pdf" target="_blank">Download</a></td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>Functions & OOP</td>
+                <td>PDF</td>
+                <td><a href="notes/python_oop.pdf" target="_blank">Download</a></td>
+              </tr>
+              <tr>
+                <td>Power BI</td>
+                <td>DAX Basics</td>
+                <td>PDF</td>
+                <td><a href="notes/powerbi_dax_basics.pdf" target="_blank">Download</a></td>
+              </tr>
+              <tr>
+                <td>Excel</td>
+                <td>Formulas & PivotTables</td>
+                <td>PDF</td>
+                <td><a href="notes/excel_pivots.pdf" target="_blank">Download</a></td>
+              </tr>
+              <tr>
+                <td>SQL</td>
+                <td>Joins & Subqueries</td>
+                <td>PDF</td>
+                <td><a href="notes/sql_joins.pdf" target="_blank">Download</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.9">
+          🔧 To activate downloads, place your PDF files in a <code>notes</code>
+          folder and update the links above with the exact filenames.
+        </p>
+      </section>
+    </main>
+
+    <!-- WhatsApp & Chatbot -->
+    <a
+      href="https://wa.me/919676630130"
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      WhatsApp Naveen
+    </a>
+
+    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <span>Naveen IT Assistant</span>
+        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
+      </div>
+      <div id="chatbot-body" class="chatbot-body"></div>
+      <div class="chatbot-footer">
+        <input id="chatbot-input" type="text" placeholder="Ask about notes..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Naveen IT Trainer</strong><br />
+          Notes & resources for all active students.
+        </div>
+        <div>📧 kesineninaveen1908@gmail.com</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

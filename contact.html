@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naveen IT Trainer | Contact</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="logo">
+          Naveen <span>IT Trainer</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="notes.html">Notes</a>
+          <a href="projects.html">Projects</a>
+          <a href="videos.html">Videos</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Contact & Enquiry</h2>
+          <p class="section-subtitle">
+            Share your details and I will get back to you with course and batch
+            information.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Send an Enquiry</h3>
+            <form class="form">
+              <!-- To make this form send emails, connect with a backend or Formspree. -->
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Mobile / WhatsApp</label>
+                <input id="phone" type="text" placeholder="+91 ..." />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email (optional)</label>
+                <input id="email" type="email" placeholder="you@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="course">Interested Course</label>
+                <select id="course">
+                  <option>Python</option>
+                  <option>Java</option>
+                  <option>Power BI</option>
+                  <option>Advanced Excel</option>
+                  <option>SQL</option>
+                  <option>Digital Marketing</option>
+                  <option>C Programming</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="mode">Preferred Mode</label>
+                <select id="mode">
+                  <option>Online</option>
+                  <option>Offline</option>
+                  <option>Online or Offline (Flexible)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  placeholder="Your availability, experience, and doubts..."
+                ></textarea>
+              </div>
+
+              <button type="button" class="btn-primary" onclick="alert('This is a static form demo. Connect backend / Formspree to receive enquiries.')">
+                Submit Enquiry
+              </button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Direct Contact</h3>
+            <p style="font-size: 0.9rem; opacity: 0.9">
+              You can directly reach out for course details, demo class and
+              batch timings.
+            </p>
+            <ul class="card-list">
+              <li>📞 Mobile / WhatsApp: <strong>+91 9676630130</strong></li>
+              <li>📧 Email: <strong>kesineninaveen1908@gmail.com</strong></li>
+              <li>
+                📍 Location: <strong>Hyderabad, Telangana</strong> (Online
+                training available)
+              </li>
+            </ul>
+            <p class="card-section-title">WhatsApp Link</p>
+            <p style="font-size: 0.85rem;">
+              <a href="https://wa.me/919676630130" target="_blank"
+                >Click here to open WhatsApp chat</a
+              >
+            </p>
+
+            <p class="card-section-title">Working Hours</p>
+            <ul class="card-list">
+              <li>Mon–Sat: 7:00 AM – 9:00 PM</li>
+              <li>Sunday: Flexible for demos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- WhatsApp & Chatbot -->
+    <a
+      href="https://wa.me/919676630130"
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      WhatsApp Naveen
+    </a>
+
+    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <span>Naveen IT Assistant</span>
+        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
+      </div>
+      <div id="chatbot-body" class="chatbot-body"></div>
+      <div class="chatbot-footer">
+        <input id="chatbot-input" type="text" placeholder="Ask about joining..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Naveen IT Trainer</strong><br />
+          Personal IT training · Hyderabad & Online
+        </div>
+        <div>
+          📧
+          <a href="mailto:kesineninaveen1908@gmail.com"
+            >kesineninaveen1908@gmail.com</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

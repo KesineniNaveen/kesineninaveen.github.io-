@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naveen IT Trainer | Projects</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="logo">
+          Naveen <span>IT Trainer</span>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="notes.html">Notes</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="videos.html">Videos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Real-Time Projects</h2>
+          <p class="section-subtitle">
+            Sample projects that students work on during training.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <span class="badge-small">Python</span>
+            <h3>Hotel Reservation System</h3>
+            <p>
+              Console-based or basic GUI project to manage room booking,
+              customer details, billing and reports.
+            </p>
+            <div class="card-footer">
+              <span>Level: Intermediate</span>
+              <span>Source: On Request</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Power BI</span>
+            <h3>Sales Performance Dashboard</h3>
+            <p>
+              End-to-end dashboard with region-wise sales, top products,
+              and dynamic filters using DAX.
+            </p>
+            <div class="card-footer">
+              <span>Dataset: Excel / CSV</span>
+              <span>Type: BI</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Excel</span>
+            <h3>HR Attendance & Salary Tracker</h3>
+            <p>
+              Excel workbook using formulas, conditional formatting and pivots
+              to track daily attendance and monthly salary.
+            </p>
+            <div class="card-footer">
+              <span>Level: Beginner</span>
+              <span>Tool: Excel</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">SQL</span>
+            <h3>Online Course Database</h3>
+            <p>
+              Database schema with tables for students, courses, payments,
+              enrollments and reports written using SQL.
+            </p>
+            <div class="card-footer">
+              <span>DB: MySQL/SQL Server</span>
+              <span>Type: Backend</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge-small">Digital Marketing</span>
+            <h3>Lead Generation Campaign</h3>
+            <p>
+              Students plan and execute a live social media or search
+              campaign for a sample brand.
+            </p>
+            <div class="card-footer">
+              <span>Platform: Meta/Google</span>
+              <span>Mode: Practical</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- WhatsApp & Chatbot -->
+    <a
+      href="https://wa.me/919676630130"
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      WhatsApp Naveen
+    </a>
+
+    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <span>Naveen IT Assistant</span>
+        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
+      </div>
+      <div id="chatbot-body" class="chatbot-body"></div>
+      <div class="chatbot-footer">
+        <input id="chatbot-input" type="text" placeholder="Ask about projects..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Naveen IT Trainer</strong><br />
+          Real-time projects for every course.
+        </div>
+        <div>📞 9676630130</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>
