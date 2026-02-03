@@ -35,16 +35,17 @@
         <div class="grid">
           <div class="card">
             <h3>Send an Enquiry</h3>
-            <form class="form">
-              <!-- To make this form send emails, connect with a backend or Formspree. -->
+
+            <!-- FORM -->
+            <form class="form" id="contactForm">
               <div class="form-group">
                 <label for="name">Full Name</label>
-                <input id="name" type="text" placeholder="Your name" />
+                <input id="name" type="text" placeholder="Your name" required />
               </div>
 
               <div class="form-group">
                 <label for="phone">Mobile / WhatsApp</label>
-                <input id="phone" type="text" placeholder="+91 ..." />
+                <input id="phone" type="text" placeholder="+91 ..." required />
               </div>
 
               <div class="form-group">
@@ -83,18 +84,17 @@
                 ></textarea>
               </div>
 
-              <button type="button" class="btn-primary" onclick="alert('This is a static form demo. Connect backend / Formspree to receive enquiries.')">
+              <button type="submit" class="btn-primary">
                 Submit Enquiry
               </button>
+
+              <!-- Thank you message -->
+              <p id="thankYouMsg" style="margin-top:10px; color:green; font-weight:600;"></p>
             </form>
           </div>
 
           <div class="card">
             <h3>Direct Contact</h3>
-            <p style="font-size: 0.9rem; opacity: 0.9">
-              You can directly reach out for course details, demo class and
-              batch timings.
-            </p>
             <ul class="card-list">
               <li>📞 Mobile / WhatsApp: <strong>+91 9676630130</strong></li>
               <li>📧 Email: <strong>naveenittrainer@gmail.com</strong></li>
@@ -105,22 +105,16 @@
             </ul>
             <p class="card-section-title">WhatsApp Link</p>
             <p style="font-size: 0.85rem;">
-              <a href="https://wa.me/919676630130" target="_blank"
-                >Click here to open WhatsApp chat</a
-              >
+              <a href="https://wa.me/919676630130" target="_blank">
+                Click here to open WhatsApp chat
+              </a>
             </p>
-
-            <p class="card-section-title">Working Hours</p>
-            <ul class="card-list">
-              <li>Mon–Sat: 7:00 AM – 9:00 PM</li>
-              <li>Sunday: Flexible for demos</li>
-            </ul>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- WhatsApp & Chatbot -->
+    <!-- Floating WhatsApp Button -->
     <a
       href="https://wa.me/919676630130"
       target="_blank"
@@ -128,19 +122,6 @@
     >
       WhatsApp Naveen
     </a>
-
-    <button id="chatbot-toggle" class="chatbot-toggle">Chatbot 💬</button>
-    <div id="chatbot-window" class="chatbot-window">
-      <div class="chatbot-header">
-        <span>Naveen IT Assistant</span>
-        <button id="chatbot-close" style="background: none; border: none; color: #e5e7eb; cursor: pointer;">✕</button>
-      </div>
-      <div id="chatbot-body" class="chatbot-body"></div>
-      <div class="chatbot-footer">
-        <input id="chatbot-input" type="text" placeholder="Ask about joining..." />
-        <button id="chatbot-send">Send</button>
-      </div>
-    </div>
 
     <footer class="footer">
       <div class="container footer-inner">
@@ -150,15 +131,44 @@
         </div>
         <div>
           📧
-          <a href="mailto:naveenittrainer@gmail.com"
-            >naveenittrainer@gmail.com</a
-          >
+          <a href="mailto:naveenittrainer@gmail.com">
+            naveenittrainer@gmail.com
+          </a>
         </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="chatbot.js"></script>
+    <!-- WHATSAPP SCRIPT -->
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+        let email = document.getElementById("email").value;
+        let course = document.getElementById("course").value;
+        let mode = document.getElementById("mode").value;
+        let message = document.getElementById("message").value;
+
+        let whatsappMessage =
+          "Hello Naveen,%0A%0A" +
+          "New Enquiry Details:%0A" +
+          "Name: " + name + "%0A" +
+          "Phone: " + phone + "%0A" +
+          "Email: " + email + "%0A" +
+          "Course: " + course + "%0A" +
+          "Mode: " + mode + "%0A" +
+          "Message: " + message;
+
+        let whatsappURL = "https://wa.me/919676630130?text=" + whatsappMessage;
+
+        document.getElementById("thankYouMsg").innerText =
+          "Thank you for choosing us. We will get back to you very shortly.";
+
+        window.open(whatsappURL, "_blank");
+
+        document.getElementById("contactForm").reset();
+      });
+    </script>
   </body>
 </html>
-
