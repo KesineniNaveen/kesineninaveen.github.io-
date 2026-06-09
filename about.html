@@ -1,0 +1,4608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | KN Tech Institute</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   ROOT VARIABLES
+========================================== */
+
+:root{
+
+--primary:#8b2cf5;
+--secondary:#ff5b1f;
+
+--bg:#050816;
+--card:#0c1024;
+
+--white:#ffffff;
+--text:#cfcfcf;
+
+--border:rgba(255,255,255,.08);
+
+--purple-glow:
+0 0 15px rgba(139,44,245,.4),
+0 0 35px rgba(139,44,245,.2);
+
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:var(--bg);
+
+color:white;
+
+overflow-x:hidden;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+ul{
+list-style:none;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container{
+
+width:100%;
+
+max-width:1400px;
+
+margin:auto;
+
+padding-left:20px;
+padding-right:20px;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+
+background:
+linear-gradient(
+180deg,
+var(--primary),
+var(--secondary)
+);
+
+border-radius:20px;
+}
+
+/* ==========================================
+   TOP BAR
+========================================== */
+
+.top-bar{
+
+background:#030611;
+
+padding:12px 0;
+
+border-bottom:
+1px solid var(--border);
+
+font-size:14px;
+}
+
+.top-bar .container{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:20px;
+}
+
+.top-right{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+}
+
+.top-right a{
+color:#d6d6d6;
+}
+
+.social-icons{
+
+display:flex;
+
+gap:12px;
+}
+
+.social-icons a{
+
+width:34px;
+height:34px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.05);
+
+transition:.3s;
+}
+
+.social-icons a:hover{
+
+background:var(--primary);
+
+transform:translateY(-3px);
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:
+rgba(5,8,22,.95);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid var(--border);
+}
+
+.nav-container{
+
+height:90px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+}
+
+.logo h2{
+
+font-size:50px;
+
+font-weight:800;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.logo h3{
+font-size:18px;
+}
+
+.logo p{
+font-size:11px;
+color:#aaa;
+}
+
+nav ul{
+
+display:flex;
+
+gap:35px;
+}
+
+nav ul li a{
+
+color:white;
+
+font-weight:500;
+
+transition:.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+color:var(--secondary);
+}
+
+.enquire-btn{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:14px 24px;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+color:white;
+
+font-weight:600;
+}
+
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* ==========================================
+   BREADCRUMB
+========================================== */
+
+.breadcrumb-section{
+padding:25px 0;
+}
+
+.breadcrumb{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:14px;
+}
+
+.breadcrumb a{
+color:#bbb;
+}
+
+.breadcrumb span{
+color:var(--secondary);
+}
+
+/* ==========================================
+   ABOUT HERO
+========================================== */
+
+.about-hero{
+padding:40px 0 80px;
+}
+
+.about-hero-grid{
+
+display:grid;
+
+grid-template-columns:
+1.2fr 1fr .8fr;
+
+gap:30px;
+
+align-items:start;
+}
+
+.about-badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:
+rgba(255,145,0,.15);
+
+color:#ffb300;
+
+font-weight:600;
+
+margin-bottom:25px;
+}
+
+.about-content h1{
+
+font-size:
+clamp(2.8rem,5vw,5rem);
+
+line-height:1.1;
+
+margin-bottom:20px;
+}
+
+.about-content h1 span{
+
+display:block;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.about-content p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:var(--text);
+
+margin-bottom:30px;
+}
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.about-features{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:18px;
+}
+
+.about-feature{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:18px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+transition:.4s;
+}
+
+.about-feature:hover{
+
+transform:
+translateY(-5px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.about-feature i{
+
+width:55px;
+height:55px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:14px;
+
+background:
+rgba(139,44,245,.15);
+
+color:var(--secondary);
+
+font-size:22px;
+}
+
+.about-feature h4{
+margin-bottom:4px;
+}
+
+.about-feature p{
+font-size:13px;
+margin:0;
+}
+
+/* ==========================================
+   IMAGE AREA
+========================================== */
+
+.image-wrapper{
+
+position:relative;
+
+border-radius:30px;
+
+overflow:hidden;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+padding:15px;
+}
+
+.image-wrapper img{
+
+width:100%;
+
+border-radius:20px;
+}
+
+.play-btn{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+width:90px;
+height:90px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:50%;
+
+font-size:28px;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+color:white;
+
+box-shadow:
+var(--purple-glow);
+}
+
+.floating-video-card{
+
+position:absolute;
+
+bottom:25px;
+left:25px;
+
+padding:16px 20px;
+
+border-radius:16px;
+
+background:
+rgba(0,0,0,.45);
+
+backdrop-filter:blur(20px);
+
+border:
+1px solid rgba(255,255,255,.08);
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:30px;
+}
+
+.sidebar-card h3{
+margin-bottom:25px;
+}
+
+.sidebar-stat{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:15px 0;
+
+border-bottom:
+1px solid rgba(255,255,255,.05);
+}
+
+.sidebar-stat:last-child{
+border:none;
+}
+
+.sidebar-stat i{
+
+width:55px;
+height:55px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:14px;
+
+background:
+rgba(139,44,245,.12);
+
+color:var(--secondary);
+}
+
+.sidebar-stat h4{
+
+font-size:1.5rem;
+}
+
+.sidebar-stat p{
+
+font-size:14px;
+
+color:#bdbdbd;
+}
+
+/* ==========================================
+   STATS SECTION
+========================================== */
+
+.about-stats{
+padding-bottom:80px;
+}
+
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+}
+
+.stat-box{
+
+text-align:center;
+
+padding:30px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+transition:.4s;
+}
+
+.stat-box:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.stat-box i{
+
+font-size:30px;
+
+color:var(--secondary);
+
+margin-bottom:15px;
+}
+
+.stat-box h3{
+
+font-size:2rem;
+
+margin-bottom:8px;
+}
+
+.stat-box p{
+color:#bbb;
+}
+
+/* ==========================================
+   GLOW EFFECT
+========================================== */
+
+.about-hero{
+position:relative;
+}
+
+.about-hero::before{
+
+content:'';
+
+position:absolute;
+
+right:-180px;
+top:0;
+
+width:450px;
+height:450px;
+
+background:
+rgba(139,44,245,.12);
+
+filter:blur(180px);
+
+border-radius:50%;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:1200px){
+
+.about-hero-grid{
+
+grid-template-columns:1fr;
+}
+
+.about-sidebar{
+max-width:450px;
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.top-bar{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+nav{
+
+position:fixed;
+
+top:90px;
+left:-100%;
+
+width:280px;
+height:100vh;
+
+background:#080d22;
+
+padding:30px;
+
+transition:.5s;
+}
+
+nav.active{
+left:0;
+}
+
+nav ul{
+
+flex-direction:column;
+
+gap:25px;
+}
+
+.enquire-btn{
+display:none;
+}
+
+.about-content h1{
+font-size:2.5rem;
+}
+
+.about-content p{
+font-size:16px;
+}
+
+.about-features{
+grid-template-columns:1fr;
+}
+
+.play-btn{
+width:75px;
+height:75px;
+font-size:22px;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.container{
+padding-left:15px;
+padding-right:15px;
+}
+
+.about-content h1{
+font-size:2rem;
+}
+
+.floating-video-card{
+position:relative;
+left:auto;
+bottom:auto;
+margin-top:15px;
+}
+
+.sidebar-stat{
+flex-direction:column;
+text-align:center;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+/* ==========================================
+   MISSION | FOUNDER | VISION
+========================================== */
+
+.mission-vision{
+padding:40px 0 100px;
+}
+
+.mission-grid{
+
+display:grid;
+
+grid-template-columns:
+1fr 1.2fr 1fr;
+
+gap:30px;
+
+align-items:stretch;
+}
+
+/* ==========================================
+   COMMON CARD
+========================================== */
+
+.mission-card,
+.founder-card,
+.vision-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:28px;
+
+padding:35px;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.4s;
+}
+
+.mission-card:hover,
+.founder-card:hover,
+.vision-card:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.card-icon{
+
+width:75px;
+height:75px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:20px;
+
+font-size:30px;
+
+background:
+rgba(139,44,245,.12);
+
+color:var(--secondary);
+
+margin-bottom:25px;
+}
+
+.mission-card h2,
+.founder-card h2,
+.vision-card h2{
+
+font-size:2rem;
+
+margin-bottom:20px;
+}
+
+.mission-card p,
+.vision-card p,
+.founder-card p{
+
+line-height:1.9;
+
+color:#d0d0d0;
+
+margin-bottom:18px;
+}
+
+/* ==========================================
+   FOUNDER CARD
+========================================== */
+
+.founder-top{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+margin-bottom:25px;
+}
+
+.founder-top img{
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid
+rgba(139,44,245,.4);
+}
+
+.founder-top h3{
+
+font-size:1.3rem;
+
+margin-bottom:5px;
+}
+
+.founder-top span{
+
+font-size:14px;
+
+color:#bdbdbd;
+}
+
+.quote-icon{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+color:var(--secondary);
+
+opacity:.8;
+}
+
+/* ==========================================
+   WHY CHOOSE SECTION
+========================================== */
+
+.why-kn-tech{
+padding:100px 0;
+}
+
+.center{
+text-align:center;
+}
+
+.section-title{
+margin-bottom:50px;
+}
+
+.section-title h2{
+
+font-size:
+clamp(2rem,4vw,3.5rem);
+
+margin-bottom:15px;
+}
+
+.section-title span{
+color:var(--secondary);
+}
+
+.section-title p{
+
+color:#bdbdbd;
+
+font-size:18px;
+}
+
+/* ==========================================
+   WHY GRID
+========================================== */
+
+.why-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+}
+
+.why-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:30px;
+
+text-align:center;
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.why-card::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:3px;
+
+background:
+linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
+
+transform:scaleX(0);
+
+transition:.4s;
+}
+
+.why-card:hover::before{
+transform:scaleX(1);
+}
+
+.why-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.why-icon{
+
+width:80px;
+height:80px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+font-size:32px;
+
+background:
+rgba(139,44,245,.12);
+
+color:var(--secondary);
+
+margin-bottom:25px;
+}
+
+.why-card h3{
+
+font-size:1.3rem;
+
+margin-bottom:15px;
+}
+
+.why-card p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+}
+
+/* ==========================================
+   GLOW EFFECTS
+========================================== */
+
+.mission-vision,
+.why-kn-tech{
+position:relative;
+}
+
+.mission-vision::before{
+
+content:'';
+
+position:absolute;
+
+left:-150px;
+top:20%;
+
+width:350px;
+height:350px;
+
+background:
+rgba(139,44,245,.08);
+
+filter:blur(150px);
+
+border-radius:50%;
+}
+
+.why-kn-tech::before{
+
+content:'';
+
+position:absolute;
+
+right:-150px;
+top:30%;
+
+width:400px;
+height:400px;
+
+background:
+rgba(255,91,31,.08);
+
+filter:blur(160px);
+
+border-radius:50%;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:1200px){
+
+.mission-grid{
+
+grid-template-columns:
+1fr;
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.mission-vision,
+.why-kn-tech{
+padding:70px 0;
+}
+
+.mission-card,
+.founder-card,
+.vision-card{
+padding:25px;
+}
+
+.card-icon{
+
+width:65px;
+height:65px;
+
+font-size:24px;
+}
+
+.mission-card h2,
+.founder-card h2,
+.vision-card h2{
+
+font-size:1.7rem;
+}
+
+.section-title p{
+font-size:16px;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.founder-top{
+
+flex-direction:column;
+
+text-align:center;
+}
+
+.founder-top img{
+
+width:80px;
+height:80px;
+}
+
+.why-card{
+padding:24px;
+}
+
+.why-icon{
+
+width:65px;
+height:65px;
+
+font-size:24px;
+}
+
+}
+
+/* ==========================================
+   JOURNEY SECTION
+========================================== */
+
+.journey-section{
+padding:100px 0;
+}
+
+.timeline-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+}
+
+.timeline-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:30px;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.4s;
+}
+
+.timeline-card::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:4px;
+
+background:
+linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
+}
+
+.timeline-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.timeline-year{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+background:
+rgba(139,44,245,.15);
+
+color:var(--secondary);
+}
+
+.timeline-card h3{
+
+font-size:1.4rem;
+
+margin-bottom:15px;
+}
+
+.timeline-card p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+}
+
+/* ==========================================
+   LEADERSHIP TEAM
+========================================== */
+
+.leadership-section{
+padding:100px 0;
+}
+
+.leadership-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+}
+
+.leader-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:30px;
+
+text-align:center;
+
+transition:.4s;
+}
+
+.leader-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.leader-card img{
+
+width:140px;
+height:140px;
+
+margin:auto;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid
+rgba(139,44,245,.3);
+
+margin-bottom:20px;
+}
+
+.leader-card h3{
+
+font-size:1.4rem;
+
+margin-bottom:8px;
+}
+
+.leader-card span{
+
+display:block;
+
+margin-bottom:15px;
+
+color:var(--secondary);
+
+font-weight:600;
+}
+
+.leader-card p{
+
+line-height:1.8;
+
+color:#cfcfcf;
+
+margin-bottom:20px;
+}
+
+.leader-social{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+}
+
+.leader-social a{
+
+width:42px;
+height:42px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.05);
+
+color:white;
+
+transition:.3s;
+}
+
+.leader-social a:hover{
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+transform:
+translateY(-3px);
+}
+
+/* ==========================================
+   TRAINING METHODOLOGY
+========================================== */
+
+.methodology-section{
+padding:100px 0;
+}
+
+.methodology-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+}
+
+.method-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:35px;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.4s;
+}
+
+.method-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.method-card::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:3px;
+
+background:
+linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
+
+transform:scaleX(0);
+
+transition:.4s;
+}
+
+.method-card:hover::before{
+transform:scaleX(1);
+}
+
+.method-number{
+
+font-size:3rem;
+
+font-weight:800;
+
+margin-bottom:20px;
+
+opacity:.15;
+
+color:var(--secondary);
+}
+
+.method-card h3{
+
+font-size:1.5rem;
+
+margin-bottom:15px;
+}
+
+.method-card p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+}
+
+/* ==========================================
+   SECTION GLOW EFFECTS
+========================================== */
+
+.journey-section,
+.leadership-section,
+.methodology-section{
+position:relative;
+}
+
+.journey-section::before{
+
+content:'';
+
+position:absolute;
+
+left:-180px;
+top:20%;
+
+width:400px;
+height:400px;
+
+background:
+rgba(139,44,245,.08);
+
+filter:blur(160px);
+
+border-radius:50%;
+}
+
+.methodology-section::before{
+
+content:'';
+
+position:absolute;
+
+right:-180px;
+top:30%;
+
+width:450px;
+height:450px;
+
+background:
+rgba(255,91,31,.08);
+
+filter:blur(180px);
+
+border-radius:50%;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:992px){
+
+.timeline-grid,
+.leadership-grid,
+.methodology-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.journey-section,
+.leadership-section,
+.methodology-section{
+padding:70px 0;
+}
+
+.timeline-grid,
+.leadership-grid,
+.methodology-grid{
+
+grid-template-columns:1fr;
+}
+
+.timeline-card,
+.leader-card,
+.method-card{
+
+padding:25px;
+}
+
+.method-number{
+font-size:2.5rem;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.leader-card img{
+
+width:110px;
+height:110px;
+}
+
+.timeline-year{
+
+font-size:14px;
+
+padding:8px 14px;
+}
+
+.method-card h3{
+font-size:1.3rem;
+}
+
+}
+
+/* ==========================================
+   AWARDS SECTION
+========================================== */
+
+.awards-section{
+padding:100px 0;
+}
+
+.awards-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+}
+
+.award-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:35px;
+
+text-align:center;
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.award-card::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:3px;
+
+background:
+linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
+
+transform:scaleX(0);
+
+transition:.4s;
+}
+
+.award-card:hover::before{
+transform:scaleX(1);
+}
+
+.award-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.award-icon{
+
+width:90px;
+height:90px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+font-size:35px;
+
+background:
+rgba(139,44,245,.12);
+
+color:var(--secondary);
+
+margin-bottom:25px;
+}
+
+.award-card h3{
+
+font-size:1.4rem;
+
+margin-bottom:15px;
+}
+
+.award-card p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+
+margin-bottom:20px;
+}
+
+.award-card span{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:
+rgba(255,91,31,.12);
+
+color:var(--secondary);
+
+font-weight:600;
+}
+
+/* ==========================================
+   CERTIFICATIONS
+========================================== */
+
+.certifications-section{
+padding:100px 0;
+}
+
+.certification-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+}
+
+.cert-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:35px;
+
+text-align:center;
+
+transition:.4s;
+}
+
+.cert-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.cert-card i{
+
+font-size:50px;
+
+color:var(--secondary);
+
+margin-bottom:20px;
+}
+
+.cert-card h3{
+
+font-size:1.4rem;
+
+margin-bottom:15px;
+}
+
+.cert-card p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+}
+
+/* ==========================================
+   ABOUT PARTNERS
+========================================== */
+
+.about-partners{
+padding:100px 0;
+}
+
+.partners-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:25px;
+}
+
+.partner-card{
+
+height:120px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:1.3rem;
+
+font-weight:700;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+transition:.4s;
+}
+
+.partner-card:hover{
+
+transform:
+translateY(-8px);
+
+background:
+linear-gradient(
+135deg,
+rgba(139,44,245,.15),
+rgba(255,91,31,.15)
+);
+
+box-shadow:
+var(--purple-glow);
+}
+
+/* ==========================================
+   GLOBAL IMPACT
+========================================== */
+
+.global-impact{
+padding:100px 0;
+}
+
+.impact-box{
+
+padding:60px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+135deg,
+rgba(139,44,245,.15),
+rgba(255,91,31,.15)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+}
+
+.impact-content{
+
+text-align:center;
+
+margin-bottom:50px;
+}
+
+.impact-content h2{
+
+font-size:
+clamp(2rem,4vw,3.5rem);
+
+margin-bottom:15px;
+}
+
+.impact-content span{
+color:var(--secondary);
+}
+
+.impact-content p{
+
+max-width:800px;
+
+margin:auto;
+
+line-height:1.9;
+
+color:#d0d0d0;
+}
+
+.impact-stats{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+}
+
+.impact-stat{
+
+padding:30px;
+
+text-align:center;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+border:
+1px solid rgba(255,255,255,.08);
+}
+
+.impact-stat h3{
+
+font-size:2.5rem;
+
+margin-bottom:10px;
+
+color:var(--secondary);
+}
+
+.impact-stat p{
+color:#d0d0d0;
+}
+
+/* ==========================================
+   GLOW EFFECTS
+========================================== */
+
+.awards-section,
+.certifications-section,
+.about-partners,
+.global-impact{
+position:relative;
+}
+
+.awards-section::before{
+
+content:'';
+
+position:absolute;
+
+left:-180px;
+top:20%;
+
+width:400px;
+height:400px;
+
+background:
+rgba(139,44,245,.08);
+
+filter:blur(160px);
+
+border-radius:50%;
+}
+
+.global-impact::before{
+
+content:'';
+
+position:absolute;
+
+right:-180px;
+top:20%;
+
+width:450px;
+height:450px;
+
+background:
+rgba(255,91,31,.08);
+
+filter:blur(180px);
+
+border-radius:50%;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:992px){
+
+.awards-grid,
+.certification-grid{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.awards-section,
+.certifications-section,
+.about-partners,
+.global-impact{
+padding:70px 0;
+}
+
+.awards-grid,
+.certification-grid{
+grid-template-columns:1fr;
+}
+
+.award-card,
+.cert-card{
+padding:25px;
+}
+
+.partner-card{
+height:90px;
+font-size:1rem;
+}
+
+.impact-box{
+padding:30px;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.award-icon{
+
+width:70px;
+height:70px;
+
+font-size:28px;
+}
+
+.cert-card i{
+font-size:40px;
+}
+
+.impact-stat h3{
+font-size:2rem;
+}
+
+}
+
+/* ==========================================
+   ABOUT TESTIMONIALS
+========================================== */
+
+.about-testimonials{
+padding:100px 0;
+}
+
+.testimonial-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+}
+
+.testimonial-card{
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+
+border-radius:24px;
+
+padding:30px;
+
+transition:.4s;
+}
+
+.testimonial-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.testimonial-top{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:20px;
+}
+
+.testimonial-top img{
+
+width:70px;
+height:70px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid
+rgba(139,44,245,.3);
+}
+
+.testimonial-top h4{
+
+margin-bottom:5px;
+}
+
+.testimonial-top span{
+
+font-size:13px;
+
+color:#bdbdbd;
+}
+
+.testimonial-card p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+
+margin-bottom:20px;
+}
+
+.stars{
+
+font-size:22px;
+
+color:#ffd700;
+}
+
+/* ==========================================
+   NEWSLETTER
+========================================== */
+
+.newsletter{
+padding:100px 0;
+}
+
+.newsletter-box{
+
+padding:60px;
+
+text-align:center;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+135deg,
+rgba(139,44,245,.15),
+rgba(255,91,31,.15)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+}
+
+.newsletter-box h2{
+
+font-size:
+clamp(2rem,4vw,3rem);
+
+margin-bottom:15px;
+}
+
+.newsletter-box p{
+
+color:#d0d0d0;
+
+margin-bottom:30px;
+
+line-height:1.8;
+}
+
+.newsletter-form{
+
+display:flex;
+
+max-width:700px;
+
+margin:auto;
+
+overflow:hidden;
+
+border-radius:14px;
+}
+
+.newsletter-form input{
+
+flex:1;
+
+padding:18px;
+
+border:none;
+
+outline:none;
+
+font-size:15px;
+}
+
+.newsletter-form button{
+
+padding:0 35px;
+
+border:none;
+
+cursor:pointer;
+
+font-weight:600;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+}
+
+/* ==========================================
+   CTA BANNER
+========================================== */
+
+.about-cta{
+padding:0 0 100px;
+}
+
+.cta-box{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+padding:60px;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid var(--border);
+}
+
+.cta-content h2{
+
+font-size:
+clamp(2rem,4vw,3.5rem);
+
+margin-bottom:15px;
+}
+
+.cta-content span{
+color:var(--secondary);
+}
+
+.cta-content p{
+
+line-height:1.8;
+
+color:#d0d0d0;
+}
+
+.cta-buttons{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+}
+
+.cta-btn{
+
+padding:15px 30px;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-weight:600;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+transition:.4s;
+}
+
+.cta-btn:hover{
+
+transform:
+translateY(-4px);
+
+box-shadow:
+var(--purple-glow);
+}
+
+.cta-btn-outline{
+
+padding:15px 30px;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-weight:600;
+
+color:white;
+
+border:
+1px solid rgba(255,255,255,.15);
+
+transition:.4s;
+}
+
+.cta-btn-outline:hover{
+
+background:
+rgba(255,255,255,.08);
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+padding:80px 0 20px;
+
+background:#030611;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+}
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:40px;
+}
+
+.footer-column h3{
+
+margin-bottom:20px;
+}
+
+.footer-column p{
+
+line-height:1.8;
+
+color:#cfcfcf;
+}
+
+.footer-column ul{
+list-style:none;
+}
+
+.footer-column li{
+
+margin-bottom:12px;
+
+color:#cfcfcf;
+}
+
+.footer-column a{
+
+color:#cfcfcf;
+
+transition:.3s;
+}
+
+.footer-column a:hover{
+color:var(--secondary);
+}
+
+.footer-social{
+
+display:flex;
+
+gap:12px;
+
+margin-top:20px;
+}
+
+.footer-social a{
+
+width:40px;
+height:40px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.05);
+
+transition:.3s;
+}
+
+.footer-social a:hover{
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+transform:
+translateY(-3px);
+}
+
+.footer-bottom{
+
+margin-top:50px;
+
+padding-top:20px;
+
+text-align:center;
+
+color:#aaa;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+}
+
+/* ==========================================
+   FLOATING BUTTONS
+========================================== */
+
+#backToTop{
+
+position:fixed;
+
+right:25px;
+bottom:100px;
+
+width:50px;
+height:50px;
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+z-index:999;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+}
+
+.whatsapp-btn{
+
+position:fixed;
+
+right:25px;
+bottom:30px;
+
+width:60px;
+height:60px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+font-size:28px;
+
+background:#25D366;
+
+color:white;
+
+z-index:999;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ==========================================
+   SECTION GLOW EFFECTS
+========================================== */
+
+.about-testimonials,
+.newsletter,
+.about-cta{
+position:relative;
+}
+
+.about-testimonials::before{
+
+content:'';
+
+position:absolute;
+
+left:-180px;
+top:20%;
+
+width:400px;
+height:400px;
+
+background:
+rgba(139,44,245,.08);
+
+filter:blur(160px);
+
+border-radius:50%;
+}
+
+.about-cta::before{
+
+content:'';
+
+position:absolute;
+
+right:-180px;
+top:20%;
+
+width:450px;
+height:450px;
+
+background:
+rgba(255,91,31,.08);
+
+filter:blur(180px);
+
+border-radius:50%;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:992px){
+
+.cta-box{
+
+flex-direction:column;
+
+text-align:center;
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.about-testimonials,
+.newsletter{
+padding:70px 0;
+}
+
+.about-cta{
+padding-bottom:70px;
+}
+
+.newsletter-box,
+.cta-box{
+padding:30px;
+}
+
+.newsletter-form{
+flex-direction:column;
+}
+
+.newsletter-form button{
+height:55px;
+}
+
+.cta-buttons{
+justify-content:center;
+}
+
+.testimonial-card{
+padding:24px;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.testimonial-top{
+
+flex-direction:column;
+
+text-align:center;
+}
+
+.cta-btn,
+.cta-btn-outline{
+
+width:100%;
+
+justify-content:center;
+}
+
+.whatsapp-btn{
+
+width:55px;
+height:55px;
+
+font-size:24px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- ================================= -->
+<!-- TOP BAR -->
+<!-- ================================= -->
+
+<div class="top-bar">
+
+<div class="container">
+
+<div class="top-left">
+🚀 New Python Full Stack Batch Starting on 10th June 2025 | Book Free Demo Class Now!
+</div>
+
+<div class="top-right">
+
+<a href="#">
+<i class="fa-solid fa-phone"></i>
++91 1234567890
+</a>
+
+<a href="#">
+<i class="fa-solid fa-envelope"></i>
+info@kntechinstitute.com
+</a>
+
+<div class="social-icons">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================================= -->
+<!-- NAVBAR -->
+<!-- ================================= -->
+
+<header>
+
+<div class="container nav-container">
+
+<div class="logo">
+
+<h2>KN</h2>
+
+<div>
+
+<h3>TECH INSTITUTE</h3>
+
+<p>Learn • Build • Succeed</p>
+
+</div>
+
+</div>
+
+<nav id="navMenu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="#">Courses</a></li>
+
+<li><a href="#">Placements</a></li>
+
+<li><a href="#" class="active">About Us</a></li>
+
+<li><a href="#">Resources</a></li>
+
+<li><a href="#">Blog</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<a href="#" class="enquire-btn">
+
+Enquire Now
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+<div class="menu-btn" id="menuBtn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ================================= -->
+<!-- BREADCRUMB -->
+<!-- ================================= -->
+
+<section class="breadcrumb-section">
+
+<div class="container">
+
+<div class="breadcrumb">
+
+<a href="index.html">
+
+Home
+
+</a>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+<span>About Us</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- ABOUT HERO SECTION -->
+<!-- ================================= -->
+
+<section class="about-hero">
+
+<div class="container">
+
+<div class="about-hero-grid">
+
+<!-- LEFT CONTENT -->
+
+<div class="about-content">
+
+<div class="about-badge">
+
+⭐ About KN Tech Institute
+
+</div>
+
+<h1>
+
+Empowering Careers.
+
+<span>Building Futures.</span>
+
+</h1>
+
+<p>
+
+KN Tech Institute is a leading technology training institute
+committed to transforming students into industry-ready
+professionals through practical learning, real-world projects,
+career mentoring and placement support.
+
+</p>
+
+<div class="about-features">
+
+<div class="about-feature">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<div>
+
+<h4>Industry-Oriented</h4>
+
+<p>Training Programs</p>
+
+</div>
+
+</div>
+
+<div class="about-feature">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<div>
+
+<h4>100% Placement</h4>
+
+<p>Assistance</p>
+
+</div>
+
+</div>
+
+<div class="about-feature">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+<div>
+
+<h4>Practical</h4>
+
+<p>Learning Approach</p>
+
+</div>
+
+</div>
+
+<div class="about-feature">
+
+<i class="fa-solid fa-globe"></i>
+
+<div>
+
+<h4>Globally</h4>
+
+<p>Recognized</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CENTER IMAGE -->
+
+<div class="about-image">
+
+<div class="image-wrapper">
+
+<img
+src="images/about-hero.webp"
+alt="KN Tech Institute">
+
+<button class="play-btn">
+
+<i class="fa-solid fa-play"></i>
+
+</button>
+
+<div class="floating-video-card">
+
+<h4>Play Our Story</h4>
+
+<p>Watch Video</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT STATS -->
+
+<div class="about-sidebar">
+
+<div class="sidebar-card">
+
+<h3>Success Snapshot</h3>
+
+<div class="sidebar-stat">
+
+<i class="fa-solid fa-users"></i>
+
+<div>
+
+<h4>5000+</h4>
+
+<p>Students Trained</p>
+
+</div>
+
+</div>
+
+<div class="sidebar-stat">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<div>
+
+<h4>100+</h4>
+
+<p>Expert Trainers</p>
+
+</div>
+
+</div>
+
+<div class="sidebar-stat">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<div>
+
+<h4>500+</h4>
+
+<p>Students Placed</p>
+
+</div>
+
+</div>
+
+<div class="sidebar-stat">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<h4>95%</h4>
+
+<p>Success Rate</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- STATS SECTION -->
+<!-- ================================= -->
+
+<section class="about-stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-box">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>5000+</h3>
+
+<p>Students Trained</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>100+</h3>
+
+<p>Expert Trainers</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>500+</h3>
+
+<p>Students Placed</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-book-open"></i>
+
+<h3>20+</h3>
+
+<p>Courses Offered</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-chart-simple"></i>
+
+<h3>95%</h3>
+
+<p>Success Rate</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-trophy"></i>
+
+<h3>10+</h3>
+
+<p>Years Experience</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- PART-2 STARTS BELOW THIS -->
+<!-- ================================= -->
+
+<script src="about.js"></script>
+
+</body>
+</html>
+
+<!-- ================================= -->
+<!-- MISSION | FOUNDER | VISION -->
+<!-- ================================= -->
+
+<section class="mission-vision">
+
+<div class="container">
+
+<div class="mission-grid">
+
+<!-- MISSION -->
+
+<div class="mission-card">
+
+<div class="card-icon">
+
+<i class="fa-solid fa-bullseye"></i>
+
+</div>
+
+<h2>Our Mission</h2>
+
+<p>
+
+To provide high-quality, industry-relevant training
+that empowers students with practical skills,
+real-world experience and career opportunities.
+
+</p>
+
+<p>
+
+We aim to bridge the gap between academic learning
+and industry expectations through hands-on projects,
+expert mentorship and placement assistance.
+
+</p>
+
+</div>
+
+<!-- FOUNDER MESSAGE -->
+
+<div class="founder-card">
+
+<div class="founder-top">
+
+<img
+src="images/founder.jpg"
+alt="Founder">
+
+<div>
+
+<h3>Karthik N.</h3>
+
+<span>
+Founder & CEO, KN Tech Institute
+</span>
+
+</div>
+
+</div>
+
+<div class="quote-icon">
+
+<i class="fa-solid fa-quote-left"></i>
+
+</div>
+
+<h2>Message From Our Founder</h2>
+
+<p>
+
+"Our mission is simple — to bridge the gap between
+education and industry. We believe practical learning,
+real-world exposure and career mentorship are the
+keys to student success."
+
+</p>
+
+<p>
+
+"We are committed to helping every student become
+job-ready and build a successful future in technology."
+
+</p>
+
+</div>
+
+<!-- VISION -->
+
+<div class="vision-card">
+
+<div class="card-icon">
+
+<i class="fa-solid fa-eye"></i>
+
+</div>
+
+<h2>Our Vision</h2>
+
+<p>
+
+To become India's most trusted and innovative
+technology training institute by empowering
+students with future-ready skills and career growth.
+
+</p>
+
+<p>
+
+We envision creating a global learning ecosystem
+that transforms lives through technology education.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- WHY CHOOSE KN TECH -->
+<!-- ================================= -->
+
+<section class="why-kn-tech">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+
+Why Choose
+<span>KN Tech Institute?</span>
+
+</h2>
+
+<p>
+
+We don't just teach technology.
+We transform careers.
+
+</p>
+
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-user-tie"></i>
+
+</div>
+
+<h3>Expert Trainers</h3>
+
+<p>
+
+Learn from industry professionals
+with 10+ years of experience.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+</div>
+
+<h3>Live Projects</h3>
+
+<p>
+
+Work on real-world projects and
+build an impressive portfolio.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+</div>
+
+<h3>Placement Support</h3>
+
+<p>
+
+Resume preparation, mock interviews
+and hiring partner referrals.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-display"></i>
+
+</div>
+
+<h3>Flexible Learning</h3>
+
+<p>
+
+Online and classroom training
+options available.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-certificate"></i>
+
+</div>
+
+<h3>Certified Courses</h3>
+
+<p>
+
+Industry-recognized certificates
+for every course completion.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-infinity"></i>
+
+</div>
+
+<h3>Lifetime Access</h3>
+
+<p>
+
+Access recordings, notes and
+future updates anytime.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-rocket"></i>
+
+</div>
+
+<h3>Internship Program</h3>
+
+<p>
+
+Gain practical experience through
+industry-level internship projects.
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+
+<i class="fa-solid fa-globe"></i>
+
+</div>
+
+<h3>Global Learning</h3>
+
+<p>
+
+Learn modern technologies aligned
+with international standards.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- PART-3 STARTS BELOW THIS -->
+<!-- ================================= -->
+
+<!-- ================================= -->
+<!-- OUR JOURNEY TIMELINE -->
+<!-- ================================= -->
+
+<section class="journey-section">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+Our Journey of
+<span>Growth & Success</span>
+</h2>
+
+<p>
+A decade of transforming careers and building future-ready professionals.
+</p>
+
+</div>
+
+<div class="timeline-grid">
+
+<div class="timeline-card">
+
+<div class="timeline-year">2014</div>
+
+<h3>Foundation</h3>
+
+<p>
+KN Tech Institute was established with a vision to provide quality technology education.
+</p>
+
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2016</div>
+
+<h3>500+ Students</h3>
+
+<p>
+Successfully trained over 500 students across multiple technology domains.
+</p>
+
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2018</div>
+
+<h3>Placement Cell</h3>
+
+<p>
+Dedicated placement assistance program launched for students.
+</p>
+
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2020</div>
+
+<h3>Online Learning</h3>
+
+<p>
+Introduced live online training programs accessible worldwide.
+</p>
+
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2022</div>
+
+<h3>Industry Expansion</h3>
+
+<p>
+Expanded course portfolio and partnered with top hiring companies.
+</p>
+
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2024</div>
+
+<h3>5000+ Students</h3>
+
+<p>
+Reached a major milestone with thousands of successful learners.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- LEADERSHIP TEAM -->
+<!-- ================================= -->
+
+<section class="leadership-section">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+Meet Our
+<span>Leadership Team</span>
+</h2>
+
+<p>
+Experienced professionals dedicated to empowering student success.
+</p>
+
+</div>
+
+<div class="leadership-grid">
+
+<div class="leader-card">
+
+<img
+src="images/leader1.jpg"
+alt="Founder">
+
+<h3>Karthik N.</h3>
+
+<span>Founder & CEO</span>
+
+<p>
+Visionary leader focused on bridging the gap between education and industry.
+</p>
+
+<div class="leader-social">
+
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+
+</div>
+
+</div>
+
+<div class="leader-card">
+
+<img
+src="images/leader2.jpg"
+alt="Academic Head">
+
+<h3>Priya Sharma</h3>
+
+<span>Academic Director</span>
+
+<p>
+Leads curriculum innovation and student learning excellence.
+</p>
+
+<div class="leader-social">
+
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+
+</div>
+
+</div>
+
+<div class="leader-card">
+
+<img
+src="images/leader3.jpg"
+alt="Placement Head">
+
+<h3>Rahul Kumar</h3>
+
+<span>Placement Head</span>
+
+<p>
+Drives placement success through strong industry partnerships.
+</p>
+
+<div class="leader-social">
+
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+
+</div>
+
+</div>
+
+<div class="leader-card">
+
+<img
+src="images/leader4.jpg"
+alt="Operations Head">
+
+<h3>Sneha Reddy</h3>
+
+<span>Operations Head</span>
+
+<p>
+Ensures smooth execution of training programs and student support.
+</p>
+
+<div class="leader-social">
+
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- TRAINING METHODOLOGY -->
+<!-- ================================= -->
+
+<section class="methodology-section">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+Our Training
+<span>Methodology</span>
+</h2>
+
+<p>
+A proven learning framework designed to maximize student success.
+</p>
+
+</div>
+
+<div class="methodology-grid">
+
+<div class="method-card">
+
+<div class="method-number">01</div>
+
+<h3>Learn</h3>
+
+<p>
+Build strong fundamentals through instructor-led training sessions.
+</p>
+
+</div>
+
+<div class="method-card">
+
+<div class="method-number">02</div>
+
+<h3>Practice</h3>
+
+<p>
+Apply concepts through hands-on labs and coding exercises.
+</p>
+
+</div>
+
+<div class="method-card">
+
+<div class="method-number">03</div>
+
+<h3>Build</h3>
+
+<p>
+Develop real-world projects aligned with industry requirements.
+</p>
+
+</div>
+
+<div class="method-card">
+
+<div class="method-number">04</div>
+
+<h3>Deploy</h3>
+
+<p>
+Learn deployment, testing and production-level implementation.
+</p>
+
+</div>
+
+<div class="method-card">
+
+<div class="method-number">05</div>
+
+<h3>Prepare</h3>
+
+<p>
+Resume building, mock interviews and communication training.
+</p>
+
+</div>
+
+<div class="method-card">
+
+<div class="method-number">06</div>
+
+<h3>Get Hired</h3>
+
+<p>
+Placement support and job referrals through hiring partners.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- AWARDS & RECOGNITION -->
+<!-- ================================= -->
+
+<section class="awards-section">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+Awards &
+<span>Recognition</span>
+</h2>
+
+<p>
+Celebrating excellence in technology education and student success.
+</p>
+
+</div>
+
+<div class="awards-grid">
+
+<div class="award-card">
+
+<div class="award-icon">
+<i class="fa-solid fa-trophy"></i>
+</div>
+
+<h3>Best Training Institute</h3>
+
+<p>
+Recognized for outstanding contribution to technology education.
+</p>
+
+<span>2024</span>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">
+<i class="fa-solid fa-medal"></i>
+</div>
+
+<h3>Excellence in Placement</h3>
+
+<p>
+Awarded for exceptional student placement outcomes.
+</p>
+
+<span>2023</span>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">
+<i class="fa-solid fa-star"></i>
+</div>
+
+<h3>Student Choice Award</h3>
+
+<p>
+Highly rated institute based on student feedback and reviews.
+</p>
+
+<span>2022</span>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">
+<i class="fa-solid fa-award"></i>
+</div>
+
+<h3>Innovation in Learning</h3>
+
+<p>
+Recognized for practical and project-based learning methodology.
+</p>
+
+<span>2021</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- CERTIFICATIONS -->
+<!-- ================================= -->
+
+<section class="certifications-section">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+Industry
+<span>Certifications</span>
+</h2>
+
+<p>
+Our programs align with globally recognized technologies and standards.
+</p>
+
+</div>
+
+<div class="certification-grid">
+
+<div class="cert-card">
+
+<i class="fa-brands fa-python"></i>
+
+<h3>Python Development</h3>
+
+<p>
+Professional certification upon successful completion.
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h3>Power BI Analytics</h3>
+
+<p>
+Industry-focused business intelligence certification.
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<i class="fa-solid fa-database"></i>
+
+<h3>SQL Developer</h3>
+
+<p>
+Database design, querying and optimization certification.
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>Cyber Security</h3>
+
+<p>
+Security concepts, ethical hacking and SOC operations.
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Full Stack Development</h3>
+
+<p>
+Front-end and back-end development certification.
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<i class="fa-solid fa-cloud"></i>
+
+<h3>Cloud Computing</h3>
+
+<p>
+Cloud deployment and infrastructure fundamentals.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- HIRING PARTNERS -->
+<!-- ================================= -->
+
+<section class="about-partners">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+Trusted By
+<span>Top Hiring Partners</span>
+</h2>
+
+<p>
+Our students are hired by leading companies across multiple industries.
+</p>
+
+</div>
+
+<div class="partners-grid">
+
+<div class="partner-card">TCS</div>
+<div class="partner-card">Infosys</div>
+<div class="partner-card">Wipro</div>
+<div class="partner-card">Accenture</div>
+<div class="partner-card">Capgemini</div>
+<div class="partner-card">IBM</div>
+<div class="partner-card">Cognizant</div>
+<div class="partner-card">Deloitte</div>
+<div class="partner-card">HCL</div>
+<div class="partner-card">Tech Mahindra</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- GLOBAL IMPACT -->
+<!-- ================================= -->
+
+<section class="global-impact">
+
+<div class="container">
+
+<div class="impact-box">
+
+<div class="impact-content">
+
+<h2>
+
+Creating Impact Across
+<span>The Learning Community</span>
+
+</h2>
+
+<p>
+
+Our commitment to education has helped thousands of learners
+build successful careers in technology and data-driven industries.
+
+</p>
+
+</div>
+
+<div class="impact-stats">
+
+<div class="impact-stat">
+
+<h3>5000+</h3>
+
+<p>Students Trained</p>
+
+</div>
+
+<div class="impact-stat">
+
+<h3>500+</h3>
+
+<p>Placements</p>
+
+</div>
+
+<div class="impact-stat">
+
+<h3>50+</h3>
+
+<p>Hiring Partners</p>
+
+</div>
+
+<div class="impact-stat">
+
+<h3>95%</h3>
+
+<p>Success Rate</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- PART-5 STARTS BELOW THIS -->
+<!-- ================================= -->
+
+<!-- ================================= -->
+<!-- STUDENT TESTIMONIALS -->
+<!-- ================================= -->
+
+<section class="about-testimonials">
+
+<div class="container">
+
+<div class="section-title center">
+
+<h2>
+What Our
+<span>Students Say</span>
+</h2>
+
+<p>
+Success stories from students who transformed their careers.
+</p>
+
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+
+<div class="testimonial-top">
+
+<img src="images/student1.jpg" alt="Student">
+
+<div>
+
+<h4>Arjun Kumar</h4>
+
+<span>Python Full Stack Developer</span>
+
+</div>
+
+</div>
+
+<p>
+"KN Tech Institute completely changed my career path.
+The practical projects and placement support helped me
+secure my first software developer role."
+</p>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="testimonial-top">
+
+<img src="images/student2.jpg" alt="Student">
+
+<div>
+
+<h4>Sneha Patel</h4>
+
+<span>Power BI Analyst</span>
+
+</div>
+
+</div>
+
+<p>
+"The trainers are excellent and the curriculum is very
+industry-focused. I got multiple interview opportunities."
+</p>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="testimonial-top">
+
+<img src="images/student3.jpg" alt="Student">
+
+<div>
+
+<h4>Mahesh Reddy</h4>
+
+<span>Cyber Security Analyst</span>
+
+</div>
+
+</div>
+
+<p>
+"The learning experience was amazing. The support team
+and mentors guided me throughout my journey."
+</p>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- NEWSLETTER -->
+<!-- ================================= -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>
+Stay Updated With KN Tech Institute
+</h2>
+
+<p>
+Subscribe to receive updates on new batches,
+placements, workshops and career opportunities.
+</p>
+
+<div class="newsletter-form">
+
+<input
+type="email"
+placeholder="Enter your email address">
+
+<button>
+
+Subscribe
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- CTA BANNER -->
+<!-- ================================= -->
+
+<section class="about-cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<div class="cta-content">
+
+<h2>
+
+Ready To Start
+<span>Your Career Journey?</span>
+
+</h2>
+
+<p>
+
+Join thousands of successful students who transformed
+their future with KN Tech Institute.
+
+</p>
+
+</div>
+
+<div class="cta-buttons">
+
+<a href="#" class="cta-btn">
+
+Enroll Now
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+<a href="#" class="cta-btn-outline">
+
+Book Free Demo
+
+<i class="fa-solid fa-calendar-check"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-column">
+
+<h3>KN Tech Institute</h3>
+
+<p>
+Empowering students through practical learning,
+real-world projects and career-focused training.
+</p>
+
+<div class="footer-social">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Courses</a></li>
+<li><a href="#">Placements</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Popular Courses</h3>
+
+<ul>
+
+<li><a href="#">Python Full Stack</a></li>
+<li><a href="#">Power BI</a></li>
+<li><a href="#">SQL Developer</a></li>
+<li><a href="#">Cyber Security</a></li>
+<li><a href="#">Data Analytics</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Contact Info</h3>
+
+<ul>
+
+<li>
+<i class="fa-solid fa-phone"></i>
++91 1234567890
+</li>
+
+<li>
+<i class="fa-solid fa-envelope"></i>
+info@kntechinstitute.com
+</li>
+
+<li>
+<i class="fa-solid fa-location-dot"></i>
+Hyderabad, Telangana
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 KN Tech Institute. All Rights Reserved.
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+
+
+<!-- ================================= -->
+<!-- FLOATING BUTTONS -->
+<!-- ================================= -->
+
+<a href="#" id="backToTop">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</a>
+
+<a href="https://wa.me/911234567890"
+class="whatsapp-btn">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<script>
+    
+// your code goes here
+/* =====================================
+   MOBILE MENU
+===================================== */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navMenu =
+document.getElementById("navMenu");
+
+if(menuBtn){
+
+menuBtn.addEventListener("click",()=>{
+
+navMenu.classList.toggle("active");
+
+});
+
+}
+
+/* =====================================
+   BACK TO TOP
+===================================== */
+
+const topBtn =
+document.getElementById("backToTop");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 500){
+
+topBtn.style.display = "flex";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+});
+
+if(topBtn){
+
+topBtn.addEventListener("click",(e)=>{
+
+e.preventDefault();
+
+window.scrollTo({
+
+top:0,
+behavior:"smooth"
+
+});
+
+});
+
+}
+    
+</script>
+
+</body>
+</html>
