@@ -1,0 +1,3055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | KN Tech Institute</title>
+
+    <meta name="description"
+          content="Learn about KN Tech Institute, our mission, vision, founder, journey, values and commitment to student success.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #10182d;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        :root {
+            --navy: #001b3d;
+            --navy-dark: #001329;
+            --navy-light: #062955;
+
+            --gold: #f7b51b;
+            --gold-light: #ffc83d;
+
+            --white: #ffffff;
+            --light: #f7f9fc;
+
+            --text: #10182d;
+            --muted: #667083;
+
+            --border: #e3e7ed;
+
+            --shadow:
+                0 10px 35px rgba(0, 20, 55, 0.08);
+        }
+
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            height: 72px;
+
+            background: var(--navy-dark);
+            color: white;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            z-index: 1000;
+
+            border-bottom: 1px solid rgba(247,181,27,.35);
+        }
+
+        .navbar {
+            width: min(1400px, 94%);
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-family: Georgia, serif;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo-text h2 {
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 20px;
+
+            letter-spacing: 1px;
+
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+        }
+
+        .logo-text small {
+            display: block;
+
+            color: #d8dce4;
+
+            font-size: 7px;
+
+            letter-spacing: 1px;
+
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+
+            align-items: center;
+
+            gap: 34px;
+        }
+
+        .nav-menu a {
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            position: relative;
+
+            padding: 26px 0;
+
+            transition: .3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--gold);
+        }
+
+        .nav-menu a.active::after {
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background: var(--gold);
+        }
+
+        .login-btn {
+            border: 1px solid var(--gold);
+
+            color: var(--gold);
+
+            padding: 10px 19px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .login-btn i {
+            margin-right: 7px;
+        }
+
+        .login-btn:hover {
+            background: var(--gold);
+            color: var(--navy-dark);
+        }
+
+        .menu-toggle {
+            display: none;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .about-hero {
+
+            min-height: 335px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,19,45,.98) 0%,
+                    rgba(0,25,55,.88) 40%,
+                    rgba(0,19,40,.40) 75%,
+                    rgba(0,15,30,.20) 100%
+                ),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+            position: relative;
+        }
+
+        .hero-inner {
+
+            min-height: 335px;
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 1fr;
+
+            align-items: center;
+
+            gap: 40px;
+        }
+
+        .hero-left {
+            padding: 30px 0;
+        }
+
+        .hero-label {
+
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero-label::before,
+        .hero-label::after {
+
+            content: "";
+
+            display: inline-block;
+
+            width: 25px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            vertical-align: middle;
+
+            margin: 0 10px;
+        }
+
+        .hero h1 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: clamp(42px, 5vw, 60px);
+
+            line-height: 1.02;
+
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .hero-description {
+
+            max-width: 530px;
+
+            color: #e8ecf2;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =====================================================
+           HERO FEATURES
+        ===================================================== */
+
+        .hero-features {
+
+            display: flex;
+
+            gap: 0;
+
+        }
+
+        .hero-feature {
+
+            min-width: 115px;
+
+            padding-right: 15px;
+
+            margin-right: 15px;
+
+            border-right: 1px solid rgba(255,255,255,.25);
+
+            text-align: center;
+        }
+
+        .hero-feature:last-child {
+            border-right: 0;
+        }
+
+        .hero-feature i {
+
+            color: var(--gold);
+
+            font-size: 22px;
+
+            margin-bottom: 7px;
+        }
+
+        .hero-feature strong {
+
+            display: block;
+
+            font-size: 10px;
+
+            line-height: 1.3;
+        }
+
+
+        /* =====================================================
+           HERO QUOTE CARD
+        ===================================================== */
+
+        .quote-card {
+
+            width: 290px;
+
+            margin-left: auto;
+
+            padding: 22px;
+
+            background: rgba(0,20,45,.95);
+
+            border: 2px solid var(--gold);
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.3);
+        }
+
+        .quote-icon {
+
+            color: var(--gold);
+
+            font-size: 30px;
+
+            margin-bottom: 7px;
+        }
+
+        .quote-card h3 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+        }
+
+        .quote-card p {
+
+            color: #dce2ea;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           MISSION / VISION
+        ===================================================== */
+
+        .mission-section {
+
+            padding: 28px 0 25px;
+
+            background: white;
+        }
+
+        .mission-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr 1.1fr;
+
+            gap: 30px;
+
+            align-items: start;
+        }
+
+        .mission-card {
+
+            display: flex;
+
+            gap: 15px;
+        }
+
+        .mission-icon {
+
+            min-width: 53px;
+
+            height: 53px;
+
+            border-radius: 7px;
+
+            background: var(--navy-dark);
+
+            color: var(--gold);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 21px;
+        }
+
+        .mission-card h3 {
+
+            font-size: 12px;
+
+            margin-bottom: 8px;
+        }
+
+        .mission-card p {
+
+            color: #596273;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           INSTITUTE NUMBERS
+        ===================================================== */
+
+        .numbers h3 {
+
+            text-align: center;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .numbers h3::after {
+
+            content: "";
+
+            display: block;
+
+            width: 35px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin: 7px auto 0;
+        }
+
+        .number-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        .number {
+
+            text-align: center;
+
+            padding: 5px;
+        }
+
+        .number i {
+
+            display: block;
+
+            color: var(--navy);
+
+            font-size: 22px;
+
+            margin-bottom: 5px;
+        }
+
+        .number strong {
+
+            display: block;
+
+            font-size: 18px;
+        }
+
+        .number span {
+
+            color: #6a7382;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           FOUNDER + JOURNEY
+        ===================================================== */
+
+        .founder-section {
+
+            padding: 15px 0 30px;
+        }
+
+        .founder-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.65fr .85fr;
+
+            gap: 20px;
+        }
+
+        .founder-card {
+
+            min-height: 275px;
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            display: grid;
+
+            grid-template-columns: 215px 1fr;
+
+            border-left: 5px solid var(--gold);
+        }
+
+        .founder-image {
+
+            background:
+                linear-gradient(
+                    rgba(0,20,45,.1),
+                    rgba(0,20,45,.1)
+                ),
+                url("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+        .founder-content {
+
+            padding: 25px;
+        }
+
+        .founder-label {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+        .founder-content h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 23px;
+
+            margin-bottom: 2px;
+        }
+
+        .founder-role {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .founder-content p {
+
+            color: #dce2e9;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+        }
+
+        .founder-stats {
+
+            border-top: 1px solid rgba(255,255,255,.25);
+
+            padding-top: 15px;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        .founder-stat {
+
+            text-align: center;
+        }
+
+        .founder-stat i {
+
+            color: var(--gold);
+
+            display: block;
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+        }
+
+        .founder-stat strong {
+
+            display: block;
+
+            font-size: 12px;
+        }
+
+        .founder-stat span {
+
+            color: #c2c9d3;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           JOURNEY
+        ===================================================== */
+
+        .journey {
+
+            background: #fff;
+
+            border: 1px solid #e2e5ea;
+
+            border-radius: 10px;
+
+            padding: 22px;
+        }
+
+        .journey h3 {
+
+            font-size: 12px;
+
+            margin-bottom: 14px;
+        }
+
+        .timeline {
+
+            position: relative;
+
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 5px;
+
+            top: 5px;
+
+            bottom: 5px;
+
+            width: 2px;
+
+            background: var(--gold);
+        }
+
+        .timeline-item {
+
+            position: relative;
+
+            padding-bottom: 15px;
+
+            padding-left: 10px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            background: var(--gold);
+
+            border-radius: 50%;
+
+            left: -19px;
+
+            top: 3px;
+        }
+
+        .timeline-item strong {
+
+            display: block;
+
+            font-size: 11px;
+
+            margin-bottom: 3px;
+        }
+
+        .timeline-item p {
+
+            color: #5d6676;
+
+            font-size: 9px;
+
+            line-height: 1.45;
+        }
+
+
+        /* =====================================================
+           WHY CHOOSE
+        ===================================================== */
+
+        .why-section {
+
+            padding: 0 0 35px;
+        }
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .section-heading span {
+
+            color: #dfa000;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 22px;
+
+            margin-top: 5px;
+        }
+
+        .section-heading h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 42px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin: 8px auto;
+        }
+
+        .benefit-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(6, 1fr);
+
+            gap: 10px;
+        }
+
+        .benefit {
+
+            border: 1px solid #e2e5ea;
+
+            border-radius: 8px;
+
+            padding: 18px 10px;
+
+            text-align: center;
+
+            background: white;
+
+            transition: .3s;
+        }
+
+        .benefit:hover {
+
+            transform: translateY(-5px);
+
+            border-color: var(--gold);
+
+            box-shadow: var(--shadow);
+        }
+
+        .benefit i {
+
+            color: var(--navy);
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+        .benefit h3 {
+
+            font-size: 10px;
+
+            margin-bottom: 7px;
+        }
+
+        .benefit p {
+
+            color: #687181;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           MILESTONES + VALUES
+        ===================================================== */
+
+        .lower-section {
+
+            padding-bottom: 30px;
+        }
+
+        .lower-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .milestones,
+        .values {
+
+            border: 1px solid #e2e5ea;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            background: white;
+        }
+
+        .box-title {
+
+            padding: 18px 20px 8px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .box-title::after {
+
+            content: "";
+
+            display: block;
+
+            width: 30px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin-top: 6px;
+        }
+
+        .milestone-content {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: stretch;
+        }
+
+        .milestone-list {
+
+            padding: 10px 20px 20px;
+        }
+
+        .milestone-item {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 14px;
+        }
+
+        .milestone-item i {
+
+            color: var(--navy);
+
+            font-size: 18px;
+
+            min-width: 25px;
+        }
+
+        .milestone-item strong {
+
+            display: block;
+
+            font-size: 10px;
+
+            margin-bottom: 3px;
+        }
+
+        .milestone-item span {
+
+            color: #6b7381;
+
+            font-size: 8px;
+        }
+
+        .milestone-image {
+
+            min-height: 220px;
+
+            background:
+                url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        /* =====================================================
+           VALUES
+        ===================================================== */
+
+        .values-content {
+
+            padding: 10px 20px 20px;
+        }
+
+        .value-item {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .value-icon {
+
+            min-width: 32px;
+
+            height: 32px;
+
+            border-radius: 5px;
+
+            background: var(--navy-dark);
+
+            color: var(--gold);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 13px;
+        }
+
+        .value-item strong {
+
+            display: block;
+
+            font-size: 10px;
+
+            margin-bottom: 3px;
+        }
+
+        .value-item p {
+
+            color: #687181;
+
+            font-size: 8px;
+
+            line-height: 1.45;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            padding: 20px 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .cta-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .cta-icon {
+
+            color: var(--gold);
+
+            font-size: 47px;
+        }
+
+        .cta h2 {
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+        }
+
+        .cta p {
+
+            color: #d8dfe8;
+
+            font-size: 10px;
+        }
+
+        .cta-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 11px 22px;
+
+            border-radius: 6px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            border: 1px solid transparent;
+
+            transition: .3s;
+        }
+
+        .btn-gold {
+
+            background: var(--gold);
+
+            color: #07172d;
+        }
+
+        .btn-gold:hover {
+
+            background: var(--gold-light);
+
+            transform: translateY(-2px);
+        }
+
+        .whatsapp {
+
+            color: #9be000;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .whatsapp i {
+
+            font-size: 21px;
+
+            vertical-align: middle;
+
+            margin-right: 5px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #001226;
+
+            color: white;
+
+            padding-top: 30px;
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr 1.2fr;
+
+            gap: 30px;
+
+            padding-bottom: 28px;
+        }
+
+        .footer-brand p {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.6;
+
+            max-width: 230px;
+
+            margin-top: 10px;
+        }
+
+        .footer-title {
+
+            font-size: 11px;
+
+            margin-bottom: 14px;
+        }
+
+        .footer ul {
+
+            list-style: none;
+        }
+
+        .footer li {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            margin-bottom: 8px;
+        }
+
+        .footer li:hover {
+
+            color: var(--gold);
+        }
+
+        .contact-line {
+
+            display: flex;
+
+            gap: 8px;
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 9px;
+        }
+
+        .contact-line i {
+
+            color: var(--gold);
+
+            width: 14px;
+        }
+
+        .newsletter p {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form {
+
+            display: flex;
+
+            border: 1px solid #596577;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+        }
+
+        .newsletter-form input {
+
+            flex: 1;
+
+            background: transparent;
+
+            border: 0;
+
+            outline: 0;
+
+            padding: 9px;
+
+            color: white;
+
+            font-size: 9px;
+        }
+
+        .newsletter-form button {
+
+            width: 38px;
+
+            border: 0;
+
+            background: var(--gold);
+
+            cursor: pointer;
+        }
+
+        .socials {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+        .socials a {
+
+            width: 27px;
+
+            height: 27px;
+
+            border: 1px solid #596577;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            transition: .3s;
+        }
+
+        .socials a:hover {
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+            border-color: var(--gold);
+        }
+
+        .footer-bottom {
+
+            border-top: 1px solid rgba(255,255,255,.1);
+
+            padding: 13px 0;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #8994a5;
+
+            font-size: 8px;
+        }
+
+        .footer-bottom div {
+
+            display: flex;
+
+            gap: 20px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:1100px) {
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .numbers {
+                grid-column: span 2;
+            }
+
+            .benefit-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+
+        @media(max-width:850px) {
+
+            header {
+                height: 65px;
+            }
+
+            .nav-menu {
+
+                position: absolute;
+
+                top: 65px;
+                left: 0;
+
+                width: 100%;
+
+                background: var(--navy-dark);
+
+                display: none;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 10px 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 14px;
+            }
+
+            .nav-menu a.active::after {
+                display: none;
+            }
+
+            .login-btn {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-inner {
+
+                grid-template-columns: 1fr;
+
+                padding: 25px 0;
+            }
+
+            .quote-card {
+
+                margin: 0 auto 20px;
+            }
+
+            .founder-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .lower-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media(max-width:600px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .hero-features {
+
+                display: grid;
+
+                grid-template-columns: repeat(2,1fr);
+
+                gap: 12px;
+            }
+
+            .hero-feature {
+
+                border: 0;
+
+                margin: 0;
+
+                padding: 0;
+            }
+
+            .mission-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .numbers {
+                grid-column: auto;
+            }
+
+            .number-grid {
+
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .founder-card {
+
+                grid-template-columns: 1fr;
+            }
+
+            .founder-image {
+
+                min-height: 300px;
+            }
+
+            .founder-stats {
+
+                grid-template-columns: repeat(2,1fr);
+
+                gap: 15px;
+            }
+
+            .benefit-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .milestone-content {
+
+                grid-template-columns: 1fr;
+            }
+
+            .milestone-image {
+
+                min-height: 230px;
+
+                order: -1;
+            }
+
+            .cta {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 25px;
+            }
+
+            .cta-actions {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+        }
+
+
+        @media(max-width:400px) {
+
+            .hero h1 {
+                font-size: 33px;
+            }
+
+            .logo-text h2 {
+                font-size: 17px;
+            }
+
+            .logo-text span {
+                font-size: 9px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-mark">
+                KN
+            </div>
+
+            <div class="logo-text">
+
+                <h2>KN TECH</h2>
+
+                <span>INSTITUTE</span>
+
+                <small>
+                    LEARN • INNOVATE • SUCCEED
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <div class="nav-menu" id="navMenu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html" class="active">
+                About
+            </a>
+
+            <a href="courses.html">
+                Courses
+            </a>
+
+            <a href="placements.html">
+                Placements
+            </a>
+
+            <a href="project.html">
+                Project
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <a href="login.html" class="login-btn">
+
+            <i class="fa-regular fa-user"></i>
+
+            Login / Register
+
+        </a>
+
+
+        <div class="menu-toggle" id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     ABOUT HERO
+========================================================= -->
+
+<section class="about-hero">
+
+    <div class="container hero-inner">
+
+
+        <div class="hero-left">
+
+            <div class="hero-label">
+                ABOUT US
+            </div>
+
+            <h1>
+                KN TECH
+                <span>INSTITUTE</span>
+            </h1>
+
+            <div class="hero-subtitle">
+                Your Growth. Our Commitment.
+            </div>
+
+            <p class="hero-description">
+
+                KN Tech Institute is a leading training and placement
+                platform dedicated to empowering individuals with
+                in-demand skills, real-world knowledge, and career
+                opportunities.
+
+            </p>
+
+
+            <div class="hero-features">
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <strong>
+                        Industry-Oriented
+                        Curriculum
+                    </strong>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                    <strong>
+                        Expert
+                        Trainers
+                    </strong>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <strong>
+                        Placement
+                        Assistance
+                    </strong>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-certificate"></i>
+
+                    <strong>
+                        Certified
+                        Courses
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="quote-card">
+
+                <div class="quote-icon">
+                    “
+                </div>
+
+                <h3>
+                    Empowering Minds
+                    Building Futures
+                </h3>
+
+                <p>
+                    Transforming passion into profession
+                    and dreams into success.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MISSION / VISION / NUMBERS
+========================================================= -->
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="mission-grid">
+
+
+            <!-- MISSION -->
+
+            <div class="mission-card">
+
+                <div class="mission-icon">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        OUR MISSION
+                    </h3>
+
+                    <p>
+
+                        To deliver high-quality,
+                        industry-oriented training and
+                        practical knowledge that empowers
+                        students to achieve their career
+                        goals and become job-ready professionals.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISION -->
+
+            <div class="mission-card">
+
+                <div class="mission-icon">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        OUR VISION
+                    </h3>
+
+                    <p>
+
+                        To be a globally recognized institute
+                        that bridges the gap between education
+                        and industry, creating skilled
+                        professionals who drive innovation
+                        and growth.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NUMBERS -->
+
+            <div class="numbers">
+
+                <h3>
+                    KN TECH INSTITUTE IN NUMBERS
+                </h3>
+
+                <div class="number-grid">
+
+
+                    <div class="number">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <strong>
+                            5000+
+                        </strong>
+
+                        <span>
+                            Students Trained
+                        </span>
+
+                    </div>
+
+
+                    <div class="number">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <strong>
+                            200+
+                        </strong>
+
+                        <span>
+                            Batches Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="number">
+
+                        <i class="fa-solid fa-building"></i>
+
+                        <strong>
+                            300+
+                        </strong>
+
+                        <span>
+                            Recruiting Partners
+                        </span>
+
+                    </div>
+
+
+                    <div class="number">
+
+                        <i class="fa-solid fa-trophy"></i>
+
+                        <strong>
+                            95%
+                        </strong>
+
+                        <span>
+                            Placement Rate
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOUNDER + JOURNEY
+========================================================= -->
+
+<section class="founder-section">
+
+    <div class="container">
+
+        <div class="founder-grid">
+
+
+            <!-- FOUNDER -->
+
+            <div class="founder-card">
+
+                <div class="founder-image"></div>
+
+
+                <div class="founder-content">
+
+                    <div class="founder-label">
+                        OUR FOUNDER & TRAINER
+                    </div>
+
+                    <h2>
+                        Kesineni Naveen
+                    </h2>
+
+                    <div class="founder-role">
+                        Founder, KN Tech Institute
+                    </div>
+
+                    <p>
+
+                        With a passion for teaching and technology,
+                        Naveen started his journey in 2022 with a
+                        vision to provide quality education to every
+                        student. From teaching 100+ students for free
+                        to building a trusted institute, his mission
+                        is to train 1000+ students and help them build
+                        successful careers in the IT industry.
+
+                    </p>
+
+
+                    <div class="founder-stats">
+
+
+                        <div class="founder-stat">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <strong>
+                                4+
+                            </strong>
+
+                            <span>
+                                Years of Experience
+                            </span>
+
+                        </div>
+
+
+                        <div class="founder-stat">
+
+                            <i class="fa-solid fa-user-graduate"></i>
+
+                            <strong>
+                                100+
+                            </strong>
+
+                            <span>
+                                Students Mentored
+                            </span>
+
+                        </div>
+
+
+                        <div class="founder-stat">
+
+                            <i class="fa-solid fa-briefcase"></i>
+
+                            <strong>
+                                Real-world
+                            </strong>
+
+                            <span>
+                                Industry Projects
+                            </span>
+
+                        </div>
+
+
+                        <div class="founder-stat">
+
+                            <i class="fa-solid fa-person-chalkboard"></i>
+
+                            <strong>
+                                Career Coach
+                            </strong>
+
+                            <span>
+                                & Mentor
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JOURNEY -->
+
+            <div class="journey">
+
+                <h3>
+                    OUR JOURNEY
+                </h3>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <strong>
+                            2022
+                        </strong>
+
+                        <p>
+                            Started teaching and mentoring students.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <strong>
+                            2023
+                        </strong>
+
+                        <p>
+                            Trained 100+ students in various
+                            IT domains.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <strong>
+                            2024
+                        </strong>
+
+                        <p>
+                            Launched KN Tech Institute with a
+                            mission to deliver industry-focused
+                            training.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <strong>
+                            2025
+                        </strong>
+
+                        <p>
+                            Helping students achieve their dream
+                            careers with practical skills and
+                            placements.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <strong>
+                            Future
+                        </strong>
+
+                        <p>
+                            Growing together to build a stronger,
+                            skilled, and innovative India.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY CHOOSE US
+========================================================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>
+                WHY CHOOSE US?
+            </span>
+
+            <h2>
+                We Don't Just Teach,
+                We Transform Careers
+            </h2>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <h3>
+                    Industry-Aligned
+                    Courses
+                </h3>
+
+                <p>
+                    Curriculum designed by industry
+                    experts to match real-world
+                    requirements.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+
+                <h3>
+                    Expert Trainers
+                </h3>
+
+                <p>
+                    Learn from experienced professionals
+                    who bring practical industry knowledge.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-laptop"></i>
+
+                <h3>
+                    Hands-on Training
+                </h3>
+
+                <p>
+                    Learn with live projects,
+                    case studies and real-time scenarios.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-user-tie"></i>
+
+                <h3>
+                    Placement Support
+                </h3>
+
+                <p>
+                    Resume building, mock interviews
+                    and placement assistance.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-certificate"></i>
+
+                <h3>
+                    Certification
+                </h3>
+
+                <p>
+                    Industry-recognized certificates
+                    to validate your skills.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <h3>
+                    Flexible Learning
+                </h3>
+
+                <p>
+                    Online and offline batches with
+                    flexible timings.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MILESTONES + VALUES
+========================================================= -->
+
+<section class="lower-section">
+
+    <div class="container">
+
+        <div class="lower-grid">
+
+
+            <!-- MILESTONES -->
+
+            <div class="milestones">
+
+                <div class="box-title">
+                    OUR MILESTONES
+                </div>
+
+
+                <div class="milestone-content">
+
+                    <div class="milestone-list">
+
+
+                        <div class="milestone-item">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <div>
+
+                                <strong>
+                                    Trained 5000+ Students
+                                </strong>
+
+                                <span>
+                                    Across multiple domains
+                                    and technologies.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="milestone-item">
+
+                            <i class="fa-solid fa-graduation-cap"></i>
+
+                            <div>
+
+                                <strong>
+                                    200+ Batches Completed
+                                </strong>
+
+                                <span>
+                                    Successful batches with
+                                    excellent outcomes.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="milestone-item">
+
+                            <i class="fa-solid fa-building"></i>
+
+                            <div>
+
+                                <strong>
+                                    300+ Hiring Partners
+                                </strong>
+
+                                <span>
+                                    Strong network with MNCs
+                                    and startups.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="milestone-item">
+
+                            <i class="fa-solid fa-trophy"></i>
+
+                            <div>
+
+                                <strong>
+                                    95% Placement Rate
+                                </strong>
+
+                                <span>
+                                    Dedicated support until
+                                    you get placed.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="milestone-image"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CORE VALUES -->
+
+            <div class="values">
+
+                <div class="box-title">
+                    OUR CORE VALUES
+                </div>
+
+
+                <div class="values-content">
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-award"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Quality Education
+                            </strong>
+
+                            <p>
+                                We are committed to delivering
+                                the best learning experience.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-handshake"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Integrity
+                            </strong>
+
+                            <p>
+                                Honesty, transparency and ethical
+                                practices in everything we do.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Innovation
+                            </strong>
+
+                            <p>
+                                Encouraging creativity and new
+                                ideas to solve real-world problems.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-star"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Student Success
+                            </strong>
+
+                            <p>
+                                Your success is our success.
+                                We grow when you grow.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="container">
+
+    <div class="cta">
+
+
+        <div class="cta-left">
+
+            <div class="cta-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Be a Part of Our Success Story
+                </h2>
+
+                <p>
+                    Join KN Tech Institute today and take the
+                    first step towards a brighter future.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="cta-actions">
+
+            <a href="contact.html"
+               class="btn btn-gold">
+
+                Enquire Now
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="https://wa.me/919676630130"
+               target="_blank"
+               class="whatsapp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Chat on WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-mark">
+                        KN
+                    </div>
+
+                    <div class="logo-text">
+
+                        <h2>
+                            KN TECH
+                        </h2>
+
+                        <span>
+                            INSTITUTE
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <p>
+                    Empowering students with industry-oriented
+                    training and placement-focused education
+                    to build successful careers.
+                </p>
+
+
+                <div class="socials">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer">
+
+                <h3 class="footer-title">
+                    QUICK LINKS
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            Courses
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="placements.html">
+                            Placements
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="project.html">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- COURSES -->
+
+            <div class="footer">
+
+                <h3 class="footer-title">
+                    POPULAR COURSES
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Python Programming
+                    </li>
+
+                    <li>
+                        SQL Database
+                    </li>
+
+                    <li>
+                        Power BI
+                    </li>
+
+                    <li>
+                        Data Science
+                    </li>
+
+                    <li>
+                        Machine Learning
+                    </li>
+
+                    <li>
+                        Full Stack Development
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="footer">
+
+                <h3 class="footer-title">
+                    CONTACT US
+                </h3>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Hyderabad, Telangana - 500010
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <span>
+                        +91 96766 30130
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        info@kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    <span>
+                        www.kntechinstitute.com
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="newsletter">
+
+                <h3 class="footer-title">
+                    NEWSLETTER
+                </h3>
+
+                <p>
+                    Subscribe to get updates on new
+                    courses, offers and events.
+                </p>
+
+
+                <form class="newsletter-form">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 KN Tech Institute. All Rights Reserved.
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* MOBILE MENU */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener("click", function () {
+
+        navMenu.classList.toggle("active");
+
+        const icon =
+            menuToggle.querySelector("i");
+
+        if (navMenu.classList.contains("active")) {
+
+            icon.classList.remove("fa-bars");
+
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+
+    /* CLOSE MENU */
+
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navMenu.classList.remove("active");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+    /* NEWSLETTER */
+
+    const newsletter =
+        document.querySelector(".newsletter-form");
+
+
+    newsletter.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you for subscribing to KN Tech Institute!"
+        );
+
+        newsletter.reset();
+
+    });
+
+
+    /* HEADER SHADOW */
+
+    window.addEventListener("scroll", function() {
+
+        const header =
+            document.querySelector("header");
+
+        if (window.scrollY > 50) {
+
+            header.style.boxShadow =
+                "0 5px 25px rgba(0,0,0,.25)";
+
+        } else {
+
+            header.style.boxShadow = "none";
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

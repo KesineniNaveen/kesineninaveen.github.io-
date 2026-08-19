@@ -1,0 +1,3643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Courses | KN Tech Institute</title>
+
+    <meta name="description"
+          content="Explore industry-oriented IT courses at KN Tech Institute including Python, SQL, Power BI, Data Science, Machine Learning, Full Stack Development and Cyber Security.">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #10182d;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --navy: #001b3d;
+
+            --navy-dark: #001329;
+
+            --navy-light: #062955;
+
+            --gold: #f7b51b;
+
+            --gold-light: #ffc83d;
+
+            --white: #ffffff;
+
+            --light: #f7f9fc;
+
+            --text: #10182d;
+
+            --muted: #687083;
+
+            --border: #e3e7ed;
+
+            --shadow:
+                0 10px 35px rgba(0, 20, 55, 0.08);
+        }
+
+
+        .container {
+
+            width: min(1200px, 92%);
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            height: 72px;
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 1000;
+
+            border-bottom:
+                1px solid rgba(247,181,27,.35);
+        }
+
+
+        .navbar {
+
+            width: min(1400px, 94%);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .logo-mark {
+
+            width: 48px;
+
+            height: 48px;
+
+            border:
+                2px solid var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-family: Georgia, serif;
+
+            font-size: 21px;
+
+            font-weight: bold;
+        }
+
+
+        .logo-text h2 {
+
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 20px;
+
+            line-height: 1;
+
+            letter-spacing: 1px;
+        }
+
+
+        .logo-text span {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+        }
+
+
+        .logo-text small {
+
+            display: block;
+
+            color: #d8dce4;
+
+            font-size: 7px;
+
+            letter-spacing: 1px;
+
+            margin-top: 3px;
+        }
+
+
+        /* NAV */
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 34px;
+        }
+
+
+        .nav-menu a {
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            position: relative;
+
+            padding: 26px 0;
+
+            transition: .3s;
+        }
+
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+
+            color: var(--gold);
+        }
+
+
+        .nav-menu a.active::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background: var(--gold);
+        }
+
+
+        .login-btn {
+
+            border:
+                1px solid var(--gold);
+
+            color: var(--gold);
+
+            padding: 10px 19px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .login-btn i {
+
+            margin-right: 7px;
+        }
+
+
+        .login-btn:hover {
+
+            background: var(--gold);
+
+            color: var(--navy-dark);
+        }
+
+
+        .menu-toggle {
+
+            display: none;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           COURSES HERO
+        ===================================================== */
+
+        .courses-hero {
+
+            min-height: 295px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,19,45,.98) 0%,
+                    rgba(0,25,55,.90) 38%,
+                    rgba(0,20,45,.48) 72%,
+                    rgba(0,15,30,.18) 100%
+                ),
+
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+        }
+
+
+        .hero-inner {
+
+            min-height: 295px;
+
+            display: grid;
+
+            grid-template-columns: 1.3fr .7fr;
+
+            align-items: center;
+
+            gap: 40px;
+        }
+
+
+        .hero-content {
+
+            padding: 25px 0;
+        }
+
+
+        .hero-label {
+
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+
+        .hero-content h1 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: clamp(39px, 5vw, 57px);
+
+            line-height: 1.05;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero-content h1 span {
+
+            display: block;
+
+            color: var(--gold);
+        }
+
+
+        .hero-description {
+
+            max-width: 550px;
+
+            color: #e7ebf1;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* HERO FEATURES */
+
+        .hero-features {
+
+            display: flex;
+
+            gap: 7px;
+        }
+
+
+        .hero-feature {
+
+            width: 105px;
+
+            min-height: 70px;
+
+            padding: 10px 8px;
+
+            text-align: center;
+
+            border:
+                1px solid rgba(255,255,255,.25);
+
+            border-radius: 5px;
+
+            background:
+                rgba(0,20,45,.35);
+        }
+
+
+        .hero-feature i {
+
+            display: block;
+
+            color: var(--gold);
+
+            font-size: 19px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .hero-feature span {
+
+            display: block;
+
+            color: white;
+
+            font-size: 8px;
+
+            line-height: 1.35;
+        }
+
+
+        /* =====================================================
+           HERO SIDE CARD
+        ===================================================== */
+
+        .hero-info {
+
+            width: 260px;
+
+            margin-left: auto;
+
+            background:
+                rgba(0,20,45,.94);
+
+            border:
+                1px solid var(--gold);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+
+        .info-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 14px 18px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.16);
+        }
+
+
+        .info-item:last-child {
+
+            border-bottom: 0;
+        }
+
+
+        .info-item i {
+
+            color: var(--gold);
+
+            font-size: 23px;
+
+            width: 28px;
+
+            text-align: center;
+        }
+
+
+        .info-item strong {
+
+            display: block;
+
+            font-size: 12px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .info-item span {
+
+            color: #cbd2dd;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           CATEGORY SECTION
+        ===================================================== */
+
+        .category-section {
+
+            padding: 28px 0 10px;
+
+            background: #fff;
+        }
+
+
+        .category-title {
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+
+        .category-title::after {
+
+            content: "";
+
+            display: block;
+
+            width: 35px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin: 7px auto;
+        }
+
+
+        .category-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(7, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .category-btn {
+
+            border: 0;
+
+            background: white;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,.06);
+
+            border:
+                1px solid #edf0f4;
+
+            border-radius: 6px;
+
+            padding: 14px 7px;
+
+            cursor: pointer;
+
+            font-size: 9px;
+
+            font-weight: 600;
+
+            color: var(--text);
+
+            transition: .3s;
+        }
+
+
+        .category-btn i {
+
+            display: block;
+
+            font-size: 19px;
+
+            margin-bottom: 7px;
+
+            color: var(--navy);
+        }
+
+
+        .category-btn:hover {
+
+            border-color: var(--gold);
+
+            transform: translateY(-2px);
+        }
+
+
+        .category-btn.active {
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            border-color: var(--navy-dark);
+        }
+
+
+        .category-btn.active i {
+
+            color: var(--gold);
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .section-title {
+
+            text-align: center;
+
+            padding: 18px 0 20px;
+        }
+
+
+        .section-title span {
+
+            color: #d99b00;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .section-title h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 22px;
+
+            margin-top: 4px;
+        }
+
+
+        .section-title h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 40px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin: 7px auto;
+        }
+
+
+        /* =====================================================
+           COURSES GRID
+        ===================================================== */
+
+        .courses-section {
+
+            padding-bottom: 25px;
+        }
+
+
+        .course-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .course-card {
+
+            background: white;
+
+            border:
+                1px solid #e1e5eb;
+
+            border-radius: 7px;
+
+            padding: 18px;
+
+            min-height: 195px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.035);
+
+            transition: .3s;
+        }
+
+
+        .course-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--gold);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,.09);
+        }
+
+
+        .course-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .course-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 34px;
+        }
+
+
+        .python {
+
+            color: #3776ab;
+        }
+
+
+        .sql {
+
+            color: #1674c4;
+        }
+
+
+        .powerbi {
+
+            color: #e9b000;
+        }
+
+
+        .excel {
+
+            color: #198c57;
+        }
+
+
+        .datascience {
+
+            color: #1684d8;
+        }
+
+
+        .ml {
+
+            color: #7043c2;
+        }
+
+
+        .fullstack {
+
+            color: #24a55b;
+        }
+
+
+        .cyber {
+
+            color: #1d5d9e;
+        }
+
+
+        .course-header h3 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.2;
+        }
+
+
+        .course-card > p {
+
+            color: #4f5868;
+
+            font-size: 9px;
+
+            line-height: 1.55;
+
+            min-height: 43px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .course-meta {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .course-meta span {
+
+            color: #505a69;
+
+            font-size: 8px;
+        }
+
+
+        .course-meta i {
+
+            color: #e7a700;
+
+            margin-right: 5px;
+        }
+
+
+        .details-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            width: 132px;
+
+            padding: 7px 10px;
+
+            border-radius: 4px;
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .details-btn i {
+
+            color: var(--gold);
+        }
+
+
+        .details-btn:hover {
+
+            background: var(--gold);
+
+            color: var(--navy-dark);
+        }
+
+
+        .details-btn:hover i {
+
+            color: var(--navy-dark);
+        }
+
+
+        .view-all {
+
+            text-align: center;
+
+            margin-top: 14px;
+        }
+
+
+        .view-all-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            padding: 8px 25px;
+
+            border-radius: 5px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+
+        .view-all-btn i {
+
+            color: var(--gold);
+        }
+
+
+        /* =====================================================
+           WHY CHOOSE
+        ===================================================== */
+
+        .why-section {
+
+            padding: 18px 0;
+
+        }
+
+
+        .why-box {
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            border-radius: 8px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                repeat(4, 1fr);
+
+            min-height: 105px;
+
+            overflow: hidden;
+        }
+
+
+        .why-intro {
+
+            padding: 18px 25px;
+
+            border-right:
+                1px solid rgba(255,255,255,.2);
+        }
+
+
+        .why-intro span {
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+
+        .why-intro h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 18px;
+
+            margin: 3px 0 6px;
+        }
+
+
+        .why-intro p {
+
+            color: #cbd3de;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        .why-item {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            border-right:
+                1px solid rgba(255,255,255,.2);
+
+            padding: 12px;
+        }
+
+
+        .why-item:last-child {
+
+            border-right: 0;
+        }
+
+
+        .why-item i {
+
+            color: var(--gold);
+
+            font-size: 24px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .why-item strong {
+
+            font-size: 9px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .why-item span {
+
+            color: #cbd3de;
+
+            font-size: 7px;
+        }
+
+
+        /* =====================================================
+           CAREER ROLES
+        ===================================================== */
+
+        .career-section {
+
+            padding: 12px 0 28px;
+        }
+
+
+        .career-title {
+
+            text-align: center;
+
+            margin-bottom: 15px;
+        }
+
+
+        .career-title span {
+
+            color: #d99b00;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+
+        .career-title h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 21px;
+
+            margin-top: 4px;
+        }
+
+
+        .career-title h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 40px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin: 7px auto;
+        }
+
+
+        .career-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(8, 1fr);
+
+            gap: 8px;
+        }
+
+
+        .career-card {
+
+            border:
+                1px solid #e3e6eb;
+
+            border-radius: 6px;
+
+            padding: 14px 7px;
+
+            text-align: center;
+
+            background: white;
+
+            transition: .3s;
+        }
+
+
+        .career-card:hover {
+
+            border-color: var(--gold);
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .career-card i {
+
+            color: #e8a600;
+
+            font-size: 21px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .career-card span {
+
+            display: block;
+
+            font-size: 8px;
+
+            font-weight: 600;
+
+            line-height: 1.35;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            padding: 25px 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            border-top:
+                1px solid var(--gold);
+        }
+
+
+        .cta-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        .cta-icon {
+
+            color: var(--gold);
+
+            font-size: 48px;
+        }
+
+
+        .cta h2 {
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 19px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .cta p {
+
+            color: #d4dbe5;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+        }
+
+
+        .cta-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        .enroll-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            background: var(--gold);
+
+            color: #08162b;
+
+            padding: 11px 25px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .whatsapp {
+
+            color: #9de200;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .whatsapp i {
+
+            font-size: 21px;
+
+            vertical-align: middle;
+
+            margin-right: 5px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #001226;
+
+            color: white;
+
+            padding-top: 30px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr
+                1fr
+                1.2fr
+                1.4fr
+                1.2fr;
+
+            gap: 30px;
+
+            padding-bottom: 28px;
+        }
+
+
+        .footer-brand p {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.6;
+
+            max-width: 230px;
+
+            margin-top: 10px;
+        }
+
+
+        .footer-title {
+
+            font-size: 11px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .footer ul {
+
+            list-style: none;
+        }
+
+
+        .footer li {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .footer li:hover {
+
+            color: var(--gold);
+        }
+
+
+        .contact-line {
+
+            display: flex;
+
+            gap: 8px;
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 9px;
+        }
+
+
+        .contact-line i {
+
+            color: var(--gold);
+
+            width: 14px;
+        }
+
+
+        .newsletter p {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 10px;
+        }
+
+
+        .newsletter-form {
+
+            display: flex;
+
+            border:
+                1px solid #596577;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+        }
+
+
+        .newsletter-form input {
+
+            flex: 1;
+
+            background: transparent;
+
+            border: 0;
+
+            outline: 0;
+
+            padding: 9px;
+
+            color: white;
+
+            font-size: 9px;
+        }
+
+
+        .newsletter-form button {
+
+            width: 38px;
+
+            border: 0;
+
+            background: var(--gold);
+
+            cursor: pointer;
+        }
+
+
+        .socials {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+
+        .socials a {
+
+            width: 27px;
+
+            height: 27px;
+
+            border:
+                1px solid #596577;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            transition: .3s;
+        }
+
+
+        .socials a:hover {
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+            border-color: var(--gold);
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid rgba(255,255,255,.1);
+
+            padding: 13px 0;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #8994a5;
+
+            font-size: 8px;
+        }
+
+
+        .footer-bottom div {
+
+            display: flex;
+
+            gap: 20px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:1100px) {
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+
+            .category-grid {
+
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+
+
+            .course-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+
+            .career-grid {
+
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media(max-width:850px) {
+
+            header {
+
+                height: 65px;
+            }
+
+
+            .nav-menu {
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: var(--navy-dark);
+
+                display: none;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 10px 0;
+            }
+
+
+            .nav-menu.active {
+
+                display: flex;
+            }
+
+
+            .nav-menu a {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 14px;
+            }
+
+
+            .nav-menu a.active::after {
+
+                display: none;
+            }
+
+
+            .login-btn {
+
+                display: none;
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            .hero-inner {
+
+                grid-template-columns: 1fr;
+
+                padding: 25px 0;
+            }
+
+
+            .hero-info {
+
+                margin: 0 auto 20px;
+            }
+
+
+            .why-box {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .why-intro {
+
+                grid-column:
+                    span 2;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width:600px) {
+
+            .container {
+
+                width: 92%;
+            }
+
+
+            .courses-hero {
+
+                min-height: auto;
+            }
+
+
+            .hero-inner {
+
+                min-height: auto;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 39px;
+            }
+
+
+            .hero-features {
+
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 8px;
+            }
+
+
+            .hero-feature {
+
+                width: auto;
+            }
+
+
+            .hero-info {
+
+                width: 100%;
+            }
+
+
+            .category-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .course-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .course-card {
+
+                min-height: auto;
+            }
+
+
+            .why-box {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .why-intro {
+
+                grid-column: auto;
+
+                border-right: 0;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.2);
+            }
+
+
+            .why-item {
+
+                border-right: 0;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.15);
+            }
+
+
+            .career-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .cta {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 25px;
+            }
+
+
+            .cta-actions {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+
+        @media(max-width:400px) {
+
+            .hero-content h1 {
+
+                font-size: 33px;
+            }
+
+
+            .category-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .logo-text h2 {
+
+                font-size: 17px;
+            }
+
+
+            .logo-text span {
+
+                font-size: 9px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <a href="index.html"
+           class="logo">
+
+            <div class="logo-mark">
+                KN
+            </div>
+
+            <div class="logo-text">
+
+                <h2>
+                    KN TECH
+                </h2>
+
+                <span>
+                    INSTITUTE
+                </span>
+
+                <small>
+                    LEARN • INNOVATE • SUCCEED
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <div class="nav-menu"
+             id="navMenu">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a href="courses.html"
+               class="active">
+                Courses
+            </a>
+
+
+            <a href="placements.html">
+                Placements
+            </a>
+
+
+            <a href="project.html">
+                Project
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+        </div>
+
+
+        <a href="login.html"
+           class="login-btn">
+
+            <i class="fa-regular fa-user"></i>
+
+            Login / Register
+
+        </a>
+
+
+        <div class="menu-toggle"
+             id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="courses-hero">
+
+    <div class="container hero-inner">
+
+
+        <div class="hero-content">
+
+
+            <div class="hero-label">
+                OUR COURSES
+            </div>
+
+
+            <h1>
+
+                Learn Skills.
+
+                <span>
+                    Build Your Future.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Industry-oriented training designed to build
+                real-world skills and accelerate your career.
+
+            </p>
+
+
+            <div class="hero-features">
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <span>
+                        Industry<br>
+                        Relevant Curriculum
+                    </span>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                    <span>
+                        Expert<br>
+                        Trainers
+                    </span>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-laptop"></i>
+
+                    <span>
+                        Hands-on<br>
+                        Learning
+                    </span>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-certificate"></i>
+
+                    <span>
+                        Certification<br>
+                        Upon Completion
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDE INFO -->
+
+        <div class="hero-info">
+
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <div>
+
+                    <strong>
+                        200+
+                    </strong>
+
+                    <span>
+                        Courses & Trainings
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fa-rocket fa-solid"></i>
+
+                <div>
+
+                    <strong>
+                        Live Projects
+                    </strong>
+
+                    <span>
+                        Real-time Experience
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-award"></i>
+
+                <div>
+
+                    <strong>
+                        Certificates
+                    </strong>
+
+                    <span>
+                        Boost Your Career
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <div>
+
+                    <strong>
+                        Placement Support
+                    </strong>
+
+                    <span>
+                        Interview & Job Assistance
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
+
+<section class="category-section">
+
+    <div class="container">
+
+
+        <div class="category-title">
+
+            BROWSE COURSES BY CATEGORY
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <button class="category-btn active"
+                    data-category="all">
+
+                <i class="fa-solid fa-border-all"></i>
+
+                All Courses
+
+            </button>
+
+
+            <button class="category-btn"
+                    data-category="programming">
+
+                <i class="fa-solid fa-code"></i>
+
+                Programming
+
+            </button>
+
+
+            <button class="category-btn"
+                    data-category="data">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Data & Analytics
+
+            </button>
+
+
+            <button class="category-btn"
+                    data-category="cloud">
+
+                <i class="fa-solid fa-cloud"></i>
+
+                Cloud Computing
+
+            </button>
+
+
+            <button class="category-btn"
+                    data-category="cyber">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Cyber Security
+
+            </button>
+
+
+            <button class="category-btn"
+                    data-category="ai">
+
+                <i class="fa-solid fa-brain"></i>
+
+                AI / ML
+
+            </button>
+
+
+            <button class="category-btn"
+                    data-category="business">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                Business Tools
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     COURSES
+========================================================= -->
+
+<section class="courses-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span>
+                POPULAR COURSES
+            </span>
+
+            <h2>
+                Explore Our Most In-Demand Courses
+            </h2>
+
+        </div>
+
+
+        <div class="course-grid"
+             id="courseGrid">
+
+
+            <!-- PYTHON -->
+
+            <div class="course-card"
+                 data-category="programming">
+
+                <div class="course-header">
+
+                    <div class="course-icon python">
+
+                        <i class="fa-brands fa-python"></i>
+
+                    </div>
+
+                    <h3>
+                        Python<br>
+                        Programming
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Learn Python from basics to advanced
+                    and build real-world applications.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        3 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Beginner to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SQL -->
+
+            <div class="course-card"
+                 data-category="data">
+
+                <div class="course-header">
+
+                    <div class="course-icon sql">
+
+                        <i class="fa-solid fa-database"></i>
+
+                    </div>
+
+                    <h3>
+                        SQL<br>
+                        Database
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Master SQL queries, database design,
+                    optimization and real-world problem solving.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        2 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Beginner to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- POWER BI -->
+
+            <div class="course-card"
+                 data-category="data">
+
+                <div class="course-header">
+
+                    <div class="course-icon powerbi">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                    </div>
+
+                    <h3>
+                        Power BI
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Create interactive dashboards and powerful
+                    reports using Power BI.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        2 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Beginner to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- EXCEL -->
+
+            <div class="course-card"
+                 data-category="business">
+
+                <div class="course-header">
+
+                    <div class="course-icon excel">
+
+                        <i class="fa-solid fa-file-excel"></i>
+
+                    </div>
+
+                    <h3>
+                        Advanced Excel
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Master formulas, functions, pivot tables,
+                    VBA & data analysis.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        1.5 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Beginner to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- DATA SCIENCE -->
+
+            <div class="course-card"
+                 data-category="data">
+
+                <div class="course-header">
+
+                    <div class="course-icon datascience">
+
+                        <i class="fa-solid fa-atom"></i>
+
+                    </div>
+
+                    <h3>
+                        Data Science
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Learn data analysis, visualization,
+                    statistics, and machine learning basics.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        6 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Beginner to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- MACHINE LEARNING -->
+
+            <div class="course-card"
+                 data-category="ai">
+
+                <div class="course-header">
+
+                    <div class="course-icon ml">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+                    <h3>
+                        Machine<br>
+                        Learning
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Build ML models and solve real-world
+                    problems using Python.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        4 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Intermediate to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- FULL STACK -->
+
+            <div class="course-card"
+                 data-category="programming">
+
+                <div class="course-header">
+
+                    <div class="course-icon fullstack">
+
+                        <i class="fa-solid fa-code"></i>
+
+                    </div>
+
+                    <h3>
+                        Full Stack<br>
+                        Development
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Learn front-end, back-end and database
+                    to build complete web applications.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        6 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Beginner to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- CYBER SECURITY -->
+
+            <div class="course-card"
+                 data-category="cyber">
+
+                <div class="course-header">
+
+                    <div class="course-icon cyber">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <h3>
+                        Cyber Security
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Learn ethical hacking, network security,
+                    tools & real-world security practices.
+
+                </p>
+
+
+                <div class="course-meta">
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        4 Months
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        Intermediate to Advanced
+
+                    </span>
+
+                </div>
+
+
+                <a href="#"
+                   class="details-btn">
+
+                    View Details
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="view-all">
+
+            <a href="#"
+               class="view-all-btn">
+
+                View All Courses
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY CHOOSE
+===================================================== -->
+
+<section class="why-section">
+
+    <div class="container">
+
+
+        <div class="why-box">
+
+
+            <div class="why-intro">
+
+                <span>
+                    WHY CHOOSE
+                </span>
+
+                <h2>
+                    KN TECH INSTITUTE?
+                </h2>
+
+                <p>
+                    We provide quality education with
+                    real-time experience to help you excel
+                    in your career.
+                </p>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <i class="fa-solid fa-user-tie"></i>
+
+                <strong>
+                    Industry Experts
+                </strong>
+
+                <span>
+                    10+ Years Experience
+                </span>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+                <strong>
+                    Live Projects
+                </strong>
+
+                <span>
+                    Real-time Exposure
+                </span>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <i class="fa-solid fa-book"></i>
+
+                <strong>
+                    Updated Curriculum
+                </strong>
+
+                <span>
+                    As per Industry
+                </span>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <i class="fa-solid fa-certificate"></i>
+
+                <strong>
+                    Placement Support
+                </strong>
+
+                <span>
+                    Interview Assistance
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CAREER OPPORTUNITIES
+===================================================== -->
+
+<section class="career-section">
+
+    <div class="container">
+
+
+        <div class="career-title">
+
+            <span>
+                UNLOCK ENDLESS CAREER OPPORTUNITIES
+            </span>
+
+            <h2>
+                Our Courses Open Doors To Top Career Roles
+            </h2>
+
+        </div>
+
+
+        <div class="career-grid">
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>
+                    Data Analyst
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <span>
+                    Business Analyst
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-database"></i>
+
+                <span>
+                    Data Scientist
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <span>
+                    ML Engineer
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-code"></i>
+
+                <span>
+                    Software Developer
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Cyber Security Analyst
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                <span>
+                    BI Developer
+                </span>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <i class="fa-solid fa-user-tie"></i>
+
+                <span>
+                    And Many More...
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+
+    <div class="container"
+         style="display:flex;align-items:center;justify-content:space-between;gap:30px;">
+
+
+        <div class="cta-left">
+
+            <div class="cta-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Ready to Start Your Learning Journey?
+                </h2>
+
+                <p>
+                    Join thousands of students who transformed
+                    their careers with our industry-focused courses.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="cta-actions">
+
+
+            <a href="contact.html"
+               class="enroll-btn">
+
+                Enrol Now
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="https://wa.me/919676630130"
+               target="_blank"
+               class="whatsapp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Chat on WhatsApp
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+
+                <a href="index.html"
+                   class="logo">
+
+
+                    <div class="logo-mark">
+                        KN
+                    </div>
+
+
+                    <div class="logo-text">
+
+                        <h2>
+                            KN TECH
+                        </h2>
+
+                        <span>
+                            INSTITUTE
+                        </span>
+
+                    </div>
+
+
+                </a>
+
+
+                <p>
+
+                    Empowering students with
+                    industry-oriented training and
+                    placement-focused education to
+                    build successful careers.
+
+                </p>
+
+
+                <div class="socials">
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    QUICK LINKS
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            Courses
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="placements.html">
+                            Placements
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="project.html">
+                            Project
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- COURSES -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    POPULAR COURSES
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        Python Programming
+                    </li>
+
+                    <li>
+                        SQL Database
+                    </li>
+
+                    <li>
+                        Power BI
+                    </li>
+
+                    <li>
+                        Data Science
+                    </li>
+
+                    <li>
+                        Machine Learning
+                    </li>
+
+                    <li>
+                        Full Stack Development
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    CONTACT US
+                </h3>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Hyderabad, Telangana - 500010
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <span>
+                        +91 96766 30130
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        info@kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    <span>
+                        www.kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="newsletter">
+
+
+                <h3 class="footer-title">
+                    NEWSLETTER
+                </h3>
+
+
+                <p>
+                    Subscribe to get updates on new
+                    courses, offers and events.
+                </p>
+
+
+                <form class="newsletter-form">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+
+            <span>
+                © 2026 KN Tech Institute.
+                All Rights Reserved.
+            </span>
+
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle("active");
+
+
+            const icon =
+                menuToggle.querySelector("i");
+
+
+            if (
+                navMenu.classList.contains("active")
+            ) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+            }
+
+            else {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE MENU
+    ===================================================== */
+
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    navMenu.classList.remove(
+                        "active"
+                    );
+
+                    const icon =
+                        menuToggle.querySelector("i");
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       COURSE CATEGORY FILTER
+    ===================================================== */
+
+    const categoryButtons =
+        document.querySelectorAll(
+            ".category-btn"
+        );
+
+
+    const courseCards =
+        document.querySelectorAll(
+            ".course-card"
+        );
+
+
+    categoryButtons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+
+                    /* Remove active */
+
+                    categoryButtons.forEach(
+                        function(btn) {
+
+                            btn.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    /* Add active */
+
+                    this.classList.add(
+                        "active"
+                    );
+
+
+                    const category =
+                        this.dataset.category;
+
+
+                    courseCards.forEach(
+                        function(card) {
+
+
+                            if (
+                                category === "all"
+                                ||
+                                card.dataset.category === category
+                            ) {
+
+                                card.style.display =
+                                    "block";
+
+                            }
+
+                            else {
+
+                                card.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
+
+    const newsletter =
+        document.querySelector(
+            ".newsletter-form"
+        );
+
+
+    newsletter.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Thank you for subscribing to KN Tech Institute!"
+            );
+
+
+            newsletter.reset();
+
+        }
+    );
+
+
+    /* =====================================================
+       HEADER SHADOW
+    ===================================================== */
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            const header =
+                document.querySelector(
+                    "header"
+                );
+
+
+            if (
+                window.scrollY > 50
+            ) {
+
+                header.style.boxShadow =
+                    "0 5px 25px rgba(0,0,0,.25)";
+
+            }
+
+            else {
+
+                header.style.boxShadow =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

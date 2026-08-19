@@ -1,0 +1,3555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Placements | KN Tech Institute</title>
+
+    <meta name="description"
+          content="KN Tech Institute placement assistance, career guidance, interview preparation, student success stories and job placement support.">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #10182d;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --navy: #001b3d;
+
+            --navy-dark: #001329;
+
+            --navy-light: #062955;
+
+            --gold: #f7b51b;
+
+            --gold-light: #ffc83d;
+
+            --white: #ffffff;
+
+            --light: #f7f9fc;
+
+            --text: #10182d;
+
+            --muted: #697284;
+
+            --border: #e3e7ed;
+
+            --shadow:
+                0 10px 35px rgba(0, 20, 55, 0.08);
+        }
+
+
+        .container {
+
+            width: min(1200px, 92%);
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            height: 73px;
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 1000;
+
+            border-bottom:
+                1px solid rgba(247,181,27,.35);
+        }
+
+
+        .navbar {
+
+            width: min(1400px, 94%);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .logo-mark {
+
+            width: 48px;
+
+            height: 48px;
+
+            border:
+                2px solid var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-family: Georgia, serif;
+
+            font-size: 21px;
+
+            font-weight: bold;
+        }
+
+
+        .logo-text h2 {
+
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 20px;
+
+            line-height: 1;
+
+            letter-spacing: 1px;
+        }
+
+
+        .logo-text span {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+        }
+
+
+        .logo-text small {
+
+            display: block;
+
+            color: #d8dce4;
+
+            font-size: 7px;
+
+            letter-spacing: 1px;
+
+            margin-top: 3px;
+        }
+
+
+        /* NAVIGATION */
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 34px;
+        }
+
+
+        .nav-menu a {
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            position: relative;
+
+            padding: 27px 0;
+
+            transition: .3s;
+        }
+
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+
+            color: var(--gold);
+        }
+
+
+        .nav-menu a.active::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background: var(--gold);
+        }
+
+
+        .login-btn {
+
+            border:
+                1px solid var(--gold);
+
+            color: var(--gold);
+
+            padding: 10px 19px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .login-btn i {
+
+            margin-right: 7px;
+        }
+
+
+        .login-btn:hover {
+
+            background: var(--gold);
+
+            color: var(--navy-dark);
+        }
+
+
+        .menu-toggle {
+
+            display: none;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .placement-hero {
+
+            min-height: 350px;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,19,45,.99) 0%,
+                    rgba(0,24,50,.93) 35%,
+                    rgba(0,22,45,.55) 68%,
+                    rgba(0,15,30,.25) 100%
+                ),
+
+                url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        .hero-inner {
+
+            min-height: 350px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        .hero-content {
+
+            padding: 25px 0;
+        }
+
+
+        .hero-label {
+
+            color: var(--gold);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+
+        .hero-content h1 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: clamp(42px, 5vw, 57px);
+
+            line-height: 1.05;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero-content h1 span {
+
+            display: block;
+
+            color: var(--gold);
+        }
+
+
+        .hero-description {
+
+            max-width: 510px;
+
+            color: #eef1f5;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* HERO STATS */
+
+        .hero-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            max-width: 500px;
+        }
+
+
+        .hero-stat {
+
+            text-align: center;
+
+            border-right:
+                1px solid rgba(255,255,255,.3);
+
+            padding: 0 12px;
+        }
+
+
+        .hero-stat:first-child {
+
+            padding-left: 0;
+        }
+
+
+        .hero-stat:last-child {
+
+            border-right: 0;
+        }
+
+
+        .hero-stat i {
+
+            color: var(--gold);
+
+            font-size: 25px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .hero-stat strong {
+
+            display: block;
+
+            color: white;
+
+            font-size: 17px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .hero-stat span {
+
+            color: #d3dae4;
+
+            font-size: 8px;
+        }
+
+
+        /* HERO RIGHT */
+
+        .hero-people {
+
+            min-height: 350px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: center;
+
+            position: relative;
+        }
+
+
+        .people-placeholder {
+
+            width: 100%;
+
+            max-width: 550px;
+
+            height: 320px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: center;
+
+            position: relative;
+        }
+
+
+        .person {
+
+            width: 105px;
+
+            height: 245px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #d9dde2,
+                    #777f8a
+                );
+
+            border-radius:
+                55px 55px 15px 15px;
+
+            position: relative;
+
+            margin-left: -15px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.3);
+
+            border:
+                2px solid rgba(255,255,255,.3);
+        }
+
+
+        .person::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 66px;
+
+            height: 66px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #f2c3a1,
+                    #a96947
+                );
+
+            top: -45px;
+
+            left: 18px;
+
+            border:
+                3px solid #fff;
+        }
+
+
+        .person::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 50px;
+
+            height: 22px;
+
+            border-radius: 50%;
+
+            background: #202631;
+
+            top: -49px;
+
+            left: 26px;
+        }
+
+
+        .person:nth-child(2) {
+
+            height: 270px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #3e4652,
+                    #111a28
+                );
+
+            z-index: 3;
+        }
+
+
+        .person:nth-child(3) {
+
+            height: 255px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #b7b0a9,
+                    #615d5a
+                );
+
+            z-index: 4;
+        }
+
+
+        .person:nth-child(4) {
+
+            height: 270px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #313946,
+                    #111725
+                );
+
+            z-index: 3;
+        }
+
+
+        .person:nth-child(5) {
+
+            height: 245px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #d8d6d2,
+                    #77736e
+                );
+
+            z-index: 2;
+        }
+
+
+        /* HERO MISSION CARD */
+
+        .mission-card {
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 15px;
+
+            width: 410px;
+
+            padding: 16px 20px;
+
+            background:
+                rgba(0,20,45,.96);
+
+            border:
+                1px solid var(--gold);
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            z-index: 10;
+        }
+
+
+        .mission-card i {
+
+            color: var(--gold);
+
+            font-size: 37px;
+        }
+
+
+        .mission-card h3 {
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 15px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .mission-card p {
+
+            color: #d7dde6;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           SECTION HEADINGS
+        ===================================================== */
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-heading span {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 14px;
+
+            font-family: "Poppins", sans-serif;
+
+            font-weight: 700;
+        }
+
+
+        .section-heading span::before,
+        .section-heading span::after {
+
+            content: "";
+
+            width: 28px;
+
+            height: 2px;
+
+            background: var(--gold);
+        }
+
+
+        /* =====================================================
+           PLACEMENT HIGHLIGHTS
+        ===================================================== */
+
+        .highlights-section {
+
+            padding: 20px 0 12px;
+        }
+
+
+        .highlights-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .highlight-card {
+
+            border:
+                1px solid #e3e6eb;
+
+            border-radius: 7px;
+
+            padding: 17px 8px;
+
+            text-align: center;
+
+            background: white;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,.04);
+
+            transition: .3s;
+        }
+
+
+        .highlight-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                var(--gold);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .highlight-card i {
+
+            color: var(--navy-dark);
+
+            font-size: 28px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .highlight-card strong {
+
+            display: block;
+
+            font-size: 19px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .highlight-card span {
+
+            font-size: 8px;
+
+            color: #4f5868;
+        }
+
+
+        /* =====================================================
+           STUDENT SUCCESS STORIES
+        ===================================================== */
+
+        .stories-section {
+
+            padding: 12px 0 18px;
+        }
+
+
+        .stories-wrapper {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .story-arrow {
+
+            min-width: 30px;
+
+            height: 30px;
+
+            border:
+                1px solid #e3e7ed;
+
+            background: white;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            color: var(--navy);
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.06);
+
+            z-index: 5;
+        }
+
+
+        .story-container {
+
+            overflow: hidden;
+
+            flex: 1;
+        }
+
+
+        .story-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            transition:
+                transform .4s ease;
+        }
+
+
+        .story-card {
+
+            min-width: 0;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #001e43,
+                    #001329
+                );
+
+            color: white;
+
+            border-radius: 9px;
+
+            padding: 14px;
+
+            min-height: 180px;
+
+            position: relative;
+        }
+
+
+        .student-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .student-avatar {
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            border:
+                2px solid white;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #e2a67f,
+                    #6d412e
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            font-size: 18px;
+        }
+
+
+        .student-info h3 {
+
+            font-size: 12px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .student-info p {
+
+            color: #e1e5eb;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        .package {
+
+            display: inline-block;
+
+            border:
+                1px solid var(--gold);
+
+            color: var(--gold);
+
+            padding: 4px 7px;
+
+            border-radius: 4px;
+
+            font-size: 7px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .story-text {
+
+            color: #e5e9ef;
+
+            font-size: 9px;
+
+            line-height: 1.65;
+
+            padding-left: 12px;
+
+            position: relative;
+        }
+
+
+        .story-text::before {
+
+            content: "“";
+
+            position: absolute;
+
+            left: 0;
+
+            top: -5px;
+
+            color: var(--gold);
+
+            font-size: 23px;
+
+            font-weight: 700;
+        }
+
+
+        .story-text::after {
+
+            content: "”";
+
+            color: var(--gold);
+
+            font-size: 18px;
+
+            margin-left: 2px;
+        }
+
+
+        /* =====================================================
+           STEP BY STEP
+        ===================================================== */
+
+        .guidance-section {
+
+            padding: 15px 0 25px;
+        }
+
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(8, 1fr);
+
+            position: relative;
+
+            gap: 8px;
+        }
+
+
+        .steps::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 38px;
+
+            left: 5%;
+
+            right: 5%;
+
+            height: 2px;
+
+            background:
+                var(--gold);
+
+            z-index: 0;
+        }
+
+
+        .step {
+
+            text-align: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .step-icon {
+
+            width: 58px;
+
+            height: 58px;
+
+            margin: 0 auto 9px;
+
+            border:
+                2px solid var(--gold);
+
+            background:
+                var(--navy-dark);
+
+            color: var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 23px;
+
+            position: relative;
+        }
+
+
+        .step-number {
+
+            position: absolute;
+
+            bottom: -12px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width: 20px;
+
+            height: 20px;
+
+            background: white;
+
+            border:
+                1px solid var(--gold);
+
+            border-radius: 50%;
+
+            color: #dc9e00;
+
+            font-size: 9px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 700;
+        }
+
+
+        .step h3 {
+
+            font-size: 10px;
+
+            line-height: 1.3;
+
+            margin: 15px 0 5px;
+        }
+
+
+        .step p {
+
+            color: #687181;
+
+            font-size: 7px;
+
+            line-height: 1.55;
+        }
+
+
+        /* =====================================================
+           WHY STUDENTS GET PLACED
+        ===================================================== */
+
+        .why-section {
+
+            padding-bottom: 15px;
+        }
+
+
+        .why-placement {
+
+            background:
+                var(--navy-dark);
+
+            color: white;
+
+            border-radius: 8px;
+
+            padding: 18px;
+
+        }
+
+
+        .why-placement h2 {
+
+            text-align: center;
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 18px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .why-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, 1fr);
+        }
+
+
+        .why-item {
+
+            text-align: center;
+
+            padding: 5px 12px;
+
+            border-right:
+                1px solid rgba(255,255,255,.25);
+        }
+
+
+        .why-item:last-child {
+
+            border-right: 0;
+        }
+
+
+        .why-item i {
+
+            color: var(--gold);
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .why-item strong {
+
+            display: block;
+
+            color: white;
+
+            font-size: 9px;
+
+            line-height: 1.4;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .result-cta {
+
+            margin: 0 0 15px;
+
+            background:
+                var(--navy-dark);
+
+            color: white;
+
+            border-radius: 8px;
+
+            padding: 22px 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        .result-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        .trophy {
+
+            color: var(--gold);
+
+            font-size: 60px;
+        }
+
+
+        .result-left h2 {
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 20px;
+
+            line-height: 1.15;
+
+            margin-bottom: 5px;
+        }
+
+
+        .result-left p {
+
+            color: #d5dce5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+        }
+
+
+        .result-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .enquire-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 11px 25px;
+
+            border-radius: 5px;
+
+            background: var(--gold);
+
+            color: #07162c;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .whatsapp-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #9ee300;
+
+            border:
+                1px solid #71808d;
+
+            padding: 9px 17px;
+
+            border-radius: 5px;
+
+            font-size: 10px;
+
+            font-weight: 600;
+        }
+
+
+        .whatsapp-btn i {
+
+            font-size: 21px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #001226;
+
+            color: white;
+
+            padding-top: 30px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr
+                1fr
+                1.2fr
+                1.4fr
+                1.2fr;
+
+            gap: 30px;
+
+            padding-bottom: 28px;
+        }
+
+
+        .footer-brand p {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.6;
+
+            max-width: 230px;
+
+            margin-top: 10px;
+        }
+
+
+        .footer-title {
+
+            font-size: 11px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .footer ul {
+
+            list-style: none;
+        }
+
+
+        .footer li {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .footer li:hover {
+
+            color: var(--gold);
+        }
+
+
+        .contact-line {
+
+            display: flex;
+
+            gap: 8px;
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 9px;
+        }
+
+
+        .contact-line i {
+
+            color: var(--gold);
+
+            width: 14px;
+        }
+
+
+        .newsletter p {
+
+            color: #aeb7c5;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 10px;
+        }
+
+
+        .newsletter-form {
+
+            display: flex;
+
+            border:
+                1px solid #596577;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+        }
+
+
+        .newsletter-form input {
+
+            flex: 1;
+
+            background: transparent;
+
+            border: 0;
+
+            outline: 0;
+
+            padding: 9px;
+
+            color: white;
+
+            font-size: 9px;
+        }
+
+
+        .newsletter-form button {
+
+            width: 38px;
+
+            border: 0;
+
+            background: var(--gold);
+
+            cursor: pointer;
+        }
+
+
+        .socials {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+
+        .socials a {
+
+            width: 27px;
+
+            height: 27px;
+
+            border:
+                1px solid #596577;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            transition: .3s;
+        }
+
+
+        .socials a:hover {
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+            border-color: var(--gold);
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid rgba(255,255,255,.1);
+
+            padding: 13px 0;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #8994a5;
+
+            font-size: 8px;
+        }
+
+
+        .footer-bottom div {
+
+            display: flex;
+
+            gap: 20px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:1100px) {
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+
+            .highlights-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+
+            .story-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .steps {
+
+                grid-template-columns:
+                    repeat(4, 1fr);
+
+                row-gap: 30px;
+            }
+
+
+            .steps::before {
+
+                display: none;
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+
+            .why-item:nth-child(3) {
+
+                border-right: 0;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media(max-width:850px) {
+
+            header {
+
+                height: 65px;
+            }
+
+
+            .nav-menu {
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: var(--navy-dark);
+
+                display: none;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 10px 0;
+            }
+
+
+            .nav-menu.active {
+
+                display: flex;
+            }
+
+
+            .nav-menu a {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 14px;
+            }
+
+
+            .nav-menu a.active::after {
+
+                display: none;
+            }
+
+
+            .login-btn {
+
+                display: none;
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            .hero-inner {
+
+                grid-template-columns:
+                    1fr;
+
+                padding: 25px 0;
+            }
+
+
+            .placement-hero {
+
+                min-height: auto;
+            }
+
+
+            .hero-people {
+
+                min-height: 330px;
+            }
+
+
+            .mission-card {
+
+                left: 50%;
+
+                right: auto;
+
+                transform:
+                    translateX(-50%);
+
+                width: 90%;
+            }
+
+
+            .result-cta {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width:600px) {
+
+            .container {
+
+                width: 92%;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 39px;
+            }
+
+
+            .hero-stats {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                row-gap: 15px;
+            }
+
+
+            .hero-stat:nth-child(2) {
+
+                border-right: 0;
+            }
+
+
+            .hero-stat:nth-child(3) {
+
+                padding-left: 0;
+            }
+
+
+            .hero-people {
+
+                display: none;
+            }
+
+
+            .highlights-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .story-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .story-arrow {
+
+                display: none;
+            }
+
+
+            .steps {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                row-gap: 35px;
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .why-item {
+
+                border-right: 0;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.2);
+            }
+
+
+            .why-placement h2 {
+
+                font-size: 16px;
+            }
+
+
+            .result-cta {
+
+                padding: 25px;
+            }
+
+
+            .result-actions {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+
+        @media(max-width:400px) {
+
+            .hero-content h1 {
+
+                font-size: 33px;
+            }
+
+
+            .logo-text h2 {
+
+                font-size: 17px;
+            }
+
+
+            .logo-text span {
+
+                font-size: 9px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <a href="index.html"
+           class="logo">
+
+            <div class="logo-mark">
+                KN
+            </div>
+
+            <div class="logo-text">
+
+                <h2>
+                    KN TECH
+                </h2>
+
+                <span>
+                    INSTITUTE
+                </span>
+
+                <small>
+                    LEARN • INNOVATE • SUCCEED
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <div class="nav-menu"
+             id="navMenu">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a href="courses.html">
+                Courses
+            </a>
+
+
+            <a href="placements.html"
+               class="active">
+                Placements
+            </a>
+
+
+            <a href="project.html">
+                Project
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+        </div>
+
+
+        <a href="login.html"
+           class="login-btn">
+
+            <i class="fa-regular fa-user"></i>
+
+            Login / Register
+
+        </a>
+
+
+        <div class="menu-toggle"
+             id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     PLACEMENT HERO
+========================================================= -->
+
+<section class="placement-hero">
+
+    <div class="container hero-inner">
+
+
+        <!-- LEFT -->
+
+        <div class="hero-content">
+
+
+            <div class="hero-label">
+                PLACEMENTS
+            </div>
+
+
+            <h1>
+
+                Your Dream Career
+
+                <span>
+                    Starts Here
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                At KN Tech Institute, we don't just teach –
+                we prepare you for real-world success.
+                Join thousands of our students who are
+                building amazing careers with top companies.
+
+            </p>
+
+
+            <div class="hero-stats">
+
+
+                <div class="hero-stat">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <strong
+                        class="counter"
+                        data-target="5000">
+                        5000+
+                    </strong>
+
+                    <span>
+                        Students Placed
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <strong
+                        class="counter"
+                        data-target="300">
+                        300+
+                    </strong>
+
+                    <span>
+                        Hiring Partners
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <strong>
+                        95%
+                    </strong>
+
+                    <span>
+                        Placement Rate
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    <strong>
+                        4.8 LPA
+                    </strong>
+
+                    <span>
+                        Average Package
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="hero-people">
+
+
+            <div class="people-placeholder">
+
+                <div class="person"></div>
+
+                <div class="person"></div>
+
+                <div class="person"></div>
+
+                <div class="person"></div>
+
+                <div class="person"></div>
+
+
+                <div class="mission-card">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <div>
+
+                        <h3>
+                            Our Mission is to See You Succeed
+                        </h3>
+
+                        <p>
+                            From learning to earning –
+                            we're with you at every step.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PLACEMENT HIGHLIGHTS
+========================================================= -->
+
+<section class="highlights-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>
+                PLACEMENT HIGHLIGHTS
+            </span>
+
+        </div>
+
+
+        <div class="highlights-grid">
+
+
+            <div class="highlight-card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <strong>
+                    5000+
+                </strong>
+
+                <span>
+                    Students Placed
+                </span>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <strong>
+                    200+
+                </strong>
+
+                <span>
+                    Batches Completed
+                </span>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <i class="fa-solid fa-building"></i>
+
+                <strong>
+                    300+
+                </strong>
+
+                <span>
+                    Recruiting Partners
+                </span>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <i class="fa-solid fa-trophy"></i>
+
+                <strong>
+                    95%
+                </strong>
+
+                <span>
+                    Placement Rate
+                </span>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <strong>
+                    4.8 LPA
+                </strong>
+
+                <span>
+                    Average Package
+                </span>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                <strong>
+                    18 LPA
+                </strong>
+
+                <span>
+                    Highest Package
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STUDENT SUCCESS STORIES
+========================================================= -->
+
+<section class="stories-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>
+                STUDENT SUCCESS STORIES
+            </span>
+
+        </div>
+
+
+        <div class="stories-wrapper">
+
+
+            <button class="story-arrow"
+                    id="prevStory">
+
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </button>
+
+
+            <div class="story-container">
+
+                <div class="story-grid"
+                     id="storyGrid">
+
+
+                    <!-- STORY 1 -->
+
+                    <div class="story-card">
+
+                        <div class="student-info">
+
+                            <div class="student-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Rohit Sharma
+                                </h3>
+
+                                <p>
+                                    Data Analyst<br>
+                                    TCS
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="package">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Package: 7.2 LPA
+
+                        </div>
+
+
+                        <p class="story-text">
+
+                            KN Tech Institute transformed my
+                            skills and confidence. The training
+                            and placement support is excellent.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- STORY 2 -->
+
+                    <div class="story-card">
+
+                        <div class="student-info">
+
+                            <div class="student-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Sneha Patil
+                                </h3>
+
+                                <p>
+                                    Data Engineer<br>
+                                    Infosys
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="package">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Package: 8.5 LPA
+
+                        </div>
+
+
+                        <p class="story-text">
+
+                            The trainers are amazing and the
+                            real-time projects helped me crack
+                            interviews with confidence.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- STORY 3 -->
+
+                    <div class="story-card">
+
+                        <div class="student-info">
+
+                            <div class="student-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Karan Verma
+                                </h3>
+
+                                <p>
+                                    Software Developer<br>
+                                    Capgemini
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="package">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Package: 6.5 LPA
+
+                        </div>
+
+
+                        <p class="story-text">
+
+                            From basics to placement, KN Tech
+                            supported me throughout my journey.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- STORY 4 -->
+
+                    <div class="story-card">
+
+                        <div class="student-info">
+
+                            <div class="student-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Pooja Nair
+                                </h3>
+
+                                <p>
+                                    Business Analyst<br>
+                                    Deloitte
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="package">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Package: 6.0 LPA
+
+                        </div>
+
+
+                        <p class="story-text">
+
+                            Great learning experience and
+                            excellent placement opportunities.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <button class="story-arrow"
+                    id="nextStory">
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STEP-BY-STEP GUIDANCE
+========================================================= -->
+
+<section class="guidance-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>
+                STEP-BY-STEP GUIDANCE TO GET YOUR DREAM JOB
+            </span>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-clipboard-check"></i>
+
+                    <span class="step-number">
+                        1
+                    </span>
+
+                </div>
+
+                <h3>
+                    Career<br>
+                    Counselling
+                </h3>
+
+                <p>
+                    Understand your strengths and choose
+                    the right career path.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                    <span class="step-number">
+                        2
+                    </span>
+
+                </div>
+
+                <h3>
+                    Skill Building<br>
+                    & Training
+                </h3>
+
+                <p>
+                    Learn industry-relevant skills with
+                    hands-on training and projects.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <span class="step-number">
+                        3
+                    </span>
+
+                </div>
+
+                <h3>
+                    Live Projects<br>
+                    & Practice
+                </h3>
+
+                <p>
+                    Work on real-time projects to gain
+                    practical experience.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-file-circle-check"></i>
+
+                    <span class="step-number">
+                        4
+                    </span>
+
+                </div>
+
+                <h3>
+                    Resume Building<br>
+                    & Profile Prep
+                </h3>
+
+                <p>
+                    Create a professional resume and
+                    optimize your LinkedIn profile.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-people-arrows"></i>
+
+                    <span class="step-number">
+                        5
+                    </span>
+
+                </div>
+
+                <h3>
+                    Mock Interviews<br>
+                    & Aptitude
+                </h3>
+
+                <p>
+                    Attend mock interviews and aptitude
+                    tests to improve confidence.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 6 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span class="step-number">
+                        6
+                    </span>
+
+                </div>
+
+                <h3>
+                    Company<br>
+                    Shortlisting
+                </h3>
+
+                <p>
+                    We match your profile with the
+                    right job opportunities.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 7 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-user-group"></i>
+
+                    <span class="step-number">
+                        7
+                    </span>
+
+                </div>
+
+                <h3>
+                    Placement Drives<br>
+                    & Interviews
+                </h3>
+
+                <p>
+                    Get opportunities in top companies
+                    through placement drives.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 8 -->
+
+            <div class="step">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <span class="step-number">
+                        8
+                    </span>
+
+                </div>
+
+                <h3>
+                    Job Offer &<br>
+                    Career Support
+                </h3>
+
+                <p>
+                    Receive job offers and continued
+                    career support even after placement.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY STUDENTS GET PLACED
+========================================================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+
+        <div class="why-placement">
+
+
+            <h2>
+                WHY STUDENTS GET PLACED AT KN TECH
+            </h2>
+
+
+            <div class="why-grid">
+
+
+                <div class="why-item">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <strong>
+                        Industry-Relevant<br>
+                        Curriculum
+                    </strong>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <strong>
+                        Expert Trainers<br>
+                        with Industry Experience
+                    </strong>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <strong>
+                        Hands-on Projects<br>
+                        & Practical Learning
+                    </strong>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <strong>
+                        Personality Development<br>
+                        & Soft Skills
+                    </strong>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <i class="fa-solid fa-certificate"></i>
+
+                    <strong>
+                        Strong Aptitude<br>
+                        & Technical Training
+                    </strong>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <i class="fa-solid fa-comments"></i>
+
+                    <strong>
+                        100% Placement<br>
+                        Assistance
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RESULT CTA
+========================================================= -->
+
+<section class="container">
+
+    <div class="result-cta">
+
+
+        <div class="result-left">
+
+
+            <div class="trophy">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    We Don't Just Promise,<br>
+                    We Deliver Results!
+                </h2>
+
+                <p>
+                    Join KN Tech Institute today and let us help
+                    you achieve your dream career.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="result-actions">
+
+
+            <a href="contact.html"
+               class="enquire-btn">
+
+                Enquire Now
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="https://wa.me/919676630130"
+               target="_blank"
+               class="whatsapp-btn">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Chat on WhatsApp
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+
+                <a href="index.html"
+                   class="logo">
+
+
+                    <div class="logo-mark">
+                        KN
+                    </div>
+
+
+                    <div class="logo-text">
+
+                        <h2>
+                            KN TECH
+                        </h2>
+
+                        <span>
+                            INSTITUTE
+                        </span>
+
+                    </div>
+
+
+                </a>
+
+
+                <p>
+
+                    Empowering students with
+                    industry-oriented training and
+                    placement-focused education to
+                    build successful careers.
+
+                </p>
+
+
+                <div class="socials">
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    QUICK LINKS
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            Courses
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="placements.html"
+                           style="color:#f7b51b;">
+                            Placements
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="project.html">
+                            Project
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- POPULAR COURSES -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    POPULAR COURSES
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        Python Programming
+                    </li>
+
+                    <li>
+                        SQL Database
+                    </li>
+
+                    <li>
+                        Power BI
+                    </li>
+
+                    <li>
+                        Data Science
+                    </li>
+
+                    <li>
+                        Machine Learning
+                    </li>
+
+                    <li>
+                        Full Stack Development
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    CONTACT US
+                </h3>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        123, Tech Park, Madhapur,
+                        Hyderabad, Telangana - 500081
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <span>
+                        +91 78425 60506
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        info@kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    <span>
+                        www.kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="newsletter">
+
+
+                <h3 class="footer-title">
+                    NEWSLETTER
+                </h3>
+
+
+                <p>
+                    Subscribe to get updates on new
+                    courses, offers and events.
+                </p>
+
+
+                <form class="newsletter-form">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+
+            <span>
+                © 2026 KN Tech Institute.
+                All Rights Reserved.
+            </span>
+
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle("active");
+
+
+            const icon =
+                menuToggle.querySelector("i");
+
+
+            if (
+                navMenu.classList.contains("active")
+            ) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+            } else {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU
+    ===================================================== */
+
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    navMenu.classList.remove(
+                        "active"
+                    );
+
+                    const icon =
+                        menuToggle.querySelector("i");
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+            );
+
+        });
+
+
+
+    /* =====================================================
+       STUDENT STORY SLIDER
+    ===================================================== */
+
+    const storyGrid =
+        document.getElementById("storyGrid");
+
+    const prevStory =
+        document.getElementById("prevStory");
+
+    const nextStory =
+        document.getElementById("nextStory");
+
+
+    let storyPosition = 0;
+
+
+    nextStory.addEventListener(
+        "click",
+        function() {
+
+            storyPosition++;
+
+            if (storyPosition > 1) {
+
+                storyPosition = 0;
+
+            }
+
+            updateStories();
+
+        }
+    );
+
+
+    prevStory.addEventListener(
+        "click",
+        function() {
+
+            storyPosition--;
+
+            if (storyPosition < 0) {
+
+                storyPosition = 1;
+
+            }
+
+            updateStories();
+
+        }
+    );
+
+
+    function updateStories() {
+
+        const width =
+            storyGrid.parentElement.offsetWidth;
+
+        if (window.innerWidth <= 1100) {
+
+            storyGrid.style.transform =
+                `translateX(-${storyPosition * 100}%)`;
+
+        } else {
+
+            storyGrid.style.transform =
+                "translateX(0)";
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
+
+    const newsletter =
+        document.querySelector(
+            ".newsletter-form"
+        );
+
+
+    newsletter.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for subscribing to KN Tech Institute!"
+            );
+
+            newsletter.reset();
+
+        }
+    );
+
+
+
+    /* =====================================================
+       HEADER SHADOW
+    ===================================================== */
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            const header =
+                document.querySelector("header");
+
+
+            if (window.scrollY > 50) {
+
+                header.style.boxShadow =
+                    "0 5px 25px rgba(0,0,0,.25)";
+
+            } else {
+
+                header.style.boxShadow =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

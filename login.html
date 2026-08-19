@@ -1,0 +1,4105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login / Register | KN Tech Institute</title>
+
+    <meta name="description"
+          content="Login or register at KN Tech Institute to access courses, projects, learning resources and career support.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #020d1c;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+
+        :root {
+
+            --navy-dark: #020b18;
+
+            --navy: #03152b;
+
+            --navy-light: #0a2143;
+
+            --gold: #f7b51b;
+
+            --gold-light: #ffc83d;
+
+            --white: #ffffff;
+
+            --muted: #b9c2cf;
+
+            --border: rgba(255,255,255,.25);
+
+        }
+
+
+        .container {
+
+            width: min(1200px, 92%);
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            height: 74px;
+
+            background: #020b18;
+
+            border-bottom:
+                1px solid rgba(247,181,27,.3);
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 1000;
+
+        }
+
+
+        .navbar {
+
+            width: min(1400px, 94%);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .logo-symbol {
+
+            width: 49px;
+
+            height: 49px;
+
+            border: 2px solid var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 0 15px rgba(247,181,27,.15);
+
+        }
+
+
+        .logo-text h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 20px;
+
+            line-height: 1;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .logo-text span {
+
+            display: block;
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+
+            margin-top: 3px;
+
+        }
+
+
+        .logo-text small {
+
+            display: block;
+
+            font-size: 6px;
+
+            letter-spacing: 1px;
+
+            color: #c6ced9;
+
+            margin-top: 2px;
+
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 36px;
+
+        }
+
+
+        .nav-menu a {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+            transition: .3s;
+
+        }
+
+
+        .nav-menu a:hover {
+
+            color: var(--gold);
+
+        }
+
+
+        .login-nav {
+
+            border:
+                1px solid var(--gold);
+
+            color: var(--gold) !important;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+        }
+
+
+        .login-nav:hover {
+
+            background: var(--gold);
+
+            color: #06152a !important;
+
+        }
+
+
+        .login-nav i {
+
+            margin-right: 7px;
+
+        }
+
+
+        .menu-toggle {
+
+            display: none;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .login-hero {
+
+            min-height: 295px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 60% 50%,
+                    rgba(8,65,120,.35),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(18,77,145,.25),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    110deg,
+                    #020b18,
+                    #03152b 55%,
+                    #020b18
+                );
+
+        }
+
+
+        .login-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            right: -150px;
+
+            top: -200px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(0,120,255,.12);
+
+        }
+
+
+        .hero-inner {
+
+            min-height: 295px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .hero-content {
+
+            padding: 20px 0;
+
+        }
+
+
+        .hero-content h1 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 38px;
+
+            line-height: 1.1;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .hero-content h2 {
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .hero-content p {
+
+            color: #d0d8e4;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+
+            max-width: 540px;
+
+        }
+
+
+        /* =====================================================
+           HERO FEATURES
+        ===================================================== */
+
+        .hero-features {
+
+            display: flex;
+
+            margin-top: 23px;
+
+            max-width: 550px;
+
+        }
+
+
+        .hero-feature {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding-right: 25px;
+
+            margin-right: 20px;
+
+            border-right:
+                1px solid rgba(255,255,255,.2);
+
+        }
+
+
+        .hero-feature:last-child {
+
+            border-right: 0;
+
+            margin-right: 0;
+
+        }
+
+
+        .hero-feature i {
+
+            color: var(--gold);
+
+            font-size: 24px;
+
+        }
+
+
+        .hero-feature strong {
+
+            display: block;
+
+            font-size: 10px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .hero-feature span {
+
+            color: #bfc8d4;
+
+            font-size: 8px;
+
+        }
+
+
+        /* =====================================================
+           HERO LAPTOP
+        ===================================================== */
+
+        .hero-visual {
+
+            height: 295px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .laptop {
+
+            width: 460px;
+
+            height: 245px;
+
+            position: relative;
+
+            transform:
+                perspective(800px)
+                rotateY(-7deg)
+                rotateX(2deg);
+
+        }
+
+
+        .laptop-screen {
+
+            position: absolute;
+
+            left: 30px;
+
+            top: 12px;
+
+            width: 400px;
+
+            height: 215px;
+
+            border-radius: 13px;
+
+            border:
+                5px solid #27364a;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d2344,
+                    #020c1b
+                );
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.55);
+
+            overflow: hidden;
+
+        }
+
+
+        .screen-header {
+
+            height: 27px;
+
+            background: #071a34;
+
+            border-bottom:
+                1px solid #27436a;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 12px;
+
+            gap: 7px;
+
+        }
+
+
+        .screen-dot {
+
+            width: 5px;
+
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #647892;
+
+        }
+
+
+        .screen-body {
+
+            display: flex;
+
+            height: calc(100% - 27px);
+
+        }
+
+
+        .screen-sidebar {
+
+            width: 80px;
+
+            background: #06152b;
+
+            padding: 15px 7px;
+
+        }
+
+
+        .side-line {
+
+            height: 7px;
+
+            background: #223b5d;
+
+            border-radius: 3px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .side-line.active {
+
+            background: var(--gold);
+
+        }
+
+
+        .screen-dashboard {
+
+            flex: 1;
+
+            padding: 15px;
+
+        }
+
+
+        .dash-title {
+
+            width: 120px;
+
+            height: 10px;
+
+            background: white;
+
+            border-radius: 3px;
+
+            opacity: .9;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .dash-cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 8px;
+
+        }
+
+
+        .dash-card {
+
+            height: 45px;
+
+            border-radius: 5px;
+
+            background: #102c53;
+
+            border:
+                1px solid #284b79;
+
+            padding: 8px;
+
+        }
+
+
+        .dash-card span {
+
+            display: block;
+
+            width: 30px;
+
+            height: 5px;
+
+            background: #899bb3;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .dash-card strong {
+
+            color: var(--gold);
+
+            font-size: 9px;
+
+        }
+
+
+        .chart {
+
+            margin-top: 13px;
+
+            height: 70px;
+
+            border-radius: 6px;
+
+            background:
+                linear-gradient(
+                    to top,
+                    #0b2547,
+                    #0d315c
+                );
+
+            position: relative;
+
+        }
+
+
+        .chart::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 85%;
+
+            height: 50%;
+
+            left: 8%;
+
+            bottom: 15%;
+
+            border-top:
+                2px solid var(--gold);
+
+            transform:
+                skewY(-12deg);
+
+        }
+
+
+        .laptop-base {
+
+            position: absolute;
+
+            bottom: -3px;
+
+            left: 0;
+
+            width: 460px;
+
+            height: 26px;
+
+            background:
+                linear-gradient(
+                    #4e6075,
+                    #182637
+                );
+
+            clip-path:
+                polygon(
+                    8% 0,
+                    92% 0,
+                    100% 100%,
+                    0 100%
+                );
+
+            border-radius: 0 0 20px 20px;
+
+        }
+
+
+        .books {
+
+            position: absolute;
+
+            right: -35px;
+
+            bottom: 18px;
+
+            width: 105px;
+
+            height: 70px;
+
+        }
+
+
+        .book {
+
+            height: 16px;
+
+            border-radius: 2px;
+
+            position: absolute;
+
+            right: 0;
+
+            width: 105px;
+
+        }
+
+
+        .book:nth-child(1) {
+
+            bottom: 0;
+
+            background: #9aa8ba;
+
+        }
+
+
+        .book:nth-child(2) {
+
+            bottom: 16px;
+
+            width: 95px;
+
+            background: #d4d9df;
+
+        }
+
+
+        .book:nth-child(3) {
+
+            bottom: 32px;
+
+            width: 82px;
+
+            background: #667b98;
+
+        }
+
+
+        .cap {
+
+            position: absolute;
+
+            right: 55px;
+
+            top: 3px;
+
+            width: 100px;
+
+            height: 50px;
+
+            transform: rotate(-8deg);
+
+        }
+
+
+        .cap-top {
+
+            position: absolute;
+
+            width: 90px;
+
+            height: 40px;
+
+            background: #16263d;
+
+            transform:
+                rotate(45deg)
+                skew(-10deg);
+
+            border:
+                1px solid #3d506b;
+
+        }
+
+
+        .cap-tassel {
+
+            position: absolute;
+
+            width: 4px;
+
+            height: 60px;
+
+            background: var(--gold);
+
+            right: 4px;
+
+            top: 12px;
+
+            transform: rotate(-20deg);
+
+        }
+
+
+        .cap-tassel::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 13px;
+
+            height: 15px;
+
+            background: var(--gold);
+
+            bottom: -5px;
+
+            left: -5px;
+
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 0,
+                    75% 100%,
+                    50% 70%,
+                    25% 100%
+                );
+
+        }
+
+
+        /* =====================================================
+           AUTH AREA
+        ===================================================== */
+
+        .auth-section {
+
+            padding: 25px 0 25px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #020d1c,
+                    #031224
+                );
+
+        }
+
+
+        .auth-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.18fr;
+
+            gap: 22px;
+
+        }
+
+
+        .auth-card {
+
+            border:
+                1px solid rgba(255,255,255,.3);
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(4,21,39,.97),
+                    rgba(2,14,27,.98)
+                );
+
+            padding: 23px;
+
+            min-height: 520px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.2);
+
+        }
+
+
+        .register-card {
+
+            border-color:
+                rgba(135,93,230,.7);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #08183d,
+                    #061126
+                );
+
+        }
+
+
+        /* =====================================================
+           AUTH HEADER
+        ===================================================== */
+
+        .auth-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .auth-icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            border:
+                1px solid var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-size: 23px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .register-card .auth-icon {
+
+            border-color: #7865df;
+
+            background:
+                rgba(103,82,210,.25);
+
+            color: #b3a9ff;
+
+        }
+
+
+        .auth-header h2 {
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 19px;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .auth-header p {
+
+            font-size: 9px;
+
+            color: #c2ccd9;
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .input-wrapper i {
+
+            position: absolute;
+
+            left: 12px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #aeb9c8;
+
+            font-size: 13px;
+
+            pointer-events: none;
+
+        }
+
+
+        .input-wrapper input,
+        .input-wrapper select {
+
+            width: 100%;
+
+            height: 40px;
+
+            padding:
+                0 38px;
+
+            border:
+                1px solid #526071;
+
+            border-radius: 5px;
+
+            background:
+                rgba(0,0,0,.15);
+
+            color: white;
+
+            outline: none;
+
+            font-size: 10px;
+
+            transition: .3s;
+
+        }
+
+
+        .input-wrapper select {
+
+            appearance: none;
+
+        }
+
+
+        .input-wrapper input::placeholder {
+
+            color: #9ba7b7;
+
+        }
+
+
+        .input-wrapper input:focus,
+        .input-wrapper select:focus {
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 0 0 3px rgba(247,181,27,.08);
+
+        }
+
+
+        .register-card .input-wrapper input:focus,
+        .register-card .input-wrapper select:focus {
+
+            border-color: #8d7cf0;
+
+            box-shadow:
+                0 0 0 3px rgba(141,124,240,.1);
+
+        }
+
+
+        .toggle-password {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #aeb9c8;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+        }
+
+
+        /* REGISTER TWO COLUMNS */
+
+        .register-form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 0 15px;
+
+        }
+
+
+        /* =====================================================
+           REMEMBER
+        ===================================================== */
+
+        .form-options {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin: 5px 0 18px;
+
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 9px;
+
+            color: #c8d0db;
+
+        }
+
+
+        .remember input,
+        .terms input {
+
+            width: 17px;
+
+            height: 17px;
+
+            accent-color: var(--gold);
+
+        }
+
+
+        .forgot {
+
+            color: var(--gold);
+
+            font-size: 9px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           TERMS
+        ===================================================== */
+
+        .terms {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            color: #c5cfdb;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+
+            margin: 4px 0 17px;
+
+        }
+
+
+        .terms a {
+
+            color: var(--gold);
+
+        }
+
+
+        /* =====================================================
+           MAIN BUTTON
+        ===================================================== */
+
+        .main-btn {
+
+            width: 100%;
+
+            height: 40px;
+
+            border: 0;
+
+            border-radius: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #f5ad16,
+                    #ffc43a
+                );
+
+            color: #07162b;
+
+            font-weight: 800;
+
+            font-size: 10px;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .main-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(247,181,27,.18);
+
+        }
+
+
+        .main-btn i {
+
+            margin-left: 10px;
+
+        }
+
+
+        /* =====================================================
+           DIVIDER
+        ===================================================== */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 19px 0 13px;
+
+            color: #d2d8e1;
+
+            font-size: 9px;
+
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                rgba(255,255,255,.16);
+
+        }
+
+
+        /* =====================================================
+           SOCIAL LOGIN
+        ===================================================== */
+
+        .social-login {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .social-btn {
+
+            height: 40px;
+
+            border:
+                1px solid #536173;
+
+            background:
+                rgba(255,255,255,.02);
+
+            color: white;
+
+            border-radius: 5px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            font-size: 9px;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .social-btn:hover {
+
+            border-color: var(--gold);
+
+            background:
+                rgba(247,181,27,.05);
+
+        }
+
+
+        .google {
+
+            color: white;
+
+        }
+
+
+        .google i {
+
+            color: #4285f4;
+
+        }
+
+
+        .microsoft i {
+
+            color: #00a4ef;
+
+        }
+
+
+        .linkedin i {
+
+            color: #0a66c2;
+
+        }
+
+
+        /* =====================================================
+           SWITCH
+        ===================================================== */
+
+        .switch-auth {
+
+            text-align: center;
+
+            font-size: 10px;
+
+            margin-top: 19px;
+
+            color: #d1d8e1;
+
+        }
+
+
+        .switch-auth button {
+
+            background: none;
+
+            border: 0;
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            margin-left: 5px;
+
+        }
+
+
+        /* =====================================================
+           WHY JOIN
+        ===================================================== */
+
+        .benefits-section {
+
+            background:
+                #031224;
+
+            padding:
+                0 0 28px;
+
+        }
+
+
+        .benefits {
+
+            border:
+                1px solid rgba(255,255,255,.22);
+
+            border-radius: 9px;
+
+            padding: 20px;
+
+        }
+
+
+        .benefits-title {
+
+            text-align: center;
+
+            color: var(--gold);
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 18px;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .benefit-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(6,1fr);
+
+        }
+
+
+        .benefit {
+
+            min-height: 75px;
+
+            padding:
+                0 17px;
+
+            border-right:
+                1px solid rgba(255,255,255,.2);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .benefit:last-child {
+
+            border-right: 0;
+
+        }
+
+
+        .benefit i {
+
+            color: var(--gold);
+
+            font-size: 25px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .benefit h3 {
+
+            font-size: 9px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .benefit p {
+
+            color: #aeb9c8;
+
+            font-size: 7px;
+
+            line-height: 1.45;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #020b18;
+
+            border-top:
+                1px solid rgba(255,255,255,.15);
+
+        }
+
+
+        .footer-main {
+
+            padding:
+                28px 0 20px;
+
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr
+                .9fr
+                1.1fr
+                1.3fr
+                1.1fr;
+
+            gap: 28px;
+
+        }
+
+
+        .footer-brand p {
+
+            color: #aeb8c6;
+
+            font-size: 9px;
+
+            line-height: 1.65;
+
+            max-width: 230px;
+
+            margin-top: 11px;
+
+        }
+
+
+        .footer-title {
+
+            font-size: 11px;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .footer ul {
+
+            list-style: none;
+
+        }
+
+
+        .footer li {
+
+            color: #aeb8c6;
+
+            font-size: 9px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .footer li a:hover {
+
+            color: var(--gold);
+
+        }
+
+
+        .footer-contact {
+
+            display: flex;
+
+            gap: 8px;
+
+            color: #aeb8c6;
+
+            font-size: 8px;
+
+            line-height: 1.6;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .footer-contact i {
+
+            color: var(--gold);
+
+            width: 14px;
+
+        }
+
+
+        .newsletter p {
+
+            color: #aeb8c6;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .newsletter-form {
+
+            height: 35px;
+
+            display: flex;
+
+            border:
+                1px solid #536173;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+
+        }
+
+
+        .newsletter-form input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            border: 0;
+
+            outline: 0;
+
+            background: transparent;
+
+            color: white;
+
+            padding: 0 9px;
+
+            font-size: 8px;
+
+        }
+
+
+        .newsletter-form button {
+
+            width: 38px;
+
+            border: 0;
+
+            background: transparent;
+
+            color: var(--gold);
+
+            cursor: pointer;
+
+        }
+
+
+        .footer-social {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 13px;
+
+        }
+
+
+        .footer-social a {
+
+            width: 27px;
+
+            height: 27px;
+
+            border:
+                1px solid #536173;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+        }
+
+
+        .footer-social a:hover {
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid rgba(255,255,255,.1);
+
+            padding:
+                12px 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: #8f9aaa;
+
+            font-size: 8px;
+
+        }
+
+
+        .footer-bottom-links {
+
+            display: flex;
+
+            gap: 20px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:1100px) {
+
+
+            .nav-menu {
+
+                gap: 20px;
+
+            }
+
+
+            .benefit-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+
+            .benefit:nth-child(3) {
+
+                border-right: 0;
+
+            }
+
+
+            .benefit:nth-child(-n+3) {
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.2);
+
+                padding-bottom: 15px;
+
+            }
+
+
+            .benefit:nth-child(n+4) {
+
+                padding-top: 15px;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+        }
+
+
+        @media(max-width:900px) {
+
+
+            .nav-menu {
+
+                gap: 15px;
+
+            }
+
+
+            .nav-menu a {
+
+                font-size: 12px;
+
+            }
+
+
+            .hero-inner {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .hero-visual {
+
+                display: none;
+
+            }
+
+
+            .auth-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media(max-width:700px) {
+
+
+            header {
+
+                height: 65px;
+
+            }
+
+
+            .nav-menu {
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                background: #020b18;
+
+                border-bottom:
+                    1px solid var(--gold);
+
+            }
+
+
+            .nav-menu.active {
+
+                display: flex;
+
+            }
+
+
+            .nav-menu a {
+
+                width: 100%;
+
+                padding: 14px;
+
+                text-align: center;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.06);
+
+            }
+
+
+            .login-nav {
+
+                display: none;
+
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+
+            }
+
+
+            .hero-content {
+
+                padding: 35px 0;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .hero-content h2 {
+
+                font-size: 21px;
+
+            }
+
+
+            .hero-features {
+
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+                gap: 17px;
+
+            }
+
+
+            .hero-feature {
+
+                margin: 0;
+
+                padding: 0;
+
+                border: 0;
+
+            }
+
+
+            .auth-card {
+
+                padding: 19px;
+
+            }
+
+
+            .register-form-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .social-login {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .benefit-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .benefit {
+
+                border-right: 0;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.15);
+
+                padding:
+                    15px 10px !important;
+
+            }
+
+
+            .benefit:last-child {
+
+                border-bottom: 0;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+
+            }
+
+        }
+
+
+        @media(max-width:450px) {
+
+
+            .container {
+
+                width: 92%;
+
+            }
+
+
+            .logo-text h2 {
+
+                font-size: 17px;
+
+            }
+
+
+            .logo-text span {
+
+                font-size: 9px;
+
+            }
+
+
+            .logo-symbol {
+
+                width: 42px;
+
+                height: 42px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .hero-content h2 {
+
+                font-size: 19px;
+
+            }
+
+
+            .hero-feature {
+
+                gap: 7px;
+
+            }
+
+
+            .hero-feature i {
+
+                font-size: 20px;
+
+            }
+
+
+            .hero-feature strong {
+
+                font-size: 9px;
+
+            }
+
+
+            .auth-header h2 {
+
+                font-size: 17px;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <a href="index.html"
+           class="logo">
+
+
+            <div class="logo-symbol">
+                KN
+            </div>
+
+
+            <div class="logo-text">
+
+                <h2>
+                    KN TECH
+                </h2>
+
+                <span>
+                    INSTITUTE
+                </span>
+
+                <small>
+                    LEARN • INNOVATE • SUCCEED
+                </small>
+
+            </div>
+
+
+        </a>
+
+
+        <div class="nav-menu"
+             id="navMenu">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a href="courses.html">
+                Courses
+            </a>
+
+
+            <a href="placements.html">
+                Placements
+            </a>
+
+
+            <a href="project.html">
+                Projects
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+        </div>
+
+
+        <a href="login.html"
+           class="login-nav">
+
+            <i class="fa-regular fa-user"></i>
+
+            Login / Register
+
+        </a>
+
+
+        <div class="menu-toggle"
+             id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="login-hero">
+
+
+    <div class="container hero-inner">
+
+
+        <div class="hero-content">
+
+
+            <h1>
+                Welcome Back!
+            </h1>
+
+
+            <h2>
+                Login to Continue Your Learning Journey
+            </h2>
+
+
+            <p>
+
+                Access your personalized dashboard,
+                track your progress, continue learning,
+                and achieve your goals.
+
+            </p>
+
+
+            <div class="hero-features">
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <div>
+
+                        <strong>
+                            Secure & Safe
+                        </strong>
+
+                        <span>
+                            Your data is protected
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <div>
+
+                        <strong>
+                            Learn Anytime
+                        </strong>
+
+                        <span>
+                            Access 24/7 anywhere
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <div>
+
+                        <strong>
+                            Track Progress
+                        </strong>
+
+                        <span>
+                            Monitor your learning
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- LAPTOP -->
+
+        <div class="hero-visual">
+
+
+            <div class="laptop">
+
+
+                <div class="laptop-screen">
+
+
+                    <div class="screen-header">
+
+                        <span class="screen-dot"></span>
+                        <span class="screen-dot"></span>
+                        <span class="screen-dot"></span>
+
+                    </div>
+
+
+                    <div class="screen-body">
+
+
+                        <div class="screen-sidebar">
+
+                            <div class="side-line active"></div>
+                            <div class="side-line"></div>
+                            <div class="side-line"></div>
+                            <div class="side-line"></div>
+                            <div class="side-line"></div>
+
+                        </div>
+
+
+                        <div class="screen-dashboard">
+
+                            <div class="dash-title"></div>
+
+
+                            <div class="dash-cards">
+
+                                <div class="dash-card">
+
+                                    <span></span>
+
+                                    <strong>
+                                        85%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="dash-card">
+
+                                    <span></span>
+
+                                    <strong>
+                                        24
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="dash-card">
+
+                                    <span></span>
+
+                                    <strong>
+                                        12
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="laptop-base"></div>
+
+
+            </div>
+
+
+            <div class="books">
+
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+
+            </div>
+
+
+            <div class="cap">
+
+                <div class="cap-top"></div>
+
+                <div class="cap-tassel"></div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     LOGIN / REGISTER
+========================================================= -->
+
+<section class="auth-section">
+
+
+    <div class="container">
+
+
+        <div class="auth-grid">
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <div class="auth-card">
+
+
+                <div class="auth-header">
+
+
+                    <div class="auth-icon">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Login to Your Account
+                        </h2>
+
+                        <p>
+                            Enter your credentials to access your account
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                placeholder="Enter your email address"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+
+                            <span
+                                class="toggle-password"
+                                data-target="loginPassword"
+                            >
+
+                                <i class="fa-regular fa-eye-slash"></i>
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="form-options">
+
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                            >
+
+                            Remember me
+
+                        </label>
+
+
+                        <a href="#"
+                           class="forgot">
+
+                            Forgot Password?
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="main-btn"
+                    >
+
+                        Login
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+                    or continue with
+                </div>
+
+
+
+                <!-- SOCIAL -->
+
+                <div class="social-login">
+
+
+                    <button class="social-btn google">
+
+                        <i class="fa-brands fa-google"></i>
+
+                        Google
+
+                    </button>
+
+
+                    <button class="social-btn microsoft">
+
+                        <i class="fa-brands fa-microsoft"></i>
+
+                        Microsoft
+
+                    </button>
+
+
+                    <button class="social-btn linkedin">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                        LinkedIn
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="switch-auth">
+
+                    Don't have an account?
+
+                    <button
+                        type="button"
+                        id="showRegister"
+                    >
+
+                        Register Now
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTER
+            ================================================== -->
+
+            <div class="auth-card register-card">
+
+
+                <div class="auth-header">
+
+
+                    <div class="auth-icon">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Create New Account
+                        </h2>
+
+                        <p>
+                            Fill in the details to get started
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <form id="registerForm">
+
+
+                    <div class="register-form-grid">
+
+
+                        <!-- FULL NAME -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    placeholder="Enter your full name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Email Address
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- MOBILE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Mobile Number
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <input
+                                    type="tel"
+                                    id="mobile"
+                                    placeholder="Enter your mobile number"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Password
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="Create a password"
+                                    required
+                                >
+
+
+                                <span
+                                    class="toggle-password"
+                                    data-target="registerPassword"
+                                >
+
+                                    <i class="fa-regular fa-eye-slash"></i>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Confirm Password
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm your password"
+                                    required
+                                >
+
+
+                                <span
+                                    class="toggle-password"
+                                    data-target="confirmPassword"
+                                >
+
+                                    <i class="fa-regular fa-eye-slash"></i>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ROLE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                I am a
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-user"></i>
+
+                                <select
+                                    id="role"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select your role
+                                    </option>
+
+                                    <option value="student">
+                                        Student
+                                    </option>
+
+                                    <option value="jobseeker">
+                                        Job Seeker
+                                    </option>
+
+                                    <option value="professional">
+                                        Working Professional
+                                    </option>
+
+                                    <option value="trainer">
+                                        Trainer
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- TERMS -->
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <span>
+
+                            I agree to the
+
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+
+                            and
+
+                            <a href="#">
+                                Privacy Policy
+                            </a>
+
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- CREATE -->
+
+                    <button
+                        type="submit"
+                        class="main-btn"
+                    >
+
+                        Create Account
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <div class="divider">
+                    or continue with
+                </div>
+
+
+
+                <div class="social-login">
+
+
+                    <button class="social-btn google">
+
+                        <i class="fa-brands fa-google"></i>
+
+                        Google
+
+                    </button>
+
+
+                    <button class="social-btn microsoft">
+
+                        <i class="fa-brands fa-microsoft"></i>
+
+                        Microsoft
+
+                    </button>
+
+
+                    <button class="social-btn linkedin">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                        LinkedIn
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="switch-auth">
+
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        id="showLogin"
+                    >
+
+                        Login Now
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     BENEFITS
+========================================================= -->
+
+<section class="benefits-section">
+
+
+    <div class="container">
+
+
+        <div class="benefits">
+
+
+            <h2 class="benefits-title">
+                Why Join KN Tech Institute?
+            </h2>
+
+
+            <div class="benefit-grid">
+
+
+                <!-- 1 -->
+
+                <div class="benefit">
+
+                    <i class="fa-regular fa-book-open"></i>
+
+                    <div>
+
+                        <h3>
+                            Industry-Relevant Courses
+                        </h3>
+
+                        <p>
+                            Learn skills that employers value
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 2 -->
+
+                <div class="benefit">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <div>
+
+                        <h3>
+                            Expert Trainers
+                        </h3>
+
+                        <p>
+                            Learn from industry professionals
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 3 -->
+
+                <div class="benefit">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <div>
+
+                        <h3>
+                            Hands-on Projects
+                        </h3>
+
+                        <p>
+                            Build real-world projects
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 4 -->
+
+                <div class="benefit">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <div>
+
+                        <h3>
+                            Placement Support
+                        </h3>
+
+                        <p>
+                            Get placed with top companies
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 5 -->
+
+                <div class="benefit">
+
+                    <i class="fa-regular fa-award"></i>
+
+                    <div>
+
+                        <h3>
+                            Certificate of Completion
+                        </h3>
+
+                        <p>
+                            Earn recognized certificates
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 6 -->
+
+                <div class="benefit">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <div>
+
+                        <h3>
+                            Lifetime Access
+                        </h3>
+
+                        <p>
+                            Access content anytime
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+
+    <div class="container footer-main">
+
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+
+                <a href="index.html"
+                   class="logo">
+
+
+                    <div class="logo-symbol">
+                        KN
+                    </div>
+
+
+                    <div class="logo-text">
+
+                        <h2>
+                            KN TECH
+                        </h2>
+
+                        <span>
+                            INSTITUTE
+                        </span>
+
+                        <small>
+                            LEARN • INNOVATE • SUCCEED
+                        </small>
+
+                    </div>
+
+
+                </a>
+
+
+                <p>
+
+                    Empowering students with
+                    industry-oriented training and
+                    placement-focused education
+                    to build successful careers.
+
+                </p>
+
+
+                <div class="footer-social">
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    Quick Links
+                </h3>
+
+
+                <ul>
+
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="courses.html">
+                            Courses
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="placements.html">
+                            Placements
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="project.html">
+                            Projects
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- COURSES -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    Popular Courses
+                </h3>
+
+
+                <ul>
+
+
+                    <li>
+                        Python Programming
+                    </li>
+
+
+                    <li>
+                        SQL Database
+                    </li>
+
+
+                    <li>
+                        Power BI
+                    </li>
+
+
+                    <li>
+                        Data Science
+                    </li>
+
+
+                    <li>
+                        Machine Learning
+                    </li>
+
+
+                    <li>
+                        Full Stack Development
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="footer">
+
+
+                <h3 class="footer-title">
+                    Connect With Us
+                </h3>
+
+
+                <div class="footer-contact">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Hyderabad, Telangana – 500010
+                    </span>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <span>
+                        +91 96766 30130
+                    </span>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <span>
+                        info@kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    <span>
+                        www.kntechinstitute.com
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="newsletter">
+
+
+                <h3 class="footer-title">
+                    Newsletter
+                </h3>
+
+
+                <p>
+                    Subscribe to get updates on new
+                    courses, events and more.
+                </p>
+
+
+                <form
+                    class="newsletter-form"
+                    id="newsletterForm"
+                >
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="container footer-bottom">
+
+
+        <span>
+            © 2026 KN Tech Institute.
+            All Rights Reserved.
+        </span>
+
+
+        <div class="footer-bottom-links">
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <span>|</span>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+
+            navMenu.classList.toggle("active");
+
+
+            const icon =
+                menuToggle.querySelector("i");
+
+
+            if (
+                navMenu.classList.contains("active")
+            ) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+            } else {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       PASSWORD SHOW / HIDE
+    ===================================================== */
+
+    document
+        .querySelectorAll(".toggle-password")
+        .forEach(function(button) {
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+
+                    const targetId =
+                        this.getAttribute(
+                            "data-target"
+                        );
+
+
+                    const input =
+                        document.getElementById(
+                            targetId
+                        );
+
+
+                    const icon =
+                        this.querySelector("i");
+
+
+                    if (
+                        input.type === "password"
+                    ) {
+
+                        input.type = "text";
+
+
+                        icon.classList.remove(
+                            "fa-eye-slash"
+                        );
+
+
+                        icon.classList.add(
+                            "fa-eye"
+                        );
+
+                    } else {
+
+                        input.type = "password";
+
+
+                        icon.classList.remove(
+                            "fa-eye"
+                        );
+
+
+                        icon.classList.add(
+                            "fa-eye-slash"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* =====================================================
+       LOGIN FORM
+    ===================================================== */
+
+    const loginForm =
+        document.getElementById(
+            "loginForm"
+        );
+
+
+    loginForm.addEventListener(
+        "submit",
+        function(event) {
+
+
+            event.preventDefault();
+
+
+            const email =
+                document.getElementById(
+                    "loginEmail"
+                ).value.trim();
+
+
+            const password =
+                document.getElementById(
+                    "loginPassword"
+                ).value;
+
+
+            if (!email || !password) {
+
+                alert(
+                    "Please enter your email and password."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Login form submitted successfully!"
+            );
+
+
+            /*
+                BACKEND CONNECTION WILL BE ADDED LATER.
+
+                Example:
+
+                fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                });
+            */
+
+        }
+    );
+
+
+
+    /* =====================================================
+       REGISTER FORM
+    ===================================================== */
+
+    const registerForm =
+        document.getElementById(
+            "registerForm"
+        );
+
+
+    registerForm.addEventListener(
+        "submit",
+        function(event) {
+
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById(
+                    "fullName"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "registerEmail"
+                ).value.trim();
+
+
+            const mobile =
+                document.getElementById(
+                    "mobile"
+                ).value.trim();
+
+
+            const password =
+                document.getElementById(
+                    "registerPassword"
+                ).value;
+
+
+            const confirmPassword =
+                document.getElementById(
+                    "confirmPassword"
+                ).value;
+
+
+            const role =
+                document.getElementById(
+                    "role"
+                ).value;
+
+
+            const terms =
+                document.getElementById(
+                    "terms"
+                ).checked;
+
+
+            if (
+                !name ||
+                !email ||
+                !mobile ||
+                !password ||
+                !confirmPassword ||
+                !role
+            ) {
+
+                alert(
+                    "Please fill all required fields."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                password !== confirmPassword
+            ) {
+
+                alert(
+                    "Passwords do not match."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                password.length < 8
+            ) {
+
+                alert(
+                    "Password must contain at least 8 characters."
+                );
+
+                return;
+
+            }
+
+
+            if (!terms) {
+
+                alert(
+                    "Please accept the Terms & Conditions and Privacy Policy."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Account created successfully!"
+            );
+
+
+            /*
+                BACKEND CONNECTION WILL BE ADDED LATER.
+
+                Example:
+
+                fetch("/api/auth/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        mobile,
+                        password,
+                        role
+                    })
+                });
+            */
+
+        }
+    );
+
+
+
+    /* =====================================================
+       LOGIN / REGISTER SWITCH
+    ===================================================== */
+
+    const showRegister =
+        document.getElementById(
+            "showRegister"
+        );
+
+
+    const showLogin =
+        document.getElementById(
+            "showLogin"
+        );
+
+
+    showRegister.addEventListener(
+        "click",
+        function() {
+
+
+            document
+                .querySelector(".register-card")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+        }
+    );
+
+
+    showLogin.addEventListener(
+        "click",
+        function() {
+
+
+            document
+                .querySelector(".auth-card")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+        }
+    );
+
+
+
+    /* =====================================================
+       SOCIAL LOGIN
+    ===================================================== */
+
+    document
+        .querySelectorAll(".social-btn")
+        .forEach(function(button) {
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+
+                    const provider =
+                        this.textContent.trim();
+
+
+                    alert(
+                        provider +
+                        " authentication will be connected through the backend."
+                    );
+
+                }
+            );
+
+        });
+
+
+
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
+
+    document
+        .getElementById("newsletterForm")
+        .addEventListener(
+            "submit",
+            function(event) {
+
+
+                event.preventDefault();
+
+
+                alert(
+                    "Thank you for subscribing to KN Tech Institute!"
+                );
+
+
+                this.reset();
+
+            }
+        );
+
+
+</script>
+
+
+</body>
+
+</html>
