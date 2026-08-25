@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Security Training | KN Tech Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,Arial,sans-serif;background:#fff;color:#07162d}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+:root{
+ --navy:#00152e;--navy2:#031c3d;--gold:#ffbd00;--green:#19b82b;
+ --blue:#1597ff;--line:#31435e;--white:#fff;
+}
+.container{width:min(1400px,94%);margin:auto}
+header{height:70px;background:#020f24;color:#fff;border-bottom:1px solid #526075;display:flex;align-items:center;position:sticky;top:0;z-index:1000}
+.nav{width:100%;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;min-width:220px}
+.logo-mark{width:52px;height:52px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:21px;font-weight:800}
+.logo-text strong{display:block;font-size:25px;line-height:22px;letter-spacing:.5px}
+.logo-text span{font-size:13px;letter-spacing:4px;color:var(--gold);font-weight:700}
+.logo-text small{display:block;font-size:9px;margin-top:1px}
+nav{display:flex;align-items:center;gap:38px;font-size:15px;font-weight:600}
+nav a{height:70px;display:flex;align-items:center;position:relative}
+nav a.active{color:var(--gold)}
+nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold)}
+.login{border:1px solid var(--gold);padding:10px 19px;border-radius:5px;color:var(--gold);font-weight:600;white-space:nowrap}
+.menu{display:none;font-size:25px;color:var(--gold);cursor:pointer}
+
+.hero{background:radial-gradient(circle at 55% 45%,#062d61 0,#031a38 25%,#001126 65%,#000b1c 100%);color:#fff;padding:10px 0 12px;min-height:370px}
+.breadcrumb{font-size:12px;margin:0 0 8px;color:#d9e2ef}.breadcrumb span{color:#fff;margin:0 8px}.breadcrumb b{color:#fff}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1.15fr .72fr;gap:18px;align-items:center}
+.hero-copy{padding:8px 0 0 6px}
+.eyebrow{color:var(--gold);font-size:13px;font-weight:700;margin-bottom:5px}
+.hero h1{font-size:48px;line-height:1.03;margin-bottom:9px;font-weight:800}
+.hero h1 span{display:block;color:var(--gold)}
+.tagline{font-size:16px;font-weight:600;margin-bottom:6px}
+.desc{font-size:13px;line-height:1.65;max-width:430px;color:#f3f7ff}
+.hero-features{display:flex;margin:14px 0 13px;gap:0}
+.hf{width:25%;text-align:center;border-right:1px solid #536075;padding:0 7px;font-size:11px}
+.hf:last-child{border:0}.hf i{color:var(--gold);font-size:20px;display:block;margin-bottom:5px}.hf strong{display:block;font-weight:500}
+.actions{display:flex;gap:12px}.btn{border:1px solid var(--gold);border-radius:5px;padding:9px 20px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:18px}.btn.primary{background:var(--gold);color:#06152a}.btn.secondary{color:#fff;background:transparent}
+
+.cyber-art{height:315px;position:relative;display:grid;place-items:center}
+.ring{position:absolute;width:275px;height:275px;border:1px solid rgba(21,151,255,.45);border-radius:50%;box-shadow:0 0 45px rgba(0,128,255,.16),inset 0 0 30px rgba(0,128,255,.08)}
+.ring:before,.ring:after{content:"";position:absolute;inset:20px;border:1px dashed rgba(21,151,255,.5);border-radius:50%}.ring:after{inset:45px;border:1px solid rgba(21,151,255,.35)}
+.shield{position:relative;width:135px;height:155px;clip-path:polygon(50% 0,90% 14%,84% 67%,50% 100%,16% 67%,10% 14%);background:linear-gradient(150deg,#bdeaff,#078fff 42%,#0251a6);filter:drop-shadow(0 0 18px #08a9ff);display:grid;place-items:center}
+.shield:before{content:"";position:absolute;inset:8px;clip-path:inherit;background:#031d42}
+.lock{position:relative;color:#fff;font-size:42px;z-index:2}.lock:before{content:"";position:absolute;width:37px;height:30px;border:5px solid #fff;border-radius:6px;left:2px;top:25px}.lock:after{content:"";position:absolute;width:20px;height:22px;border:5px solid #fff;border-bottom:0;border-radius:15px 15px 0 0;left:10px;top:7px}
+.art-center{position:absolute;bottom:14px;background:#052b57;border:2px solid #08a9ff;box-shadow:0 0 30px #008fff;border-radius:50% 50% 45% 45%;width:175px;height:47px;display:grid;place-items:center;color:#fff;font-size:21px;font-weight:700;letter-spacing:1px}
+.node{position:absolute;color:#fff;text-align:center;font-size:11px;font-weight:600;width:92px}.node i{width:48px;height:48px;border:1px solid #0da7ff;border-radius:50%;display:grid;place-items:center;margin:auto auto 5px;color:#8edaff;font-size:21px;background:#03244b;box-shadow:0 0 15px #006cb0}
+.n1{top:0;left:50%;transform:translateX(-50%)}.n2{top:48px;right:3%}.n3{top:145px;right:0}.n4{bottom:23px;left:50%;transform:translateX(-50%)}.n5{top:145px;left:0}.n6{top:48px;left:3%}
+
+.support{border:1px solid var(--gold);border-radius:11px;padding:10px 18px;background:rgba(2,17,38,.65)}
+.support-item{display:flex;align-items:center;gap:15px;padding:13px 0;border-bottom:1px solid #40506a}.support-item:last-child{border:0}
+.support-item i{width:34px;text-align:center;color:var(--gold);font-size:27px}.support-item strong{display:block;font-size:14px}.support-item span{font-size:12px;color:#fff}
+
+.white-section{background:#fff;padding:22px 0 15px}.section-title{text-align:center;font-size:20px;font-weight:800;margin-bottom:20px}.section-title:after{content:"";display:block;width:36px;height:3px;background:var(--gold);margin:6px auto 0}
+.syllabus{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.module{border:1px solid #d5dbe3;border-radius:6px;padding:11px 10px;display:flex;gap:10px;min-height:74px}
+.num{width:31px;height:31px;min-width:31px;background:#071a36;color:#fff;border-radius:4px;display:grid;place-items:center;font-weight:700;font-size:13px}
+.module h3{font-size:12px;margin-bottom:4px}.module p{font-size:11px;line-height:1.4;color:#18253b}
+.center-btn{text-align:center;margin-top:10px}.dark-btn{background:#071b38;color:#fff;border:0;border-radius:5px;padding:9px 17px;font-size:12px;font-weight:600}.dark-btn i{color:var(--gold);margin-left:8px}
+
+.dark-section{background:linear-gradient(110deg,#001127,#021d3e);color:#fff;padding:17px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel{min-width:0}.panel:first-child{border-right:1px solid #56657b;padding-right:18px}.panel-title{text-align:center;font-size:17px;margin-bottom:14px}.panel-title:after{content:"";display:block;width:36px;height:3px;background:var(--gold);margin:5px auto}
+.project-list,.jobs{border:1px solid #516179;border-radius:7px;overflow:hidden}.project{display:grid;grid-template-columns:42px 1fr 54px;align-items:center;min-height:50px;border-bottom:1px solid #3d4e67}.project:last-child{border:0}.project>i{color:var(--gold);text-align:center;font-size:18px}.project .ptext{padding:6px 7px}.project b{font-size:12px;color:#fff}.project b span{color:var(--gold);margin-right:5px}.project small{display:block;font-size:10px;line-height:1.3}.project .picon{font-size:19px;color:#14a8ff;text-align:center}
+.job-head,.job{display:grid;grid-template-columns:1.15fr .85fr .9fr;align-items:center}.job-head{height:36px;color:var(--gold);font-size:10px;font-weight:700;text-align:center;border-bottom:1px solid #56657b}.job{min-height:44px;border-bottom:1px solid #35465f;font-size:11px}.job:last-child{border:0}.job>div{padding:0 9px}.job-role{display:flex;align-items:center;gap:10px}.job-role i{color:var(--gold);width:20px;text-align:center}.salary{color:#19e03d;font-weight:600}.note{font-size:9px;color:#b9c4d3;margin-top:7px}.why{margin-top:16px}.why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.why-card{border:1px solid #50617a;border-radius:6px;padding:11px 8px;text-align:center;min-height:108px}.why-card i{font-size:28px;color:#0d9fff;margin-bottom:7px}.why-card h3{font-size:12px;margin-bottom:4px}.why-card p{font-size:10px;line-height:1.4}
+
+.cta{margin-top:12px;border:1px solid #59697e;border-radius:7px;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}.cta-left{display:flex;align-items:center;gap:18px}.cta-left i{font-size:46px;color:var(--gold)}.cta h2{font-size:20px}.cta h2 span{color:var(--gold)}.cta p{font-size:11px;margin-top:3px}.cta .btn{background:var(--gold);color:#07152b;border:0;padding:11px 28px}.whatsapp{color:#22e34a;font-weight:600;font-size:13px;white-space:nowrap}.whatsapp i{font-size:28px;vertical-align:middle;margin-right:6px}
+
+footer{background:#001126;color:#fff;border-top:1px solid #45556b;padding:15px 0 0}.footer-grid{display:grid;grid-template-columns:1.15fr .8fr .85fr 1fr 1fr;gap:28px;padding-bottom:12px}.footer-logo .logo{margin-bottom:8px}.footer-logo p{font-size:10px;line-height:1.5;color:#d6ddea;max-width:230px}.social{display:flex;gap:12px;margin-top:10px}.social i{width:24px;height:24px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px}
+footer h4{font-size:11px;margin:3px 0 8px}footer li{list-style:none;font-size:10px;margin:4px 0;color:#e1e6ee}footer li i{color:var(--gold);width:18px}.newsletter p{font-size:10px;line-height:1.5;margin-bottom:8px}.email{display:flex}.email input{width:100%;background:#071b35;border:1px solid #69778a;color:#fff;padding:9px;font-size:10px;outline:none}.email button{width:40px;border:0;background:var(--gold);color:#07162d}.copyright{border-top:1px solid #324258;padding:7px 0;display:flex;justify-content:space-between;font-size:9px;color:#d8dfe9}
+
+@media(max-width:1050px){
+ nav{gap:18px}.hero-grid{grid-template-columns:1fr 1fr}.support{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.support-item{border-bottom:0;border-right:1px solid #40506a;padding:8px}.support-item:last-child{border:0}.hero h1{font-size:42px}.syllabus{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+ header{height:62px}.logo{min-width:auto}.logo-mark{width:44px;height:44px}.logo-text strong{font-size:19px}.logo-text span{font-size:10px;letter-spacing:3px}.logo-text small{font-size:7px}.menu{display:block}nav{display:none}.login{font-size:11px;padding:7px 10px}
+ .hero{padding:8px 0 18px}.hero-grid{grid-template-columns:1fr}.hero-copy{text-align:center}.hero h1{font-size:38px}.desc{margin:auto}.hero-features{justify-content:center}.hf{font-size:9px}.actions{justify-content:center}.cyber-art{height:330px;order:2}.support{grid-column:auto;display:block}.support-item{border-bottom:1px solid #40506a!important;border-right:0;padding:10px}.support-item:last-child{border-bottom:0!important}.two-col{grid-template-columns:1fr}.panel:first-child{border-right:0;padding-right:0;border-bottom:1px solid #53637a;padding-bottom:18px}.why-grid{grid-template-columns:repeat(2,1fr)}.cta{flex-direction:column;text-align:center}.cta-left{flex-direction:column;gap:5px}.footer-grid{grid-template-columns:1fr 1fr}.copyright{flex-direction:column;gap:5px;text-align:center}
+}
+@media(max-width:480px){
+ .container{width:92%}.breadcrumb{font-size:10px}.hero h1{font-size:32px}.tagline{font-size:13px}.desc{font-size:11px}.hero-features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.hf{width:auto;border-right:0}.syllabus{grid-template-columns:1fr}.module{min-height:auto}.why-grid{grid-template-columns:1fr 1fr}.why-card{min-height:125px}.job-head,.job{grid-template-columns:1.2fr .8fr .8fr}.job{font-size:9px}.job-role{gap:4px}.project{grid-template-columns:32px 1fr 42px}.project small{font-size:9px}.footer-grid{grid-template-columns:1fr}.cta h2{font-size:17px}.cta p{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="logo" href="index.html">
+ <div class="logo-mark">KN</div>
+ <div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div>
+</a>
+<nav>
+<a href="index.html">Home</a><a href="about.html">About</a><a class="active" href="courses.html">Courses</a><a href="placements.html">Placements</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a>
+</nav>
+<a class="login" href="auth.html"><i class="fa-regular fa-user"></i> &nbsp;Login / Register</a>
+<div class="menu"><i class="fa-solid fa-bars"></i></div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="breadcrumb">Home <span>›</span> Courses <span>›</span> <b>Cyber Security</b></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<div class="eyebrow">OUR COURSE</div>
+<h1>Cyber Security<span>Training</span></h1>
+<div class="tagline">Protect Systems. Prevent Attacks. Defend the Future.</div>
+<p class="desc">Learn ethical hacking, network security, threat analysis and security tools to become a job-ready cybersecurity professional.</p>
+<div class="hero-features">
+<div class="hf"><i class="fa-regular fa-user"></i><strong>Beginner<br>Friendly</strong></div>
+<div class="hf"><i class="fa-solid fa-laptop-code"></i><strong>Real-World<br>Labs</strong></div>
+<div class="hf"><i class="fa-solid fa-certificate"></i><strong>Certification<br>Included</strong></div>
+<div class="hf"><i class="fa-solid fa-briefcase"></i><strong>Placement<br>Support</strong></div>
+<div class="hf"><i class="fa-solid fa-user-tie"></i><strong>Industry<br>Mentorship</strong></div>
+</div>
+<div class="actions"><a class="btn primary" href="#enroll">Enroll Now <i class="fa-solid fa-arrow-right"></i></a><a class="btn secondary" href="#projects"><i class="fa-solid fa-play"></i> Watch Intro</a></div>
+</div>
+
+<div class="cyber-art">
+<div class="ring"></div>
+<div class="shield"><div class="lock"><i class="fa-solid fa-lock"></i></div></div>
+<div class="art-center">CYBER SECURITY</div>
+<div class="node n1"><i class="fa-solid fa-user-secret"></i>Ethical<br>Hacking</div>
+<div class="node n2"><i class="fa-solid fa-bug"></i>Threat<br>Analysis</div>
+<div class="node n3"><i class="fa-solid fa-terminal"></i>Security<br>Tools</div>
+<div class="node n4"><i class="fa-solid fa-shield-halved"></i>Incident<br>Response</div>
+<div class="node n5"><i class="fa-solid fa-magnifying-glass"></i>Vulnerability<br>Assessment</div>
+<div class="node n6"><i class="fa-solid fa-desktop"></i>Network<br>Security</div>
+</div>
+
+<div class="support">
+<div class="support-item"><i class="fa-solid fa-book-open"></i><div><strong>Live Classes</strong><span>Interactive Learning</span></div></div>
+<div class="support-item"><i class="fa-solid fa-rocket"></i><div><strong>Live Projects</strong><span>Hands-on Experience</span></div></div>
+<div class="support-item"><i class="fa-solid fa-award"></i><div><strong>Certificate</strong><span>Industry Recognized</span></div></div>
+<div class="support-item"><i class="fa-solid fa-toolbox"></i><div><strong>Placement Support</strong><span>Interview &amp; Career Support</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="white-section">
+<div class="container">
+<div class="section-title">COURSE SYLLABUS</div>
+<div class="syllabus">
+<div class="module"><div class="num">01</div><div><h3>Introduction to Cyber Security</h3><p>Overview, CIA Triad, Cyber Attacks, Types of Hackers, Career Path</p></div></div>
+<div class="module"><div class="num">02</div><div><h3>Networking Essentials</h3><p>OSI Model, TCP/IP, IP Addressing, Subnetting, Protocols</p></div></div>
+<div class="module"><div class="num">03</div><div><h3>Linux for Hackers</h3><p>Linux Basics, File System, Permissions, Commands, Shell Scripting</p></div></div>
+<div class="module"><div class="num">04</div><div><h3>Information Gathering</h3><p>Footprinting, Reconnaissance, WHOIS, DNS, Google Dorking</p></div></div>
+<div class="module"><div class="num">05</div><div><h3>Scanning &amp; Enumeration</h3><p>Nmap Scanning, Port Scanning, Banner Grabbing, Enumeration</p></div></div>
+<div class="module"><div class="num">06</div><div><h3>Vulnerability Assessment</h3><p>Vulnerability Types, CVE, Nessus, OpenVAS, Vulnerability Scanning</p></div></div>
+<div class="module"><div class="num">07</div><div><h3>System Hacking</h3><p>Password Attacks, Brute Force, Privilege Escalation</p></div></div>
+<div class="module"><div class="num">08</div><div><h3>Web Application Security</h3><p>OWASP Top 10, SQL Injection, XSS, CSRF, File Inclusion</p></div></div>
+<div class="module"><div class="num">09</div><div><h3>Wireless Security</h3><p>Wi-Fi Basics, WPA/WPA2 Attacks, Tools: Aircrack-ng, Wifite</p></div></div>
+<div class="module"><div class="num">10</div><div><h3>Exploitation &amp; Password Attacks</h3><p>Metasploit Framework, Payloads, Hashing, Cracking Techniques</p></div></div>
+<div class="module"><div class="num">11</div><div><h3>Sniffing &amp; Spoofing</h3><p>Wireshark, Packet Analysis, MITM, ARP Spoofing</p></div></div>
+<div class="module"><div class="num">12</div><div><h3>Incident Response &amp; Forensics</h3><p>Log Analysis, Digital Forensics Basic, Incident Handling</p></div></div>
+</div>
+<div class="center-btn"><button class="dark-btn">View Full Syllabus <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+</section>
+
+<section class="dark-section" id="projects">
+<div class="container">
+<div class="two-col">
+<div class="panel">
+<div class="panel-title">REAL-WORLD PROJECTS YOU WILL BUILD</div>
+<div class="project-list">
+<div class="project"><i class="fa-solid fa-shield-halved"></i><div class="ptext"><b><span>1.</span> Vulnerability Assessment Report</b><small>Scan systems and identify security vulnerabilities.</small></div><div class="picon"><i class="fa-solid fa-shield"></i></div></div>
+<div class="project"><i class="fa-solid fa-network-wired"></i><div class="ptext"><b><span>2.</span> Network Traffic Analysis</b><small>Capture and analyze network traffic for threats.</small></div><div class="picon"><i class="fa-solid fa-chart-line"></i></div></div>
+<div class="project"><i class="fa-solid fa-lock"></i><div class="ptext"><b><span>3.</span> Password Cracking Lab</b><small>Crack passwords using hashing and dictionary attacks.</small></div><div class="picon"><i class="fa-solid fa-lock"></i></div></div>
+<div class="project"><i class="fa-solid fa-user-lock"></i><div class="ptext"><b><span>4.</span> Web Application Security Testing</b><small>Test websites for SQLi, XSS and other vulnerabilities.</small></div><div class="picon"><i class="fa-solid fa-globe"></i></div></div>
+<div class="project"><i class="fa-solid fa-wifi"></i><div class="ptext"><b><span>5.</span> Wi-Fi Hacking Lab</b><small>Perform Wi-Fi security testing in a legal environment.</small></div><div class="picon"><i class="fa-solid fa-wifi"></i></div></div>
+<div class="project"><i class="fa-solid fa-triangle-exclamation"></i><div class="ptext"><b><span>6.</span> Incident Response Simulation</b><small>Detect, respond and recover from a cyber incident.</small></div><div class="picon"><i class="fa-solid fa-bell"></i></div></div>
+</div>
+<div class="center-btn"><button class="dark-btn">View More Projects <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+
+<div class="panel">
+<div class="panel-title">TOP JOB ROLES &amp; SALARY IN INDIA</div>
+<div class="jobs">
+<div class="job-head"><div>JOB ROLE</div><div>EXPERIENCE</div><div>AVG. SALARY (INR)</div></div>
+<div class="job"><div class="job-role"><i class="fa-solid fa-user-shield"></i>Security Analyst</div><div>0 – 2 Years</div><div class="salary">₹ 3.5 – 6 LPA</div></div>
+<div class="job"><div class="job-role"><i class="fa-solid fa-user-secret"></i>Penetration Tester</div><div>1 – 3 Years</div><div class="salary">₹ 5 – 10 LPA</div></div>
+<div class="job"><div class="job-role"><i class="fa-solid fa-shield"></i>SOC Analyst</div><div>0 – 2 Years</div><div class="salary">₹ 3 – 6 LPA</div></div>
+<div class="job"><div class="job-role"><i class="fa-solid fa-building-shield"></i>Network Security Engineer</div><div>2 – 4 Years</div><div class="salary">₹ 6 – 12 LPA</div></div>
+<div class="job"><div class="job-role"><i class="fa-solid fa-user-tie"></i>Cyber Security Consultant</div><div>3 – 5 Years</div><div class="salary">₹ 10 – 20 LPA</div></div>
+<div class="job"><div class="job-role"><i class="fa-solid fa-file-shield"></i>Information Security Manager</div><div>5+ Years</div><div class="salary">₹ 20 – 35 LPA</div></div>
+</div>
+<div class="center-btn"><button class="dark-btn">View More Career Roles <i class="fa-solid fa-arrow-right"></i></button></div>
+<div class="note">* Salaries are indicative. Source: Glassdoor, AmbitionBox, Naukri (2024)</div>
+</div>
+</div>
+
+<div class="why">
+<div class="panel-title">WHY LEARN CYBER SECURITY?</div>
+<div class="why-grid">
+<div class="why-card"><i class="fa-solid fa-chart-line"></i><h3>High Demand</h3><p>Huge demand for cyber security professionals globally.</p></div>
+<div class="why-card"><i class="fa-solid fa-shield-halved"></i><h3>Protect &amp; Defend</h3><p>Protect organizations and individuals from cyber threats.</p></div>
+<div class="why-card"><i class="fa-solid fa-rocket"></i><h3>Exciting Career</h3><p>Work with cutting-edge tools and technologies.</p></div>
+<div class="why-card"><i class="fa-solid fa-arrow-up-right-dots"></i><h3>Career Growth</h3><p>Excellent opportunities for growth and advancement.</p></div>
+<div class="why-card"><i class="fa-solid fa-share-nodes"></i><h3>Versatile Roles</h3><p>Work in multiple industries and domains.</p></div>
+<div class="why-card"><i class="fa-solid fa-indian-rupee-sign"></i><h3>Attractive Salary</h3><p>High-paying roles with great job security.</p></div>
+</div>
+</div>
+
+<div class="cta" id="enroll">
+<div class="cta-left"><i class="fa-solid fa-graduation-cap"></i><div><h2>Ready to Start Your <span>Cyber Security</span> Journey?</h2><p>Join thousands of students who transformed their careers with our training programs.</p></div></div>
+<a class="btn" href="admissions.html">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+<a class="whatsapp" href="https://wa.me/919100012345" target="_blank"><i class="fa-brands fa-whatsapp"></i>Chat on WhatsApp</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-logo">
+<a class="logo" href="index.html"><div class="logo-mark">KN</div><div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div></a>
+<p>Empowering students with industry-oriented training and real-world skills to build successful careers in IT.</p>
+<div class="social"><i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-instagram"></i><i class="fa-brands fa-youtube"></i><i class="fa-brands fa-linkedin-in"></i></div>
+</div>
+<div><h4>QUICK LINKS</h4><ul><li>Home</li><li>About Us</li><li>Courses</li><li>Projects</li><li>Placements</li><li>Contact Us</li></ul></div>
+<div><h4>POPULAR COURSES</h4><ul><li>Python Programming</li><li>SQL Database</li><li>Power BI</li><li>Data Science</li><li>Machine Learning</li><li>Cyber Security</li></ul></div>
+<div><h4>CONTACT US</h4><ul><li><i class="fa-solid fa-location-dot"></i>Hyderabad, Telangana - 500010</li><li><i class="fa-solid fa-phone"></i>+91 91000 12345</li><li><i class="fa-solid fa-envelope"></i>info@kntechinstitute.com</li><li><i class="fa-solid fa-globe"></i>www.kesineninaveen.in</li></ul></div>
+<div class="newsletter"><h4>NEWSLETTER</h4><p>Subscribe to get updates on new courses, offers and more.</p><div class="email"><input placeholder="Enter your email"><button><i class="fa-solid fa-paper-plane"></i></button></div></div>
+</div>
+<div class="copyright"><span>© 2025 KN Tech Institute. All Rights Reserved.</span><span>Privacy Policy &nbsp; | &nbsp; Terms &amp; Conditions</span></div>
+</div>
+</footer>
+
+<script>
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('nav');
+menu.addEventListener('click',()=>{nav.style.display=nav.style.display==='flex'?'none':'flex';nav.style.position='absolute';nav.style.top='62px';nav.style.left='0';nav.style.right='0';nav.style.background='#020f24';nav.style.padding='15px 6%';nav.style.flexDirection='column';nav.style.alignItems='flex-start';nav.style.gap='0';nav.querySelectorAll('a').forEach(a=>a.style.height='45px');});
+window.addEventListener('resize',()=>{if(innerWidth>760){nav.removeAttribute('style');}});
+</script>
+</body>
+</html>

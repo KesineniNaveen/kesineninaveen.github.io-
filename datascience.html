@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Training | KN Tech Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#00132d;--navy2:#001a38;--gold:#ffbd00;--white:#fff;
+  --green:#20d84a;--blue:#149cff;--border:#40516b;--muted:#d7dfeb;
+}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,Arial,sans-serif;background:#fff;color:#071326;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(96%,1500px);margin:auto}
+
+/* HEADER */
+header{height:78px;background:#001127;color:#fff;border-bottom:1px solid #3d4653;display:flex;align-items:center}
+.nav{width:min(96%,1500px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;gap:12px;min-width:250px}
+.logo-mark{width:58px;height:58px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:800;font-size:22px;position:relative}
+.logo-mark:after{content:"";position:absolute;inset:5px;border:1px solid var(--gold);border-radius:50%}
+.logo-text strong{display:block;font-size:25px;line-height:24px;letter-spacing:1px}
+.logo-text span{display:block;color:var(--gold);font-size:13px;font-weight:700;letter-spacing:4px}
+.logo-text small{display:block;font-size:9px;color:#fff}
+nav{display:flex;align-items:center;gap:40px;font-size:16px;font-weight:600}
+nav a{padding:28px 0;position:relative}
+nav a.active,nav a:hover{color:var(--gold)}
+nav a.active:after{content:"";position:absolute;bottom:13px;left:0;right:0;height:3px;background:var(--gold)}
+.login{border:1px solid var(--gold);color:var(--gold);padding:12px 22px;border-radius:6px;font-weight:600;white-space:nowrap}
+.menu{display:none;color:var(--gold);font-size:26px}
+
+/* HERO */
+.hero{background:radial-gradient(circle at 50% 55%,#063e74 0,#001c3b 30%,#00132d 65%,#000c1e 100%);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:700px;height:700px;border:1px solid rgba(0,165,255,.18);border-radius:50%;left:36%;top:35px;box-shadow:0 0 100px rgba(0,142,255,.12)}
+.breadcrumb{padding:13px 0;font-size:13px;color:#fff;position:relative;z-index:2}
+.breadcrumb span{color:var(--gold)}
+.hero-grid{min-height:555px;display:grid;grid-template-columns:34% 42% 24%;align-items:center;position:relative;z-index:2}
+.eyebrow{color:var(--gold);font-size:14px;font-weight:700;margin-bottom:8px}
+.hero h1{font-size:54px;line-height:1.05;margin-bottom:10px}
+.hero h1 span{color:var(--gold)}
+.tagline{font-size:21px;font-weight:700;margin-bottom:8px}
+.hero-desc{font-size:14px;line-height:1.7;max-width:520px;margin-bottom:20px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:22px;max-width:520px}
+.feature{padding:0 15px;border-right:1px solid #536174;text-align:center;font-size:12px}
+.feature:first-child{padding-left:0}.feature:last-child{border:0}
+.feature i{display:block;color:var(--gold);font-size:21px;margin-bottom:7px}
+.feature b{display:block;font-size:11px}
+.btns{display:flex;gap:15px}
+.btn{padding:12px 25px;border-radius:5px;font-weight:700;border:1px solid var(--gold);display:inline-flex;align-items:center;gap:22px}
+.btn.primary{background:var(--gold);color:#071326}
+.btn.outline{color:#fff;background:transparent}
+.hero-art{height:470px;display:grid;place-items:center;position:relative}
+.ds-orbit{width:365px;height:365px;border:1px solid #159cff;border-radius:50%;position:relative;box-shadow:0 0 40px rgba(0,156,255,.18)}
+.ds-orbit:before,.ds-orbit:after{content:"";position:absolute;inset:22px;border:1px dashed rgba(20,156,255,.7);border-radius:50%}
+.ds-orbit:after{inset:65px;border:1px solid rgba(20,156,255,.6)}
+.ds-center{position:absolute;width:190px;height:190px;left:87px;top:87px;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:31px;font-weight:800;line-height:1.1;background:radial-gradient(circle,#07528e,#001b3c 70%);border:2px solid #087ed2;box-shadow:0 0 35px #087ed2}
+.node{position:absolute;width:88px;height:88px;border:2px solid #129cff;border-radius:50%;background:#001a38;display:grid;place-items:center;text-align:center;color:#fff;font-size:11px;font-weight:600}
+.node i{font-size:27px;color:#42b8ff;display:block;margin-bottom:3px}
+.n1{left:-5px;top:60px}.n2{left:120px;top:-48px}.n3{right:-5px;top:60px}.n4{right:0;bottom:65px}.n5{left:118px;bottom:-48px}.n6{left:-5px;bottom:65px}
+.support{border:1px solid var(--gold);border-radius:14px;padding:17px 20px;background:rgba(0,16,39,.65)}
+.support-item{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid #445064}
+.support-item:last-child{border:0}
+.support-item i{color:var(--gold);font-size:27px}
+.support-item b{display:block;font-size:15px}
+.support-item span{font-size:12px;color:#fff}
+
+/* COMMON SECTIONS */
+.section{padding:28px 0}
+.light{background:#fff}
+.dark{background:#00152f;color:#fff}
+.title{text-align:center;font-size:24px;font-weight:800;margin-bottom:23px}
+.title:after{content:"";display:block;width:38px;height:3px;background:var(--gold);margin:7px auto 0}
+.syllabus{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.syl{border:1px solid #d4dce6;border-radius:7px;padding:14px 12px;min-height:78px;display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:start}
+.num{background:#001a38;color:#fff;border-radius:5px;width:32px;height:32px;display:grid;place-items:center;font-weight:700}
+.syl b{font-size:13px;display:block;margin-bottom:3px}.syl p{font-size:11px;line-height:1.45}
+.center-btn{text-align:center;margin-top:13px}.small-btn{background:#001a38;color:#fff;border:0;border-radius:5px;padding:10px 20px;font-weight:600}.small-btn i{color:var(--gold);margin-left:10px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel-title{text-align:center;font-size:19px;margin-bottom:14px}
+.panel-title:after{content:"";display:block;width:34px;height:3px;background:var(--gold);margin:7px auto}
+.project-box,.jobs-box{border:1px solid #53657c;border-radius:8px;overflow:hidden}
+.project{display:grid;grid-template-columns:48px 1fr 65px;align-items:center;border-bottom:1px solid #40516a;min-height:55px}
+.project:last-child{border:0}
+.project>i{color:var(--gold);text-align:center;font-size:18px}
+.project-info{padding:7px 9px;border-left:1px solid #40516a}.project-info b{color:#fff;font-size:12px}.project-info p{font-size:10px;line-height:1.4;color:#fff}
+.project-brand{text-align:center;color:#42b8ff;font-size:13px}
+.job-head,.job{display:grid;grid-template-columns:1.25fr .8fr .85fr;align-items:center}
+.job-head{color:var(--gold);font-size:11px;font-weight:700;padding:10px 13px;border-bottom:1px solid #40516a}
+.job{min-height:46px;border-bottom:1px solid #40516a;font-size:11px;padding:0 13px}.job:last-child{border:0}
+.job i{color:var(--gold);margin-right:8px}.salary{color:#28df4c;font-weight:700}
+.jobs-note{font-size:9px;color:#aab6c7;margin-top:7px}
+.reasons{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.reason{border:1px solid #53657c;border-radius:8px;text-align:center;padding:15px 8px;min-height:112px}
+.reason i{font-size:31px;color:#159cff;margin-bottom:9px}.reason b{display:block;font-size:12px;margin-bottom:3px}.reason p{font-size:10px;line-height:1.45}
+.cta{border:1px solid #53657c;border-radius:8px;margin-top:14px;padding:15px 25px;display:grid;grid-template-columns:75px 1fr auto auto;align-items:center;gap:18px}
+.cta i{font-size:48px;color:var(--gold)}.cta h2{font-size:23px}.cta h2 span{color:var(--gold)}.cta p{font-size:11px}.wa{color:#32e44d;font-weight:600;white-space:nowrap}
+
+/* FOOTER */
+footer{background:#001127;color:#fff;border-top:1px solid #34445c;padding-top:25px}
+.footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr 1.1fr 1.2fr;gap:25px;padding-bottom:20px}
+footer h4{font-size:13px;margin-bottom:12px}.footer-about p,footer li,footer .contact{font-size:10px;color:#e3e8f0;line-height:1.8}
+footer ul{list-style:none}.social{display:flex;gap:10px;margin-top:10px}.social a{width:25px;height:25px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px}
+.newsletter{display:flex;margin-top:10px}.newsletter input{width:100%;background:transparent;border:1px solid #68768b;padding:9px;color:#fff}.newsletter button{width:42px;border:0;background:var(--gold)}
+.copy{border-top:1px solid #334158;padding:12px 0;text-align:center;font-size:10px;color:#dce2eb}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+ nav{gap:18px}.logo{min-width:auto}.hero-grid{grid-template-columns:38% 38% 24%}.hero h1{font-size:45px}.ds-orbit{transform:scale(.82)}.support{padding:12px}
+ .syllabus{grid-template-columns:repeat(2,1fr)}.reasons{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:800px){
+ header{height:70px}.nav{padding:0 12px}.logo-mark{width:45px;height:45px;font-size:17px}.logo-text strong{font-size:20px}.logo-text span{font-size:10px}.logo-text small{font-size:7px}
+ nav,.login{display:none}.menu{display:block}
+ .hero-grid{grid-template-columns:1fr;min-height:auto;padding-bottom:30px}.hero-left{padding-top:10px}.hero h1{font-size:42px}.hero-art{height:370px}.support{margin:0 10px}
+ .hero:before{left:5%;top:400px}.features{max-width:100%}
+ .two-col{grid-template-columns:1fr}.reasons{grid-template-columns:repeat(2,1fr)}.cta{grid-template-columns:55px 1fr}.cta .btn,.cta .wa{grid-column:2}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ .container{width:92%}.breadcrumb{font-size:10px}.hero h1{font-size:36px}.tagline{font-size:16px}.hero-desc{font-size:12px}
+ .features{grid-template-columns:repeat(2,1fr);gap:10px}.feature{border-right:0;border-bottom:1px solid #536174;padding:8px}.feature:first-child{padding-left:8px}
+ .btns{flex-wrap:wrap}.btn{padding:10px 18px}
+ .hero-art{height:310px}.ds-orbit{transform:scale(.68)}
+ .syllabus{grid-template-columns:1fr}.syl{min-height:70px}
+ .reasons{grid-template-columns:1fr 1fr}.reason{min-height:105px}
+ .job-head,.job{grid-template-columns:1.25fr .75fr .8fr;font-size:9px}.job{padding:0 7px}
+ .project{grid-template-columns:35px 1fr 50px}.project-info p{font-size:9px}
+ .cta{grid-template-columns:1fr;text-align:center}.cta .btn,.cta .wa{grid-column:auto;justify-content:center}.cta i{margin:auto}
+ .footer-grid{grid-template-columns:1fr}.logo{gap:7px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#">
+      <div class="logo-mark">KN</div>
+      <div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div>
+    </a>
+    <nav>
+      <a href="#">Home</a><a href="#">About</a><a class="active" href="#">Courses</a><a href="#">Placements</a><a href="#">Projects</a><a href="#">Contact</a>
+    </nav>
+    <a class="login" href="#"><i class="fa-regular fa-user"></i>&nbsp; Login / Register</a>
+    <div class="menu"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="breadcrumb">Home &nbsp;›&nbsp; Courses &nbsp;›&nbsp; <span>Data Science</span></div>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="eyebrow">OUR COURSE</div>
+        <h1>Data Science<br><span>Training</span></h1>
+        <div class="tagline">Learn. Analyze. Predict. Succeed.</div>
+        <p class="hero-desc">Master Data Science from basics to advanced and build real-world solutions using data, statistics and machine learning.</p>
+        <div class="features">
+          <div class="feature"><i class="fa-regular fa-user"></i><b>Beginner<br>Friendly</b></div>
+          <div class="feature"><i class="fa-solid fa-chart-column"></i><b>Real-World<br>Projects</b></div>
+          <div class="feature"><i class="fa-solid fa-certificate"></i><b>Certification<br>Included</b></div>
+          <div class="feature"><i class="fa-solid fa-briefcase"></i><b>Placement<br>Support</b></div>
+        </div>
+        <div class="btns"><a class="btn primary" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a><a class="btn outline" href="#"><i class="fa-solid fa-play"></i> Watch Intro</a></div>
+      </div>
+
+      <div class="hero-art">
+        <div class="ds-orbit">
+          <div class="ds-center">DATA<br>SCIENCE</div>
+          <div class="node n1"><div><i class="fa-solid fa-chart-pie"></i>Data<br>Analysis</div></div>
+          <div class="node n2"><div><i class="fa-solid fa-chart-column"></i>Statistics</div></div>
+          <div class="node n3"><div><i class="fa-solid fa-brain"></i>Machine<br>Learning</div></div>
+          <div class="node n4"><div><i class="fa-solid fa-chart-line"></i>Data<br>Visualization</div></div>
+          <div class="node n5"><div><i class="fa-solid fa-database"></i>Big Data</div></div>
+          <div class="node n6"><div><i class="fa-brands fa-python"></i>Python<br>Programming</div></div>
+        </div>
+      </div>
+
+      <div class="support">
+        <div class="support-item"><i class="fa-solid fa-book-open"></i><div><b>Live Classes</b><span>Interactive Learning</span></div></div>
+        <div class="support-item"><i class="fa-solid fa-rocket"></i><div><b>Live Projects</b><span>Hands-on Experience</span></div></div>
+        <div class="support-item"><i class="fa-solid fa-award"></i><div><b>Certificate</b><span>Industry Recognized</span></div></div>
+        <div class="support-item"><i class="fa-solid fa-briefcase"></i><div><b>Placement Support</b><span>Interview & Career Support</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+<div class="container">
+  <h2 class="title">COURSE SYLLABUS</h2>
+  <div class="syllabus">
+    <div class="syl"><div class="num">01</div><div><b>Introduction to Data Science</b><p>Overview, Data Science Life Cycle, Applications, Career Path</p></div></div>
+    <div class="syl"><div class="num">02</div><div><b>Python for Data Science</b><p>Python Basics, NumPy, Pandas, Data Handling</p></div></div>
+    <div class="syl"><div class="num">03</div><div><b>Statistics & Probability</b><p>Descriptive Stats, Probability Distributions, Hypothesis Testing</p></div></div>
+    <div class="syl"><div class="num">04</div><div><b>Data Analysis with Pandas</b><p>DataFrames, Indexing, GroupBy, Merging, Reshaping</p></div></div>
+    <div class="syl"><div class="num">05</div><div><b>Data Visualization</b><p>Matplotlib, Seaborn, Plotly, Exploratory Data Analysis</p></div></div>
+    <div class="syl"><div class="num">06</div><div><b>Data Cleaning & Preparation</b><p>Handling Missing Values, Outliers, Encoding, Feature Scaling</p></div></div>
+    <div class="syl"><div class="num">07</div><div><b>Machine Learning Basics</b><p>Supervised vs Unsupervised Learning, Model Evaluation</p></div></div>
+    <div class="syl"><div class="num">08</div><div><b>Supervised Learning</b><p>Linear Regression, Logistic Regression, Decision Trees</p></div></div>
+    <div class="syl"><div class="num">09</div><div><b>Unsupervised Learning</b><p>Clustering (K-Means, Hierarchical), PCA, Dimensionality Reduction</p></div></div>
+    <div class="syl"><div class="num">10</div><div><b>Model Evaluation & Tuning</b><p>Cross Validation, Grid Search, Metrics, Overfitting & Underfitting</p></div></div>
+    <div class="syl"><div class="num">11</div><div><b>Big Data Essentials</b><p>Introduction to SQL, NoSQL, Hadoop, Spark (Overview)</p></div></div>
+    <div class="syl"><div class="num">12</div><div><b>Real-world Projects</b><p>End-to-End Projects on Healthcare, Finance, Retail</p></div></div>
+  </div>
+  <div class="center-btn"><button class="small-btn">View Full Syllabus <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+</section>
+
+<section class="section dark">
+<div class="container">
+  <div class="two-col">
+    <div>
+      <h2 class="panel-title">REAL-WORLD PROJECTS YOU WILL BUILD</h2>
+      <div class="project-box">
+        <div class="project"><i class="fa-solid fa-users"></i><div class="project-info"><b>1. Customer Segmentation</b><p>Segment customers using clustering techniques.</p></div><div class="project-brand">📊</div></div>
+        <div class="project"><i class="fa-solid fa-user-group"></i><div class="project-info"><b>2. Sales Prediction Model</b><p>Predict sales using regression algorithms.</p></div><div class="project-brand">📈</div></div>
+        <div class="project"><i class="fa-solid fa-cart-shopping"></i><div class="project-info"><b>3. E-commerce Recommendation System</b><p>Build a recommendation system using ML.</p></div><div class="project-brand">⭐</div></div>
+        <div class="project"><i class="fa-solid fa-credit-card"></i><div class="project-info"><b>4. Credit Card Fraud Detection</b><p>Detect fraudulent transactions using classification.</p></div><div class="project-brand">🛡️</div></div>
+        <div class="project"><i class="fa-solid fa-arrow-trend-up"></i><div class="project-info"><b>5. Stock Market Analysis</b><p>Analyze trends and predict stock prices.</p></div><div class="project-brand">📉</div></div>
+        <div class="project"><i class="fa-solid fa-heart-pulse"></i><div class="project-info"><b>6. Health Risk Prediction</b><p>Predict health risks using patient data.</p></div><div class="project-brand">❤️</div></div>
+      </div>
+      <div class="center-btn"><button class="small-btn">View More Projects <i class="fa-solid fa-arrow-right"></i></button></div>
+    </div>
+
+    <div>
+      <h2 class="panel-title">TOP JOB ROLES & SALARY IN INDIA</h2>
+      <div class="jobs-box">
+        <div class="job-head"><span>JOB ROLE</span><span>EXPERIENCE</span><span>AVG. SALARY (INR)</span></div>
+        <div class="job"><span><i class="fa-solid fa-user-tie"></i> Data Scientist</span><span>0 – 2 Years</span><span class="salary">₹ 6 – 12 LPA</span></div>
+        <div class="job"><span><i class="fa-solid fa-users"></i> Data Analyst</span><span>0 – 2 Years</span><span class="salary">₹ 4 – 8 LPA</span></div>
+        <div class="job"><span><i class="fa-solid fa-gear"></i> Machine Learning Engineer</span><span>1 – 3 Years</span><span class="salary">₹ 8 – 18 LPA</span></div>
+        <div class="job"><span><i class="fa-solid fa-chart-column"></i> Business Intelligence Analyst</span><span>1 – 3 Years</span><span class="salary">₹ 5 – 10 LPA</span></div>
+        <div class="job"><span><i class="fa-solid fa-database"></i> Data Engineer</span><span>1 – 4 Years</span><span class="salary">₹ 7 – 15 LPA</span></div>
+        <div class="job"><span><i class="fa-solid fa-brain"></i> AI Engineer</span><span>2 – 5 Years</span><span class="salary">₹ 12 – 25 LPA</span></div>
+      </div>
+      <div class="center-btn"><button class="small-btn">View More Career Roles <i class="fa-solid fa-arrow-right"></i></button></div>
+      <p class="jobs-note">* Salaries are indicative. Source: Glassdoor, AmbitionBox, Naukri (2024)</p>
+    </div>
+  </div>
+
+  <div style="margin-top:18px">
+    <h2 class="panel-title">WHY LEARN DATA SCIENCE?</h2>
+    <div class="reasons">
+      <div class="reason"><i class="fa-solid fa-chart-line"></i><b>High Demand</b><p>One of the fastest growing career paths globally.</p></div>
+      <div class="reason"><i class="fa-solid fa-bullseye"></i><b>Real-World Impact</b><p>Solve business problems and create value.</p></div>
+      <div class="reason"><i class="fa-solid fa-cubes"></i><b>Versatile Skills</b><p>Work with data, AI, ML, statistics & more.</p></div>
+      <div class="reason"><i class="fa-solid fa-arrow-trend-up"></i><b>Great Career Growth</b><p>Excellent opportunities and promotions.</p></div>
+      <div class="reason"><i class="fa-solid fa-headset"></i><b>Future Ready</b><p>Be part of the AI and data-driven future.</p></div>
+      <div class="reason"><i class="fa-solid fa-wallet"></i><b>Attractive Salary</b><p>High paying roles across industries.</p></div>
+    </div>
+
+    <div class="cta">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <div><h2>Ready to Start Your <span>Data Science</span> Journey?</h2><p>Join thousands of students who transformed their careers with our training programs.</p></div>
+      <a class="btn primary" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="wa" href="#"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <div class="logo"><div class="logo-mark">KN</div><div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div></div>
+      <p style="margin-top:10px">Empowering students with industry-oriented training and real-world skills to build successful careers in IT.</p>
+      <div class="social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></div>
+    </div>
+    <div><h4>QUICK LINKS</h4><ul><li>Home</li><li>About Us</li><li>Courses</li><li>Projects</li><li>Placements</li><li>Contact Us</li></ul></div>
+    <div><h4>POPULAR COURSES</h4><ul><li>Python Programming</li><li>SQL Database</li><li>Power BI</li><li>Data Science</li><li>Cyber Security</li><li>Full Stack Development</li></ul></div>
+    <div><h4>CONTACT US</h4><div class="contact">📍 Hyderabad, Telangana - 500010<br>📞 +91 91000 12345<br>✉ info@kntechinstitute.com<br>🌐 www.kesineninaveen.in</div></div>
+    <div><h4>NEWSLETTER</h4><div class="contact">Subscribe to get updates on new courses, offers and more.</div><div class="newsletter"><input placeholder="Enter your email"><button><i class="fa-solid fa-paper-plane"></i></button></div></div>
+  </div>
+  <div class="copy">© 2025 KN Tech Institute. All Rights Reserved. <span style="float:right">Privacy Policy &nbsp; | &nbsp; Terms & Conditions</span></div>
+</div>
+</footer>
+</body>
+</html>

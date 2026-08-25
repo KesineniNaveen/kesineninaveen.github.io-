@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KN Tech Institute | Python Programming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:#fff;color:#071a35;overflow-x:hidden}
+:root{--navy:#02152e;--navy2:#061d3b;--gold:#ffb900;--gold2:#ffc21a;--white:#fff;--muted:#d8e0eb;--green:#22d34f}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(96%,1280px);margin:auto}
+
+/* HEADER */
+header{height:70px;background:#03162f;color:#fff;border-bottom:1px solid rgba(255,255,255,.18);position:relative;z-index:20}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;gap:10px;min-width:230px}
+.logo-mark{width:52px;height:52px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:20px;font-weight:800;position:relative}
+.logo-mark:before{content:"";position:absolute;inset:5px;border:1px solid var(--gold);border-radius:50%}
+.logo-text strong{display:block;font-size:21px;letter-spacing:1px}
+.logo-text span{display:block;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:4px}
+.logo-text small{font-size:9px;color:#fff}
+.nav-links{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:600}
+.nav-links a{height:70px;display:flex;align-items:center;position:relative}
+.nav-links a.active,.nav-links a:hover{color:var(--gold)}
+.nav-links a.active:after{content:"";position:absolute;bottom:9px;left:0;right:0;height:3px;background:var(--gold)}
+.login{border:1px solid var(--gold);border-radius:5px;padding:11px 20px;color:var(--gold);font-weight:700;white-space:nowrap}
+.login i{margin-right:8px}
+.menu-btn{display:none;color:var(--gold);font-size:25px}
+
+/* HERO */
+.hero{background:
+radial-gradient(circle at 53% 48%,rgba(0,171,255,.16),transparent 28%),
+linear-gradient(115deg,#03152d 0%,#031b38 55%,#00152c 100%);
+color:#fff;min-height:370px}
+.breadcrumb{padding:14px 0 5px;font-size:11px;color:#d9e2ee}
+.breadcrumb span{color:var(--gold)}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr .72fr;align-items:center;gap:22px;min-height:345px}
+.course-label{color:var(--gold);font-size:12px;font-weight:800;margin-bottom:10px}
+.hero h1{font-size:53px;line-height:.98;letter-spacing:-1.5px;margin-bottom:15px}
+.hero h1 span{color:var(--gold)}
+.hero-desc{font-size:15px;line-height:1.6;max-width:520px;color:#fff;margin-bottom:18px}
+.hero-features{display:flex;gap:0;margin-bottom:20px}
+.hero-feature{width:100px;text-align:center;border-right:1px solid rgba(255,255,255,.25);padding:0 8px}
+.hero-feature:last-child{border:0}
+.hero-feature i{display:block;color:var(--gold);font-size:19px;margin-bottom:8px}
+.hero-feature span{font-size:10px;line-height:1.4;display:block}
+.ctas{display:flex;gap:14px}
+.btn{border-radius:5px;padding:10px 25px;border:1px solid var(--gold);font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:25px}
+.btn.gold{background:var(--gold);color:#061a32}
+.btn.outline{color:#fff;background:transparent}
+.btn i{font-size:16px}
+
+/* PYTHON VISUAL */
+.python-visual{height:310px;display:grid;place-items:center;position:relative}
+.python-orbit{width:285px;height:285px;border-radius:50%;border:1px solid rgba(0,190,255,.35);box-shadow:0 0 35px rgba(0,180,255,.1),inset 0 0 35px rgba(0,180,255,.08);display:grid;place-items:center;position:relative}
+.python-orbit:before,.python-orbit:after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(0,185,255,.3)}
+.python-orbit:before{inset:20px}.python-orbit:after{inset:42px}
+.python-logo{width:150px;height:150px;filter:drop-shadow(0 0 20px rgba(0,180,255,.3));z-index:2}
+.python-logo .blue{fill:#2d9edb}.python-logo .blue2{fill:#1673b9}.python-logo .yellow{fill:#ffd33d}.python-logo .yellow2{fill:#f4b728}.python-logo .eye{fill:#071a35}
+
+/* SIDE BENEFITS */
+.benefits{border:1px solid var(--gold);border-radius:12px;padding:13px 15px;background:rgba(1,19,41,.35)}
+.benefit{display:grid;grid-template-columns:38px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.benefit:last-child{border:0}
+.benefit i{color:var(--gold);font-size:25px;padding-top:2px}
+.benefit strong{font-size:13px;display:block;margin-bottom:4px}
+.benefit small{font-size:11px;color:#fff}
+
+/* SECTION COMMON */
+.section{padding:18px 0}
+.section-title{text-align:center;font-size:18px;font-weight:800;margin-bottom:18px}
+.section-title:after{content:"";display:block;width:37px;height:2px;background:var(--gold);margin:7px auto 0}
+
+/* SYLLABUS */
+.syllabus{background:#fff}
+.syllabus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.syllabus-card{border:1px solid #d7dfe8;border-radius:7px;padding:12px;display:grid;grid-template-columns:32px 1fr;gap:10px;min-height:74px}
+.num{width:30px;height:30px;border-radius:4px;background:#071a35;color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.syllabus-card h3{font-size:12px;margin:0 0 4px}
+.syllabus-card p{font-size:10.5px;line-height:1.45;color:#172338}
+.center-btn{text-align:center;margin-top:10px}.small-btn{background:#071a35;color:#fff;border:0;border-radius:4px;padding:8px 18px;font-size:11px;font-weight:700}.small-btn i{color:var(--gold);margin-left:8px}
+
+/* PROJECTS + CAREERS */
+.dark-section{background:#03182f;color:#fff;padding:18px 0 16px}
+.two-col{display:grid;grid-template-columns:1.05fr 1fr;gap:22px}
+.dark-title{text-align:center;font-size:16px;font-weight:800;margin-bottom:15px}
+.dark-title:after{content:"";display:block;width:38px;height:2px;background:var(--gold);margin:7px auto}
+.project-box,.career-box{border:1px solid rgba(255,255,255,.35);border-radius:7px;overflow:hidden}
+.project-row{display:grid;grid-template-columns:42px 1fr 62px;min-height:45px;border-bottom:1px solid rgba(255,255,255,.18)}
+.project-row:last-child{border-bottom:0}
+.project-icon{display:grid;place-items:center;color:var(--gold);border-right:1px solid rgba(255,255,255,.18)}
+.project-text{padding:7px 10px;font-size:10px;line-height:1.35}
+.project-text strong{font-size:11px;color:#fff}
+.project-text b{color:var(--gold);margin-right:5px}
+.project-tool{display:grid;place-items:center;border-left:1px solid rgba(255,255,255,.18);font-size:20px;color:#fff}
+.career-head,.career-row{display:grid;grid-template-columns:1.2fr .8fr .9fr}
+.career-head{font-size:9px;color:var(--gold);font-weight:700;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.3)}
+.career-row{padding:9px 12px;font-size:10px;border-bottom:1px solid rgba(255,255,255,.18);align-items:center}
+.career-row:last-child{border:0}
+.salary{color:#19df45;font-weight:700}
+.dark-btn{margin-top:11px;text-align:center}.dark-btn button{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:8px 18px;border-radius:4px;font-size:11px;font-weight:700}
+
+/* WHY */
+.why{background:#03182f;color:#fff;border-top:1px solid rgba(255,255,255,.18)}
+.why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.why-card{border:1px solid rgba(255,255,255,.4);border-radius:6px;text-align:center;padding:13px 8px;min-height:105px}
+.why-card i{font-size:25px;color:var(--gold);margin-bottom:8px}
+.why-card h3{font-size:11px;margin-bottom:5px}.why-card p{font-size:9.5px;line-height:1.35;color:#fff}
+
+/* CTA */
+.cta{margin-top:12px;border:1px solid rgba(255,255,255,.3);border-radius:7px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.cta-left{display:flex;align-items:center;gap:18px}.cta-left i{font-size:34px;color:var(--gold)}.cta h2{font-size:20px}.cta h2 span{color:var(--gold)}.cta p{font-size:10px;margin-top:3px;color:#d6deea}
+.whatsapp{color:#22df50;font-size:12px;font-weight:700;white-space:nowrap}.whatsapp i{font-size:24px;vertical-align:middle;margin-right:5px}
+
+/* FOOTER */
+footer{background:#03152c;color:#fff;border-top:1px solid rgba(255,255,255,.2);padding:15px 0 8px}
+.footer-grid{display:grid;grid-template-columns:1.35fr .8fr 1fr 1.15fr 1.1fr;gap:28px}
+.footer-logo{margin-bottom:8px}.footer-desc{font-size:10px;line-height:1.5;color:#fff;max-width:230px}
+.footer h3{font-size:11px;margin-bottom:9px}.footer-links{display:grid;gap:6px;font-size:10px;color:#fff}
+.social{display:flex;gap:8px;margin-top:10px}.social a{width:25px;height:25px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px}
+.contact-line{font-size:10px;margin:7px 0;display:flex;gap:8px}.contact-line i{color:var(--gold);width:12px}
+.newsletter p{font-size:10px;line-height:1.4;margin-bottom:9px}.email{display:flex;border:1px solid #68778d;border-radius:4px;overflow:hidden}.email input{width:100%;background:transparent;border:0;padding:9px;color:#fff;outline:0;font-size:10px}.email button{width:38px;background:var(--gold);border:0}
+.copyright{border-top:1px solid rgba(255,255,255,.15);margin-top:13px;padding-top:10px;text-align:center;font-size:10px}
+
+/* MOBILE */
+@media(max-width:900px){
+ .nav-links{display:none}.login{display:none}.menu-btn{display:block}.logo{min-width:auto}
+ .hero-grid{grid-template-columns:1fr;gap:8px;padding-bottom:20px}.hero{min-height:0}.hero-left{text-align:center}.hero-desc{margin:0 auto 18px}.hero h1{font-size:45px}.hero-features{justify-content:center}.ctas{justify-content:center}
+ .python-visual{height:250px;order:2}.benefits{order:3;max-width:500px;width:100%;margin:auto}
+ .python-orbit{width:220px;height:220px}.python-logo{width:120px;height:120px}
+ .syllabus-grid{grid-template-columns:repeat(2,1fr)}
+ .two-col{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(3,1fr)}
+ .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ header,.nav{height:62px}.logo-mark{width:44px;height:44px}.logo-text strong{font-size:17px}.logo-text span{font-size:8px}.logo-text small{font-size:7px}
+ .hero h1{font-size:39px}.hero-desc{font-size:13px}.hero-features{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.hero-feature{width:auto;border-right:0;border-bottom:1px solid rgba(255,255,255,.2);padding:8px}
+ .ctas{flex-direction:column;align-items:stretch}.btn{justify-content:center}
+ .python-visual{height:215px}.python-orbit{width:190px;height:190px}.python-logo{width:105px;height:105px}
+ .syllabus-grid{grid-template-columns:1fr}.syllabus-card{min-height:auto}
+ .project-row{grid-template-columns:35px 1fr 45px}.project-tool{font-size:16px}.career-head,.career-row{grid-template-columns:1.2fr .8fr .85fr}
+ .why-grid{grid-template-columns:repeat(2,1fr)}
+ .cta{flex-direction:column;text-align:center}.cta-left{flex-direction:column;gap:6px}.cta h2{font-size:18px}
+ .footer-grid{grid-template-columns:1fr}.footer-desc{max-width:none}
+ .container{width:min(92%,1280px)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">
+      <div class="logo-mark">KN</div>
+      <div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#">Home</a><a href="#">About</a><a class="active" href="#">Courses</a><a href="#">Placements</a><a href="#">Projects</a><a href="#">Contact</a>
+    </nav>
+    <a class="login" href="#"><i class="fa-regular fa-user"></i>Login / Register</a>
+    <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="breadcrumb">Home &nbsp;&gt;&nbsp; Courses &nbsp;&gt;&nbsp; <span>Python Programming</span></div>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="course-label">OUR COURSE</div>
+        <h1>Python<br><span>Programming</span></h1>
+        <p class="hero-desc">From Basics to Advanced – Master Python Programming and Build Real-World Applications.</p>
+        <div class="hero-features">
+          <div class="hero-feature"><i class="fa-solid fa-code"></i><span>Beginner<br>Friendly</span></div>
+          <div class="hero-feature"><i class="fa-solid fa-laptop-code"></i><span>Real-World<br>Projects</span></div>
+          <div class="hero-feature"><i class="fa-solid fa-certificate"></i><span>Certification<br>Included</span></div>
+          <div class="hero-feature"><i class="fa-solid fa-headset"></i><span>Placement<br>Support</span></div>
+        </div>
+        <div class="ctas"><a class="btn gold" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a><a class="btn outline" href="#"><i class="fa-solid fa-play"></i> Watch Intro</a></div>
+      </div>
+
+      <div class="python-visual">
+        <div class="python-orbit">
+          <svg class="python-logo" viewBox="0 0 200 200" aria-label="Python logo">
+            <path class="blue" d="M100 12C55 12 57 31 57 31v28h44v8H40c-20 0-29 30-29 30s-10 30 30 30h24v-20c0-15 13-28 29-28h52c15 0 27-13 27-28V39c0-15-13-27-27-27z"/>
+            <path class="blue2" d="M100 12c-25 0-30 11-30 24v23h31v8H53c-16 0-26 9-30 20h78c16 0 28-13 28-29V39c0-15-13-27-29-27z"/>
+            <circle class="eye" cx="78" cy="32" r="6"/>
+            <path class="yellow" d="M100 188c45 0 43-19 43-19v-28H99v-8h61c20 0 29-30 29-30s10-30-30-30h-24v20c0 15-13 28-29 28H54c-15 0-27 13-27 28v12c0 15 13 27 27 27z"/>
+            <path class="yellow2" d="M100 188c25 0 30-11 30-24v-23H99v-8h48c16 0 26-9 30-20H99c-16 0-28 13-28 29v19c0 15 13 27 29 27z"/>
+            <circle class="eye" cx="122" cy="168" r="6"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit"><i class="fa-solid fa-book-open"></i><div><strong>Live Classes</strong><small>Interactive Learning</small></div></div>
+        <div class="benefit"><i class="fa-solid fa-rocket"></i><div><strong>Live Projects</strong><small>Hands-on Experience</small></div></div>
+        <div class="benefit"><i class="fa-solid fa-award"></i><div><strong>Certificate</strong><small>Industry Recognized</small></div></div>
+        <div class="benefit"><i class="fa-solid fa-briefcase"></i><div><strong>Placement Support</strong><small>Interview & Career Support</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section syllabus">
+<div class="container">
+<h2 class="section-title">COURSE SYLLABUS</h2>
+<div class="syllabus-grid">
+  <article class="syllabus-card"><div class="num">01</div><div><h3>Python Basics</h3><p>Introduction, Setup, Syntax, Variables, Data Types</p></div></article>
+  <article class="syllabus-card"><div class="num">02</div><div><h3>Control Flow</h3><p>Conditions, Loops, Break, Continue, Pass</p></div></article>
+  <article class="syllabus-card"><div class="num">03</div><div><h3>Data Structures</h3><p>Lists, Tuples, Sets, Dictionaries</p></div></article>
+  <article class="syllabus-card"><div class="num">04</div><div><h3>Functions</h3><p>Defining Functions, Parameters, Scope</p></div></article>
+  <article class="syllabus-card"><div class="num">05</div><div><h3>OOP Concepts</h3><p>Classes, Objects, Inheritance, Polymorphism</p></div></article>
+  <article class="syllabus-card"><div class="num">06</div><div><h3>Modules & Packages</h3><p>Built-in Modules, Importing Modules, User-defined</p></div></article>
+  <article class="syllabus-card"><div class="num">07</div><div><h3>File Handling</h3><p>Read/Write Files, CSV, JSON, Exception Handling</p></div></article>
+  <article class="syllabus-card"><div class="num">08</div><div><h3>Advanced Python</h3><p>Decorators, Generators, Iterators, Lambda</p></div></article>
+</div>
+<div class="center-btn"><button class="small-btn">View Full Syllabus <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+</section>
+
+<section class="dark-section">
+<div class="container">
+<div class="two-col">
+<div>
+<h2 class="dark-title">REAL-WORLD PROJECTS YOU WILL BUILD</h2>
+<div class="project-box">
+  <div class="project-row"><div class="project-icon"><i class="fa-solid fa-calculator"></i></div><div class="project-text"><b>1.</b><strong>Student Grade Calculator</strong><br>A simple application to calculate and manage student grades.</div><div class="project-tool">🐍</div></div>
+  <div class="project-row"><div class="project-icon"><i class="fa-solid fa-chart-line"></i></div><div class="project-text"><b>2.</b><strong>Data Analysis Dashboard</strong><br>Analyze data and visualize insights using Python libraries.</div><div class="project-tool">▥</div></div>
+  <div class="project-row"><div class="project-icon"><i class="fa-solid fa-globe"></i></div><div class="project-text"><b>3.</b><strong>Web Scraping Tool</strong><br>Extract data from websites using BeautifulSoup.</div><div class="project-tool">bs</div></div>
+  <div class="project-row"><div class="project-icon"><i class="fa-solid fa-users"></i></div><div class="project-text"><b>4.</b><strong>Employee Management System</strong><br>Manage employee records, add, update and delete.</div><div class="project-tool">🐍</div></div>
+  <div class="project-row"><div class="project-icon"><i class="fa-solid fa-cart-shopping"></i></div><div class="project-text"><b>5.</b><strong>E-Commerce Data Analysis</strong><br>Analyze sales data and create insights.</div><div class="project-tool">▥</div></div>
+  <div class="project-row"><div class="project-icon"><i class="fa-solid fa-brain"></i></div><div class="project-text"><b>6.</b><strong>Machine Learning Prediction Model</strong><br>Predict outcomes using ML algorithms.</div><div class="project-tool">🐍</div></div>
+</div>
+<div class="dark-btn"><button>View More Projects &nbsp; <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+
+<div>
+<h2 class="dark-title">TOP JOB ROLES & SALARY IN INDIA</h2>
+<div class="career-box">
+<div class="career-head"><span>JOB ROLE</span><span>EXPERIENCE</span><span>AVG. SALARY (INR)</span></div>
+<div class="career-row"><span><i class="fa-solid fa-code" style="color:#ffb900;margin-right:8px"></i>Python Developer</span><span>0-2 Years</span><span class="salary">₹ 4 - 8 LPA</span></div>
+<div class="career-row"><span><i class="fa-solid fa-chart-column" style="color:#ffb900;margin-right:8px"></i>Data Analyst</span><span>0-2 Years</span><span class="salary">₹ 4 - 7 LPA</span></div>
+<div class="career-row"><span><i class="fa-solid fa-atom" style="color:#ffb900;margin-right:8px"></i>Data Scientist</span><span>1-3 Years</span><span class="salary">₹ 6 - 12 LPA</span></div>
+<div class="career-row"><span><i class="fa-solid fa-brain" style="color:#ffb900;margin-right:8px"></i>Machine Learning Engineer</span><span>1-3 Years</span><span class="salary">₹ 7 - 15 LPA</span></div>
+<div class="career-row"><span><i class="fa-solid fa-server" style="color:#ffb900;margin-right:8px"></i>Backend Developer</span><span>0-2 Years</span><span class="salary">₹ 4 - 9 LPA</span></div>
+<div class="career-row"><span><i class="fa-solid fa-gear" style="color:#ffb900;margin-right:8px"></i>Automation Engineer</span><span>1-3 Years</span><span class="salary">₹ 4 - 8 LPA</span></div>
+</div>
+<div class="dark-btn"><button>View More Career Roles &nbsp; <i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="why">
+<div class="container section">
+<h2 class="section-title">WHY LEARN PYTHON?</h2>
+<div class="why-grid">
+<div class="why-card"><i class="fa-regular fa-lightbulb"></i><h3>Easy to Learn</h3><p>Simple syntax and beginner friendly.</p></div>
+<div class="why-card"><i class="fa-solid fa-medal"></i><h3>High Demand</h3><p>One of the most in-demand skills in the industry.</p></div>
+<div class="why-card"><i class="fa-solid fa-laptop-code"></i><h3>Versatile</h3><p>Used in Web, Data, AI, Automation & more.</p></div>
+<div class="why-card"><i class="fa-solid fa-globe"></i><h3>Open Source</h3><p>Free and open-source with huge community.</p></div>
+<div class="why-card"><i class="fa-solid fa-arrow-trend-up"></i><h3>Great Career Growth</h3><p>Excellent opportunities and career growth.</p></div>
+<div class="why-card"><i class="fa-regular fa-user"></i><h3>Great Salary</h3><p>High paying job roles across the world.</p></div>
+</div>
+<div class="cta">
+<div class="cta-left"><i class="fa-solid fa-graduation-cap"></i><div><h2>Ready to Start Your <span>Python</span> Journey?</h2><p>Join thousands of students who transformed their career with our training programs.</p></div></div>
+<a class="btn gold" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+<a class="whatsapp" href="https://wa.me/919100012345"><i class="fa-brands fa-whatsapp"></i>Chat on WhatsApp</a>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="logo footer-logo"><div class="logo-mark">KN</div><div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div></div>
+<p class="footer-desc">Empowering students with industry-oriented training and real-world skills to build successful careers in IT.</p>
+<div class="social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></div>
+</div>
+<div><h3>QUICK LINKS</h3><div class="footer-links"><a>Home</a><a>About Us</a><a>Courses</a><a>Projects</a><a>Placements</a><a>Contact Us</a></div></div>
+<div><h3>POPULAR COURSES</h3><div class="footer-links"><a>Python Programming</a><a>SQL Training</a><a>Power BI</a><a>Data Science</a><a>Cyber Security</a><a>Full Stack Development</a></div></div>
+<div><h3>CONTACT US</h3><div class="contact-line"><i class="fa-solid fa-location-dot"></i>Hyderabad, Telangana - 500010</div><div class="contact-line"><i class="fa-solid fa-phone"></i>+91 91000 12345</div><div class="contact-line"><i class="fa-solid fa-envelope"></i>info@kntechinstitute.com</div><div class="contact-line"><i class="fa-solid fa-globe"></i>www.kesineninaveen.in</div></div>
+<div class="newsletter"><h3>NEWSLETTER</h3><p>Subscribe to get updates on new courses, offers and more.</p><div class="email"><input placeholder="Enter your email"><button><i class="fa-solid fa-paper-plane"></i></button></div></div>
+</div>
+<div class="copyright">© 2025 KN Tech Institute. All Rights Reserved.</div>
+</div>
+</footer>
+
+<script>
+const menu=document.querySelector('.menu-btn');
+const links=document.querySelector('.nav-links');
+menu?.addEventListener('click',()=>{links.style.display=links.style.display==='flex'?'none':'flex';links.style.position='absolute';links.style.top='62px';links.style.left='0';links.style.right='0';links.style.background='#03162f';links.style.padding='15px 25px';links.style.flexDirection='column';links.style.height='auto';links.style.gap='0';links.querySelectorAll('a').forEach(a=>a.style.height='45px');});
+</script>
+</body>
+</html>

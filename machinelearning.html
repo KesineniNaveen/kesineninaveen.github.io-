@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning Training | KN Tech Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#020e22;--navy2:#06152d;--gold:#ffbd08;--white:#fff;--line:#526078;--green:#20d53c}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:#fff;color:#0a1428}
+a{text-decoration:none;color:inherit}
+.container{width:min(96%,1500px);margin:auto}
+
+/* NAVBAR */
+header{height:70px;background:#020b1d;color:#fff;border-bottom:1px solid #566072;display:flex;align-items:center}
+.nav{width:96%;max-width:1500px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:12px;min-width:260px}
+.logo-mark{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:22px;font-weight:800;position:relative}
+.logo-mark:before{content:"";position:absolute;inset:5px;border:1px solid var(--gold);border-radius:50%}
+.logo-text strong{display:block;font-size:24px;letter-spacing:.5px}
+.logo-text span{display:block;color:var(--gold);font-size:13px;letter-spacing:4px;font-weight:700}
+.logo-text small{font-size:10px;color:#ddd}
+nav{display:flex;align-items:center;gap:34px;font-size:15px;font-weight:600}
+nav a{padding:25px 0;position:relative}
+nav a.active,nav a:hover{color:var(--gold)}
+nav a.active:after{content:"";position:absolute;height:3px;background:var(--gold);left:0;right:0;bottom:14px}
+.login{border:1px solid var(--gold);padding:11px 20px!important;border-radius:5px;color:var(--gold)}
+.login:after{display:none!important}
+.menu{display:none;color:var(--gold);font-size:25px}
+
+/* HERO */
+.hero{background:radial-gradient(circle at 52% 48%,#062b5b 0,#03132b 35%,#020b1c 75%);color:#fff;padding:13px 0 20px;overflow:hidden}
+.breadcrumb{font-size:13px;color:#ddd;margin:0 0 14px 0}
+.breadcrumb span{color:var(--gold)}
+.hero-grid{display:grid;grid-template-columns:31% 43% 26%;align-items:center;gap:10px}
+.course-tag{color:var(--gold);font-size:13px;font-weight:800;margin-bottom:10px}
+.hero h1{font-size:55px;line-height:1.02;font-weight:800}
+.hero h1 span{color:var(--gold)}
+.hero h3{font-size:21px;margin:13px 0 9px}
+.hero-copy{font-size:15px;line-height:1.65;max-width:480px;color:#f4f4f4}
+.hero-features{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px;max-width:500px}
+.hero-feature{text-align:center;border-right:1px solid #43506a;padding:0 12px;font-size:12px}
+.hero-feature:last-child{border:0}
+.hero-feature i{display:block;color:var(--gold);font-size:22px;margin-bottom:8px}
+.hero-buttons{display:flex;gap:14px;margin-top:18px}
+.btn{padding:13px 26px;border-radius:5px;font-weight:700;border:1px solid var(--gold);display:inline-flex;align-items:center;gap:22px}
+.btn.gold{background:var(--gold);color:#071124}
+.btn.dark{color:#fff;background:transparent}
+
+/* HERO VISUAL */
+.visual{height:350px;display:grid;place-items:center;position:relative}
+.brain{width:235px;height:185px;border:3px solid #3ec8ff;border-radius:48% 52% 45% 55%;box-shadow:0 0 22px #00aaff,0 0 70px #006dbe inset;position:relative;background:radial-gradient(circle,#0a6fb7 0,#031c3b 70%);transform:scaleY(.82)}
+.brain:before,.brain:after{content:"";position:absolute;top:18px;bottom:18px;width:3px;background:#76ddff;opacity:.7}
+.brain:before{left:49%}.brain:after{left:58%}
+.brain-lines{position:absolute;inset:-75px;border-radius:50%;border:1px solid #007dce;box-shadow:0 0 25px #007dce}
+.brain-lines:before,.brain-lines:after{content:"";position:absolute;inset:25px;border:1px dashed #1688d2;border-radius:50%}
+.brain-lines:after{inset:50px}
+.ml-label{position:absolute;bottom:30px;background:rgba(0,23,52,.92);border:2px solid #00baff;border-radius:45%;padding:17px 42px;color:#eafaff;font-size:23px;font-weight:800;box-shadow:0 0 24px #009fe8}
+.node{position:absolute;width:92px;text-align:center;color:#fff;font-size:11px;font-weight:600}
+.node i{display:grid;place-items:center;width:54px;height:54px;margin:auto auto 5px;border:1px solid #168bd0;border-radius:15px;color:#fff;font-size:25px;background:#061a35}
+.n1{top:8px;left:13%}.n2{top:8px;right:12%}.n3{top:125px;left:2%}.n4{top:125px;right:2%}.n5{bottom:18px;left:13%}.n6{bottom:18px;right:12%}
+
+/* BENEFITS */
+.benefit-box{border:1px solid var(--gold);border-radius:14px;padding:17px 20px;background:rgba(2,13,31,.55)}
+.benefit{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid #425067}
+.benefit:last-child{border:0}
+.benefit i{font-size:27px;color:var(--gold);text-align:center}
+.benefit b{font-size:14px}.benefit small{display:block;margin-top:4px;color:#ddd}
+
+/* SECTION COMMON */
+.section-title{text-align:center;font-size:21px;font-weight:800;margin-bottom:22px}
+.section-title:after{content:"";display:block;width:36px;height:3px;background:var(--gold);margin:8px auto 0}
+.syllabus{padding:20px 0 15px;background:#fff}
+.syllabus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.syl{border:1px solid #d4d9e0;border-radius:7px;padding:14px;display:flex;gap:12px;min-height:72px}
+.num{background:#06152d;color:#fff;width:32px;height:32px;border-radius:4px;display:grid;place-items:center;font-weight:800;flex:none}
+.syl b{font-size:13px}.syl p{font-size:12px;line-height:1.45;margin-top:4px}
+.center-btn{text-align:center;margin-top:12px}.small-btn{background:#06152d;color:#fff;padding:9px 20px;border-radius:5px;font-weight:700;font-size:12px;display:inline-flex;gap:12px}
+
+/* PROJECTS + JOBS */
+.dark-section{background:#020f25;color:#fff;padding:20px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.panel{border:1px solid #526078;border-radius:8px;overflow:hidden}
+.panel-title{text-align:center;font-size:20px;font-weight:800;margin-bottom:17px}
+.panel-title:after{content:"";display:block;width:34px;height:3px;background:var(--gold);margin:8px auto 0}
+.project-row,.job-row{display:grid;align-items:center;border-bottom:1px solid #3b485c;min-height:52px;padding:7px 12px}
+.project-row{grid-template-columns:42px 1fr 58px}
+.project-row i{color:var(--gold);font-size:19px;text-align:center}
+.project-row b{font-size:13px}.project-row p{font-size:11px;color:#eee;margin-top:3px}
+.project-row img{max-width:40px;max-height:34px;object-fit:contain;filter:brightness(1.15)}
+.job-head,.job-row{grid-template-columns:1.4fr 1fr 1fr}
+.job-head{display:grid;padding:12px;color:var(--gold);font-size:11px;font-weight:800}
+.job-row{display:grid;font-size:12px}.salary{color:#25e53e;font-weight:700}
+
+/* WHY */
+.why{padding:18px 0 22px;background:#020f25;color:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.why-card{border:1px solid #59657a;border-radius:7px;text-align:center;padding:16px 8px;min-height:112px}
+.why-card i{font-size:28px;color:var(--gold);margin-bottom:10px}
+.why-card b{display:block;font-size:13px}.why-card p{font-size:11px;line-height:1.45;margin-top:5px}
+
+/* CTA */
+.cta{border:1px solid #59657a;border-radius:8px;padding:17px 25px;display:flex;align-items:center;gap:22px;margin-top:12px}
+.cta .cap{font-size:45px;color:var(--gold)}
+.cta h2{font-size:21px}.cta h2 span{color:var(--gold)}
+.cta p{font-size:12px;margin-top:4px}.cta-actions{margin-left:auto;display:flex;align-items:center;gap:28px}
+.whatsapp{color:#2bdf4d;font-weight:700}.whatsapp i{font-size:25px;vertical-align:middle;margin-right:6px}
+
+/* FOOTER */
+footer{background:#020b1c;color:#fff;border-top:1px solid #374257;padding:20px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr 1.1fr 1.3fr;gap:35px;padding-bottom:18px}
+.footer-logo{font-size:24px;font-weight:800}.footer-logo span{color:var(--gold);display:block;font-size:12px;letter-spacing:4px}
+footer h4{font-size:13px;margin-bottom:12px}
+footer p,footer li{font-size:11px;line-height:1.7;color:#ddd;list-style:none}
+.social{display:flex;gap:10px;margin-top:10px}.social i{width:25px;height:25px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#fff}
+.newsletter{border:1px solid #697386;border-radius:5px;display:flex;margin-top:10px}.newsletter input{background:transparent;border:0;outline:0;color:#fff;padding:10px;min-width:0;flex:1}.newsletter button{border:0;background:var(--gold);width:42px}
+.copyright{border-top:1px solid #344055;text-align:center;padding:10px;font-size:11px;color:#ddd}
+
+/* RESPONSIVE */
+@media(max-width:1050px){
+ nav{gap:18px}.hero-grid{grid-template-columns:34% 40% 26%}.hero h1{font-size:45px}.syllabus-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:800px){
+ header{height:64px}.logo{min-width:0}.logo-text strong{font-size:19px}.logo-text span{font-size:10px}.logo-mark{width:45px;height:45px}
+ nav{display:none}.menu{display:block}
+ .hero-grid{grid-template-columns:1fr;text-align:center}.hero-copy{margin:auto}.hero-features{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.visual{order:2;height:330px}.benefit-box{order:3;max-width:500px;width:100%;margin:auto}
+ .syllabus-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(3,1fr)}
+ .cta{flex-wrap:wrap}.cta-actions{margin-left:0;width:100%;justify-content:center}
+}
+@media(max-width:520px){
+ .container{width:92%}.hero h1{font-size:39px}.hero h3{font-size:18px}.hero-feature{padding:0 5px;font-size:10px}
+ .syllabus-grid{grid-template-columns:1fr}.syl{min-height:auto}.why-grid{grid-template-columns:repeat(2,1fr)}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:22px}.footer-grid>div:first-child{grid-column:1/-1}
+ .project-row{grid-template-columns:30px 1fr 45px}.panel-title{font-size:17px}
+ .job-head,.job-row{grid-template-columns:1.4fr .9fr .9fr;font-size:10px}
+ .cta h2{font-size:18px}.cta .cap{font-size:35px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<a class="logo" href="#">
+<div class="logo-mark">KN</div>
+<div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div>
+</a>
+<nav>
+<a href="#">Home</a><a href="#">About</a><a class="active" href="#">Courses</a><a href="#">Placements</a><a href="#">Projects</a><a href="#">Contact</a>
+<a class="login" href="#"><i class="fa-regular fa-user"></i> &nbsp;Login / Register</a>
+</nav>
+<div class="menu"><i class="fa-solid fa-bars"></i></div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="breadcrumb">Home　›　Courses　›　<span>Machine Learning</span></div>
+<div class="hero-grid">
+<div>
+<div class="course-tag">OUR COURSE</div>
+<h1>Machine Learning<br><span>Training</span></h1>
+<h3>Learn. Implement. Innovate.</h3>
+<p class="hero-copy">Master Machine Learning algorithms and build intelligent models to solve real-world problems.</p>
+<div class="hero-features">
+<div class="hero-feature"><i class="fa-regular fa-user"></i>Beginner<br>Friendly</div>
+<div class="hero-feature"><i class="fa-solid fa-chart-line"></i>Real-World<br>Projects</div>
+<div class="hero-feature"><i class="fa-solid fa-certificate"></i>Certification<br>Included</div>
+<div class="hero-feature"><i class="fa-solid fa-briefcase"></i>Placement<br>Support</div>
+</div>
+<div class="hero-buttons"><a class="btn gold" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a><a class="btn dark" href="#"><i class="fa-solid fa-play"></i> Watch Intro</a></div>
+</div>
+
+<div class="visual">
+<div class="brain-lines"></div>
+<div class="brain"></div>
+<div class="ml-label">MACHINE<br>LEARNING</div>
+<div class="node n1"><i class="fa-solid fa-database"></i>Data<br>Preparation</div>
+<div class="node n2"><i class="fa-solid fa-chalkboard-user"></i>Model<br>Training</div>
+<div class="node n3"><i class="fa-solid fa-gear"></i>Feature<br>Engineering</div>
+<div class="node n4"><i class="fa-regular fa-clipboard"></i>Model<br>Evaluation</div>
+<div class="node n5"><i class="fa-solid fa-cloud-arrow-up"></i>Deploy<br>Model</div>
+<div class="node n6"><i class="fa-solid fa-chart-line"></i>Predict<br>& Improve</div>
+</div>
+
+<div class="benefit-box">
+<div class="benefit"><i class="fa-solid fa-book-open"></i><div><b>Live Classes</b><small>Interactive Learning</small></div></div>
+<div class="benefit"><i class="fa-solid fa-rocket"></i><div><b>Live Projects</b><small>Hands-on Experience</small></div></div>
+<div class="benefit"><i class="fa-solid fa-award"></i><div><b>Certificate</b><small>Industry Recognized</small></div></div>
+<div class="benefit"><i class="fa-solid fa-toolbox"></i><div><b>Placement Support</b><small>Interview & Career Support</small></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="syllabus">
+<div class="container">
+<h2 class="section-title">COURSE SYLLABUS</h2>
+<div class="syllabus-grid">
+<div class="syl"><span class="num">01</span><div><b>Introduction to ML</b><p>Types of ML, Applications, ML Workflow</p></div></div>
+<div class="syl"><span class="num">02</span><div><b>Python for Machine Learning</b><p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn Basics</p></div></div>
+<div class="syl"><span class="num">03</span><div><b>Data Collection & Preparation</b><p>Data Cleaning, Handling Missing Values, Encoding, Scaling</p></div></div>
+<div class="syl"><span class="num">04</span><div><b>Exploratory Data Analysis (EDA)</b><p>Univariate, Bivariate, Multivariate Analysis, Visualization</p></div></div>
+<div class="syl"><span class="num">05</span><div><b>Feature Engineering</b><p>Feature Selection, Extraction, Transformation, Dimensionality Reduction</p></div></div>
+<div class="syl"><span class="num">06</span><div><b>Supervised Learning – I</b><p>Linear Regression, Logistic Regression</p></div></div>
+<div class="syl"><span class="num">07</span><div><b>Supervised Learning – II</b><p>Decision Trees, Random Forest, SVM, KNN, Naive Bayes</p></div></div>
+<div class="syl"><span class="num">08</span><div><b>Unsupervised Learning</b><p>K-Means Clustering, Hierarchical Clustering, DBSCAN, PCA</p></div></div>
+<div class="syl"><span class="num">09</span><div><b>Model Evaluation</b><p>Train/Test Split, Cross Validation, Confusion Matrix, Metrics</p></div></div>
+<div class="syl"><span class="num">10</span><div><b>Hyperparameter Tuning</b><p>Grid Search, Random Search, Bias-Variance Tradeoff</p></div></div>
+<div class="syl"><span class="num">11</span><div><b>Advanced Algorithms</b><p>Gradient Boosting, XGBoost, Ensemble Methods</p></div></div>
+<div class="syl"><span class="num">12</span><div><b>Deployment & Projects</b><p>Model Deployment, Streamlit, Flask, Real-world Projects</p></div></div>
+</div>
+<div class="center-btn"><a class="small-btn" href="#">View Full Syllabus <i class="fa-solid fa-arrow-right"></i></a></div>
+</div>
+</section>
+
+<section class="dark-section">
+<div class="container two-col">
+<div>
+<h2 class="panel-title">REAL-WORLD PROJECTS YOU WILL BUILD</h2>
+<div class="panel">
+<div class="project-row"><i class="fa-solid fa-house"></i><div><b>1. House Price Prediction</b><p>Predict house prices using regression algorithms.</p></div><i class="fa-solid fa-chart-column"></i></div>
+<div class="project-row"><i class="fa-solid fa-users"></i><div><b>2. Customer Churn Prediction</b><p>Predict customer churn using classification models.</p></div><i class="fa-solid fa-chart-pie"></i></div>
+<div class="project-row"><i class="fa-solid fa-credit-card"></i><div><b>3. Credit Card Fraud Detection</b><p>Detect fraudulent transactions using ML models.</p></div><i class="fa-solid fa-chart-line"></i></div>
+<div class="project-row"><i class="fa-solid fa-film"></i><div><b>4. Movie Recommendation System</b><p>Build a movie recommendation system using ML & similarity.</p></div><i class="fa-solid fa-star"></i></div>
+<div class="project-row"><i class="fa-solid fa-arrow-trend-up"></i><div><b>5. Sales Forecasting</b><p>Forecast sales using time series & regression.</p></div><i class="fa-solid fa-chart-line"></i></div>
+</div>
+<div class="center-btn"><a class="small-btn" href="#">View More Projects　<i class="fa-solid fa-arrow-right"></i></a></div>
+</div>
+
+<div>
+<h2 class="panel-title">TOP JOB ROLES & SALARY IN INDIA</h2>
+<div class="panel">
+<div class="job-head"><span>JOB ROLE</span><span>EXPERIENCE</span><span>AVG. SALARY (INR)</span></div>
+<div class="job-row"><span>🧠　Machine Learning Engineer</span><span>1 – 3 Years</span><span class="salary">₹ 7 – 15 LPA</span></div>
+<div class="job-row"><span>👤　Data Scientist</span><span>1 – 3 Years</span><span class="salary">₹ 6 – 14 LPA</span></div>
+<div class="job-row"><span>🔬　ML Research Engineer</span><span>2 – 4 Years</span><span class="salary">₹ 10 – 20 LPA</span></div>
+<div class="job-row"><span>📊　Data Analyst</span><span>0 – 2 Years</span><span class="salary">₹ 4 – 8 LPA</span></div>
+<div class="job-row"><span>🤖　AI Engineer</span><span>2 – 5 Years</span><span class="salary">₹ 8 – 18 LPA</span></div>
+<div class="job-row"><span>💼　Business Intelligence Analyst</span><span>1 – 3 Years</span><span class="salary">₹ 5 – 10 LPA</span></div>
+</div>
+<div class="center-btn"><a class="small-btn" href="#">View More Career Roles　<i class="fa-solid fa-arrow-right"></i></a></div>
+<p style="font-size:10px;color:#aaa;text-align:center;margin-top:8px">* Salaries are indicative. Source: Glassdoor, AmbitionBox, Naukri (2024)</p>
+</div>
+</div>
+</section>
+
+<section class="why">
+<div class="container">
+<h2 class="section-title">WHY LEARN MACHINE LEARNING?</h2>
+<div class="why-grid">
+<div class="why-card"><i class="fa-solid fa-brain"></i><b>High Demand</b><p>One of the most in-demand skills in the world.</p></div>
+<div class="why-card"><i class="fa-solid fa-cube"></i><b>Real-World Impact</b><p>Solve real problems and create intelligent solutions.</p></div>
+<div class="why-card"><i class="fa-solid fa-chart-line"></i><b>Career Growth</b><p>Great opportunities in AI, ML & Data Science.</p></div>
+<div class="why-card"><i class="fa-regular fa-lightbulb"></i><b>Versatile Skills</b><p>Applicable in multiple industries & domains.</p></div>
+<div class="why-card"><i class="fa-solid fa-wallet"></i><b>Attractive Salary</b><p>High paying roles with excellent benefits.</p></div>
+<div class="why-card"><i class="fa-solid fa-rocket"></i><b>Future Ready</b><p>Stay ahead with cutting-edge technology and innovation.</p></div>
+</div>
+<div class="cta">
+<div class="cap">🎓</div>
+<div><h2>Ready to Start Your <span>Machine Learning</span> Journey?</h2><p>Join thousands of students who transformed their careers with our training programs.</p></div>
+<div class="cta-actions"><a class="btn gold" href="#">Enroll Now　<i class="fa-solid fa-arrow-right"></i></a><a class="whatsapp" href="#"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a></div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container footer-grid">
+<div><div class="footer-logo">KN TECH<span>INSTITUTE</span></div><p style="margin-top:10px">Empowering students with industry-oriented training and real-world skills to build successful careers in IT.</p><div class="social"><i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-instagram"></i><i class="fa-brands fa-youtube"></i><i class="fa-brands fa-linkedin-in"></i></div></div>
+<div><h4>QUICK LINKS</h4><ul><li>Home</li><li>About Us</li><li>Courses</li><li>Projects</li><li>Placements</li><li>Contact Us</li></ul></div>
+<div><h4>POPULAR COURSES</h4><ul><li>Python Programming</li><li>SQL Database</li><li>Power BI</li><li>Data Science</li><li>Machine Learning</li><li>Cyber Security</li></ul></div>
+<div><h4>CONTACT US</h4><ul><li>📍 Hyderabad, Telangana - 500010</li><li>📞 +91 91000 12345</li><li>✉ info@kntechinstitute.com</li><li>🌐 www.kesineninaveen.in</li></ul></div>
+<div><h4>NEWSLETTER</h4><p>Subscribe to get updates on new courses, offers and more.</p><div class="newsletter"><input placeholder="Enter your email"><button><i class="fa-solid fa-paper-plane"></i></button></div></div>
+</div>
+<div class="copyright">© 2025 KN Tech Institute. All Rights Reserved. <span style="float:right;margin-right:3%">Privacy Policy　|　Terms & Conditions</span></div>
+</footer>
+</body>
+</html>

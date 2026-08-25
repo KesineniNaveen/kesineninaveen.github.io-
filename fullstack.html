@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KN Tech Institute - Full Stack Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#001126;--navy2:#031a36;--gold:#ffbd00;--white:#fff;--green:#32d34f;--line:#314258}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:#fff;color:#071326}
+a{text-decoration:none;color:inherit}
+.container{width:min(1400px,94%);margin:auto}
+
+/* NAVBAR */
+.navbar{height:70px;background:#020e20;color:#fff;border-bottom:1px solid #465064;display:flex;align-items:center}
+.nav-inner{width:96%;max-width:1500px;margin:auto;display:flex;align-items:center;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;min-width:245px}
+.logo-mark{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:800;font-size:21px;box-shadow:inset 0 0 0 4px #071a31}
+.logo-text strong{font-size:24px;letter-spacing:.5px;display:block}
+.logo-text span{font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:700}
+.logo-text small{display:block;font-size:10px;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:37px;margin:auto;font-size:15px;font-weight:600}
+.nav-links a{padding:25px 0;position:relative}
+.nav-links a.active,.nav-links a:hover{color:var(--gold)}
+.nav-links a.active:after{content:"";position:absolute;bottom:12px;left:0;right:0;height:3px;background:var(--gold)}
+.login{border:1px solid var(--gold);color:var(--gold);padding:11px 18px;border-radius:5px;font-weight:700;white-space:nowrap}
+.login i{margin-right:8px}
+
+/* BREADCRUMB */
+.breadcrumb{background:#020e20;color:#fff;padding:12px 3%;font-size:13px}
+.breadcrumb span{color:#ddd;margin:0 8px}
+.breadcrumb b{color:#fff}
+
+/* HERO */
+.hero{background:radial-gradient(circle at 53% 50%,#06294d 0,#02152d 35%,#010c1c 72%);color:#fff;min-height:360px;padding:28px 3% 24px}
+.hero-grid{max-width:1500px;margin:auto;display:grid;grid-template-columns:31% 43% 26%;align-items:center;gap:10px}
+.eyebrow{color:var(--gold);font-size:13px;font-weight:800;margin-bottom:10px}
+.hero h1{font-size:45px;line-height:1.03;margin-bottom:10px}
+.hero h1 span{color:var(--gold)}
+.hero h3{font-size:16px;margin-bottom:12px}
+.hero p{font-size:14px;line-height:1.6;max-width:430px}
+.hero-visual{height:300px;position:relative;display:grid;place-items:center}
+.glow{position:absolute;width:285px;height:285px;border-radius:50%;border:1px solid #0876d8;box-shadow:0 0 35px #006bd955,inset 0 0 35px #006bd933}
+.glow:before,.glow:after{content:"";position:absolute;border:1px dashed #168cf0;border-radius:50%}
+.glow:before{inset:28px}.glow:after{inset:55px}
+.laptop{position:relative;width:240px;height:145px;background:linear-gradient(135deg,#123e73,#031a37);border:2px solid #168df0;border-radius:8px;transform:perspective(500px) rotateX(-8deg) rotateZ(-7deg);box-shadow:0 0 35px #0879e966;z-index:2}
+.laptop:before{content:"";position:absolute;inset:12px;background:linear-gradient(145deg,#071c37,#0c3158);border:1px solid #1979c9}
+.code-lines{position:absolute;left:25px;top:28px;font-family:monospace;color:#48aaff;font-size:8px;line-height:12px;z-index:3}
+.laptop:after{content:"";position:absolute;width:285px;height:12px;left:-25px;bottom:-18px;background:linear-gradient(#164d7d,#061a32);border-radius:0 0 14px 14px;transform:skewX(-25deg);border:1px solid #1d75b8}
+.tech{position:absolute;width:66px;height:66px;border:1px solid #087ee3;border-radius:50%;background:#041b36;display:grid;place-items:center;color:#fff;z-index:4;box-shadow:0 0 20px #006bd955}
+.tech i{font-size:27px;color:#35a5ff}.tech b{position:absolute;top:68px;font-size:12px;white-space:nowrap;font-weight:500}
+.t1{top:5px;left:43%}.t2{top:47px;right:3%}.t3{top:177px;right:2%}.t4{bottom:5px;left:43%}.t5{top:176px;left:4%}.t6{top:47px;left:3%}
+.hero-features{display:grid;grid-template-columns:repeat(5,1fr);margin-top:22px;max-width:520px}
+.hero-feature{text-align:center;border-right:1px solid #405067;padding:0 8px}
+.hero-feature:last-child{border:0}.hero-feature i{color:var(--gold);font-size:20px;margin-bottom:8px}.hero-feature div{font-size:11px;line-height:1.4}
+.buttons{margin-top:15px;display:flex;gap:14px}.btn{padding:12px 25px;border-radius:5px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:25px}.btn-gold{background:var(--gold);color:#071326}.btn-outline{border:1px solid var(--gold);color:#fff}
+
+/* BENEFITS */
+.benefit-box{border:1px solid var(--gold);border-radius:12px;padding:12px 16px;background:#03162d}
+.benefit{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #39485b}.benefit:last-child{border:0}
+.benefit i{color:var(--gold);font-size:27px;width:32px;text-align:center}.benefit strong{font-size:14px}.benefit small{display:block;color:#fff;margin-top:4px;font-size:12px}
+
+/* SECTIONS */
+.syllabus{padding:24px 2.7% 20px;background:#fff}
+.section-title{text-align:center;font-size:22px;font-weight:800;margin-bottom:22px}
+.section-title:after{content:"";display:block;width:38px;height:3px;background:var(--gold);margin:7px auto 0}
+.syllabus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1500px;margin:auto}
+.module{border:1px solid #d4d9df;border-radius:7px;padding:13px 12px;min-height:75px;display:flex;gap:12px;background:#fff}
+.num{flex:0 0 40px;height:40px;background:#07182f;color:#fff;border-radius:5px;display:grid;place-items:center;font-weight:700}
+.module h4{font-size:13px;margin-bottom:5px}.module p{font-size:11.5px;line-height:1.45}
+.center-btn{text-align:center;margin-top:12px}.dark-btn{background:#06172f;color:#fff;padding:10px 18px;border-radius:4px;font-weight:700;font-size:12px}
+
+/* PROJECTS / JOBS */
+.dark-section{background:linear-gradient(180deg,#021329,#031a34);color:#fff;padding:20px 2.7% 22px}
+.two-col{max-width:1500px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel-title{text-align:center;font-size:18px;margin-bottom:15px}.panel-title:after{content:"";display:block;width:38px;height:3px;background:var(--gold);margin:7px auto}
+.panel{border:1px solid #5b677a;border-radius:7px;overflow:hidden}
+.project-row{display:grid;grid-template-columns:55px 1fr 55px;align-items:center;border-bottom:1px solid #33445b;min-height:52px}.project-row:last-child{border:0}
+.project-row i{color:var(--gold);text-align:center;font-size:17px}.project-text{padding:7px 4px}.project-text strong{font-size:12px}.project-text strong b{color:var(--gold);margin-right:7px}.project-text p{font-size:10.5px;margin-top:3px;color:#fff}.project-end{text-align:center;color:#42a9ff;font-size:19px}
+.job-head,.job-row{display:grid;grid-template-columns:1.25fr 1fr 1fr;align-items:center}.job-head{color:var(--gold);font-size:11px;font-weight:800;padding:11px 18px;border-bottom:1px solid #47576d}.job-row{min-height:43px;border-bottom:1px solid #33445b;padding:0 18px;font-size:11px}.job-row:last-child{border:0}.job-row i{color:var(--gold);margin-right:10px}.salary{color:#37d44e;font-weight:700}
+.more{text-align:center;margin-top:12px}.outline-btn{border:1px solid var(--gold);color:var(--gold);padding:8px 18px;border-radius:4px;font-size:11px;font-weight:700}
+
+/* WHY */
+.why{background:#021329;color:#fff;padding:0 2.7% 20px}
+.why-grid{max-width:1500px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.why-card{border:1px solid #586578;border-radius:7px;padding:17px 10px;text-align:center;min-height:120px}.why-card i{font-size:31px;color:var(--gold);margin-bottom:12px}.why-card h4{font-size:12px;margin-bottom:5px}.why-card p{font-size:10.5px;line-height:1.45}
+
+/* CTA */
+.cta{max-width:1500px;margin:0 auto 12px;border:1px solid #526176;border-radius:8px;padding:15px 30px;display:flex;align-items:center;gap:22px}.cta-icon{font-size:42px;color:var(--gold)}.cta-text{flex:1}.cta-text h2{font-size:21px}.cta-text h2 span{color:var(--gold)}.cta-text p{font-size:11px;margin-top:4px}.cta .btn{margin-left:auto}.whatsapp{color:#35d05a;font-weight:700;white-space:nowrap}.whatsapp i{font-size:25px;vertical-align:middle;margin-right:7px}
+
+/* FOOTER */
+footer{background:#020e20;color:#fff;padding:20px 3% 0;border-top:1px solid #314258}
+.footer-grid{max-width:1500px;margin:auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr 1.2fr;gap:30px}
+.footer-logo{font-size:22px;font-weight:800}.footer-logo span{color:var(--gold);letter-spacing:4px;font-size:11px;display:block}.footer p,.footer a,.footer li{font-size:11px;color:#e2e5eb;line-height:1.7}.footer h4{font-size:12px;margin-bottom:10px}.footer ul{list-style:none}.social{display:flex;gap:12px;margin-top:10px}.social a{width:24px;height:24px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#fff}
+.newsletter{display:flex;margin-top:10px}.newsletter input{background:#07182f;border:1px solid #647084;padding:10px;color:#fff;min-width:0;flex:1}.newsletter button{background:var(--gold);border:0;width:42px}
+.copyright{border-top:1px solid #314258;margin-top:18px;padding:12px 0;text-align:center;font-size:11px;color:#d6dbe3}
+
+/* RESPONSIVE */
+@media(max-width:1050px){
+.nav-links{gap:18px}.logo{min-width:auto}.hero-grid{grid-template-columns:1fr 1fr}.benefit-box{grid-column:1/-1}.hero-visual{order:2}.hero-copy{order:1}.syllabus-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+.navbar{height:auto;padding:10px 0}.nav-inner{flex-wrap:wrap}.logo{flex:1}.logo-mark{width:45px;height:45px}.logo-text strong{font-size:19px}.nav-links{order:3;width:100%;overflow-x:auto;justify-content:flex-start;padding-bottom:5px;gap:22px}.nav-links a{padding:8px 0}.nav-links a.active:after{bottom:0}.login{font-size:11px;padding:9px 12px}
+.hero{padding:20px 5%}.hero-grid{grid-template-columns:1fr}.hero-copy{order:1}.hero-visual{order:2;height:280px}.benefit-box{order:3}.hero h1{font-size:39px}.hero-features{max-width:none}.buttons{flex-wrap:wrap}
+.syllabus-grid{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(2,1fr)}.cta{flex-wrap:wrap;padding:15px}.cta .btn{margin-left:0}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.logo-text strong{font-size:17px}.logo-text span{font-size:9px}.login{padding:8px}.hero h1{font-size:34px}.hero-features{grid-template-columns:repeat(5,1fr)}.hero-feature{padding:0 3px}.hero-feature div{font-size:8px}.hero-visual{transform:scale(.88);margin:-15px 0}.why-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.job-head,.job-row{grid-template-columns:1.3fr .9fr 1fr}.job-row{padding:0 8px;font-size:9px}.project-row{grid-template-columns:40px 1fr 40px}
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <div class="logo-mark">KN</div>
+      <div class="logo-text"><strong>KN TECH</strong><span>INSTITUTE</span><small>Learn. Build. Succeed.</small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#">Home</a><a href="#">About</a><a class="active" href="#">Courses</a><a href="#">Placements</a><a href="#">Projects</a><a href="#">Contact</a>
+    </nav>
+    <a class="login" href="#"><i class="fa-regular fa-user"></i> Login / Register</a>
+  </div>
+</header>
+
+<div class="breadcrumb"><div class="container">Home <span>›</span> Courses <span>›</span> <b>Full Stack Development</b></div></div>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">OUR COURSE</div>
+      <h1>Full Stack<br><span>Development</span></h1>
+      <h3>Master Frontend. Backend. Database. Deployment.</h3>
+      <p>Become a job-ready Full Stack Developer by building real-world projects using modern technologies and industry best practices.</p>
+      <div class="hero-features">
+        <div class="hero-feature"><i class="fa-regular fa-user"></i><div>Beginner<br>Friendly</div></div>
+        <div class="hero-feature"><i class="fa-solid fa-chart-column"></i><div>Real-World<br>Projects</div></div>
+        <div class="hero-feature"><i class="fa-solid fa-certificate"></i><div>Certification<br>Included</div></div>
+        <div class="hero-feature"><i class="fa-solid fa-briefcase"></i><div>Placement<br>Support</div></div>
+        <div class="hero-feature"><i class="fa-solid fa-user-tie"></i><div>Industry<br>Mentorship</div></div>
+      </div>
+      <div class="buttons"><a class="btn btn-gold" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-outline" href="#"><i class="fa-solid fa-play"></i> Watch Intro</a></div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="glow"></div>
+      <div class="laptop"><div class="code-lines">const app = express();<br>app.use(router);<br><br>function deploy(){<br>&nbsp; return "success";<br>}<br><br>&gt; npm run build</div></div>
+      <div class="tech t1"><i class="fa-solid fa-code"></i><b>Frontend</b></div>
+      <div class="tech t2"><i class="fa-brands fa-node-js"></i><b>Backend</b></div>
+      <div class="tech t3"><i class="fa-solid fa-code-branch"></i><b>Version Control</b></div>
+      <div class="tech t4"><i class="fa-solid fa-infinity"></i><b>DevOps</b></div>
+      <div class="tech t5"><i class="fa-solid fa-cloud-arrow-up"></i><b>Deployment</b></div>
+      <div class="tech t6"><i class="fa-solid fa-database"></i><b>Database</b></div>
+    </div>
+
+    <div class="benefit-box">
+      <div class="benefit"><i class="fa-solid fa-book-open"></i><div><strong>Live Classes</strong><small>Interactive Learning</small></div></div>
+      <div class="benefit"><i class="fa-solid fa-rocket"></i><div><strong>Live Projects</strong><small>Hands-on Experience</small></div></div>
+      <div class="benefit"><i class="fa-solid fa-award"></i><div><strong>Certificate</strong><small>Industry Recognized</small></div></div>
+      <div class="benefit"><i class="fa-solid fa-briefcase"></i><div><strong>Placement Support</strong><small>Interview & Career Support</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="syllabus">
+  <h2 class="section-title">COURSE SYLLABUS</h2>
+  <div class="syllabus-grid">
+    <article class="module"><div class="num">01</div><div><h4>HTML, CSS & JavaScript</h4><p>HTML5, CSS3, Flexbox, Grid, JavaScript ES6+, DOM, Events</p></div></article>
+    <article class="module"><div class="num">02</div><div><h4>Frontend with React</h4><p>Components, Props, State, Hooks, React Router, Context API</p></div></article>
+    <article class="module"><div class="num">03</div><div><h4>Responsive UI & Bootstrap</h4><p>Bootstrap 5, Responsive Design, UI/UX Best Practices</p></div></article>
+    <article class="module"><div class="num">04</div><div><h4>Version Control with Git</h4><p>Git Basics, Branching, Merging, GitHub, GitFlow</p></div></article>
+    <article class="module"><div class="num">05</div><div><h4>Backend with Node.js</h4><p>Node.js, Express.js, REST APIs, Middleware, Routing</p></div></article>
+    <article class="module"><div class="num">06</div><div><h4>Database with MongoDB</h4><p>MongoDB Basics, Collections, CRUD Operations, Aggregation</p></div></article>
+    <article class="module"><div class="num">07</div><div><h4>Authentication & Authorization</h4><p>JWT, BCrypt, Role-based Access Control, Protected Routes</p></div></article>
+    <article class="module"><div class="num">08</div><div><h4>API Development</h4><p>RESTful APIs, Postman Testing, Error Handling, Validation</p></div></article>
+    <article class="module"><div class="num">09</div><div><h4>React + API Integration</h4><p>Axios, Fetch API, State Management, Real-time Data Handling</p></div></article>
+    <article class="module"><div class="num">10</div><div><h4>Projects & Best Practices</h4><p>Folder Structure, Modular Code, Reusability, Clean Code</p></div></article>
+    <article class="module"><div class="num">11</div><div><h4>Deployment</h4><p>Deploy Frontend (Vercel/Netlify), Backend (Render/Heroku)</p></div></article>
+    <article class="module"><div class="num">12</div><div><h4>Capstone Project</h4><p>End-to-End Full Stack Application Development & Deployment</p></div></article>
+  </div>
+  <div class="center-btn"><a class="dark-btn" href="#">View Full Syllabus <i class="fa-solid fa-arrow-right" style="color:#ffbd00;margin-left:8px"></i></a></div>
+</section>
+
+<section class="dark-section">
+  <div class="two-col">
+    <div>
+      <h2 class="panel-title">REAL-WORLD PROJECTS YOU WILL BUILD</h2>
+      <div class="panel">
+        <div class="project-row"><i class="fa-solid fa-cart-shopping"></i><div class="project-text"><strong><b>1.</b> E-Commerce Web Application</strong><p>Full stack online store with cart, checkout & payment.</p></div><div class="project-end"><i class="fa-solid fa-cart-shopping"></i></div></div>
+        <div class="project-row"><i class="fa-solid fa-list-check"></i><div class="project-text"><strong><b>2.</b> Task Management System</strong><p>Create, assign, update & track tasks with authentication.</p></div><div class="project-end"><i class="fa-solid fa-list-check"></i></div></div>
+        <div class="project-row"><i class="fa-solid fa-newspaper"></i><div class="project-text"><strong><b>3.</b> Blog Platform</strong><p>Create, edit, delete blogs with comments & categories.</p></div><div class="project-end"><i class="fa-solid fa-file-lines"></i></div></div>
+        <div class="project-row"><i class="fa-solid fa-comments"></i><div class="project-text"><strong><b>4.</b> Social Media Dashboard</strong><p>User authentication, posts, likes, comments & chat.</p></div><div class="project-end"><i class="fa-solid fa-user-group"></i></div></div>
+        <div class="project-row"><i class="fa-solid fa-message"></i><div class="project-text"><strong><b>5.</b> Real-time Chat Application</strong><p>One-to-one and group chat using sockets.</p></div><div class="project-end"><i class="fa-regular fa-comment"></i></div></div>
+        <div class="project-row"><i class="fa-regular fa-comments"></i><div class="project-text"><strong><b>6.</b> Portfolio Website</strong><p>Personal portfolio with admin panel & contact form.</p></div><div class="project-end"><i class="fa-regular fa-id-card"></i></div></div>
+      </div>
+      <div class="more"><a class="outline-btn" href="#">View More Projects <i class="fa-solid fa-arrow-right"></i></a></div>
+    </div>
+
+    <div>
+      <h2 class="panel-title">TOP JOB ROLES & SALARY IN INDIA</h2>
+      <div class="panel">
+        <div class="job-head"><span>JOB ROLE</span><span>EXPERIENCE</span><span>AVG. SALARY (INR)</span></div>
+        <div class="job-row"><span><i class="fa-solid fa-chart-line"></i> Full Stack Developer</span><span>0 – 2 Years</span><span class="salary">₹ 4 – 7 LPA</span></div>
+        <div class="job-row"><span><i class="fa-solid fa-code"></i> Frontend Developer</span><span>0 – 2 Years</span><span class="salary">₹ 3.5 – 6 LPA</span></div>
+        <div class="job-row"><span><i class="fa-solid fa-server"></i> Backend Developer</span><span>0 – 2 Years</span><span class="salary">₹ 4 – 7 LPA</span></div>
+        <div class="job-row"><span><i class="fa-brands fa-react"></i> React Developer</span><span>0 – 2 Years</span><span class="salary">₹ 4 – 6.5 LPA</span></div>
+        <div class="job-row"><span><i class="fa-brands fa-node-js"></i> Node.js Developer</span><span>0 – 2 Years</span><span class="salary">₹ 4 – 6.5 LPA</span></div>
+        <div class="job-row"><span><i class="fa-solid fa-briefcase"></i> Software Engineer</span><span>2 – 4 Years</span><span class="salary">₹ 6 – 12 LPA</span></div>
+        <div class="job-row"><span><i class="fa-solid fa-users"></i> Senior Developer</span><span>4+ Years</span><span class="salary">₹ 12 – 20 LPA</span></div>
+      </div>
+      <div class="more"><a class="outline-btn" href="#">View More Career Roles <i class="fa-solid fa-arrow-right"></i></a></div>
+      <p style="font-size:9px;margin-top:8px;color:#aeb9c9">* Salaries are indicative. Source: Glassdoor, AmbitionBox, Naukri.</p>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <h2 class="section-title" style="color:#fff;margin-bottom:15px">WHY LEARN FULL STACK DEVELOPMENT?</h2>
+  <div class="why-grid">
+    <div class="why-card"><i class="fa-solid fa-chart-line"></i><h4>High Demand</h4><p>One of the most in-demand skills in IT industry.</p></div>
+    <div class="why-card"><i class="fa-solid fa-cubes"></i><h4>End-to-End Skills</h4><p>Learn frontend, backend, database & deployment.</p></div>
+    <div class="why-card"><i class="fa-solid fa-code"></i><h4>Build Real Projects</h4><p>Build real-world applications for your portfolio.</p></div>
+    <div class="why-card"><i class="fa-solid fa-bullseye"></i><h4>Better Career Growth</h4><p>More opportunities & higher salary packages.</p></div>
+    <div class="why-card"><i class="fa-solid fa-wallet"></i><h4>Versatility</h4><p>Work as freelancer or get jobs in top companies.</p></div>
+    <div class="why-card"><i class="fa-solid fa-globe"></i><h4>Global Opportunities</h4><p>Full stack developers are hired worldwide.</p></div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+    <div class="cta-text"><h2>Ready to Start Your <span>Full Stack</span> Journey?</h2><p>Join thousands of students who transformed their careers with our training programs.</p></div>
+    <a class="btn btn-gold" href="#">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+    <a class="whatsapp" href="https://wa.me/919100012345" target="_blank"><i class="fa-brands fa-whatsapp"></i>Chat on WhatsApp</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">KN TECH<span>INSTITUTE</span></div>
+      <p>Empowering students with industry-oriented training and real-world skills to build successful careers in IT.</p>
+      <div class="social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></div>
+    </div>
+    <div><h4>QUICK LINKS</h4><ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Courses</a></li><li><a href="#">Projects</a></li><li><a href="#">Placements</a></li><li><a href="#">Contact Us</a></li></ul></div>
+    <div><h4>POPULAR COURSES</h4><ul><li>Python Programming</li><li>SQL Database</li><li>Power BI</li><li>Data Science</li><li>Machine Learning</li><li>Full Stack Development</li></ul></div>
+    <div><h4>CONTACT US</h4><p>📍 Hyderabad, Telangana - 500010</p><p>📞 +91 91000 12345</p><p>✉ info@kntechinstitute.com</p><p>🌐 www.kesineninaveen.in</p></div>
+    <div><h4>NEWSLETTER</h4><p>Subscribe to get updates on new courses, offers and more.</p><div class="newsletter"><input placeholder="Enter your email"><button><i class="fa-solid fa-paper-plane"></i></button></div></div>
+  </div>
+  <div class="copyright">© 2025 KN Tech Institute. All Rights Reserved. <span style="float:right">Privacy Policy &nbsp; | &nbsp; Terms & Conditions</span></div>
+</footer>
+</body>
+</html>
