@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 05 - OOP Concepts | KN TECH INSTITUTE</title>
+<style>
+:root{--navy:#071426;--navy2:#0c1d35;--gold:#d4af37;--gold2:#f3d477;--white:#f7f9fc;--muted:#aebbd0;--line:rgba(212,175,55,.22);--card:rgba(255,255,255,.045);}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(135deg,#06101f,#0a1930 55%,#06101f);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.75}
+header{position:sticky;top:0;z-index:1000;background:rgba(5,15,29,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{max-width:1250px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-weight:900;letter-spacing:1.5px;color:var(--gold2);font-size:18px}
+.back{color:var(--white);text-decoration:none;border:1px solid var(--line);padding:9px 15px;border-radius:10px;transition:.25s}
+.back:hover{background:var(--gold);color:#071426}
+.container{width:min(1180px,92%);margin:auto}
+.hero{padding:70px 0 42px;text-align:center}
+.eyebrow,.topic-head span,.practice-top span,.theory-q span{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:12px}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:10px 0 8px;line-height:1.08}
+.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{max-width:850px;margin:15px auto;color:var(--muted);font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px auto 0;max-width:900px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px}
+.stat strong{display:block;color:var(--gold2);font-size:24px}
+.stat span{color:var(--muted);font-size:13px}
+.contents{position:sticky;top:67px;z-index:900;background:rgba(8,23,42,.94);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0 35px;display:flex;gap:8px;flex-wrap:wrap}
+.contents a{color:#dce5f2;text-decoration:none;padding:8px 11px;border-radius:8px;font-size:13px}
+.contents a:hover{background:rgba(212,175,55,.15);color:var(--gold2)}
+.topic{margin:38px 0 55px}
+.topic-head{border-left:4px solid var(--gold);padding-left:18px;margin-bottom:20px}
+.topic-head h2{margin:2px 0;font-size:30px}
+.subtopic{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:23px;margin:14px 0}
+.subtopic h3{margin:0 0 9px;color:var(--gold2);font-size:20px}
+.subtopic p{margin:0;color:#d7e0ec}
+.learn-box{margin-top:15px;padding:14px 17px;border-radius:11px;background:rgba(212,175,55,.06);border:1px solid var(--line);color:#c9d4e4}
+.learn-box ol{margin:7px 0 0 20px;padding:0}
+.section-title{margin:70px 0 22px;text-align:center}
+.section-title h2{font-size:35px;margin:5px}
+.section-title p{color:var(--muted)}
+.practice-card,.theory-card{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:20px;margin:14px 0}
+.practice-top,.theory-q{display:flex;gap:13px;align-items:flex-start}
+.practice-top h3,.theory-q h3{margin:0;font-size:17px}
+.solution-btn,.answer-btn{margin-top:15px;background:var(--gold);color:#071426;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}
+.solution,.answer{display:none;margin-top:15px}
+.solution.open,.answer.open{display:block}
+.steps{background:rgba(212,175,55,.07);border:1px solid var(--line);padding:14px;border-radius:10px;margin-bottom:12px;color:#dbe4ef}
+pre{background:#030a14;border:1px solid rgba(212,175,55,.16);padding:18px;border-radius:11px;overflow:auto;color:#eaf1fa;font-size:14px}
+code{font-family:Consolas,Monaco,monospace}
+.answer{padding:15px;background:rgba(255,255,255,.035);border-radius:10px;color:#dbe4ef}
+footer{margin-top:70px;border-top:1px solid var(--line);padding:35px 0;text-align:center;color:var(--muted)}
+.footer-back{display:inline-block;margin-top:12px;color:var(--gold2);text-decoration:none;border:1px solid var(--line);padding:10px 16px;border-radius:10px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.contents{position:static}.hero{padding-top:45px}}
+@media(max-width:520px){.nav{padding:12px 14px}.brand{font-size:14px}.back{font-size:13px;padding:8px 10px}.hero h1{font-size:38px}.hero p{font-size:15px}.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:20px}.topic-head h2{font-size:25px}.subtopic{padding:17px}.practice-top h3,.theory-q h3{font-size:15px}pre{font-size:12px;padding:13px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+<main class="container">
+<section class="hero">
+<div class="eyebrow">MODULE 05</div>
+<h1>OOP <em>Concepts</em></h1>
+<p>Classes, Objects, Constructors, Methods, Encapsulation, Inheritance, Polymorphism & Abstraction — explained step by step with practical Python examples.</p>
+<div class="stats">
+<div class="stat"><strong>9</strong><span>Major Topics</span></div>
+<div class="stat"><strong>45</strong><span>Detailed Subtopics</span></div>
+<div class="stat"><strong>31</strong><span>Coding Questions</span></div>
+<div class="stat"><strong>30</strong><span>Theory Q&amp;A</span></div>
+</div>
+</section>
+<nav class="contents"><a href="#topic1">1. 1. OOP Introduction</a><a href="#topic2">2. 2. Classes and Objects</a><a href="#topic3">3. 3. Constructors and Initialization</a><a href="#topic4">4. 4. Instance, Class and Static Members</a><a href="#topic5">5. 5. Encapsulation</a><a href="#topic6">6. 6. Inheritance</a><a href="#topic7">7. 7. Polymorphism</a><a href="#topic8">8. 8. Abstraction</a><a href="#topic9">9. 9. Practical OOP Design</a><a href="#coding">Coding Practice</a><a href="#theory">Theory Q&amp;A</a></nav>
+<section class="topic" id="topic1"><div class="topic-head"><span>TOPIC 01</span><h2>1. OOP Introduction</h2></div>
+        <article class="subtopic">
+          <h3>1.1 What is OOP?</h3>
+          <p>Object-Oriented Programming (OOP) is a programming approach where we organize software around objects. An object combines data (attributes) and behavior (methods). Python supports OOP and lets you model real-world entities such as Student, Employee, BankAccount, Product, and Car.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>1.2 Why use OOP?</h3>
+          <p>OOP helps organize large programs into reusable components. It improves code reuse, maintainability, readability, and separation of responsibilities.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>1.3 Class vs Object</h3>
+          <p>A class is a blueprint or template. An object is a real instance created from that class. For example, Student is a class and student1/student2 can be objects.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>1.4 Main OOP concepts</h3>
+          <p>The major concepts are classes, objects, encapsulation, inheritance, polymorphism, and abstraction. These concepts work together to build structured applications.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic2"><div class="topic-head"><span>TOPIC 02</span><h2>2. Classes and Objects</h2></div>
+        <article class="subtopic">
+          <h3>2.1 Creating a class</h3>
+          <p>Use the class keyword followed by the class name. Class names are conventionally written in PascalCase.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>2.2 Creating an object</h3>
+          <p>Call the class like a function: object_name = ClassName(). This creates an instance of the class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>2.3 Attributes</h3>
+          <p>Attributes are data stored inside an object. Instance attributes usually belong to a particular object and can have different values for different objects.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>2.4 Methods</h3>
+          <p>A method is a function defined inside a class. It describes behavior that an object can perform.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>2.5 Understanding self</h3>
+          <p>self refers to the current object. It is used to access that object&#x27;s attributes and methods. Python passes the object automatically when an instance method is called.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>2.6 __init__()</h3>
+          <p>__init__() is the initializer method that runs automatically when an object is created. It is commonly used to initialize instance attributes.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic3"><div class="topic-head"><span>TOPIC 03</span><h2>3. Constructors and Initialization</h2></div>
+        <article class="subtopic">
+          <h3>3.1 Parameterized initialization</h3>
+          <p>A parameterized __init__() accepts values while creating an object, allowing every object to start with different data.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>3.2 Default values</h3>
+          <p>Constructor parameters can have default values. This makes an argument optional when an object is created.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>3.3 Multiple objects</h3>
+          <p>A single class can create many independent objects. Changing an instance attribute normally changes only that particular object.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>3.4 Constructor workflow</h3>
+          <p>When ClassName(...) is called, Python creates an object and then calls __init__() to initialize it.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic4"><div class="topic-head"><span>TOPIC 04</span><h2>4. Instance, Class and Static Members</h2></div>
+        <article class="subtopic">
+          <h3>4.1 Instance attributes</h3>
+          <p>Instance attributes are normally created using self.attribute inside __init__() and belong to each individual object.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>4.2 Class attributes</h3>
+          <p>A class attribute is defined directly inside the class body and is shared by instances unless an instance overrides it.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>4.3 Instance methods</h3>
+          <p>Instance methods receive self and work with a particular object&#x27;s state.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>4.4 Class methods</h3>
+          <p>@classmethod receives cls and can work with class-level data. It is also useful for alternative constructors.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>4.5 Static methods</h3>
+          <p>@staticmethod does not receive self or cls automatically. It is useful for utility behavior logically related to the class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic5"><div class="topic-head"><span>TOPIC 05</span><h2>5. Encapsulation</h2></div>
+        <article class="subtopic">
+          <h3>5.1 Meaning</h3>
+          <p>Encapsulation means keeping data and the operations that work on that data together, while controlling how internal state is accessed.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>5.2 Public members</h3>
+          <p>Names such as name are public by convention and can be accessed directly.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>5.3 Protected convention</h3>
+          <p>A single leading underscore, such as _balance, signals that a member is intended for internal or subclass use. It is a convention, not strict access control.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>5.4 Private members</h3>
+          <p>A double leading underscore, such as __pin, triggers name mangling. It discourages direct external access and helps avoid accidental name conflicts.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>5.5 Getters and setters</h3>
+          <p>Methods or @property can validate and control access to internal data. This is useful when a value must follow business rules.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>5.6 @property</h3>
+          <p>@property lets a method be accessed using attribute syntax. A setter can validate values before storing them.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic6"><div class="topic-head"><span>TOPIC 06</span><h2>6. Inheritance</h2></div>
+        <article class="subtopic">
+          <h3>6.1 What is inheritance?</h3>
+          <p>Inheritance allows a child class to reuse and extend the attributes and methods of a parent class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>6.2 Single inheritance</h3>
+          <p>One child class inherits from one parent class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>6.3 Multilevel inheritance</h3>
+          <p>A class inherits from a class that already inherits from another class, forming a chain.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>6.4 Hierarchical inheritance</h3>
+          <p>Multiple child classes inherit from the same parent class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>6.5 Multiple inheritance</h3>
+          <p>One child class inherits from more than one parent class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>6.6 super()</h3>
+          <p>super() is commonly used to call parent-class behavior, especially the parent constructor.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>6.7 Method overriding</h3>
+          <p>A child class can define a method with the same name as a parent method and provide its own implementation.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic7"><div class="topic-head"><span>TOPIC 07</span><h2>7. Polymorphism</h2></div>
+        <article class="subtopic">
+          <h3>7.1 Meaning</h3>
+          <p>Polymorphism means one interface or method name can work with different object types.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>7.2 Method overriding polymorphism</h3>
+          <p>Different child classes can implement the same method differently. Calling that method on each object produces type-specific behavior.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>7.3 Duck typing</h3>
+          <p>Python often focuses on what an object can do rather than its exact type. If an object provides the required method, it can be used.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>7.4 Built-in polymorphism</h3>
+          <p>Functions such as len() work with many different types because those types provide the required protocol.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>7.5 Operator overloading</h3>
+          <p>Special methods such as __add__() can define how operators behave for custom objects.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic8"><div class="topic-head"><span>TOPIC 08</span><h2>8. Abstraction</h2></div>
+        <article class="subtopic">
+          <h3>8.1 What is abstraction?</h3>
+          <p>Abstraction means exposing essential behavior while hiding implementation details.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>8.2 ABC</h3>
+          <p>The abc module provides tools for creating abstract base classes. ABC can be used as a base class.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>8.3 @abstractmethod</h3>
+          <p>A method decorated with @abstractmethod must be implemented by a concrete subclass before objects of that subclass can normally be created.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>8.4 Why abstraction?</h3>
+          <p>It provides a common contract for related classes and makes larger systems easier to design and maintain.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section><section class="topic" id="topic9"><div class="topic-head"><span>TOPIC 09</span><h2>9. Practical OOP Design</h2></div>
+        <article class="subtopic">
+          <h3>9.1 Composition</h3>
+          <p>Composition models a has-a relationship. For example, a Car can contain an Engine object. It is often preferable when a class should use another object without becoming its type.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>9.2 isinstance() and issubclass()</h3>
+          <p>isinstance(obj, Class) checks whether an object is an instance of a class or compatible subclass. issubclass(Child, Parent) checks an inheritance relationship.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>9.3 Good class design</h3>
+          <p>Keep each class focused on a clear responsibility, use meaningful names, avoid unnecessarily large classes, validate important data, and favor reusable methods.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="subtopic">
+          <h3>9.4 Common mistakes</h3>
+          <p>Common beginner mistakes include forgetting self, confusing class and instance attributes, overusing inheritance, directly changing private state, and forgetting super() when parent initialization is required.</p>
+          <div class="learn-box"><strong>Step-by-step:</strong>
+            <ol>
+              <li>Understand the purpose of the concept.</li>
+              <li>Study the syntax or rule shown in this section.</li>
+              <li>Run a small example and observe the output.</li>
+              <li>Modify one value or line and run it again.</li>
+              <li>Practice the related coding question below.</li>
+            </ol>
+          </div>
+        </article></section>
+<section id="coding">
+<div class="section-title"><div class="eyebrow">HANDS-ON PRACTICE</div><h2>30 Coding Questions</h2><p>Try each problem yourself first, then open the step-by-step solution.</p></div>
+
+    <div class="practice-card">
+      <div class="practice-top"><span>Q01</span><h3>Create a basic Student class.</h3></div>
+      <button class="solution-btn" onclick="toggle('code1', this)">Show Step-by-Step Solution</button>
+      <div id="code1" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    pass
+
+s1 = Student()
+print(s1)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q02</span><h3>Create an object from a class and print an attribute.</h3></div>
+      <button class="solution-btn" onclick="toggle('code2', this)">Show Step-by-Step Solution</button>
+      <div id="code2" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    name = &quot;Naveen&quot;
+
+s1 = Student()
+print(s1.name)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q03</span><h3>Use __init__() to initialize name and age.</h3></div>
+      <button class="solution-btn" onclick="toggle('code3', this)">Show Step-by-Step Solution</button>
+      <div id="code3" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+s1 = Student(&quot;Rahul&quot;, 21)
+print(s1.name, s1.age)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q04</span><h3>Create an instance method that greets the student.</h3></div>
+      <button class="solution-btn" onclick="toggle('code4', this)">Show Step-by-Step Solution</button>
+      <div id="code4" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print(&quot;Hello&quot;, self.name)
+
+s1 = Student(&quot;Anita&quot;)
+s1.greet()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q05</span><h3>Create a Rectangle class and calculate area.</h3></div>
+      <button class="solution-btn" onclick="toggle('code5', this)">Show Step-by-Step Solution</button>
+      <div id="code5" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+r = Rectangle(10, 5)
+print(r.area())</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q06</span><h3>Create multiple objects with different data.</h3></div>
+      <button class="solution-btn" onclick="toggle('code6', this)">Show Step-by-Step Solution</button>
+      <div id="code6" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+e1 = Employee(&quot;A&quot;, 30000)
+e2 = Employee(&quot;B&quot;, 45000)
+
+print(e1.name, e1.salary)
+print(e2.name, e2.salary)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q07</span><h3>Demonstrate a class attribute.</h3></div>
+      <button class="solution-btn" onclick="toggle('code7', this)">Show Step-by-Step Solution</button>
+      <div id="code7" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    school = &quot;KN Tech Institute&quot;
+
+s1 = Student()
+s2 = Student()
+
+print(s1.school)
+print(s2.school)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q08</span><h3>Update an instance attribute.</h3></div>
+      <button class="solution-btn" onclick="toggle('code8', this)">Show Step-by-Step Solution</button>
+      <div id="code8" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    def __init__(self, name):
+        self.name = name
+
+s1 = Student(&quot;Ravi&quot;)
+s1.name = &quot;Ravi Kumar&quot;
+print(s1.name)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q09</span><h3>Create a class method as an alternative constructor.</h3></div>
+      <button class="solution-btn" onclick="toggle('code9', this)">Show Step-by-Step Solution</button>
+      <div id="code9" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def from_string(cls, text):
+        name, age = text.split(&quot;,&quot;)
+        return cls(name, int(age))
+
+s = Student.from_string(&quot;Priya,20&quot;)
+print(s.name, s.age)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q10</span><h3>Create and use a static method.</h3></div>
+      <button class="solution-btn" onclick="toggle('code10', this)">Show Step-by-Step Solution</button>
+      <div id="code10" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class MathTools:
+    @staticmethod
+    def square(n):
+        return n * n
+
+print(MathTools.square(8))</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q11</span><h3>Use a protected-style attribute.</h3></div>
+      <button class="solution-btn" onclick="toggle('code11', this)">Show Step-by-Step Solution</button>
+      <div id="code11" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Account:
+    def __init__(self, balance):
+        self._balance = balance
+
+    def show_balance(self):
+        print(self._balance)
+
+a = Account(5000)
+a.show_balance()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q12</span><h3>Use a private attribute with a method.</h3></div>
+      <button class="solution-btn" onclick="toggle('code12', this)">Show Step-by-Step Solution</button>
+      <div id="code12" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Account:
+    def __init__(self, pin):
+        self.__pin = pin
+
+    def verify(self, pin):
+        return self.__pin == pin
+
+a = Account(1234)
+print(a.verify(1234))</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q13</span><h3>Use @property to safely read a value.</h3></div>
+      <button class="solution-btn" onclick="toggle('code13', this)">Show Step-by-Step Solution</button>
+      <div id="code13" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Person:
+    def __init__(self, age):
+        self._age = age
+
+    @property
+    def age(self):
+        return self._age
+
+p = Person(25)
+print(p.age)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q14</span><h3>Use a property setter for validation.</h3></div>
+      <button class="solution-btn" onclick="toggle('code14', this)">Show Step-by-Step Solution</button>
+      <div id="code14" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Person:
+    def __init__(self, age):
+        self.age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if value &lt; 0:
+            raise ValueError(&quot;Age cannot be negative&quot;)
+        self._age = value
+
+p = Person(25)
+p.age = 26
+print(p.age)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q15</span><h3>Demonstrate single inheritance.</h3></div>
+      <button class="solution-btn" onclick="toggle('code15', this)">Show Step-by-Step Solution</button>
+      <div id="code15" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Animal:
+    def eat(self):
+        print(&quot;Eating&quot;)
+
+class Dog(Animal):
+    def bark(self):
+        print(&quot;Barking&quot;)
+
+d = Dog()
+d.eat()
+d.bark()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q16</span><h3>Use super() to initialize a parent class.</h3></div>
+      <button class="solution-btn" onclick="toggle('code16', this)">Show Step-by-Step Solution</button>
+      <div id="code16" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Person:
+    def __init__(self, name):
+        self.name = name
+
+class Student(Person):
+    def __init__(self, name, course):
+        super().__init__(name)
+        self.course = course
+
+s = Student(&quot;Arun&quot;, &quot;Python&quot;)
+print(s.name, s.course)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q17</span><h3>Demonstrate multilevel inheritance.</h3></div>
+      <button class="solution-btn" onclick="toggle('code17', this)">Show Step-by-Step Solution</button>
+      <div id="code17" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Grandparent:
+    def show_a(self):
+        print(&quot;Grandparent&quot;)
+
+class Parent(Grandparent):
+    def show_b(self):
+        print(&quot;Parent&quot;)
+
+class Child(Parent):
+    def show_c(self):
+        print(&quot;Child&quot;)
+
+c = Child()
+c.show_a()
+c.show_b()
+c.show_c()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q18</span><h3>Demonstrate hierarchical inheritance.</h3></div>
+      <button class="solution-btn" onclick="toggle('code18', this)">Show Step-by-Step Solution</button>
+      <div id="code18" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Animal:
+    def eat(self):
+        print(&quot;Eating&quot;)
+
+class Dog(Animal):
+    def bark(self):
+        print(&quot;Bark&quot;)
+
+class Cat(Animal):
+    def meow(self):
+        print(&quot;Meow&quot;)
+
+Dog().eat()
+Cat().eat()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q19</span><h3>Demonstrate multiple inheritance.</h3></div>
+      <button class="solution-btn" onclick="toggle('code19', this)">Show Step-by-Step Solution</button>
+      <div id="code19" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Father:
+    def skill1(self):
+        print(&quot;Driving&quot;)
+
+class Mother:
+    def skill2(self):
+        print(&quot;Cooking&quot;)
+
+class Child(Father, Mother):
+    pass
+
+c = Child()
+c.skill1()
+c.skill2()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q20</span><h3>Demonstrate method overriding.</h3></div>
+      <button class="solution-btn" onclick="toggle('code20', this)">Show Step-by-Step Solution</button>
+      <div id="code20" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Animal:
+    def sound(self):
+        print(&quot;Some sound&quot;)
+
+class Dog(Animal):
+    def sound(self):
+        print(&quot;Bark&quot;)
+
+Dog().sound()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q21</span><h3>Demonstrate polymorphism with the same method name.</h3></div>
+      <button class="solution-btn" onclick="toggle('code21', this)">Show Step-by-Step Solution</button>
+      <div id="code21" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Dog:
+    def speak(self):
+        print(&quot;Bark&quot;)
+
+class Cat:
+    def speak(self):
+        print(&quot;Meow&quot;)
+
+for animal in [Dog(), Cat()]:
+    animal.speak()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q22</span><h3>Demonstrate duck typing.</h3></div>
+      <button class="solution-btn" onclick="toggle('code22', this)">Show Step-by-Step Solution</button>
+      <div id="code22" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class PDF:
+    def print_file(self):
+        print(&quot;Printing PDF&quot;)
+
+class Word:
+    def print_file(self):
+        print(&quot;Printing Word&quot;)
+
+def print_document(document):
+    document.print_file()
+
+print_document(PDF())
+print_document(Word())</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q23</span><h3>Demonstrate built-in polymorphism using len().</h3></div>
+      <button class="solution-btn" onclick="toggle('code23', this)">Show Step-by-Step Solution</button>
+      <div id="code23" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>print(len(&quot;Python&quot;))
+print(len([10, 20, 30]))
+print(len({&quot;a&quot;: 1, &quot;b&quot;: 2}))</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q24</span><h3>Overload + for a custom class.</h3></div>
+      <button class="solution-btn" onclick="toggle('code24', this)">Show Step-by-Step Solution</button>
+      <div id="code24" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+p3 = Point(2, 3) + Point(4, 5)
+print(p3.x, p3.y)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q25</span><h3>Create an abstract base class.</h3></div>
+      <button class="solution-btn" onclick="toggle('code25', this)">Show Step-by-Step Solution</button>
+      <div id="code25" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+s = Square(5)
+print(s.area())</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q26</span><h3>Use isinstance() and issubclass().</h3></div>
+      <button class="solution-btn" onclick="toggle('code26', this)">Show Step-by-Step Solution</button>
+      <div id="code26" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+d = Dog()
+
+print(isinstance(d, Dog))
+print(isinstance(d, Animal))
+print(issubclass(Dog, Animal))</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q27</span><h3>Build a Student result class.</h3></div>
+      <button class="solution-btn" onclick="toggle('code27', this)">Show Step-by-Step Solution</button>
+      <div id="code27" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+    def result(self):
+        return &quot;Pass&quot; if self.average() &gt;= 40 else &quot;Fail&quot;
+
+s = Student(&quot;Kiran&quot;, [70, 65, 80])
+print(s.name, s.average(), s.result())</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q28</span><h3>Build a BankAccount class with deposit and withdraw.</h3></div>
+      <button class="solution-btn" onclick="toggle('code28', this)">Show Step-by-Step Solution</button>
+      <div id="code28" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount &lt;= self.balance:
+            self.balance -= amount
+        else:
+            print(&quot;Insufficient balance&quot;)
+
+a = BankAccount(&quot;Naveen&quot;, 10000)
+a.deposit(2000)
+a.withdraw(3000)
+print(a.balance)</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q29</span><h3>Build an Employee class with annual salary.</h3></div>
+      <button class="solution-btn" onclick="toggle('code29', this)">Show Step-by-Step Solution</button>
+      <div id="code29" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Employee:
+    def __init__(self, name, monthly_salary):
+        self.name = name
+        self.monthly_salary = monthly_salary
+
+    def annual_salary(self):
+        return self.monthly_salary * 12
+
+e = Employee(&quot;Ravi&quot;, 40000)
+print(e.name, e.annual_salary())</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q30</span><h3>Demonstrate composition with Car and Engine.</h3></div>
+      <button class="solution-btn" onclick="toggle('code30', this)">Show Step-by-Step Solution</button>
+      <div id="code30" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Engine:
+    def start(self):
+        print(&quot;Engine started&quot;)
+
+class Car:
+    def __init__(self):
+        self.engine = Engine()
+
+    def start(self):
+        self.engine.start()
+        print(&quot;Car started&quot;)
+
+c = Car()
+c.start()</code></pre>
+      </div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-top"><span>Q31</span><h3>Build a mini Library system using classes.</h3></div>
+      <button class="solution-btn" onclick="toggle('code31', this)">Show Step-by-Step Solution</button>
+      <div id="code31" class="solution">
+        <div class="steps"><strong>Step 1:</strong> Read the requirement and identify the class/object behavior.<br>
+        <strong>Step 2:</strong> Define the class and add the required attributes or methods.<br>
+        <strong>Step 3:</strong> Create the object(s) and call the required method.<br>
+        <strong>Step 4:</strong> Run the code and compare the output with your expectation.</div>
+        <pre><code>class Book:
+    def __init__(self, title):
+        self.title = title
+        self.borrowed = False
+
+    def borrow(self):
+        if not self.borrowed:
+            self.borrowed = True
+            print(&quot;Borrowed:&quot;, self.title)
+        else:
+            print(&quot;Already borrowed&quot;)
+
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def show_books(self):
+        for book in self.books:
+            status = &quot;Borrowed&quot; if book.borrowed else &quot;Available&quot;
+            print(book.title, &quot;-&quot;, status)
+
+library = Library()
+library.add_book(Book(&quot;Python Basics&quot;))
+library.add_book(Book(&quot;OOP in Python&quot;))
+library.books[0].borrow()
+library.show_books()</code></pre>
+      </div>
+    </div>
+</section>
+<section id="theory">
+<div class="section-title"><div class="eyebrow">KNOWLEDGE CHECK</div><h2>30 Theory Questions with Answers</h2><p>Use these questions for revision, interviews, and classroom practice.</p></div>
+
+    <div class="theory-card">
+      <div class="theory-q"><span>Q01</span><h3>What is OOP?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory1', this)">Show Answer</button>
+      <div id="theory1" class="answer"><strong>Answer:</strong> OOP is a programming approach that organizes programs around objects containing data and behavior.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q02</span><h3>What is a class?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory2', this)">Show Answer</button>
+      <div id="theory2" class="answer"><strong>Answer:</strong> A class is a blueprint or template used to create objects.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q03</span><h3>What is an object?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory3', this)">Show Answer</button>
+      <div id="theory3" class="answer"><strong>Answer:</strong> An object is an instance of a class with its own state and behavior.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q04</span><h3>What is the difference between a class and an object?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory4', this)">Show Answer</button>
+      <div id="theory4" class="answer"><strong>Answer:</strong> A class defines the structure and behavior; an object is a concrete instance created from that class.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q05</span><h3>What is self in Python?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory5', this)">Show Answer</button>
+      <div id="theory5" class="answer"><strong>Answer:</strong> self refers to the current instance inside an instance method.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q06</span><h3>Why is self required?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory6', this)">Show Answer</button>
+      <div id="theory6" class="answer"><strong>Answer:</strong> It lets a method access the current object&#x27;s attributes and other instance methods.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q07</span><h3>What is __init__()?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory7', this)">Show Answer</button>
+      <div id="theory7" class="answer"><strong>Answer:</strong> __init__() is an initializer that runs automatically when an object is created.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q08</span><h3>What is an instance attribute?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory8', this)">Show Answer</button>
+      <div id="theory8" class="answer"><strong>Answer:</strong> It is data associated with one particular object, usually stored through self.attribute.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q09</span><h3>What is a class attribute?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory9', this)">Show Answer</button>
+      <div id="theory9" class="answer"><strong>Answer:</strong> It is an attribute defined on the class and normally shared by instances.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q10</span><h3>What is an instance method?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory10', this)">Show Answer</button>
+      <div id="theory10" class="answer"><strong>Answer:</strong> A method that receives self and operates on a particular object.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q11</span><h3>What is @classmethod?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory11', this)">Show Answer</button>
+      <div id="theory11" class="answer"><strong>Answer:</strong> It creates a method that receives the class as cls and is useful for class-level operations and alternative constructors.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q12</span><h3>What is @staticmethod?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory12', this)">Show Answer</button>
+      <div id="theory12" class="answer"><strong>Answer:</strong> It creates a method that receives no automatic self or cls argument and is useful for related utility functions.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q13</span><h3>What is encapsulation?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory13', this)">Show Answer</button>
+      <div id="theory13" class="answer"><strong>Answer:</strong> Encapsulation groups data and behavior and provides controlled access to internal state.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q14</span><h3>Is Python&#x27;s single underscore truly private?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory14', this)">Show Answer</button>
+      <div id="theory14" class="answer"><strong>Answer:</strong> No. A single leading underscore is mainly a convention indicating internal or protected-style use.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q15</span><h3>What is name mangling?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory15', this)">Show Answer</button>
+      <div id="theory15" class="answer"><strong>Answer:</strong> Names beginning with double underscores are transformed internally by Python to reduce accidental access or name conflicts.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q16</span><h3>What is @property?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory16', this)">Show Answer</button>
+      <div id="theory16" class="answer"><strong>Answer:</strong> It allows a method to be accessed like an attribute and is useful for controlled access and validation.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q17</span><h3>What is inheritance?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory17', this)">Show Answer</button>
+      <div id="theory17" class="answer"><strong>Answer:</strong> Inheritance lets a child class reuse and extend functionality from a parent class.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q18</span><h3>What is single inheritance?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory18', this)">Show Answer</button>
+      <div id="theory18" class="answer"><strong>Answer:</strong> One child class inherits from one parent class.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q19</span><h3>What is multilevel inheritance?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory19', this)">Show Answer</button>
+      <div id="theory19" class="answer"><strong>Answer:</strong> Inheritance occurs across multiple levels, such as Grandparent -&gt; Parent -&gt; Child.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q20</span><h3>What is hierarchical inheritance?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory20', this)">Show Answer</button>
+      <div id="theory20" class="answer"><strong>Answer:</strong> Multiple child classes inherit from the same parent class.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q21</span><h3>What is multiple inheritance?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory21', this)">Show Answer</button>
+      <div id="theory21" class="answer"><strong>Answer:</strong> A class inherits from two or more parent classes.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q22</span><h3>What is super()?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory22', this)">Show Answer</button>
+      <div id="theory22" class="answer"><strong>Answer:</strong> super() provides a convenient way to access parent-class methods, commonly the parent constructor.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q23</span><h3>What is method overriding?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory23', this)">Show Answer</button>
+      <div id="theory23" class="answer"><strong>Answer:</strong> A child class replaces a parent method with its own implementation using the same method name.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q24</span><h3>What is polymorphism?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory24', this)">Show Answer</button>
+      <div id="theory24" class="answer"><strong>Answer:</strong> Polymorphism allows different object types to be used through a common interface or operation.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q25</span><h3>What is duck typing?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory25', this)">Show Answer</button>
+      <div id="theory25" class="answer"><strong>Answer:</strong> Duck typing focuses on whether an object supports the required behavior rather than its exact type.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q26</span><h3>What is operator overloading?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory26', this)">Show Answer</button>
+      <div id="theory26" class="answer"><strong>Answer:</strong> It uses special methods such as __add__() to define operators for custom objects.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q27</span><h3>What is abstraction?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory27', this)">Show Answer</button>
+      <div id="theory27" class="answer"><strong>Answer:</strong> Abstraction exposes essential behavior while hiding implementation details.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q28</span><h3>What is ABC?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory28', this)">Show Answer</button>
+      <div id="theory28" class="answer"><strong>Answer:</strong> ABC from the abc module is a base class helper for defining abstract base classes.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q29</span><h3>What is @abstractmethod?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory29', this)">Show Answer</button>
+      <div id="theory29" class="answer"><strong>Answer:</strong> It marks a method as abstract, requiring concrete subclasses to provide an implementation.</div>
+    </div>
+    <div class="theory-card">
+      <div class="theory-q"><span>Q30</span><h3>What are isinstance() and issubclass()?</h3></div>
+      <button class="answer-btn" onclick="toggle('theory30', this)">Show Answer</button>
+      <div id="theory30" class="answer"><strong>Answer:</strong> isinstance() checks an object&#x27;s class relationship; issubclass() checks whether one class derives from another.</div>
+    </div>
+</section>
+</main>
+<footer><div class="container"><strong>MODULE 05 — OOP CONCEPTS</strong><br>KN TECH INSTITUTE · Learn Python step by step<br><a class="footer-back" href="index.html">← Back to Syllabus</a></div></footer>
+<script>
+function toggle(id,btn){
+ const el=document.getElementById(id);
+ el.classList.toggle('open');
+ btn.textContent=el.classList.contains('open') ? 'Hide Solution' : 'Show Step-by-Step Solution';
+ if(btn.classList.contains('answer-btn')) btn.textContent=el.classList.contains('open') ? 'Hide Answer' : 'Show Answer';
+}
+</script>
+</body>
+</html>

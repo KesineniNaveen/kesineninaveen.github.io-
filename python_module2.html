@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Module 02 - Control Flow | KN TECH INSTITUTE</title>
+<style>
+:root{--n:#071a33;--n2:#0d2748;--g:#d4af37;--g2:#f0d77a;--t:#172033;--m:#64748b;--bg:#f5f7fb;--b:#e5e7eb;--c:#09111f}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.7}
+header{position:sticky;top:0;z-index:20;background:#071a33f7;color:#fff;border-bottom:1px solid #d4af3755}
+.nav,.heroIn,.container{max-width:1100px;margin:auto}.nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:1px;color:var(--g2)}.back{color:#fff;text-decoration:none;border:1px solid #ffffff55;padding:7px 13px;border-radius:8px}.back:hover{background:var(--g);color:var(--n)}
+.hero{background:linear-gradient(135deg,var(--n),var(--n2));color:#fff;padding:60px 20px}.badge{color:var(--g2);font-weight:800;letter-spacing:2px}h1{font-size:clamp(36px,5vw,60px);line-height:1.1;margin:10px 0 15px}.hero p{max-width:850px;color:#dbe6f4;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.stat{padding:16px;border:1px solid #d4af3755;border-radius:12px;background:#ffffff0c}.stat strong{display:block;color:var(--g2);font-size:24px}
+.container{padding:35px 20px 65px}.toc,.topic{background:#fff;border:1px solid var(--b);border-radius:15px;box-shadow:0 7px 22px #071a330b}.toc{padding:22px;margin-bottom:25px}.toc h2{color:var(--n);margin-bottom:12px}.tocGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.toc a{color:var(--n);text-decoration:none;background:#f8fafc;border:1px solid var(--b);padding:9px 11px;border-radius:8px}.toc a:hover{border-color:var(--g)}
+.topic{padding:30px;margin:24px 0}.title{font-size:28px;color:var(--n);border-left:5px solid var(--g);padding-left:12px;margin-bottom:18px}.sub{margin:23px 0}.sub h3{font-size:21px;color:var(--n);margin-bottom:7px}
+ul,ol{padding-left:25px;margin:8px 0}.note,.tip,.warning{padding:13px 15px;border-radius:8px;margin:13px 0}.note{background:#fff8df;border-left:4px solid var(--g)}.tip{background:#ecfdf5;border-left:4px solid #0f766e}.warning{background:#fff1f2;border-left:4px solid #e11d48}
+pre{background:var(--c);color:#e5eefb;padding:16px;border-radius:9px;overflow:auto;margin:11px 0;font-size:14px;line-height:1.55}code{background:#eef2f7;padding:2px 5px;border-radius:4px;color:#8b1e3f}pre code{background:transparent;color:inherit;padding:0}
+table{width:100%;border-collapse:collapse;margin:14px 0}th,td{border:1px solid var(--b);padding:9px;text-align:left}th{background:#f1f5f9;color:var(--n)}
+.question{border:1px solid var(--b);border-radius:9px;margin:10px 0;overflow:hidden}.question button{width:100%;border:0;background:#f8fafc;color:var(--n);padding:14px;text-align:left;font-weight:700;font-size:15px;cursor:pointer}.question button:hover{background:#fff8df}.answer{display:none;padding:14px;border-top:1px solid var(--b)}.answer.show{display:block}.small{color:var(--m);font-size:14px}
+footer{text-align:center;background:var(--n);color:#dbe6f4;padding:28px}footer a{color:var(--g2)}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.tocGrid{grid-template-columns:1fr 1fr}.topic{padding:22px}}
+@media(max-width:520px){.nav{padding:11px 13px}.logo{font-size:13px}.back{font-size:12px}.hero{padding:45px 14px}.container{padding:24px 12px 50px}.tocGrid{grid-template-columns:1fr}.title{font-size:23px}pre{font-size:12px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+
+<section class="hero"><div class="heroIn">
+<div class="badge">MODULE 02</div><h1>Control Flow</h1>
+<p>Detailed step-by-step learning of conditions, if/elif/else, nested conditions, for loops, while loops, range(), break, continue, pass, nested loops and practical programming patterns.</p>
+<div class="stats"><div class="stat"><strong>10+</strong>Core Topics</div><div class="stat"><strong>20+</strong>Subtopics</div><div class="stat"><strong>30</strong>Coding Questions</div><div class="stat"><strong>30</strong>Theory Q&amp;A</div></div>
+</div></section>
+
+<main class="container">
+<section class="toc"><h2>Module Contents</h2><div class="tocGrid">
+<a href="#conditions">1. Conditions</a><a href="#branches">2. if / elif / else</a><a href="#nested">3. Nested Conditions</a>
+<a href="#for">4. for Loop</a><a href="#while">5. while Loop</a><a href="#range">6. range()</a>
+<a href="#collections">7. Looping Through Data</a><a href="#control">8. break / continue / pass</a><a href="#nestedloops">9. Nested Loops</a>
+<a href="#patterns">10. Practical Patterns</a><a href="#coding">11. 30 Coding Questions</a><a href="#theory">12. 30 Theory Questions</a>
+</div></section>
+
+<section class="topic" id="conditions"><h2 class="title">1. Conditions and Decision Making</h2>
+<div class="sub"><h3>1.1 What is control flow?</h3><p>Control flow is the order in which Python executes statements. Normally code runs from top to bottom. Conditions select a path and loops repeat a path.</p><pre><code>print("Step 1")
+print("Step 2")
+print("Step 3")</code></pre></div>
+<div class="sub"><h3>1.2 Why are conditions required?</h3><p>Programs need to make decisions such as pass/fail, login success, discount eligibility, age verification and stock availability.</p><ul><li>If marks are 40 or above → pass.</li><li>If age is 18 or above → eligible.</li><li>If stock is 0 → unavailable.</li></ul></div>
+<div class="sub"><h3>1.3 Boolean conditions</h3><pre><code>age = 20
+print(age >= 18)</code></pre><p>The result is <code>True</code>. Common comparison operators are <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, and <code>&lt;=</code>.</p></div>
+<div class="sub"><h3>1.4 Logical operators</h3><table><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr><tr><td>and</td><td>Both conditions True</td><td>age &gt;= 18 and has_id</td></tr><tr><td>or</td><td>At least one True</td><td>cash &gt; 0 or card</td></tr><tr><td>not</td><td>Reverses result</td><td>not closed</td></tr></table><pre><code>age = 25
+has_id = True
+if age >= 18 and has_id:
+    print("Entry allowed")</code></pre></div>
+<div class="sub"><h3>1.5 Writing complex conditions</h3><pre><code>if (age >= 18 and has_id) or is_admin:
+    print("Allowed")</code></pre><div class="tip"><b>Tip:</b> Write the decision in plain English first, then translate it into Python.</div></div>
+</section>
+
+<section class="topic" id="branches"><h2 class="title">2. if, elif and else</h2>
+<div class="sub"><h3>2.1 if statement</h3><pre><code>age = 21
+if age >= 18:
+    print("Adult")</code></pre><h4>Step-by-step</h4><ol><li>Store 21 in <code>age</code>.</li><li>Evaluate <code>age &gt;= 18</code>.</li><li>The result is True.</li><li>Enter the indented block.</li><li>Print Adult.</li></ol></div>
+<div class="sub"><h3>2.2 Indentation</h3><p>Indentation defines which statements belong to a condition.</p><pre><code>marks = 75
+if marks >= 40:
+    print("Pass")
+    print("Good job")
+print("Program finished")</code></pre></div>
+<div class="sub"><h3>2.3 if...else</h3><pre><code>marks = 32
+if marks >= 40:
+    print("Pass")
+else:
+    print("Fail")</code></pre><p>Exactly one branch executes.</p></div>
+<div class="sub"><h3>2.4 if...elif...else</h3><pre><code>marks = 82
+if marks >= 90:
+    grade = "A+"
+elif marks >= 75:
+    grade = "A"
+elif marks >= 60:
+    grade = "B"
+elif marks >= 40:
+    grade = "C"
+else:
+    grade = "Fail"
+print(grade)</code></pre><div class="note"><b>Important:</b> Python checks conditions from top to bottom and executes the first matching branch.</div></div>
+<div class="sub"><h3>2.5 Conditional expression</h3><pre><code>age = 20
+status = "Adult" if age >= 18 else "Minor"
+print(status)</code></pre></div>
+</section>
+
+<section class="topic" id="nested"><h2 class="title">3. Nested Conditions</h2>
+<div class="sub"><h3>3.1 What is a nested if?</h3><p>A nested condition is an <code>if</code> statement inside another conditional block.</p><pre><code>age = 22
+has_id = True
+if age >= 18:
+    if has_id:
+        print("Entry allowed")
+    else:
+        print("ID required")
+else:
+    print("Underage")</code></pre><ol><li>Check age.</li><li>Only if age is valid, check the ID.</li><li>Select the appropriate inner branch.</li></ol></div>
+<div class="sub"><h3>3.2 Practical example</h3><pre><code>marks = 85
+attendance = 90
+if marks >= 40:
+    if attendance >= 75:
+        print("Eligible")
+    else:
+        print("Low attendance")
+else:
+    print("Failed")</code></pre></div>
+<div class="warning"><b>Common mistake:</b> Too many nested levels can make code difficult to read. Simplify related checks when practical.</div>
+</section>
+
+<section class="topic" id="for"><h2 class="title">4. for Loop</h2>
+<div class="sub"><h3>4.1 What is a for loop?</h3><p>A <code>for</code> loop visits each item in an iterable such as a string, list, tuple, set, dictionary or range.</p><pre><code>for i in range(5):
+    print(i)</code></pre><p>Output: 0, 1, 2, 3, 4.</p></div>
+<div class="sub"><h3>4.2 Step-by-step execution</h3><ol><li><code>range(5)</code> represents 0 through 4.</li><li>Python assigns the next value to <code>i</code>.</li><li>The indented block runs.</li><li>The next value is assigned.</li><li>The loop stops after the final value.</li></ol></div>
+<div class="sub"><h3>4.3 Loop through a string</h3><pre><code>name = "Python"
+for ch in name:
+    print(ch)</code></pre></div>
+<div class="sub"><h3>4.4 Loop through a list</h3><pre><code>fruits = ["Apple", "Banana", "Mango"]
+for fruit in fruits:
+    print(fruit)</code></pre></div>
+<div class="sub"><h3>4.5 for with condition</h3><pre><code>for number in range(1, 11):
+    if number % 2 == 0:
+        print(number)</code></pre></div>
+<div class="sub"><h3>4.6 Accumulator pattern</h3><pre><code>total = 0
+for number in range(1, 6):
+    total += number
+print(total)</code></pre><p>The running total becomes 1 → 3 → 6 → 10 → 15.</p></div>
+</section>
+
+<section class="topic" id="while"><h2 class="title">5. while Loop</h2>
+<div class="sub"><h3>5.1 What is a while loop?</h3><p>A <code>while</code> loop repeats while its condition is True.</p><pre><code>count = 1
+while count <= 5:
+    print(count)
+    count += 1</code></pre></div>
+<div class="sub"><h3>5.2 Step-by-step</h3><ol><li>Set the starting value.</li><li>Check the condition.</li><li>Execute the body if True.</li><li>Update the controlling variable.</li><li>Repeat until the condition becomes False.</li></ol></div>
+<div class="sub"><h3>5.3 Infinite loops</h3><pre><code># Intentional infinite loop example:
+# while True:
+#     print("Running")</code></pre><div class="warning">A normal while loop should have a reliable exit condition or deliberate <code>break</code>.</div></div>
+<div class="sub"><h3>5.4 When to use while?</h3><p>Use it when repetition depends on a condition and the number of repetitions may not be known beforehand.</p><pre><code>password = ""
+while password != "python123":
+    password = input("Enter password: ")
+print("Access granted")</code></pre></div>
+</section>
+
+<section class="topic" id="range"><h2 class="title">6. range() Function</h2>
+<div class="sub"><h3>6.1 range(stop)</h3><pre><code>for i in range(5):
+    print(i)</code></pre><p>Values: 0, 1, 2, 3, 4. Stop is excluded.</p></div>
+<div class="sub"><h3>6.2 range(start, stop)</h3><pre><code>for i in range(2, 7):
+    print(i)</code></pre><p>Values: 2, 3, 4, 5, 6.</p></div>
+<div class="sub"><h3>6.3 range(start, stop, step)</h3><pre><code>for i in range(2, 11, 2):
+    print(i)</code></pre><p>Values: 2, 4, 6, 8, 10.</p></div>
+<div class="sub"><h3>6.4 Reverse range</h3><pre><code>for i in range(10, 0, -1):
+    print(i)</code></pre><p>The negative step moves backwards.</p></div>
+<div class="note"><b>Remember:</b> The stop value is never included in <code>range()</code>.</div>
+</section>
+
+<section class="topic" id="collections"><h2 class="title">7. Looping Through Data</h2>
+<div class="sub"><h3>7.1 Strings</h3><pre><code>word = "HELLO"
+for ch in word:
+    print(ch)</code></pre></div>
+<div class="sub"><h3>7.2 Lists</h3><pre><code>numbers = [10, 20, 30]
+for n in numbers:
+    print(n * 2)</code></pre></div>
+<div class="sub"><h3>7.3 Dictionary keys</h3><pre><code>student = {"name": "Ravi", "age": 21}
+for key in student:
+    print(key)</code></pre></div>
+<div class="sub"><h3>7.4 Dictionary keys and values</h3><pre><code>student = {"name": "Ravi", "age": 21}
+for key, value in student.items():
+    print(key, value)</code></pre></div>
+<div class="sub"><h3>7.5 enumerate()</h3><pre><code>names = ["A", "B", "C"]
+for index, name in enumerate(names):
+    print(index, name)</code></pre><p><code>enumerate()</code> is useful when you need both index and value.</p></div>
+</section>
+
+<section class="topic" id="control"><h2 class="title">8. break, continue and pass</h2>
+<div class="sub"><h3>8.1 break</h3><p><code>break</code> immediately exits the nearest loop.</p><pre><code>for i in range(1, 11):
+    if i == 6:
+        break
+    print(i)</code></pre><p>Only 1 through 5 are printed.</p></div>
+<div class="sub"><h3>8.2 continue</h3><p><code>continue</code> skips the remaining statements in the current iteration.</p><pre><code>for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)</code></pre><p>Output: 1, 2, 4, 5.</p></div>
+<div class="sub"><h3>8.3 pass</h3><p><code>pass</code> performs no operation. It is commonly used as a placeholder.</p><pre><code>for i in range(1, 6):
+    if i == 3:
+        pass
+    print(i)</code></pre><p>3 is still printed.</p></div>
+<table><tr><th>Statement</th><th>Effect</th></tr><tr><td>break</td><td>Stops the loop</td></tr><tr><td>continue</td><td>Skips current iteration</td></tr><tr><td>pass</td><td>Does nothing</td></tr></table>
+</section>
+
+<section class="topic" id="nestedloops"><h2 class="title">9. Nested Loops</h2>
+<div class="sub"><h3>9.1 What is a nested loop?</h3><p>A loop inside another loop is called a nested loop. For every outer iteration, the inner loop normally completes its iterations.</p><pre><code>for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)</code></pre></div>
+<div class="sub"><h3>9.2 Multiplication table</h3><pre><code>n = 5
+for i in range(1, 11):
+    print(n, "x", i, "=", n*i)</code></pre></div>
+<div class="sub"><h3>9.3 Star pattern</h3><pre><code>for row in range(1, 6):
+    for col in range(row):
+        print("*", end=" ")
+    print()</code></pre></div>
+<div class="tip"><b>Dry-run tip:</b> Track the outer variable and inner variable separately.</div>
+</section>
+
+<section class="topic" id="patterns"><h2 class="title">10. Practical Control-Flow Patterns</h2>
+<div class="sub"><h3>10.1 Find first match</h3><pre><code>numbers = [4, 8, 15, 20, 25]
+for n in numbers:
+    if n % 5 == 0:
+        print(n)
+        break</code></pre></div>
+<div class="sub"><h3>10.2 Count matches</h3><pre><code>numbers = [2, 4, 7, 8, 10]
+count = 0
+for n in numbers:
+    if n % 2 == 0:
+        count += 1
+print(count)</code></pre></div>
+<div class="sub"><h3>10.3 Sum values</h3><pre><code>numbers = [10, 20, 30]
+total = 0
+for n in numbers:
+    total += n
+print(total)</code></pre></div>
+<div class="sub"><h3>10.4 Dry-run technique</h3><p>For difficult loops, create a table containing iteration number, variable values, condition result and output. This makes execution easier to understand.</p><table><tr><th>Iteration</th><th>i</th><th>total</th></tr><tr><td>1</td><td>1</td><td>1</td></tr><tr><td>2</td><td>2</td><td>3</td></tr><tr><td>3</td><td>3</td><td>6</td></tr><tr><td>4</td><td>4</td><td>10</td></tr></table></div>
+<div class="tip"><b>Rule:</b> Before writing a loop, identify the starting value, condition, update and stopping point.</div>
+</section>
+
+<section class="topic" id="coding"><h2 class="title">11. 30 Coding Questions with Step-by-Step Solutions</h2><p class="small">Click a question to show the solution.</p><div id="coding-list"></div></section>
+<section class="topic" id="theory"><h2 class="title">12. 30 Theory Questions with Answers</h2><p class="small">Useful for revision, interviews and classroom practice.</p><div id="theory-list"></div></section>
+</main>
+
+<footer><p>KN TECH INSTITUTE — Python Course | Module 02: Control Flow</p><p><a href="index.html">← Back to Full Syllabus</a></p></footer>
+
+<script>
+const coding = [
+["Print numbers 1 to 10","for i in range(1, 11):\n    print(i)","range starts at 1 and stops before 11, so 1–10 are printed."],
+["Print even numbers 1 to 20","for i in range(2, 21, 2):\n    print(i)","Start at 2 and increase by 2."],
+["Print odd numbers 1 to 20","for i in range(1, 21, 2):\n    print(i)","Start at 1 and increase by 2."],
+["Check positive, negative or zero","n=int(input('Enter number: '))\nif n>0:\n    print('Positive')\nelif n<0:\n    print('Negative')\nelse:\n    print('Zero')","Check greater than zero, then less than zero; otherwise zero."],
+["Check even or odd","n=int(input('Enter number: '))\nif n%2==0:\n    print('Even')\nelse:\n    print('Odd')","An even number has remainder 0 when divided by 2."],
+["Largest of two numbers","a=int(input('A: '))\nb=int(input('B: '))\nif a>b:\n    print(a)\nelse:\n    print(b)","Compare the two values and print the larger."],
+["Largest of three numbers","a,b,c=map(int,input().split())\nif a>=b and a>=c:\n    print(a)\nelif b>=a and b>=c:\n    print(b)\nelse:\n    print(c)","Test each candidate against the other two."],
+["Pass or fail","marks=float(input('Marks: '))\nif marks>=40:\n    print('Pass')\nelse:\n    print('Fail')","Use >= so exactly 40 passes."],
+["Assign grade","marks=int(input('Marks: '))\nif marks>=90:\n    print('A+')\nelif marks>=75:\n    print('A')\nelif marks>=60:\n    print('B')\nelif marks>=40:\n    print('C')\nelse:\n    print('Fail')","Check the highest threshold first."],
+["Print 1 to 5 using while","i=1\nwhile i<=5:\n    print(i)\n    i+=1","Update i so the loop eventually stops."],
+["Print 10 to 1 using while","i=10\nwhile i>=1:\n    print(i)\n    i-=1","Decrease i by one each iteration."],
+["Sum 1 to 100","total=0\nfor i in range(1,101):\n    total+=i\nprint(total)","Use total as an accumulator."],
+["Factorial","n=int(input('n: '))\nfact=1\nfor i in range(1,n+1):\n    fact*=i\nprint(fact)","Multiply all integers from 1 through n."],
+["Multiplication table","n=int(input('Number: '))\nfor i in range(1,11):\n    print(n,'x',i,'=',n*i)","Generate multipliers 1–10."],
+["Count vowels","text=input('Text: ')\ncount=0\nfor ch in text.lower():\n    if ch in 'aeiou':\n        count+=1\nprint(count)","Check each character and count vowels."],
+["Count even numbers in list","numbers=[2,7,8,11,14]\ncount=0\nfor n in numbers:\n    if n%2==0:\n        count+=1\nprint(count)","Use % 2 and a counter."],
+["Sum list elements","numbers=[10,20,30,40]\ntotal=0\nfor n in numbers:\n    total+=n\nprint(total)","Add each element to total."],
+["Find first number greater than 50","numbers=[12,34,55,70,90]\nfor n in numbers:\n    if n>50:\n        print(n)\n        break","break stops after the first match."],
+["Skip multiples of 3","for i in range(1,16):\n    if i%3==0:\n        continue\n    print(i)","continue skips the current iteration."],
+["Demonstrate pass","for i in range(1,6):\n    if i==3:\n        pass\n    print(i)","pass does nothing, so 3 is still printed."],
+["Print squares 1 to 10","for i in range(1,11):\n    print(i,i*i)","Calculate i squared for each value."],
+["Divisible by both 3 and 5","for i in range(1,101):\n    if i%3==0 and i%5==0:\n        print(i)","Both divisibility tests must be True."],
+["Simple login","username=input('Username: ')\npassword=input('Password: ')\nif username=='admin' and password=='1234':\n    print('Login successful')\nelse:\n    print('Invalid credentials')","and requires both comparisons to be True."],
+["Countdown","n=int(input('Start: '))\nwhile n>=0:\n    print(n)\n    n-=1","Print and decrement until the condition fails."],
+["Keep asking until correct","secret=7\nwhile True:\n    guess=int(input('Guess: '))\n    if guess==secret:\n        print('Correct')\n        break\n    print('Try again')","Use break when the correct value is entered."],
+["Star triangle","for row in range(1,6):\n    for col in range(row):\n        print('*',end=' ')\n    print()","Outer loop controls rows; inner loop controls stars."],
+["Find first vowel","text=input('Text: ')\nfor ch in text.lower():\n    if ch in 'aeiou':\n        print(ch)\n        break","Scan left to right and stop at the first vowel."],
+["Leap year","year=int(input('Year: '))\nif year%400==0 or (year%4==0 and year%100!=0):\n    print('Leap year')\nelse:\n    print('Not a leap year')","A leap year is divisible by 400, or by 4 but not by 100."],
+["Fibonacci series","n=int(input('Terms: '))\na,b=0,1\nfor _ in range(n):\n    print(a,end=' ')\n    a,b=b,a+b","Each next term is the sum of the previous two."]
+];
+
+const theory = [
+["What is control flow?","The order and logic that determine which statements execute, when they execute, and how often."],
+["Why are conditions used?","They allow programs to make decisions based on True/False expressions."],
+["What does if do?","It executes its indented block only when its condition is True."],
+["What is elif?","An additional condition tested when earlier conditions are False."],
+["What is else?","The fallback block when all preceding conditions are False."],
+["Is else mandatory?","No, else is optional."],
+["Can multiple elif branches be used?","Yes."],
+["Which matching branch executes?","The first True branch executes."],
+["What is a nested if?","An if statement inside another conditional block."],
+["What is a Boolean condition?","An expression that evaluates to True or False."],
+["What does and mean?","Both conditions must be True."],
+["What does or mean?","At least one condition must be True."],
+["What does not mean?","It reverses a Boolean result."],
+["What is a loop?","A mechanism for repeating a block of code."],
+["What is a for loop?","A loop that iterates over an iterable."],
+["What is a while loop?","A loop that repeats while its condition is True."],
+["When is for commonly used?","When processing a collection or known sequence."],
+["When is while commonly used?","When repetition depends on a condition and the count may be unknown."],
+["What is range()?","A built-in used to represent a sequence of integers for iteration."],
+["Is range stop included?","No, the stop value is excluded."],
+["What does range(5) represent?","0, 1, 2, 3 and 4."],
+["What is the step in range()?","The amount by which values change between iterations."],
+["What does break do?","It immediately exits the nearest loop."],
+["What does continue do?","It skips the remaining part of the current iteration."],
+["What does pass do?","It performs no operation and acts as a placeholder."],
+["break vs continue?","break exits the loop; continue skips only the current iteration."],
+["Can loops be nested?","Yes, a loop can be placed inside another loop."],
+["What is an infinite loop?","A loop that does not reach a terminating condition or exit."],
+["Why is indentation important?","It defines statements belonging to a control-flow block."],
+["What is a dry run?","Manually tracing variable values and decisions to predict execution."]
+];
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+const c=document.getElementById("coding-list");
+coding.forEach((q,i)=>{c.innerHTML+=`<div class="question"><button onclick="toggle('c${i}')">${i+1}. ${esc(q[0])} ＋</button><div class="answer" id="c${i}"><b>Solution:</b><pre><code>${esc(q[1])}</code></pre><b>Step-by-step:</b><p>${esc(q[2])}</p></div></div>`});
+const t=document.getElementById("theory-list");
+theory.forEach((q,i)=>{t.innerHTML+=`<div class="question"><button onclick="toggle('t${i}')">${i+1}. ${esc(q[0])} ＋</button><div class="answer" id="t${i}"><b>Answer:</b><p>${esc(q[1])}</p></div></div>`});
+function toggle(id){document.getElementById(id).classList.toggle("show")}
+</script>
+</body>
+</html>

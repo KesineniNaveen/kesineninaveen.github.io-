@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 | Python Data Structures | KN Tech Institute</title>
+<style>
+:root{--navy:#071a33;--navy2:#0c2749;--gold:#d8aa35;--gold2:#f3d37a;--white:#f8fafc;--muted:#b7c4d6;--card:#102d4e;--line:#274768;}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#061529,#0a2442);color:var(--white);line-height:1.7}
+header{position:sticky;top:0;z-index:50;background:rgba(5,20,39,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{max-width:1200px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:800;letter-spacing:1px;color:var(--gold2)} .back{text-decoration:none;color:#071a33;background:var(--gold);padding:10px 17px;border-radius:8px;font-weight:700}
+.hero{max-width:1200px;margin:auto;padding:58px 22px 38px} .tag{color:var(--gold2);font-weight:800;letter-spacing:2px}
+h1{font-size:clamp(34px,5vw,64px);line-height:1.05;margin:10px 0} h1 span{color:var(--gold2)} .lead{max-width:850px;color:var(--muted);font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px} .stat{background:rgba(16,45,78,.75);border:1px solid var(--line);padding:17px;border-radius:12px;text-align:center} .stat b{display:block;color:var(--gold2);font-size:23px} .stat small{color:var(--muted)}
+.wrap{max-width:1200px;margin:auto;padding:0 22px 70px} .toc{background:rgba(16,45,78,.7);border:1px solid var(--line);border-radius:15px;padding:22px;margin:12px 0 30px} .toc h2{margin-top:0;color:var(--gold2)} .toc a{display:inline-block;color:#fff;text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:7px;margin:5px} .toc a:hover{border-color:var(--gold);color:var(--gold2)}
+.topic{background:rgba(8,31,57,.82);border:1px solid var(--line);border-radius:17px;padding:30px;margin:24px 0} h2{color:var(--gold2);font-size:30px;border-bottom:1px solid var(--line);padding-bottom:10px} h3{color:#fff;font-size:21px;margin-top:28px} h4{color:var(--gold2)} p,li{color:#d7e1ee} code{font-family:Consolas,monospace} pre{background:#04101f;border:1px solid #1e3c5d;border-radius:10px;padding:18px;overflow:auto;color:#eaf2ff} .step,.tip{background:#102d4e;border-left:4px solid var(--gold);padding:14px 17px;border-radius:8px;margin:15px 0} table{width:100%;border-collapse:collapse;margin:18px 0;display:block;overflow-x:auto} th,td{border:1px solid var(--line);padding:11px;text-align:left;min-width:120px} th{color:var(--gold2);background:#0d2948}
+.section-title{margin-top:55px} .qcard,.theory-card{background:rgba(16,45,78,.8);border:1px solid var(--line);border-radius:13px;margin:14px 0;overflow:hidden} .qcard{padding:18px} .qhead{display:flex;gap:15px;align-items:flex-start} .num{min-width:42px;height:42px;display:grid;place-items:center;background:var(--gold);color:#071a33;font-weight:900;border-radius:8px} .qhead p{margin:5px 0 0;color:var(--muted)} .solution-btn{margin-top:14px;border:1px solid var(--gold);background:transparent;color:var(--gold2);padding:9px 13px;border-radius:7px;cursor:pointer;font-weight:700} .solution-btn:hover{background:var(--gold);color:#071a33} .answer,.theory-answer{display:none;margin-top:15px;padding-top:14px;border-top:1px solid var(--line)} .answer.show,.theory-answer.show{display:block}
+.theory-card button{width:100%;display:flex;justify-content:space-between;gap:20px;background:transparent;color:white;border:0;padding:17px 19px;text-align:left;font-size:16px;cursor:pointer} .plus{color:var(--gold2);font-size:22px} .theory-answer{padding:0 19px 18px;color:#d7e1ee}
+.footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding-top:30px;margin-top:55px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)} .nav{padding:13px 15px} .brand{font-size:14px} .back{padding:8px 11px;font-size:13px} .hero{padding-top:40px} .topic{padding:20px}}
+@media(max-width:520px){.stats{grid-template-columns:1fr 1fr;gap:9px} .stat{padding:12px 7px} .stat b{font-size:19px} .stat small{font-size:11px} .wrap{padding:0 13px 50px} .hero{padding-left:15px;padding-right:15px} h2{font-size:25px} h3{font-size:19px} pre{font-size:12px;padding:13px} .qcard{padding:14px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+<section class="hero">
+<div class="tag">MODULE 03</div>
+<h1>Python <span>Data Structures</span></h1>
+<p class="lead">Master Lists, Tuples, Sets and Dictionaries from the basics to practical programming. Every topic is explained step by step with examples, common mistakes, coding practice and theory questions.</p>
+<div class="stats">
+<div class="stat"><b>4</b><small>Core Structures</small></div>
+<div class="stat"><b>30</b><small>Coding Questions</small></div>
+<div class="stat"><b>30</b><small>Theory Q&A</small></div>
+<div class="stat"><b>Step-by-Step</b><small>Teaching Style</small></div>
+</div>
+</section>
+<main class="wrap">
+<div class="toc"><h2>Module Contents</h2>
+<a href="#lists">1. Lists</a><a href="#tuples">2. Tuples</a><a href="#sets">3. Sets</a><a href="#dict">4. Dictionaries</a><a href="#compare">5. Comparison & Selection</a><a href="#coding">Coding Practice</a><a href="#theory">Theory Q&A</a>
+</div>
+
+<section class="topic" id="lists">
+<h2>1. Lists</h2>
+<p>A <strong>list</strong> stores multiple values in one variable. Lists are ordered, changeable (mutable), and allow duplicate values. They are one of the most commonly used Python data structures.</p>
+
+<h3>1.1 Creating a List</h3>
+<p>Use square brackets <code>[]</code> and separate elements with commas.</p>
+<pre><code>marks = [85, 90, 78, 92]
+names = ["Ravi", "Anu", "Kiran"]
+mixed = [10, "Python", 3.5, True]</code></pre>
+<div class="step"><b>Step by step:</b><ol><li>Python creates a list object.</li><li>Each element is stored in sequence.</li><li>The variable points to that list.</li></ol></div>
+
+<h3>1.2 Indexing</h3>
+<p>Indexing gets one element. Python starts counting from <strong>0</strong>.</p>
+<pre><code>colors = ["red", "green", "blue", "yellow"]
+
+print(colors[0])   # red
+print(colors[2])   # blue
+print(colors[-1])  # yellow
+print(colors[-2])  # blue</code></pre>
+<p>Positive indexes move from the beginning; negative indexes move from the end.</p>
+
+<h3>1.3 Slicing</h3>
+<pre><code>numbers = [10, 20, 30, 40, 50, 60]
+
+print(numbers[1:4])   # [20, 30, 40]
+print(numbers[:3])    # [10, 20, 30]
+print(numbers[3:])    # [40, 50, 60]
+print(numbers[::2])   # [10, 30, 50]
+print(numbers[::-1])  # reverse copy</code></pre>
+<p>The general form is <code>list[start:stop:step]</code>. The stop position is excluded.</p>
+
+<h3>1.4 Updating List Elements</h3>
+<pre><code>marks = [70, 80, 90]
+marks[1] = 95
+print(marks)  # [70, 95, 90]</code></pre>
+<p>Because lists are mutable, existing elements can be changed.</p>
+
+<h3>1.5 Adding Elements</h3>
+<h4>append()</h4>
+<pre><code>items = [10, 20]
+items.append(30)
+print(items)  # [10, 20, 30]</code></pre>
+<h4>extend()</h4>
+<pre><code>items = [10, 20]
+items.extend([30, 40])
+print(items)  # [10, 20, 30, 40]</code></pre>
+<h4>insert()</h4>
+<pre><code>items = [10, 30]
+items.insert(1, 20)
+print(items)  # [10, 20, 30]</code></pre>
+<p><code>append()</code> adds one object at the end, <code>extend()</code> adds elements from an iterable, and <code>insert()</code> adds at a chosen index.</p>
+
+<h3>1.6 Removing Elements</h3>
+<pre><code>items = ["A", "B", "C", "D"]
+
+items.remove("B")  # removes first matching value
+x = items.pop()    # removes and returns last element
+y = items.pop(0)   # removes and returns index 0
+del items[0]       # deletes by index
+items.clear()      # removes everything</code></pre>
+<div class="tip"><strong>Remember:</strong> <code>remove()</code> uses a value; <code>pop()</code> uses an index and returns the removed item; <code>del</code> deletes by index or slice.</div>
+
+<h3>1.7 Searching, Length and Membership</h3>
+<pre><code>names = ["Ravi", "Anu", "Kiran"]
+
+print(len(names))
+print("Anu" in names)
+print(names.index("Kiran"))
+print(names.count("Ravi"))</code></pre>
+
+<h3>1.8 Looping Through a List</h3>
+<pre><code>marks = [80, 90, 75]
+
+for mark in marks:
+    print(mark)</code></pre>
+<p>The loop visits each element one by one.</p>
+
+<h3>1.9 Sorting and Reversing</h3>
+<pre><code>numbers = [40, 10, 30, 20]
+
+numbers.sort()
+print(numbers)        # [10, 20, 30, 40]
+
+numbers.sort(reverse=True)
+print(numbers)        # [40, 30, 20, 10]
+
+new_list = sorted(numbers)
+reversed_list = list(reversed(numbers))</code></pre>
+<p><code>sort()</code> changes the original list. <code>sorted()</code> returns a new sorted list.</p>
+
+<h3>1.10 Copy vs Alias</h3>
+<pre><code>a = [1, 2, 3]
+b = a
+b.append(4)
+
+print(a)  # [1, 2, 3, 4]</code></pre>
+<p><code>b = a</code> creates another reference to the same list. Use <code>a.copy()</code> for a shallow copy.</p>
+<pre><code>a = [1, 2, 3]
+b = a.copy()
+b.append(4)
+
+print(a)  # [1, 2, 3]
+print(b)  # [1, 2, 3, 4]</code></pre>
+
+<h3>1.11 List Comprehension</h3>
+<pre><code>squares = [x * x for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+
+evens = [x for x in range(1, 11) if x % 2 == 0]</code></pre>
+<p>List comprehensions provide a compact way to build lists from an iterable.</p>
+
+<h3>1.12 Nested Lists</h3>
+<pre><code>students = [
+    ["Ravi", 85],
+    ["Anu", 92],
+    ["Kiran", 78]
+]
+
+print(students[0][0])  # Ravi
+print(students[1][1])  # 92</code></pre>
+<p>A nested list contains other lists. Use multiple indexes to reach inner elements.</p>
+</section>
+
+<section class="topic" id="tuples">
+<h2>2. Tuples</h2>
+<p>A <strong>tuple</strong> is an ordered collection that cannot be changed after creation. Tuples are useful when data should remain fixed.</p>
+
+<h3>2.1 Creating Tuples</h3>
+<pre><code>point = (10, 20)
+colors = ("red", "green", "blue")
+empty = ()
+
+single = (10,)   # comma is important</code></pre>
+<p><code>(10)</code> is just the integer 10. <code>(10,)</code> is a one-element tuple.</p>
+
+<h3>2.2 Indexing and Slicing</h3>
+<pre><code>data = ("A", "B", "C", "D")
+
+print(data[0])
+print(data[-1])
+print(data[1:3])</code></pre>
+
+<h3>2.3 Tuple Immutability</h3>
+<pre><code>numbers = (10, 20, 30)
+# numbers[1] = 99  # TypeError</code></pre>
+<p>You cannot directly replace, append or remove tuple elements.</p>
+
+<h3>2.4 Tuple Packing and Unpacking</h3>
+<pre><code># Packing
+student = "Ravi", 22, "Python"
+
+# Unpacking
+name, age, course = student
+
+print(name)
+print(age)
+print(course)</code></pre>
+<p>Unpacking assigns tuple elements to multiple variables in one statement.</p>
+
+<h3>2.5 Tuple Methods</h3>
+<pre><code>values = (10, 20, 10, 30, 10)
+
+print(values.count(10))
+print(values.index(30))</code></pre>
+<p>Tuples mainly provide <code>count()</code> and <code>index()</code>.</p>
+
+<h3>2.6 Tuple vs List</h3>
+<table><tr><th>List</th><th>Tuple</th></tr><tr><td>Mutable</td><td>Immutable</td></tr><tr><td><code>[]</code></td><td><code>()</code></td></tr><tr><td>Good for changing data</td><td>Good for fixed data</td></tr></table>
+</section>
+
+<section class="topic" id="sets">
+<h2>3. Sets</h2>
+<p>A <strong>set</strong> is a collection of unique elements. It is useful for removing duplicates and performing mathematical set operations.</p>
+
+<h3>3.1 Creating a Set</h3>
+<pre><code>numbers = {10, 20, 30, 20, 10}
+print(numbers)  # duplicates are removed
+
+empty_set = set()
+empty_dict = {}  # this is a dictionary, not a set</code></pre>
+<p>Do not use <code>{}</code> for an empty set; use <code>set()</code>.</p>
+
+<h3>3.2 Adding and Updating</h3>
+<pre><code>colors = {"red", "blue"}
+
+colors.add("green")
+colors.update(["yellow", "black"])
+
+print(colors)</code></pre>
+
+<h3>3.3 Removing Elements</h3>
+<pre><code>colors = {"red", "blue", "green"}
+
+colors.remove("blue")   # error if missing
+colors.discard("black") # no error if missing
+item = colors.pop()     # removes an arbitrary set element
+colors.clear()</code></pre>
+
+<h3>3.4 Membership</h3>
+<pre><code>skills = {"Python", "SQL", "Power BI"}
+
+print("Python" in skills)
+print("Java" not in skills)</code></pre>
+
+<h3>3.5 Union and Intersection</h3>
+<pre><code>a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a | b)  # union
+print(a & b)  # intersection</code></pre>
+<p>Union contains values from both sets. Intersection contains only common values.</p>
+
+<h3>3.6 Difference and Symmetric Difference</h3>
+<pre><code>a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a - b)  # only in a
+print(b - a)  # only in b
+print(a ^ b)  # in either set, but not both</code></pre>
+
+<h3>3.7 Subset, Superset and Disjoint</h3>
+<pre><code>a = {1, 2}
+b = {1, 2, 3, 4}
+
+print(a.issubset(b))
+print(b.issuperset(a))
+print(a.isdisjoint({7, 8}))</code></pre>
+
+<h3>3.8 Frozenset</h3>
+<pre><code>fixed = frozenset([1, 2, 3])
+# fixed.add(4)  # not allowed</code></pre>
+<p>A <code>frozenset</code> is an immutable set.</p>
+</section>
+
+<section class="topic" id="dict">
+<h2>4. Dictionaries</h2>
+<p>A <strong>dictionary</strong> stores data as <strong>key-value pairs</strong>. Keys are unique and are used to retrieve values.</p>
+
+<h3>4.1 Creating a Dictionary</h3>
+<pre><code>student = {
+    "name": "Ravi",
+    "age": 22,
+    "course": "Python"
+}</code></pre>
+
+<h3>4.2 Accessing Values</h3>
+<pre><code>print(student["name"])
+print(student.get("age"))
+print(student.get("phone", "Not available"))</code></pre>
+<p><code>dict[key]</code> raises <code>KeyError</code> for a missing key, while <code>get()</code> can return a default value.</p>
+
+<h3>4.3 Adding and Updating</h3>
+<pre><code>student["city"] = "Hyderabad"
+student["age"] = 23
+
+student.update({"course": "Data Analytics", "score": 90})</code></pre>
+
+<h3>4.4 Removing Items</h3>
+<pre><code>student = {"name": "Ravi", "age": 22, "city": "Hyderabad"}
+
+age = student.pop("age")
+last = student.popitem()
+del student["name"]
+student.clear()</code></pre>
+
+<h3>4.5 keys(), values() and items()</h3>
+<pre><code>student = {"name": "Ravi", "age": 22}
+
+print(student.keys())
+print(student.values())
+print(student.items())</code></pre>
+
+<h3>4.6 Looping Through a Dictionary</h3>
+<pre><code>student = {"name": "Ravi", "age": 22}
+
+for key in student:
+    print(key)
+
+for key, value in student.items():
+    print(key, value)</code></pre>
+
+<h3>4.7 Dictionary Membership</h3>
+<pre><code>student = {"name": "Ravi", "age": 22}
+
+print("name" in student)
+print("Ravi" in student)  # checks keys, not values</code></pre>
+
+<h3>4.8 Nested Dictionaries</h3>
+<pre><code>students = {
+    "S101": {"name": "Ravi", "marks": 85},
+    "S102": {"name": "Anu", "marks": 92}
+}
+
+print(students["S102"]["marks"])</code></pre>
+
+<h3>4.9 setdefault()</h3>
+<pre><code>data = {"name": "Ravi"}
+data.setdefault("city", "Hyderabad")
+data.setdefault("name", "Anu")
+
+print(data)</code></pre>
+<p><code>setdefault()</code> inserts a key only when it does not already exist.</p>
+
+<h3>4.10 Dictionary Comprehension</h3>
+<pre><code>squares = {x: x * x for x in range(1, 6)}
+print(squares)</code></pre>
+</section>
+
+<section class="topic" id="compare">
+<h2>5. Choosing the Right Data Structure</h2>
+<table>
+<tr><th>Structure</th><th>Ordered</th><th>Mutable</th><th>Duplicates</th><th>Indexing</th><th>Best use</th></tr>
+<tr><td>List</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Changing ordered collection</td></tr>
+<tr><td>Tuple</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Fixed ordered data</td></tr>
+<tr><td>Set</td><td>No guaranteed sequence order</td><td>Yes</td><td>No</td><td>No</td><td>Unique values and set operations</td></tr>
+<tr><td>Dictionary</td><td>Insertion-ordered</td><td>Yes</td><td>Keys unique</td><td>By key</td><td>Key-value data</td></tr>
+</table>
+
+<h3>5.1 Practical Selection Rule</h3>
+<ul>
+<li>Need an ordered collection that changes? → <strong>List</strong></li>
+<li>Need fixed ordered data? → <strong>Tuple</strong></li>
+<li>Need unique values or fast membership checks? → <strong>Set</strong></li>
+<li>Need to associate a key with a value? → <strong>Dictionary</strong></li>
+</ul>
+
+<h3>5.2 Common Mistakes</h3>
+<ul>
+<li>Using <code>{}</code> when you need an empty set.</li>
+<li>Forgetting that list indexes start at 0.</li>
+<li>Using a tuple when frequent modification is required.</li>
+<li>Expecting a set to support indexing.</li>
+<li>Assuming dictionary membership checks values; it checks keys.</li>
+<li>Confusing <code>append()</code> with <code>extend()</code>.</li>
+<li>Using <code>remove()</code> when the item might not exist and an exception is undesirable.</li>
+</ul>
+
+<h3>5.3 Dry-Run Example</h3>
+<pre><code>numbers = [10, 20, 30]
+numbers.append(40)
+numbers[1] = 25
+numbers.pop(0)
+
+print(numbers)</code></pre>
+<div class="step"><b>Trace it:</b><ol><li>Start: <code>[10, 20, 30]</code></li><li>append(40): <code>[10, 20, 30, 40]</code></li><li>index 1 becomes 25: <code>[10, 25, 30, 40]</code></li><li>pop(0) removes 10: <code>[25, 30, 40]</code></li></ol></div>
+</section>
+
+<section id="coding" class="section-title"><h2>30 Coding Questions — Step-by-Step Solutions</h2><p class="lead">Try each question yourself first. Then click the solution button to reveal the explanation and code.</p>
+<div class="qcard">
+  <div class="qhead"><span class="num">01</span><div><b>Create and access a list</b><p>Create a list of five fruits and print the first and last fruit.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>fruits = ["apple", "banana", "mango", "orange", "grapes"]
+print(fruits[0])
+print(fruits[-1])</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">02</span><div><b>Positive and negative indexing</b><p>Print the second and second-last element of a list.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30, 40, 50]
+print(numbers[1])
+print(numbers[-2])</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">03</span><div><b>List slicing</b><p>Print the first three, last two and alternate elements.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30, 40, 50, 60]
+print(numbers[:3])
+print(numbers[-2:])
+print(numbers[::2])</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">04</span><div><b>Update a list</b><p>Change the second element of a list to 99.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30]
+numbers[1] = 99
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">05</span><div><b>append()</b><p>Add 40 to the end of [10, 20, 30].</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30]
+numbers.append(40)
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">06</span><div><b>extend()</b><p>Add [40, 50] to an existing list.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30]
+numbers.extend([40, 50])
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">07</span><div><b>insert()</b><p>Insert 25 between 20 and 30.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30]
+numbers.insert(2, 25)
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">08</span><div><b>remove()</b><p>Remove the value 20 from a list.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30, 20]
+numbers.remove(20)
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">09</span><div><b>pop()</b><p>Remove and print the last element.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30]
+removed = numbers.pop()
+print("Removed:", removed)
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">10</span><div><b>List statistics</b><p>Find sum, maximum and minimum of a list.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 25, 7, 40, 18]
+print("Sum:", sum(numbers))
+print("Max:", max(numbers))
+print("Min:", min(numbers))</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">11</span><div><b>Count occurrences</b><p>Count how many times 10 appears.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 10, 30, 10]
+print(numbers.count(10))</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">12</span><div><b>Sort a list</b><p>Sort a list in ascending and descending order.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [40, 10, 30, 20]
+numbers.sort()
+print(numbers)
+numbers.sort(reverse=True)
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">13</span><div><b>Reverse a list</b><p>Reverse a list using reverse().</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [1, 2, 3, 4, 5]
+numbers.reverse()
+print(numbers)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">14</span><div><b>Copy a list</b><p>Create a separate copy and modify only the copy.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>a = [1, 2, 3]
+b = a.copy()
+b.append(4)
+print("a:", a)
+print("b:", b)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">15</span><div><b>List comprehension</b><p>Create squares from 1 to 10 using comprehension.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>squares = [x * x for x in range(1, 11)]
+print(squares)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">16</span><div><b>Nested list</b><p>Access the marks of the second student.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>students = [["Ravi", 85], ["Anu", 92], ["Kiran", 78]]
+print(students[1][1])</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">17</span><div><b>Create a tuple</b><p>Create a tuple of three cities and print the last city.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>cities = ("Hyderabad", "Chennai", "Bengaluru")
+print(cities[-1])</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">18</span><div><b>Single-element tuple</b><p>Create a tuple containing only 10.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>value = (10,)
+print(value)
+print(type(value))</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">19</span><div><b>Tuple unpacking</b><p>Unpack a tuple containing name, age and course.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>student = ("Ravi", 22, "Python")
+name, age, course = student
+print(name, age, course)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">20</span><div><b>Tuple count and index</b><p>Count 10 and find the index of 30.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>values = (10, 20, 10, 30, 10)
+print(values.count(10))
+print(values.index(30))</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">21</span><div><b>Convert list to tuple</b><p>Convert a list into a tuple.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 30]
+numbers_tuple = tuple(numbers)
+print(numbers_tuple)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">22</span><div><b>Remove duplicates</b><p>Remove duplicates from a list using a set.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>numbers = [10, 20, 10, 30, 20, 40]
+unique = set(numbers)
+print(unique)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">23</span><div><b>Set add and update</b><p>Add one value and multiple values to a set.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>skills = {"Python", "SQL"}
+skills.add("Excel")
+skills.update(["Power BI", "Git"])
+print(skills)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">24</span><div><b>Set union and intersection</b><p>Find union and common elements of two sets.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+print("Union:", a | b)
+print("Intersection:", a & b)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">25</span><div><b>Set difference</b><p>Find values that exist only in the first set.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>a = {1, 2, 3, 4}
+b = {3, 4, 5}
+print(a - b)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">26</span><div><b>Subset and superset</b><p>Check whether {1,2} is a subset of {1,2,3}.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>a = {1, 2}
+b = {1, 2, 3}
+print(a.issubset(b))
+print(b.issuperset(a))</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">27</span><div><b>Dictionary access</b><p>Create a student dictionary and safely read a missing key.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>student = {"name": "Ravi", "age": 22}
+print(student["name"])
+print(student.get("phone", "Not available"))</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">28</span><div><b>Dictionary add/update</b><p>Add city and update age.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>student = {"name": "Ravi", "age": 22}
+student["city"] = "Hyderabad"
+student["age"] = 23
+print(student)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">29</span><div><b>Dictionary iteration</b><p>Print every key and value.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>student = {"name": "Ravi", "age": 22, "course": "Python"}
+for key, value in student.items():
+    print(key, ":", value)</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">30</span><div><b>Nested dictionary</b><p>Access the marks of student S102.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>students = {
+    "S101": {"name": "Ravi", "marks": 85},
+    "S102": {"name": "Anu", "marks": 92}
+}
+print(students["S102"]["marks"])</code></pre></div>
+</div>
+
+<div class="qcard">
+  <div class="qhead"><span class="num">31</span><div><b>Dictionary comprehension</b><p>Create a dictionary of numbers and their cubes.</p></div></div>
+  <button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button>
+  <div class="answer"><ol>
+    <li>Read the requirement and identify the required data structure.</li>
+    <li>Create the structure with the correct Python syntax.</li>
+    <li>Perform the required operation.</li>
+    <li>Print or inspect the result.</li>
+  </ol><pre><code>cubes = {x: x**3 for x in range(1, 6)}
+print(cubes)</code></pre></div>
+</div></section>
+<section id="theory" class="section-title"><h2>30 Theory Questions with Answers</h2><p class="lead">Use these for revision, exams and interviews.</p>
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>01. What is a data structure?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A data structure is a way of organizing and storing data so it can be accessed and manipulated efficiently.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>02. What is a list?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A list is an ordered, mutable collection written with square brackets.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>03. Are duplicate values allowed in lists?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Yes. A list can contain the same value multiple times.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>04. What is list indexing?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Indexing retrieves an element using its position. Python uses zero-based indexing.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>05. What does negative indexing mean?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Negative indexes access elements from the end; -1 is the last element.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>06. What is list slicing?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Slicing extracts a range using the form start:stop:step, with stop excluded.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>07. append() vs extend()?</span><span class="plus">+</span></button>
+  <div class="theory-answer">append() adds one object as one element; extend() adds elements from an iterable.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>08. remove() vs pop()?</span><span class="plus">+</span></button>
+  <div class="theory-answer">remove() deletes the first matching value; pop() removes by index and returns the removed item.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>09. sort() vs sorted()?</span><span class="plus">+</span></button>
+  <div class="theory-answer">sort() modifies the list in place; sorted() returns a new sorted result.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>10. What is a list alias?</span><span class="plus">+</span></button>
+  <div class="theory-answer">An alias is another reference to the same list, such as b = a.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>11. What is a nested list?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A list containing other lists is called a nested list.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>12. What is list comprehension?</span><span class="plus">+</span></button>
+  <div class="theory-answer">It is a compact syntax for creating a list from an iterable, optionally with a condition.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>13. What is a tuple?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A tuple is an ordered, immutable collection, usually written with parentheses.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>14. Why are tuples immutable?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Their elements cannot be reassigned, added or removed after the tuple is created.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>15. How do you create a one-element tuple?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Use a trailing comma, such as (10,).</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>16. What is tuple packing?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Packing combines multiple values into a tuple, such as point = 10, 20.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>17. What is tuple unpacking?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Unpacking assigns tuple elements to multiple variables.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>18. Which main methods do tuples provide?</span><span class="plus">+</span></button>
+  <div class="theory-answer">The commonly used tuple methods are count() and index().</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>19. What is a set?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A set is a mutable collection of unique elements used for membership and set operations.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>20. Does a set keep duplicates?</span><span class="plus">+</span></button>
+  <div class="theory-answer">No. Duplicate values collapse into a single set element.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>21. How do you create an empty set?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Use set(); {} creates an empty dictionary.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>22. What does set.add() do?</span><span class="plus">+</span></button>
+  <div class="theory-answer">It adds one element to a set.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>23. What does set.update() do?</span><span class="plus">+</span></button>
+  <div class="theory-answer">It adds elements from one or more iterables to a set.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>24. remove() vs discard() for sets?</span><span class="plus">+</span></button>
+  <div class="theory-answer">remove() raises an error if the element is absent; discard() does not.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>25. What is union?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Union combines all unique elements from two sets.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>26. What is intersection?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Intersection contains only elements common to both sets.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>27. What is set difference?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A - B contains elements present in A but not in B.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>28. What is a dictionary?</span><span class="plus">+</span></button>
+  <div class="theory-answer">A dictionary stores key-value pairs and uses keys to retrieve values.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>29. Can dictionary keys repeat?</span><span class="plus">+</span></button>
+  <div class="theory-answer">Keys must be unique; assigning an existing key replaces its value.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>30. dict[] vs get()?</span><span class="plus">+</span></button>
+  <div class="theory-answer">dict[key] raises KeyError when the key is missing; get() can return a default instead.</div>
+</div>
+
+<div class="theory-card">
+  <button onclick="toggleTheory(this)"><span>31. What is dictionary comprehension?</span><span class="plus">+</span></button>
+  <div class="theory-answer">It is a compact way to create dictionaries from an iterable, such as {x: x*x for x in range(5)}.</div>
+</div></section>
+<div class="footer"><a class="back" href="index.html">← Back to Python Course Syllabus</a><p>KN TECH INSTITUTE • Python Course • Module 03</p></div>
+</main>
+<script>
+function toggleAnswer(btn){
+  const box=btn.nextElementSibling;
+  box.classList.toggle('show');
+  btn.textContent=box.classList.contains('show')?'Hide Step-by-Step Solution':'Show Step-by-Step Solution';
+}
+function toggleTheory(btn){
+  const box=btn.nextElementSibling;
+  box.classList.toggle('show');
+  btn.querySelector('.plus').textContent=box.classList.contains('show')?'−':'+';
+}
+</script>
+</body>
+</html>

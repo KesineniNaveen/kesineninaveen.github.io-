@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Module 06 - Modules & Packages | KN TECH INSTITUTE</title>
+<style>
+:root{--navy:#071426;--navy2:#0c1d35;--gold:#d4af37;--gold2:#f3d477;--white:#f7f9fc;--muted:#aebbd0;--line:rgba(212,175,55,.22);--card:rgba(255,255,255,.045)}
+*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#06101f,#0a1930 55%,#06101f);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.75}
+header{position:sticky;top:0;z-index:1000;background:rgba(5,15,29,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{max-width:1250px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-weight:900;letter-spacing:1.5px;color:var(--gold2);font-size:18px}
+.back{color:var(--white);text-decoration:none;border:1px solid var(--line);padding:9px 15px;border-radius:10px;transition:.25s}.back:hover{background:var(--gold);color:#071426}
+.container{width:min(1180px,92%);margin:auto}.hero{padding:70px 0 42px;text-align:center}.eyebrow,.topic-head span,.practice-top span,.theory-q span{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:12px}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:10px 0 8px;line-height:1.08}.hero h1 em{color:var(--gold2);font-style:normal}.hero p{max-width:850px;margin:15px auto;color:var(--muted);font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px auto 0;max-width:900px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px}.stat strong{display:block;color:var(--gold2);font-size:24px}.stat span{color:var(--muted);font-size:13px}
+.contents{position:sticky;top:67px;z-index:900;background:rgba(8,23,42,.94);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0 35px;display:flex;gap:8px;flex-wrap:wrap}.contents a{color:#dce5f2;text-decoration:none;padding:8px 11px;border-radius:8px;font-size:13px}.contents a:hover{background:rgba(212,175,55,.15);color:var(--gold2)}
+.topic{margin:38px 0 55px}.topic-head{border-left:4px solid var(--gold);padding-left:18px;margin-bottom:20px}.topic-head h2{margin:2px 0;font-size:30px}
+.subtopic{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:23px;margin:14px 0}.subtopic h3{margin:0 0 9px;color:var(--gold2);font-size:20px}.subtopic p{margin:0;color:#d7e0ec}
+.learn-box{margin-top:15px;padding:14px 17px;border-radius:11px;background:rgba(212,175,55,.06);border:1px solid var(--line);color:#c9d4e4}.learn-box ol{margin:7px 0 0 20px;padding:0}
+.section-title{margin:70px 0 22px;text-align:center}.section-title h2{font-size:35px;margin:5px}.section-title p{color:var(--muted)}
+.practice-card,.theory-card{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:20px;margin:14px 0}.practice-top,.theory-q{display:flex;gap:13px;align-items:flex-start}.practice-top h3,.theory-q h3{margin:0;font-size:17px}
+.solution-btn,.answer-btn{margin-top:15px;background:var(--gold);color:#071426;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}.solution,.answer{display:none;margin-top:15px}.solution.open,.answer.open{display:block}
+.steps{background:rgba(212,175,55,.07);border:1px solid var(--line);padding:14px;border-radius:10px;margin-bottom:12px;color:#dbe4ef}pre{background:#030a14;border:1px solid rgba(212,175,55,.16);padding:18px;border-radius:11px;overflow:auto;color:#eaf1fa;font-size:14px}code{font-family:Consolas,Monaco,monospace}
+.answer{padding:15px;background:rgba(255,255,255,.035);border-radius:10px;color:#dbe4ef}footer{margin-top:70px;border-top:1px solid var(--line);padding:35px 0;text-align:center;color:var(--muted)}.footer-back{display:inline-block;margin-top:12px;color:var(--gold2);text-decoration:none;border:1px solid var(--line);padding:10px 16px;border-radius:10px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.contents{position:static}.hero{padding-top:45px}}
+@media(max-width:520px){.nav{padding:12px 14px}.brand{font-size:14px}.back{font-size:13px;padding:8px 10px}.hero h1{font-size:38px}.hero p{font-size:15px}.topic-head h2{font-size:25px}.subtopic{padding:17px}.practice-top h3,.theory-q h3{font-size:15px}pre{font-size:12px;padding:13px}}
+</style></head><body>
+<header><div class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+<main class="container"><section class="hero"><div class="eyebrow">MODULE 06</div><h1>Modules <em>&amp; Packages</em></h1>
+<p>Built-in Modules, Importing Modules, User-Defined Modules, Packages, Import Paths, pip, Virtual Environments &amp; Practical Module Design — explained step by step.</p>
+<div class="stats"><div class="stat"><strong>8</strong><span>Major Topics</span></div><div class="stat"><strong>43</strong><span>Detailed Subtopics</span></div><div class="stat"><strong>30</strong><span>Coding Questions</span></div><div class="stat"><strong>30</strong><span>Theory Q&amp;A</span></div></div></section>
+<nav class="contents"><a href="#topic1">1. 1. Modules &amp; Packages Introduction</a><a href="#topic2">2. 2. Built-in Modules</a><a href="#topic3">3. 3. Importing Modules</a><a href="#topic4">4. 4. Creating User-Defined Modules</a><a href="#topic5">5. 5. Packages</a><a href="#topic6">6. 6. Module Search Path &amp; Import Concepts</a><a href="#topic7">7. 7. Installing and Using External Packages</a><a href="#topic8">8. 8. Practical Module &amp; Package Design</a><a href="#coding">Coding Practice</a><a href="#theory">Theory Q&amp;A</a></nav>
+<section class="topic" id="topic1"><div class="topic-head"><span>TOPIC 01</span><h2>1. Modules &amp; Packages Introduction</h2></div><article class="subtopic">
+<h3>1.1 What is a module?</h3><p>A module is a Python file containing reusable code such as variables, functions, classes, or executable statements. A file ending in .py can be used as a module.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>1.2 Why use modules?</h3><p>Modules help split a large program into smaller, organized, reusable files. This improves readability, maintenance, testing, and code reuse.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>1.3 Module vs script</h3><p>A Python file can be run directly as a script or imported as a module. The __name__ variable helps distinguish these situations.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>1.4 Module workflow</h3><p>Create a .py file, place reusable code inside it, import it from another program, then call the required functions/classes.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic2"><div class="topic-head"><span>TOPIC 02</span><h2>2. Built-in Modules</h2></div><article class="subtopic">
+<h3>2.1 What are built-in/standard-library modules?</h3><p>Python provides a large standard library containing modules for mathematics, dates, operating-system operations, random numbers, JSON, CSV, statistics, regular expressions, and more.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>2.2 math module</h3><p>The math module provides mathematical functions and constants such as sqrt(), ceil(), floor(), factorial(), pi, and pow().</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>2.3 random module</h3><p>The random module generates pseudo-random values. Common functions include randint(), choice(), random(), and shuffle().</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>2.4 datetime module</h3><p>datetime provides classes and functions for working with dates and times, including date, time, datetime, and timedelta.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>2.5 os module</h3><p>The os module provides operating-system related functionality such as current directory, environment variables, directory creation, and path operations.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>2.6 sys module</h3><p>The sys module gives access to interpreter-related information and functionality, such as command-line arguments and Python version information.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>2.7 statistics module</h3><p>The statistics module provides common statistical calculations such as mean(), median(), and mode().</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic3"><div class="topic-head"><span>TOPIC 03</span><h2>3. Importing Modules</h2></div><article class="subtopic">
+<h3>3.1 import module</h3><p>Use import module_name to load a module. Access its members with dot notation, such as math.sqrt(25).</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>3.2 import with alias</h3><p>Use import module_name as alias when a shorter or clearer name is useful, such as import math as m.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>3.3 from module import</h3><p>Use from module import name to import a particular member directly. Then it can be used without the module prefix.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>3.4 Import multiple members</h3><p>You can import several named members using commas, but avoid unnecessary imports because they can reduce clarity.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>3.5 Avoid wildcard imports</h3><p>from module import * imports many names into the current namespace and can create naming conflicts. Explicit imports are usually better.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>3.6 Import execution</h3><p>When a module is imported, Python executes its top-level statements once for that interpreter session and then reuses the loaded module.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic4"><div class="topic-head"><span>TOPIC 04</span><h2>4. Creating User-Defined Modules</h2></div><article class="subtopic">
+<h3>4.1 Create your own module</h3><p>Create a Python file such as calculator.py and place reusable functions or classes in it.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>4.2 Import your module</h3><p>Keep the module accessible on Python&#x27;s import path and import it using import calculator or a suitable import statement.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>4.3 Reuse functions</h3><p>Once imported, functions can be called repeatedly from other files without copying their implementation.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>4.4 __name__ and __main__</h3><p>The pattern if __name__ == &#x27;__main__&#x27;: allows code to run when the file is executed directly while preventing that section from running during normal import.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>4.5 Organizing modules</h3><p>Group related functionality together. For example, database functions can be kept in database.py and mathematical utilities in math_utils.py.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic5"><div class="topic-head"><span>TOPIC 05</span><h2>5. Packages</h2></div><article class="subtopic">
+<h3>5.1 What is a package?</h3><p>A package is a way to organize related modules in a directory structure. Packages make larger projects easier to navigate.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>5.2 Package structure</h3><p>A package can contain modules and subpackages. Modern Python supports namespace packages, while __init__.py is still commonly used for explicit package initialization and compatibility.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>5.3 Import from a package</h3><p>Use statements such as from mypackage import calculator or import mypackage.calculator depending on the project structure.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>5.4 Subpackages</h3><p>A package can contain another package, allowing large applications to be organized into logical layers.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>5.5 __init__.py</h3><p>__init__.py can initialize package-level behavior and expose selected names. It may also be an empty file.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic6"><div class="topic-head"><span>TOPIC 06</span><h2>6. Module Search Path &amp; Import Concepts</h2></div><article class="subtopic">
+<h3>6.1 sys.path</h3><p>Python searches locations listed in sys.path when resolving imports. It commonly includes the current project location and standard library locations.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>6.2 Import errors</h3><p>ModuleNotFoundError generally means Python could not locate the requested module. ImportError can occur when a module exists but a requested name cannot be imported.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>6.3 Circular imports</h3><p>A circular import occurs when modules depend on each other during initialization. It can cause partially initialized modules or import errors.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>6.4 Relative imports</h3><p>Inside packages, relative imports such as from .utils import helper can reference modules relative to the current package.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>6.5 Good import practice</h3><p>Keep imports near the top of the file, use explicit imports, avoid unnecessary wildcard imports, and structure packages to reduce circular dependencies.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic7"><div class="topic-head"><span>TOPIC 07</span><h2>7. Installing and Using External Packages</h2></div><article class="subtopic">
+<h3>7.1 Standard library vs external package</h3><p>Standard-library modules come with Python. External packages are separately installed libraries, commonly from the Python Package Index.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>7.2 pip</h3><p>pip is a package installer commonly used to install, upgrade, and remove Python packages.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>7.3 Installing a package</h3><p>A typical command is python -m pip install package_name. Using python -m pip helps associate pip with the intended Python interpreter.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>7.4 requirements.txt</h3><p>A requirements file records project dependencies so another environment can install the required packages.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>7.5 Virtual environments</h3><p>A virtual environment creates an isolated Python environment for a project, reducing dependency conflicts between projects.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>7.6 Version management</h3><p>Pin or constrain dependency versions when reproducibility matters, and keep dependencies updated responsibly.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section><section class="topic" id="topic8"><div class="topic-head"><span>TOPIC 08</span><h2>8. Practical Module &amp; Package Design</h2></div><article class="subtopic">
+<h3>8.1 Separation of responsibility</h3><p>Keep each module focused. A module should have a clear purpose instead of becoming a collection of unrelated utilities.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>8.2 Reusability</h3><p>Design functions and classes so they can be imported and reused without depending unnecessarily on global state.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>8.3 Documentation</h3><p>Use docstrings and meaningful names to explain public modules, functions, and classes.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>8.4 Testing imported code</h3><p>Keep demonstration or test execution under if __name__ == &#x27;__main__&#x27;: so importing the module does not unexpectedly run the demo.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article><article class="subtopic">
+<h3>8.5 Common mistakes</h3><p>Typical mistakes include wrong filenames, incorrect import paths, wildcard imports, circular imports, installing packages into the wrong interpreter, and mixing project files with unrelated names.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand why the module/package concept is needed.</li>
+<li>Study the import syntax and naming rule.</li>
+<li>Run a small example and observe the result.</li>
+<li>Change one part of the example and test again.</li>
+<li>Practice the related coding question.</li></ol></div></article></section>
+<section id="coding"><div class="section-title"><div class="eyebrow">HANDS-ON PRACTICE</div><h2>30 Coding Questions</h2><p>Try each problem yourself first, then open the step-by-step solution.</p></div><div class="practice-card"><div class="practice-top"><span>Q01</span><h3>Import the math module and calculate a square root.</h3></div>
+<button class="solution-btn" onclick="toggle('code1',this)">Show Step-by-Step Solution</button>
+<div id="code1" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import math
+print(math.sqrt(144))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q02</span><h3>Use a module alias.</h3></div>
+<button class="solution-btn" onclick="toggle('code2',this)">Show Step-by-Step Solution</button>
+<div id="code2" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import math as m
+print(m.pi)
+print(m.sqrt(81))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q03</span><h3>Import only sqrt from math.</h3></div>
+<button class="solution-btn" onclick="toggle('code3',this)">Show Step-by-Step Solution</button>
+<div id="code3" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>from math import sqrt
+print(sqrt(100))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q04</span><h3>Use math.ceil() and math.floor().</h3></div>
+<button class="solution-btn" onclick="toggle('code4',this)">Show Step-by-Step Solution</button>
+<div id="code4" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import math
+print(math.ceil(4.2))
+print(math.floor(4.8))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q05</span><h3>Calculate factorial using the math module.</h3></div>
+<button class="solution-btn" onclick="toggle('code5',this)">Show Step-by-Step Solution</button>
+<div id="code5" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import math
+print(math.factorial(5))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q06</span><h3>Generate a random integer from 1 to 100.</h3></div>
+<button class="solution-btn" onclick="toggle('code6',this)">Show Step-by-Step Solution</button>
+<div id="code6" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import random
+number = random.randint(1, 100)
+print(number)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q07</span><h3>Choose a random item from a list.</h3></div>
+<button class="solution-btn" onclick="toggle('code7',this)">Show Step-by-Step Solution</button>
+<div id="code7" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import random
+colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;]
+print(random.choice(colors))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q08</span><h3>Shuffle a list using random.</h3></div>
+<button class="solution-btn" onclick="toggle('code8',this)">Show Step-by-Step Solution</button>
+<div id="code8" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import random
+numbers = [1, 2, 3, 4, 5]
+random.shuffle(numbers)
+print(numbers)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q09</span><h3>Display today&#x27;s date.</h3></div>
+<button class="solution-btn" onclick="toggle('code9',this)">Show Step-by-Step Solution</button>
+<div id="code9" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>from datetime import date
+print(date.today())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q10</span><h3>Calculate a date after 10 days.</h3></div>
+<button class="solution-btn" onclick="toggle('code10',this)">Show Step-by-Step Solution</button>
+<div id="code10" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>from datetime import date, timedelta
+future_date = date.today() + timedelta(days=10)
+print(future_date)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q11</span><h3>Display the current date and time.</h3></div>
+<button class="solution-btn" onclick="toggle('code11',this)">Show Step-by-Step Solution</button>
+<div id="code11" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>from datetime import datetime
+print(datetime.now())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q12</span><h3>Calculate mean and median.</h3></div>
+<button class="solution-btn" onclick="toggle('code12',this)">Show Step-by-Step Solution</button>
+<div id="code12" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import statistics
+values = [10, 20, 20, 30, 40]
+print(statistics.mean(values))
+print(statistics.median(values))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q13</span><h3>Display the current working directory.</h3></div>
+<button class="solution-btn" onclick="toggle('code13',this)">Show Step-by-Step Solution</button>
+<div id="code13" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import os
+print(os.getcwd())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q14</span><h3>Create a directory if it does not exist.</h3></div>
+<button class="solution-btn" onclick="toggle('code14',this)">Show Step-by-Step Solution</button>
+<div id="code14" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import os
+
+folder = &quot;reports&quot;
+
+if not os.path.exists(folder):
+    os.mkdir(folder)
+
+print(&quot;Folder ready&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q15</span><h3>Display the Python version.</h3></div>
+<button class="solution-btn" onclick="toggle('code15',this)">Show Step-by-Step Solution</button>
+<div id="code15" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import sys
+print(sys.version)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q16</span><h3>Read command-line arguments.</h3></div>
+<button class="solution-btn" onclick="toggle('code16',this)">Show Step-by-Step Solution</button>
+<div id="code16" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import sys
+print(sys.argv)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q17</span><h3>Create a user-defined calculator module.</h3></div>
+<button class="solution-btn" onclick="toggle('code17',this)">Show Step-by-Step Solution</button>
+<div id="code17" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># calculator.py
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q18</span><h3>Import functions from your calculator module.</h3></div>
+<button class="solution-btn" onclick="toggle('code18',this)">Show Step-by-Step Solution</button>
+<div id="code18" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># main.py
+import calculator
+
+print(calculator.add(10, 5))
+print(calculator.multiply(10, 5))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q19</span><h3>Import selected functions from a user-defined module.</h3></div>
+<button class="solution-btn" onclick="toggle('code19',this)">Show Step-by-Step Solution</button>
+<div id="code19" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># calculator.py
+def add(a, b):
+    return a + b
+
+# main.py
+from calculator import add
+print(add(7, 8))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q20</span><h3>Use __name__ == &#x27;__main__&#x27;.</h3></div>
+<button class="solution-btn" onclick="toggle('code20',this)">Show Step-by-Step Solution</button>
+<div id="code20" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>def greet():
+    print(&quot;Hello from the module&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    greet()</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q21</span><h3>Create a module with a class and import it.</h3></div>
+<button class="solution-btn" onclick="toggle('code21',this)">Show Step-by-Step Solution</button>
+<div id="code21" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># student.py
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+# main.py
+from student import Student
+s = Student(&quot;Ravi&quot;)
+print(s.name)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q22</span><h3>Create and import a package module.</h3></div>
+<button class="solution-btn" onclick="toggle('code22',this)">Show Step-by-Step Solution</button>
+<div id="code22" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># mypackage/calculator.py
+def add(a, b):
+    return a + b
+
+# main.py
+from mypackage.calculator import add
+print(add(20, 30))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q23</span><h3>Inspect Python&#x27;s module search path.</h3></div>
+<button class="solution-btn" onclick="toggle('code23',this)">Show Step-by-Step Solution</button>
+<div id="code23" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>import sys
+for path in sys.path:
+    print(path)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q24</span><h3>Handle ModuleNotFoundError.</h3></div>
+<button class="solution-btn" onclick="toggle('code24',this)">Show Step-by-Step Solution</button>
+<div id="code24" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>try:
+    import unknown_module
+except ModuleNotFoundError:
+    print(&quot;Module was not found&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q25</span><h3>Create a reusable utility module.</h3></div>
+<button class="solution-btn" onclick="toggle('code25',this)">Show Step-by-Step Solution</button>
+<div id="code25" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># text_utils.py
+def shout(text):
+    return text.upper()
+
+def word_count(text):
+    return len(text.split())
+
+# main.py
+import text_utils
+print(text_utils.shout(&quot;python&quot;))
+print(text_utils.word_count(&quot;Python is easy&quot;))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q26</span><h3>Use a package __init__.py to expose a function.</h3></div>
+<button class="solution-btn" onclick="toggle('code26',this)">Show Step-by-Step Solution</button>
+<div id="code26" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># mypackage/__init__.py
+from .calculator import add
+
+# main.py
+import mypackage
+print(mypackage.add(2, 3))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q27</span><h3>Use pathlib from the standard library to list Python files.</h3></div>
+<button class="solution-btn" onclick="toggle('code27',this)">Show Step-by-Step Solution</button>
+<div id="code27" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>from pathlib import Path
+
+for file in Path(&quot;.&quot;).glob(&quot;*.py&quot;):
+    print(file)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q28</span><h3>Install an external package using pip from Python&#x27;s command-line style.</h3></div>
+<button class="solution-btn" onclick="toggle('code28',this)">Show Step-by-Step Solution</button>
+<div id="code28" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># Run this in a terminal:
+# python -m pip install requests
+
+# Then in Python:
+import requests
+print(requests.__version__)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q29</span><h3>Read a requirements.txt file conceptually through Python.</h3></div>
+<button class="solution-btn" onclick="toggle('code29',this)">Show Step-by-Step Solution</button>
+<div id="code29" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code>from pathlib import Path
+
+requirements = Path(&quot;requirements.txt&quot;)
+
+if requirements.exists():
+    print(requirements.read_text())
+else:
+    print(&quot;requirements.txt not found&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q30</span><h3>Build a small package-style project example.</h3></div>
+<button class="solution-btn" onclick="toggle('code30',this)">Show Step-by-Step Solution</button>
+<div id="code30" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the module or package feature required.<br>
+<strong>Step 2:</strong> Write the correct import statement or module structure.<br>
+<strong>Step 3:</strong> Use the imported function, class, or feature.<br>
+<strong>Step 4:</strong> Run the code and verify the output.</div><pre><code># project/
+#   main.py
+#   utils/
+#       __init__.py
+#       calculator.py
+
+# utils/calculator.py
+def add(a, b):
+    return a + b
+
+# main.py
+from utils.calculator import add
+print(add(100, 250))</code></pre></div></div></section>
+<section id="theory"><div class="section-title"><div class="eyebrow">KNOWLEDGE CHECK</div><h2>30 Theory Questions with Answers</h2><p>Use these for revision, interviews, and classroom practice.</p></div><div class="theory-card"><div class="theory-q"><span>Q01</span><h3>What is a module?</h3></div>
+<button class="answer-btn" onclick="toggle('theory1',this)">Show Answer</button>
+<div id="theory1" class="answer"><strong>Answer:</strong> A module is a Python file containing reusable code such as functions, classes, variables, or statements.</div></div><div class="theory-card"><div class="theory-q"><span>Q02</span><h3>Why are modules useful?</h3></div>
+<button class="answer-btn" onclick="toggle('theory2',this)">Show Answer</button>
+<div id="theory2" class="answer"><strong>Answer:</strong> They divide code into manageable, reusable units and improve organization and maintenance.</div></div><div class="theory-card"><div class="theory-q"><span>Q03</span><h3>What is the difference between a module and a script?</h3></div>
+<button class="answer-btn" onclick="toggle('theory3',this)">Show Answer</button>
+<div id="theory3" class="answer"><strong>Answer:</strong> A module is designed to be imported and reused, while a script is commonly executed directly. The same file can serve both roles.</div></div><div class="theory-card"><div class="theory-q"><span>Q04</span><h3>What is the Python standard library?</h3></div>
+<button class="answer-btn" onclick="toggle('theory4',this)">Show Answer</button>
+<div id="theory4" class="answer"><strong>Answer:</strong> It is the collection of modules distributed with Python that provides many common capabilities without separate installation.</div></div><div class="theory-card"><div class="theory-q"><span>Q05</span><h3>What does import do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory5',this)">Show Answer</button>
+<div id="theory5" class="answer"><strong>Answer:</strong> import loads a module so its members can be accessed and reused in the current program.</div></div><div class="theory-card"><div class="theory-q"><span>Q06</span><h3>Why use an import alias?</h3></div>
+<button class="answer-btn" onclick="toggle('theory6',this)">Show Answer</button>
+<div id="theory6" class="answer"><strong>Answer:</strong> An alias can make long module names shorter or improve readability.</div></div><div class="theory-card"><div class="theory-q"><span>Q07</span><h3>What does from module import name mean?</h3></div>
+<button class="answer-btn" onclick="toggle('theory7',this)">Show Answer</button>
+<div id="theory7" class="answer"><strong>Answer:</strong> It imports a specific name from a module so it can be referenced directly.</div></div><div class="theory-card"><div class="theory-q"><span>Q08</span><h3>Why should wildcard imports usually be avoided?</h3></div>
+<button class="answer-btn" onclick="toggle('theory8',this)">Show Answer</button>
+<div id="theory8" class="answer"><strong>Answer:</strong> They can introduce unexpected names and naming conflicts and make code harder to understand.</div></div><div class="theory-card"><div class="theory-q"><span>Q09</span><h3>What is math?</h3></div>
+<button class="answer-btn" onclick="toggle('theory9',this)">Show Answer</button>
+<div id="theory9" class="answer"><strong>Answer:</strong> math is a standard-library module containing common mathematical functions and constants.</div></div><div class="theory-card"><div class="theory-q"><span>Q10</span><h3>What is random?</h3></div>
+<button class="answer-btn" onclick="toggle('theory10',this)">Show Answer</button>
+<div id="theory10" class="answer"><strong>Answer:</strong> random is a standard-library module for generating pseudo-random values and selecting or shuffling data.</div></div><div class="theory-card"><div class="theory-q"><span>Q11</span><h3>What is datetime?</h3></div>
+<button class="answer-btn" onclick="toggle('theory11',this)">Show Answer</button>
+<div id="theory11" class="answer"><strong>Answer:</strong> datetime is a standard-library module for working with dates, times, and time intervals.</div></div><div class="theory-card"><div class="theory-q"><span>Q12</span><h3>What is os?</h3></div>
+<button class="answer-btn" onclick="toggle('theory12',this)">Show Answer</button>
+<div id="theory12" class="answer"><strong>Answer:</strong> os provides operating-system interfaces such as directory, environment, and path-related operations.</div></div><div class="theory-card"><div class="theory-q"><span>Q13</span><h3>What is sys?</h3></div>
+<button class="answer-btn" onclick="toggle('theory13',this)">Show Answer</button>
+<div id="theory13" class="answer"><strong>Answer:</strong> sys provides access to Python interpreter information and features such as command-line arguments.</div></div><div class="theory-card"><div class="theory-q"><span>Q14</span><h3>What is a user-defined module?</h3></div>
+<button class="answer-btn" onclick="toggle('theory14',this)">Show Answer</button>
+<div id="theory14" class="answer"><strong>Answer:</strong> It is a module created by the programmer, usually as a .py file, to organize reusable project code.</div></div><div class="theory-card"><div class="theory-q"><span>Q15</span><h3>What is __name__?</h3></div>
+<button class="answer-btn" onclick="toggle('theory15',this)">Show Answer</button>
+<div id="theory15" class="answer"><strong>Answer:</strong> It is a special module variable whose value helps identify how the module is being executed or imported.</div></div><div class="theory-card"><div class="theory-q"><span>Q16</span><h3>Why use if __name__ == &#x27;__main__&#x27;:?</h3></div>
+<button class="answer-btn" onclick="toggle('theory16',this)">Show Answer</button>
+<div id="theory16" class="answer"><strong>Answer:</strong> It ensures a block runs when the file is executed directly but not when the file is imported as a module.</div></div><div class="theory-card"><div class="theory-q"><span>Q17</span><h3>What is a package?</h3></div>
+<button class="answer-btn" onclick="toggle('theory17',this)">Show Answer</button>
+<div id="theory17" class="answer"><strong>Answer:</strong> A package organizes related Python modules into a directory structure.</div></div><div class="theory-card"><div class="theory-q"><span>Q18</span><h3>What is __init__.py?</h3></div>
+<button class="answer-btn" onclick="toggle('theory18',this)">Show Answer</button>
+<div id="theory18" class="answer"><strong>Answer:</strong> It is a package initialization file that can be used to initialize a package or expose selected names. It can also be empty.</div></div><div class="theory-card"><div class="theory-q"><span>Q19</span><h3>What is a subpackage?</h3></div>
+<button class="answer-btn" onclick="toggle('theory19',this)">Show Answer</button>
+<div id="theory19" class="answer"><strong>Answer:</strong> A subpackage is a package located inside another package.</div></div><div class="theory-card"><div class="theory-q"><span>Q20</span><h3>What is sys.path?</h3></div>
+<button class="answer-btn" onclick="toggle('theory20',this)">Show Answer</button>
+<div id="theory20" class="answer"><strong>Answer:</strong> It is the list of locations Python searches when resolving imports.</div></div><div class="theory-card"><div class="theory-q"><span>Q21</span><h3>What is ModuleNotFoundError?</h3></div>
+<button class="answer-btn" onclick="toggle('theory21',this)">Show Answer</button>
+<div id="theory21" class="answer"><strong>Answer:</strong> It generally occurs when Python cannot find the requested module in its available import locations.</div></div><div class="theory-card"><div class="theory-q"><span>Q22</span><h3>What is ImportError?</h3></div>
+<button class="answer-btn" onclick="toggle('theory22',this)">Show Answer</button>
+<div id="theory22" class="answer"><strong>Answer:</strong> It can occur when an import operation fails, such as when a requested name cannot be imported from a module.</div></div><div class="theory-card"><div class="theory-q"><span>Q23</span><h3>What is a circular import?</h3></div>
+<button class="answer-btn" onclick="toggle('theory23',this)">Show Answer</button>
+<div id="theory23" class="answer"><strong>Answer:</strong> It occurs when modules depend on each other through imports, creating a cycle during module initialization.</div></div><div class="theory-card"><div class="theory-q"><span>Q24</span><h3>What is a relative import?</h3></div>
+<button class="answer-btn" onclick="toggle('theory24',this)">Show Answer</button>
+<div id="theory24" class="answer"><strong>Answer:</strong> It references another module relative to the current package, such as from .utils import helper.</div></div><div class="theory-card"><div class="theory-q"><span>Q25</span><h3>What is pip?</h3></div>
+<button class="answer-btn" onclick="toggle('theory25',this)">Show Answer</button>
+<div id="theory25" class="answer"><strong>Answer:</strong> pip is a commonly used Python package installer for installing and managing external packages.</div></div><div class="theory-card"><div class="theory-q"><span>Q26</span><h3>What is an external package?</h3></div>
+<button class="answer-btn" onclick="toggle('theory26',this)">Show Answer</button>
+<div id="theory26" class="answer"><strong>Answer:</strong> It is a separately distributed library that is not part of Python&#x27;s standard library.</div></div><div class="theory-card"><div class="theory-q"><span>Q27</span><h3>What is requirements.txt?</h3></div>
+<button class="answer-btn" onclick="toggle('theory27',this)">Show Answer</button>
+<div id="theory27" class="answer"><strong>Answer:</strong> It is a text file commonly used to record project dependencies and their versions or version constraints.</div></div><div class="theory-card"><div class="theory-q"><span>Q28</span><h3>Why use virtual environments?</h3></div>
+<button class="answer-btn" onclick="toggle('theory28',this)">Show Answer</button>
+<div id="theory28" class="answer"><strong>Answer:</strong> They isolate project dependencies so different projects can use different package versions without interfering with one another.</div></div><div class="theory-card"><div class="theory-q"><span>Q29</span><h3>What is module reusability?</h3></div>
+<button class="answer-btn" onclick="toggle('theory29',this)">Show Answer</button>
+<div id="theory29" class="answer"><strong>Answer:</strong> It means code written in one module can be imported and used by multiple programs without copying the implementation.</div></div><div class="theory-card"><div class="theory-q"><span>Q30</span><h3>Give two good module-design practices.</h3></div>
+<button class="answer-btn" onclick="toggle('theory30',this)">Show Answer</button>
+<div id="theory30" class="answer"><strong>Answer:</strong> Keep modules focused on a clear responsibility and expose reusable functions/classes with clear names and documentation.</div></div></section></main>
+<footer><div class="container"><strong>MODULE 06 — MODULES &amp; PACKAGES</strong><br>KN TECH INSTITUTE · Learn Python step by step<br><a class="footer-back" href="index.html">← Back to Syllabus</a></div></footer>
+<script>function toggle(id,btn){const el=document.getElementById(id);el.classList.toggle('open');if(btn.classList.contains('answer-btn'))btn.textContent=el.classList.contains('open')?'Hide Answer':'Show Answer';else btn.textContent=el.classList.contains('open')?'Hide Solution':'Show Step-by-Step Solution';}</script>
+</body></html>

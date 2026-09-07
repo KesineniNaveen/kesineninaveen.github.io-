@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Module 08 - Advanced Python | KN TECH INSTITUTE</title>
+<style>
+:root{--navy:#071426;--navy2:#0c1d35;--gold:#d4af37;--gold2:#f3d477;--white:#f7f9fc;--muted:#aebbd0;--line:rgba(212,175,55,.22);--card:rgba(255,255,255,.045)}
+*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#06101f,#0a1930 55%,#06101f);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.75}
+header{position:sticky;top:0;z-index:1000;background:rgba(5,15,29,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{max-width:1250px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-weight:900;letter-spacing:1.5px;color:var(--gold2);font-size:18px}.back{color:var(--white);text-decoration:none;border:1px solid var(--line);padding:9px 15px;border-radius:10px;transition:.25s}.back:hover{background:var(--gold);color:#071426}
+.container{width:min(1180px,92%);margin:auto}.hero{padding:70px 0 42px;text-align:center}.eyebrow,.topic-head span,.practice-top span,.theory-q span{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:12px}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:10px 0 8px;line-height:1.08}.hero h1 em{color:var(--gold2);font-style:normal}.hero p{max-width:850px;margin:15px auto;color:var(--muted);font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px auto 0;max-width:900px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px}.stat strong{display:block;color:var(--gold2);font-size:24px}.stat span{color:var(--muted);font-size:13px}
+.contents{position:sticky;top:67px;z-index:900;background:rgba(8,23,42,.94);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0 35px;display:flex;gap:8px;flex-wrap:wrap}.contents a{color:#dce5f2;text-decoration:none;padding:8px 11px;border-radius:8px;font-size:13px}.contents a:hover{background:rgba(212,175,55,.15);color:var(--gold2)}
+.topic{margin:38px 0 55px}.topic-head{border-left:4px solid var(--gold);padding-left:18px;margin-bottom:20px}.topic-head h2{margin:2px 0;font-size:30px}
+.subtopic{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:23px;margin:14px 0}.subtopic h3{margin:0 0 9px;color:var(--gold2);font-size:20px}.subtopic p{margin:0;color:#d7e0ec}
+.learn-box{margin-top:15px;padding:14px 17px;border-radius:11px;background:rgba(212,175,55,.06);border:1px solid var(--line);color:#c9d4e4}.learn-box ol{margin:7px 0 0 20px;padding:0}
+.section-title{margin:70px 0 22px;text-align:center}.section-title h2{font-size:35px;margin:5px}.section-title p{color:var(--muted)}
+.practice-card,.theory-card{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:20px;margin:14px 0}.practice-top,.theory-q{display:flex;gap:13px;align-items:flex-start}.practice-top h3,.theory-q h3{margin:0;font-size:17px}
+.solution-btn,.answer-btn{margin-top:15px;background:var(--gold);color:#071426;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}.solution,.answer{display:none;margin-top:15px}.solution.open,.answer.open{display:block}
+.steps{background:rgba(212,175,55,.07);border:1px solid var(--line);padding:14px;border-radius:10px;margin-bottom:12px;color:#dbe4ef}pre{background:#030a14;border:1px solid rgba(212,175,55,.16);padding:18px;border-radius:11px;overflow:auto;color:#eaf1fa;font-size:14px}code{font-family:Consolas,Monaco,monospace}
+.answer{padding:15px;background:rgba(255,255,255,.035);border-radius:10px;color:#dbe4ef}footer{margin-top:70px;border-top:1px solid var(--line);padding:35px 0;text-align:center;color:var(--muted)}.footer-back{display:inline-block;margin-top:12px;color:var(--gold2);text-decoration:none;border:1px solid var(--line);padding:10px 16px;border-radius:10px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.contents{position:static}.hero{padding-top:45px}}
+@media(max-width:520px){.nav{padding:12px 14px}.brand{font-size:14px}.back{font-size:13px;padding:8px 10px}.hero h1{font-size:38px}.hero p{font-size:15px}.topic-head h2{font-size:25px}.subtopic{padding:17px}.practice-top h3,.theory-q h3{font-size:15px}pre{font-size:12px;padding:13px}}
+</style></head><body>
+<header><div class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+<main class="container"><section class="hero"><div class="eyebrow">MODULE 08</div><h1>Advanced <em>Python</em></h1>
+<p>Decorators, Generators, Iterators, Lambda, Higher-Order Functions, Closures &amp; Practical Advanced Python Patterns — explained step by step.</p>
+<div class="stats"><div class="stat"><strong>8</strong><span>Major Topics</span></div><div class="stat"><strong>45</strong><span>Detailed Subtopics</span></div><div class="stat"><strong>30</strong><span>Coding Questions</span></div><div class="stat"><strong>30</strong><span>Theory Q&amp;A</span></div></div></section>
+<nav class="contents"><a href="#topic1">1. 1. Advanced Python Introduction</a><a href="#topic2">2. 2. Lambda Functions</a><a href="#topic3">3. 3. Iterators</a><a href="#topic4">4. 4. Generators</a><a href="#topic5">5. 5. Decorators</a><a href="#topic6">6. 6. Higher-Order Functions</a><a href="#topic7">7. 7. Closures and Scope</a><a href="#topic8">8. 8. Practical Advanced Python Patterns</a><a href="#coding">Coding Practice</a><a href="#theory">Theory Q&amp;A</a></nav>
+<section class="topic" id="topic1"><div class="topic-head"><span>TOPIC 01</span><h2>1. Advanced Python Introduction</h2></div><article class="subtopic"><h3>1.1 What makes Python advanced?</h3><p>Advanced Python features help you write shorter, reusable, flexible, and more powerful programs. This module focuses on lambda functions, iterators, generators, decorators, and practical combinations of these concepts.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>1.2 When should you use advanced features?</h3><p>Use them when they make code clearer, reusable, or efficient. Advanced syntax should not be used only to make code shorter; readability and maintainability are important.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>1.3 Functional thinking</h3><p>Python supports functional-style programming through functions as objects, lambda expressions, map(), filter(), reduce(), comprehensions, and higher-order functions.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>1.4 Lazy evaluation</h3><p>Lazy evaluation means producing or calculating values only when they are needed. Generators and iterators are important tools for processing large data efficiently.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic2"><div class="topic-head"><span>TOPIC 02</span><h2>2. Lambda Functions</h2></div><article class="subtopic"><h3>2.1 What is lambda?</h3><p>A lambda is a small anonymous function written with the lambda keyword. It can accept arguments and return an expression result.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>2.2 Lambda syntax</h3><p>The general form is lambda arguments: expression. Unlike def, a lambda normally contains one expression rather than a block of statements.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>2.3 Lambda with sorting</h3><p>sorted() can receive a key function. A lambda is commonly used to tell Python which value should determine the sorting order.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>2.4 Lambda with map()</h3><p>map() applies a function to every item in an iterable. A lambda can transform each item.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>2.5 Lambda with filter()</h3><p>filter() keeps items for which a function returns True. A lambda is useful for expressing the filtering condition.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>2.6 Lambda with reduce()</h3><p>functools.reduce() repeatedly combines values using a function until one result remains. It should be used when the reduction logic is clear.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic3"><div class="topic-head"><span>TOPIC 03</span><h2>3. Iterators</h2></div><article class="subtopic"><h3>3.1 What is an iterable?</h3><p>An iterable is an object that can provide its items one at a time, such as a list, tuple, string, set, dictionary, or range.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>3.2 What is an iterator?</h3><p>An iterator is an object that remembers its current position and provides the next item through __next__().</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>3.3 iter()</h3><p>iter() obtains an iterator from an iterable.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>3.4 next()</h3><p>next() requests the next item from an iterator. When there are no more items, StopIteration is raised.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>3.5 Creating a custom iterator</h3><p>A class can implement __iter__() and __next__() to define custom iteration behavior.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>3.6 Iterable vs iterator</h3><p>An iterable can produce an iterator. An iterator maintains iteration state and implements the iterator protocol.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic4"><div class="topic-head"><span>TOPIC 04</span><h2>4. Generators</h2></div><article class="subtopic"><h3>4.1 What is a generator?</h3><p>A generator is a convenient way to create an iterator. A generator function uses yield to produce values one at a time.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>4.2 yield vs return</h3><p>return finishes a function and gives one final result. yield pauses a generator, preserves its state, and resumes it when the next value is requested.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>4.3 Generator execution</h3><p>The function body does not run completely at generator creation. Each next() call resumes execution until the next yield.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>4.4 Generator expressions</h3><p>A generator expression looks similar to a comprehension but uses parentheses and produces values lazily.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>4.5 Memory efficiency</h3><p>Generators avoid creating the entire result collection in memory at once, making them useful for large sequences and streams.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>4.6 Practical generators</h3><p>Generators are useful for reading large files, producing sequences, processing records, and creating pipelines of transformations.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic5"><div class="topic-head"><span>TOPIC 05</span><h2>5. Decorators</h2></div><article class="subtopic"><h3>5.1 What is a decorator?</h3><p>A decorator is a function that receives another function and extends or modifies its behavior without changing the original function&#x27;s core code.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>5.2 Functions are first-class objects</h3><p>Python functions can be assigned to variables, passed as arguments, returned from other functions, and stored in collections.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>5.3 Basic decorator</h3><p>A decorator commonly contains an inner wrapper function, calls the original function, and returns the wrapper.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>5.4 @decorator syntax</h3><p>The @decorator syntax is shorthand for replacing a function with the decorator&#x27;s returned function.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>5.5 functools.wraps</h3><p>functools.wraps helps preserve metadata such as the decorated function&#x27;s name and docstring.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>5.6 Decorators with arguments</h3><p>A decorator can inspect or modify function arguments using *args and **kwargs inside its wrapper.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>5.7 Practical decorator uses</h3><p>Common uses include logging, timing, authentication checks, validation, caching, retries, and access control.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic6"><div class="topic-head"><span>TOPIC 06</span><h2>6. Higher-Order Functions</h2></div><article class="subtopic"><h3>6.1 Functions as arguments</h3><p>A function can receive another function as an argument, allowing behavior to be supplied dynamically.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>6.2 Functions returning functions</h3><p>A function can create and return another function. This is the foundation of closures and many decorator patterns.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>6.3 map()</h3><p>map(function, iterable) applies a function to each item and returns an iterator.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>6.4 filter()</h3><p>filter(function, iterable) returns an iterator containing items for which the function is truthy.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>6.5 reduce()</h3><p>reduce() from functools combines iterable items cumulatively into a single value.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>6.6 Choosing the right tool</h3><p>Use comprehensions when they are clearer, map/filter when they communicate the transformation or selection clearly, and reduce only when a cumulative reduction is natural.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic7"><div class="topic-head"><span>TOPIC 07</span><h2>7. Closures and Scope</h2></div><article class="subtopic"><h3>7.1 What is a closure?</h3><p>A closure is an inner function that remembers values from its enclosing scope even after the outer function has finished.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>7.2 Why closures are useful</h3><p>Closures can preserve configuration or state without requiring a class. They are useful for factories, callbacks, and decorators.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>7.3 nonlocal</h3><p>The nonlocal keyword allows an inner function to modify a variable belonging to its nearest enclosing function scope.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>7.4 LEGB</h3><p>Python resolves names using Local, Enclosing, Global, and Built-in scopes.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>7.5 Closure workflow</h3><p>The outer function creates a value, defines an inner function that references it, and returns that inner function. Later calls use the remembered value.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section><section class="topic" id="topic8"><div class="topic-head"><span>TOPIC 08</span><h2>8. Practical Advanced Python Patterns</h2></div><article class="subtopic"><h3>8.1 Chaining operations</h3><p>Iterators and generators can be combined so data flows through multiple processing steps without creating unnecessary intermediate lists.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>8.2 Decorator + function reuse</h3><p>A decorator can add common behavior such as logging to many functions while keeping each business function focused.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>8.3 Generator + file processing</h3><p>A generator can read a large file line by line and yield only the records needed for the next processing stage.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>8.4 Common mistakes</h3><p>Avoid deeply nested lambdas, confusing decorators, unnecessary reduce(), generators when a tiny list is clearer, and custom iterators when a normal generator would be simpler.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article><article class="subtopic"><h3>8.5 Readability rule</h3><p>Advanced Python should make the program easier to maintain. Prefer the simplest feature that clearly solves the problem.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Understand the purpose of the advanced feature.</li>
+<li>Study the syntax and execution flow.</li>
+<li>Run a small example and observe what happens.</li>
+<li>Change the input and test the behavior again.</li>
+<li>Apply the feature to the related coding problem.</li></ol></div></article></section>
+<section id="coding"><div class="section-title"><div class="eyebrow">HANDS-ON PRACTICE</div><h2>30 Coding Questions</h2><p>Try each problem yourself first, then open the step-by-step solution.</p></div><div class="practice-card"><div class="practice-top"><span>Q01</span><h3>Create a simple lambda that adds two numbers.</h3></div>
+<button class="solution-btn" onclick="toggle('code1',this)">Show Step-by-Step Solution</button>
+<div id="code1" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>add = lambda a, b: a + b
+print(add(10, 20))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q02</span><h3>Use lambda to square every number with map().</h3></div>
+<button class="solution-btn" onclick="toggle('code2',this)">Show Step-by-Step Solution</button>
+<div id="code2" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>numbers = [1, 2, 3, 4, 5]
+squares = list(map(lambda x: x * x, numbers))
+print(squares)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q03</span><h3>Use lambda with filter() to keep even numbers.</h3></div>
+<button class="solution-btn" onclick="toggle('code3',this)">Show Step-by-Step Solution</button>
+<div id="code3" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>numbers = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q04</span><h3>Sort students by marks using lambda.</h3></div>
+<button class="solution-btn" onclick="toggle('code4',this)">Show Step-by-Step Solution</button>
+<div id="code4" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>students = [
+    (&quot;Ravi&quot;, 75),
+    (&quot;Anita&quot;, 92),
+    (&quot;Kiran&quot;, 81)
+]
+
+result = sorted(students, key=lambda student: student[1])
+print(result)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q05</span><h3>Use reduce() to calculate the sum of numbers.</h3></div>
+<button class="solution-btn" onclick="toggle('code5',this)">Show Step-by-Step Solution</button>
+<div id="code5" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import reduce
+
+numbers = [10, 20, 30, 40]
+total = reduce(lambda a, b: a + b, numbers)
+print(total)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q06</span><h3>Create an iterator from a list.</h3></div>
+<button class="solution-btn" onclick="toggle('code6',this)">Show Step-by-Step Solution</button>
+<div id="code6" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>numbers = [10, 20, 30]
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q07</span><h3>Handle StopIteration manually.</h3></div>
+<button class="solution-btn" onclick="toggle('code7',this)">Show Step-by-Step Solution</button>
+<div id="code7" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>numbers = [10, 20]
+iterator = iter(numbers)
+
+try:
+    while True:
+        print(next(iterator))
+except StopIteration:
+    print(&quot;No more values&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q08</span><h3>Create a custom countdown iterator.</h3></div>
+<button class="solution-btn" onclick="toggle('code8',this)">Show Step-by-Step Solution</button>
+<div id="code8" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>class Countdown:
+    def __init__(self, start):
+        self.current = start
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current &lt;= 0:
+            raise StopIteration
+        value = self.current
+        self.current -= 1
+        return value
+
+for number in Countdown(5):
+    print(number)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q09</span><h3>Create a generator that yields numbers from 1 to 5.</h3></div>
+<button class="solution-btn" onclick="toggle('code9',this)">Show Step-by-Step Solution</button>
+<div id="code9" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def numbers():
+    for i in range(1, 6):
+        yield i
+
+for n in numbers():
+    print(n)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q10</span><h3>Create a generator for even numbers.</h3></div>
+<button class="solution-btn" onclick="toggle('code10',this)">Show Step-by-Step Solution</button>
+<div id="code10" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def even_numbers(limit):
+    for i in range(2, limit + 1, 2):
+        yield i
+
+print(list(even_numbers(10)))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q11</span><h3>Use next() with a generator.</h3></div>
+<button class="solution-btn" onclick="toggle('code11',this)">Show Step-by-Step Solution</button>
+<div id="code11" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def values():
+    yield &quot;A&quot;
+    yield &quot;B&quot;
+    yield &quot;C&quot;
+
+g = values()
+print(next(g))
+print(next(g))
+print(next(g))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q12</span><h3>Create a generator expression for squares.</h3></div>
+<button class="solution-btn" onclick="toggle('code12',this)">Show Step-by-Step Solution</button>
+<div id="code12" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>squares = (x * x for x in range(1, 6))
+
+for value in squares:
+    print(value)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q13</span><h3>Create a generator that reads a file line by line.</h3></div>
+<button class="solution-btn" onclick="toggle('code13',this)">Show Step-by-Step Solution</button>
+<div id="code13" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def read_lines(filename):
+    with open(filename, encoding=&quot;utf-8&quot;) as file:
+        for line in file:
+            yield line.strip()
+
+for line in read_lines(&quot;data.txt&quot;):
+    print(line)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q14</span><h3>Create a basic decorator.</h3></div>
+<button class="solution-btn" onclick="toggle('code14',this)">Show Step-by-Step Solution</button>
+<div id="code14" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def logger(func):
+    def wrapper():
+        print(&quot;Function started&quot;)
+        func()
+        print(&quot;Function finished&quot;)
+    return wrapper
+
+@logger
+def greet():
+    print(&quot;Hello&quot;)
+
+greet()</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q15</span><h3>Create a decorator that accepts arguments.</h3></div>
+<button class="solution-btn" onclick="toggle('code15',this)">Show Step-by-Step Solution</button>
+<div id="code15" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def logger(func):
+    def wrapper(*args, **kwargs):
+        print(&quot;Calling function&quot;)
+        result = func(*args, **kwargs)
+        print(&quot;Function completed&quot;)
+        return result
+    return wrapper
+
+@logger
+def add(a, b):
+    return a + b
+
+print(add(5, 7))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q16</span><h3>Preserve function metadata with functools.wraps.</h3></div>
+<button class="solution-btn" onclick="toggle('code16',this)">Show Step-by-Step Solution</button>
+<div id="code16" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import wraps
+
+def logger(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs)
+    return wrapper
+
+@logger
+def greet():
+    &quot;&quot;&quot;Greets the user.&quot;&quot;&quot;
+    print(&quot;Hello&quot;)
+
+print(greet.__name__)
+print(greet.__doc__)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q17</span><h3>Create a timing-style decorator.</h3></div>
+<button class="solution-btn" onclick="toggle('code17',this)">Show Step-by-Step Solution</button>
+<div id="code17" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>import time
+from functools import wraps
+
+def timer(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        end = time.perf_counter()
+        print(&quot;Time:&quot;, end - start)
+        return result
+    return wrapper
+
+@timer
+def work():
+    total = sum(range(100000))
+    return total
+
+print(work())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q18</span><h3>Create a decorator that checks positive numbers.</h3></div>
+<button class="solution-btn" onclick="toggle('code18',this)">Show Step-by-Step Solution</button>
+<div id="code18" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import wraps
+
+def positive_only(func):
+    @wraps(func)
+    def wrapper(x):
+        if x &lt;= 0:
+            raise ValueError(&quot;Number must be positive&quot;)
+        return func(x)
+    return wrapper
+
+@positive_only
+def square(x):
+    return x * x
+
+print(square(5))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q19</span><h3>Use map() to convert strings to uppercase.</h3></div>
+<button class="solution-btn" onclick="toggle('code19',this)">Show Step-by-Step Solution</button>
+<div id="code19" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>words = [&quot;python&quot;, &quot;sql&quot;, &quot;power bi&quot;]
+result = list(map(str.upper, words))
+print(result)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q20</span><h3>Use filter() to select names longer than four characters.</h3></div>
+<button class="solution-btn" onclick="toggle('code20',this)">Show Step-by-Step Solution</button>
+<div id="code20" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>names = [&quot;Ravi&quot;, &quot;Anita&quot;, &quot;Kiran&quot;, &quot;Suresh&quot;]
+result = list(filter(lambda name: len(name) &gt; 4, names))
+print(result)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q21</span><h3>Use reduce() to calculate a product.</h3></div>
+<button class="solution-btn" onclick="toggle('code21',this)">Show Step-by-Step Solution</button>
+<div id="code21" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import reduce
+
+numbers = [2, 3, 4, 5]
+product = reduce(lambda a, b: a * b, numbers)
+print(product)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q22</span><h3>Pass a function as an argument.</h3></div>
+<button class="solution-btn" onclick="toggle('code22',this)">Show Step-by-Step Solution</button>
+<div id="code22" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def apply_operation(a, b, operation):
+    return operation(a, b)
+
+def multiply(x, y):
+    return x * y
+
+print(apply_operation(6, 7, multiply))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q23</span><h3>Return a function from another function.</h3></div>
+<button class="solution-btn" onclick="toggle('code23',this)">Show Step-by-Step Solution</button>
+<div id="code23" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def multiplier(factor):
+    def multiply(number):
+        return number * factor
+    return multiply
+
+double = multiplier(2)
+print(double(10))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q24</span><h3>Create a closure with nonlocal state.</h3></div>
+<button class="solution-btn" onclick="toggle('code24',this)">Show Step-by-Step Solution</button>
+<div id="code24" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def counter():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+
+    return increment
+
+c = counter()
+print(c())
+print(c())
+print(c())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q25</span><h3>Create a decorator factory with a custom message.</h3></div>
+<button class="solution-btn" onclick="toggle('code25',this)">Show Step-by-Step Solution</button>
+<div id="code25" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import wraps
+
+def message(text):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print(text)
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@message(&quot;Starting task&quot;)
+def task():
+    print(&quot;Task running&quot;)
+
+task()</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q26</span><h3>Build a generator pipeline for even squares.</h3></div>
+<button class="solution-btn" onclick="toggle('code26',this)">Show Step-by-Step Solution</button>
+<div id="code26" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def numbers():
+    for i in range(1, 11):
+        yield i
+
+evens = (x for x in numbers() if x % 2 == 0)
+squares = (x * x for x in evens)
+
+print(list(squares))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q27</span><h3>Build a reusable validation decorator.</h3></div>
+<button class="solution-btn" onclick="toggle('code27',this)">Show Step-by-Step Solution</button>
+<div id="code27" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import wraps
+
+def require_name(func):
+    @wraps(func)
+    def wrapper(name):
+        if not name.strip():
+            raise ValueError(&quot;Name cannot be empty&quot;)
+        return func(name)
+    return wrapper
+
+@require_name
+def greet(name):
+    return f&quot;Hello {name}&quot;
+
+print(greet(&quot;Naveen&quot;))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q28</span><h3>Build a custom iterator for a range.</h3></div>
+<button class="solution-btn" onclick="toggle('code28',this)">Show Step-by-Step Solution</button>
+<div id="code28" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>class NumberRange:
+    def __init__(self, start, stop):
+        self.current = start
+        self.stop = stop
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current &gt;= self.stop:
+            raise StopIteration
+        value = self.current
+        self.current += 1
+        return value
+
+for n in NumberRange(1, 5):
+    print(n)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q29</span><h3>Create a generator for Fibonacci numbers.</h3></div>
+<button class="solution-btn" onclick="toggle('code29',this)">Show Step-by-Step Solution</button>
+<div id="code29" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>def fibonacci(count):
+    a, b = 0, 1
+    for _ in range(count):
+        yield a
+        a, b = b, a + b
+
+print(list(fibonacci(10)))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q30</span><h3>Create a decorator that counts function calls.</h3></div>
+<button class="solution-btn" onclick="toggle('code30',this)">Show Step-by-Step Solution</button>
+<div id="code30" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the advanced Python concept required.<br>
+<strong>Step 2:</strong> Write the smallest clear implementation of the concept.<br>
+<strong>Step 3:</strong> Run the code and trace the execution flow.<br>
+<strong>Step 4:</strong> Modify the example and verify the behavior.</div>
+<pre><code>from functools import wraps
+
+def count_calls(func):
+    calls = 0
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        print(&quot;Call number:&quot;, calls)
+        return func(*args, **kwargs)
+
+    return wrapper
+
+@count_calls
+def greet(name):
+    print(&quot;Hello&quot;, name)
+
+greet(&quot;A&quot;)
+greet(&quot;B&quot;)
+greet(&quot;C&quot;)</code></pre></div></div></section>
+<section id="theory"><div class="section-title"><div class="eyebrow">KNOWLEDGE CHECK</div><h2>30 Theory Questions with Answers</h2><p>Use these for revision, interviews, and classroom practice.</p></div><div class="theory-card"><div class="theory-q"><span>Q01</span><h3>What is an advanced Python feature?</h3></div>
+<button class="answer-btn" onclick="toggle('theory1',this)">Show Answer</button>
+<div id="theory1" class="answer"><strong>Answer:</strong> It is a language or library feature that helps solve problems with more flexible, reusable, efficient, or expressive code.</div></div><div class="theory-card"><div class="theory-q"><span>Q02</span><h3>What is a lambda function?</h3></div>
+<button class="answer-btn" onclick="toggle('theory2',this)">Show Answer</button>
+<div id="theory2" class="answer"><strong>Answer:</strong> A lambda is a small anonymous function written with lambda and normally containing a single expression.</div></div><div class="theory-card"><div class="theory-q"><span>Q03</span><h3>What is the syntax of lambda?</h3></div>
+<button class="answer-btn" onclick="toggle('theory3',this)">Show Answer</button>
+<div id="theory3" class="answer"><strong>Answer:</strong> The general syntax is lambda arguments: expression.</div></div><div class="theory-card"><div class="theory-q"><span>Q04</span><h3>Can a lambda contain multiple statements?</h3></div>
+<button class="answer-btn" onclick="toggle('theory4',this)">Show Answer</button>
+<div id="theory4" class="answer"><strong>Answer:</strong> A normal lambda is limited to one expression, so complex multi-statement logic should usually use def.</div></div><div class="theory-card"><div class="theory-q"><span>Q05</span><h3>What is map()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory5',this)">Show Answer</button>
+<div id="theory5" class="answer"><strong>Answer:</strong> map() applies a function to each item in an iterable and returns an iterator.</div></div><div class="theory-card"><div class="theory-q"><span>Q06</span><h3>What is filter()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory6',this)">Show Answer</button>
+<div id="theory6" class="answer"><strong>Answer:</strong> filter() returns an iterator containing items for which the supplied function returns a truthy result.</div></div><div class="theory-card"><div class="theory-q"><span>Q07</span><h3>What is reduce()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory7',this)">Show Answer</button>
+<div id="theory7" class="answer"><strong>Answer:</strong> reduce() repeatedly combines iterable elements using a function until a single accumulated result remains.</div></div><div class="theory-card"><div class="theory-q"><span>Q08</span><h3>What is an iterable?</h3></div>
+<button class="answer-btn" onclick="toggle('theory8',this)">Show Answer</button>
+<div id="theory8" class="answer"><strong>Answer:</strong> An iterable is an object that can provide its elements one at a time, such as a list or string.</div></div><div class="theory-card"><div class="theory-q"><span>Q09</span><h3>What is an iterator?</h3></div>
+<button class="answer-btn" onclick="toggle('theory9',this)">Show Answer</button>
+<div id="theory9" class="answer"><strong>Answer:</strong> An iterator is an object that maintains iteration state and provides the next item through __next__().</div></div><div class="theory-card"><div class="theory-q"><span>Q10</span><h3>What does iter() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory10',this)">Show Answer</button>
+<div id="theory10" class="answer"><strong>Answer:</strong> iter() obtains an iterator from an iterable.</div></div><div class="theory-card"><div class="theory-q"><span>Q11</span><h3>What does next() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory11',this)">Show Answer</button>
+<div id="theory11" class="answer"><strong>Answer:</strong> next() requests the next value from an iterator and raises StopIteration when values are exhausted.</div></div><div class="theory-card"><div class="theory-q"><span>Q12</span><h3>What is StopIteration?</h3></div>
+<button class="answer-btn" onclick="toggle('theory12',this)">Show Answer</button>
+<div id="theory12" class="answer"><strong>Answer:</strong> It is the exception used to signal that an iterator has no more values.</div></div><div class="theory-card"><div class="theory-q"><span>Q13</span><h3>What is a custom iterator?</h3></div>
+<button class="answer-btn" onclick="toggle('theory13',this)">Show Answer</button>
+<div id="theory13" class="answer"><strong>Answer:</strong> It is a programmer-defined object implementing the iterator protocol, normally __iter__() and __next__().</div></div><div class="theory-card"><div class="theory-q"><span>Q14</span><h3>What is a generator?</h3></div>
+<button class="answer-btn" onclick="toggle('theory14',this)">Show Answer</button>
+<div id="theory14" class="answer"><strong>Answer:</strong> A generator is a convenient way to create an iterator, usually by using yield inside a generator function.</div></div><div class="theory-card"><div class="theory-q"><span>Q15</span><h3>What is yield?</h3></div>
+<button class="answer-btn" onclick="toggle('theory15',this)">Show Answer</button>
+<div id="theory15" class="answer"><strong>Answer:</strong> yield produces a value and pauses the generator while preserving its execution state for the next request.</div></div><div class="theory-card"><div class="theory-q"><span>Q16</span><h3>What is the difference between yield and return?</h3></div>
+<button class="answer-btn" onclick="toggle('theory16',this)">Show Answer</button>
+<div id="theory16" class="answer"><strong>Answer:</strong> return finishes the function; yield pauses a generator and allows it to continue later.</div></div><div class="theory-card"><div class="theory-q"><span>Q17</span><h3>What is a generator expression?</h3></div>
+<button class="answer-btn" onclick="toggle('theory17',this)">Show Answer</button>
+<div id="theory17" class="answer"><strong>Answer:</strong> It is a compact lazy expression using parentheses, similar to a comprehension but producing values on demand.</div></div><div class="theory-card"><div class="theory-q"><span>Q18</span><h3>Why are generators memory efficient?</h3></div>
+<button class="answer-btn" onclick="toggle('theory18',this)">Show Answer</button>
+<div id="theory18" class="answer"><strong>Answer:</strong> They produce values one at a time instead of storing the complete sequence in memory.</div></div><div class="theory-card"><div class="theory-q"><span>Q19</span><h3>What is a decorator?</h3></div>
+<button class="answer-btn" onclick="toggle('theory19',this)">Show Answer</button>
+<div id="theory19" class="answer"><strong>Answer:</strong> A decorator is a callable that receives another function or callable and returns a modified or extended callable.</div></div><div class="theory-card"><div class="theory-q"><span>Q20</span><h3>Why use decorators?</h3></div>
+<button class="answer-btn" onclick="toggle('theory20',this)">Show Answer</button>
+<div id="theory20" class="answer"><strong>Answer:</strong> They allow common behavior such as logging, timing, validation, caching, and authorization to be reused without duplicating code.</div></div><div class="theory-card"><div class="theory-q"><span>Q21</span><h3>What does @decorator mean?</h3></div>
+<button class="answer-btn" onclick="toggle('theory21',this)">Show Answer</button>
+<div id="theory21" class="answer"><strong>Answer:</strong> It is shorthand syntax that applies a decorator to the function defined immediately below it.</div></div><div class="theory-card"><div class="theory-q"><span>Q22</span><h3>What is functools.wraps?</h3></div>
+<button class="answer-btn" onclick="toggle('theory22',this)">Show Answer</button>
+<div id="theory22" class="answer"><strong>Answer:</strong> wraps helps a decorator preserve metadata from the original function, such as its name and docstring.</div></div><div class="theory-card"><div class="theory-q"><span>Q23</span><h3>What are *args and **kwargs in a decorator?</h3></div>
+<button class="answer-btn" onclick="toggle('theory23',this)">Show Answer</button>
+<div id="theory23" class="answer"><strong>Answer:</strong> *args collects positional arguments and **kwargs collects keyword arguments so the wrapper can support flexible function signatures.</div></div><div class="theory-card"><div class="theory-q"><span>Q24</span><h3>What is a higher-order function?</h3></div>
+<button class="answer-btn" onclick="toggle('theory24',this)">Show Answer</button>
+<div id="theory24" class="answer"><strong>Answer:</strong> A higher-order function accepts another function as an argument, returns a function, or both.</div></div><div class="theory-card"><div class="theory-q"><span>Q25</span><h3>What is a closure?</h3></div>
+<button class="answer-btn" onclick="toggle('theory25',this)">Show Answer</button>
+<div id="theory25" class="answer"><strong>Answer:</strong> A closure is an inner function that remembers variables from its enclosing scope.</div></div><div class="theory-card"><div class="theory-q"><span>Q26</span><h3>What does nonlocal do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory26',this)">Show Answer</button>
+<div id="theory26" class="answer"><strong>Answer:</strong> nonlocal allows an inner function to modify a variable from its nearest enclosing function scope.</div></div><div class="theory-card"><div class="theory-q"><span>Q27</span><h3>What is LEGB?</h3></div>
+<button class="answer-btn" onclick="toggle('theory27',this)">Show Answer</button>
+<div id="theory27" class="answer"><strong>Answer:</strong> LEGB describes Python&#x27;s name lookup order: Local, Enclosing, Global, and Built-in.</div></div><div class="theory-card"><div class="theory-q"><span>Q28</span><h3>When should you prefer a normal function over lambda?</h3></div>
+<button class="answer-btn" onclick="toggle('theory28',this)">Show Answer</button>
+<div id="theory28" class="answer"><strong>Answer:</strong> Use def when logic is complex, needs multiple statements, needs documentation, or deserves a meaningful reusable name.</div></div><div class="theory-card"><div class="theory-q"><span>Q29</span><h3>When are generators useful?</h3></div>
+<button class="answer-btn" onclick="toggle('theory29',this)">Show Answer</button>
+<div id="theory29" class="answer"><strong>Answer:</strong> They are useful for large sequences, file processing, streaming data, pipelines, and situations where values should be produced lazily.</div></div><div class="theory-card"><div class="theory-q"><span>Q30</span><h3>What is the main rule for using advanced Python?</h3></div>
+<button class="answer-btn" onclick="toggle('theory30',this)">Show Answer</button>
+<div id="theory30" class="answer"><strong>Answer:</strong> Choose advanced features when they improve clarity, reuse, or efficiency; do not sacrifice readability just to make code shorter.</div></div></section></main>
+<footer><div class="container"><strong>MODULE 08 — ADVANCED PYTHON</strong><br>KN TECH INSTITUTE · Learn Python step by step<br><a class="footer-back" href="index.html">← Back to Syllabus</a></div></footer>
+<script>function toggle(id,btn){const el=document.getElementById(id);el.classList.toggle('open');if(btn.classList.contains('answer-btn'))btn.textContent=el.classList.contains('open')?'Hide Answer':'Show Answer';else btn.textContent=el.classList.contains('open')?'Hide Solution':'Show Step-by-Step Solution';}</script>
+</body></html>

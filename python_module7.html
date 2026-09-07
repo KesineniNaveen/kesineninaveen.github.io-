@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Module 07 - File Handling | KN TECH INSTITUTE</title>
+<style>
+:root{--navy:#071426;--navy2:#0c1d35;--gold:#d4af37;--gold2:#f3d477;--white:#f7f9fc;--muted:#aebbd0;--line:rgba(212,175,55,.22);--card:rgba(255,255,255,.045)}
+*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#06101f,#0a1930 55%,#06101f);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.75}
+header{position:sticky;top:0;z-index:1000;background:rgba(5,15,29,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{max-width:1250px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-weight:900;letter-spacing:1.5px;color:var(--gold2);font-size:18px}.back{color:var(--white);text-decoration:none;border:1px solid var(--line);padding:9px 15px;border-radius:10px;transition:.25s}.back:hover{background:var(--gold);color:#071426}
+.container{width:min(1180px,92%);margin:auto}.hero{padding:70px 0 42px;text-align:center}.eyebrow,.topic-head span,.practice-top span,.theory-q span{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:12px}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:10px 0 8px;line-height:1.08}.hero h1 em{color:var(--gold2);font-style:normal}.hero p{max-width:850px;margin:15px auto;color:var(--muted);font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px auto 0;max-width:900px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px}.stat strong{display:block;color:var(--gold2);font-size:24px}.stat span{color:var(--muted);font-size:13px}
+.contents{position:sticky;top:67px;z-index:900;background:rgba(8,23,42,.94);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0 35px;display:flex;gap:8px;flex-wrap:wrap}.contents a{color:#dce5f2;text-decoration:none;padding:8px 11px;border-radius:8px;font-size:13px}.contents a:hover{background:rgba(212,175,55,.15);color:var(--gold2)}
+.topic{margin:38px 0 55px}.topic-head{border-left:4px solid var(--gold);padding-left:18px;margin-bottom:20px}.topic-head h2{margin:2px 0;font-size:30px}
+.subtopic{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:23px;margin:14px 0}.subtopic h3{margin:0 0 9px;color:var(--gold2);font-size:20px}.subtopic p{margin:0;color:#d7e0ec}
+.learn-box{margin-top:15px;padding:14px 17px;border-radius:11px;background:rgba(212,175,55,.06);border:1px solid var(--line);color:#c9d4e4}.learn-box ol{margin:7px 0 0 20px;padding:0}
+.section-title{margin:70px 0 22px;text-align:center}.section-title h2{font-size:35px;margin:5px}.section-title p{color:var(--muted)}
+.practice-card,.theory-card{background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:20px;margin:14px 0}.practice-top,.theory-q{display:flex;gap:13px;align-items:flex-start}.practice-top h3,.theory-q h3{margin:0;font-size:17px}
+.solution-btn,.answer-btn{margin-top:15px;background:var(--gold);color:#071426;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}.solution,.answer{display:none;margin-top:15px}.solution.open,.answer.open{display:block}
+.steps{background:rgba(212,175,55,.07);border:1px solid var(--line);padding:14px;border-radius:10px;margin-bottom:12px;color:#dbe4ef}pre{background:#030a14;border:1px solid rgba(212,175,55,.16);padding:18px;border-radius:11px;overflow:auto;color:#eaf1fa;font-size:14px}code{font-family:Consolas,Monaco,monospace}
+.answer{padding:15px;background:rgba(255,255,255,.035);border-radius:10px;color:#dbe4ef}footer{margin-top:70px;border-top:1px solid var(--line);padding:35px 0;text-align:center;color:var(--muted)}.footer-back{display:inline-block;margin-top:12px;color:var(--gold2);text-decoration:none;border:1px solid var(--line);padding:10px 16px;border-radius:10px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.contents{position:static}.hero{padding-top:45px}}
+@media(max-width:520px){.nav{padding:12px 14px}.brand{font-size:14px}.back{font-size:13px;padding:8px 10px}.hero h1{font-size:38px}.hero p{font-size:15px}.topic-head h2{font-size:25px}.subtopic{padding:17px}.practice-top h3,.theory-q h3{font-size:15px}pre{font-size:12px;padding:13px}}
+</style></head><body>
+<header><div class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+<main class="container"><section class="hero"><div class="eyebrow">MODULE 07</div><h1>File <em>Handling</em></h1>
+<p>Read &amp; Write Files, Text Processing, CSV, JSON, File Pointers, Exception Handling &amp; Practical File Projects — explained step by step.</p>
+<div class="stats"><div class="stat"><strong>8</strong><span>Major Topics</span></div><div class="stat"><strong>45</strong><span>Detailed Subtopics</span></div><div class="stat"><strong>30</strong><span>Coding Questions</span></div><div class="stat"><strong>30</strong><span>Theory Q&amp;A</span></div></div></section>
+<nav class="contents"><a href="#topic1">1. 1. File Handling Introduction</a><a href="#topic2">2. 2. Opening Files</a><a href="#topic3">3. 3. Reading Files</a><a href="#topic4">4. 4. Writing and Updating Files</a><a href="#topic5">5. 5. CSV File Handling</a><a href="#topic6">6. 6. JSON File Handling</a><a href="#topic7">7. 7. Exception Handling</a><a href="#topic8">8. 8. Practical File Projects</a><a href="#coding">Coding Practice</a><a href="#theory">Theory Q&amp;A</a></nav>
+<section class="topic" id="topic1"><div class="topic-head"><span>TOPIC 01</span><h2>1. File Handling Introduction</h2></div><article class="subtopic"><h3>1.1 What is file handling?</h3><p>File handling is the process of creating, opening, reading, writing, updating, and closing files from Python programs. It allows data to persist after a program finishes.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>1.2 Why file handling is important</h3><p>Files are useful for storing reports, logs, configuration, user data, text, CSV records, JSON data, and application output.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>1.3 File workflow</h3><p>The basic workflow is: identify the file path, open the file in the required mode, perform the operation, and close it. Using with is recommended because it closes the file automatically.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>1.4 Text vs binary files</h3><p>Text files store characters and are commonly used for .txt, .csv, and .json files. Binary files store raw bytes and are used for formats such as images, PDFs, audio, and executable files.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic2"><div class="topic-head"><span>TOPIC 02</span><h2>2. Opening Files</h2></div><article class="subtopic"><h3>2.1 open()</h3><p>The open() function connects Python to a file. A basic example is open(&#x27;data.txt&#x27;, &#x27;r&#x27;). It returns a file object.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>2.2 File modes</h3><p>Common modes are r for reading, w for writing, a for appending, x for exclusive creation, b for binary, and + for updating/read-write access.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>2.3 Read mode</h3><p>Mode r opens an existing file for reading. If the file does not exist, Python raises FileNotFoundError.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>2.4 Write mode</h3><p>Mode w creates a new file or truncates an existing file before writing. Be careful because existing contents can be replaced.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>2.5 Append mode</h3><p>Mode a adds new content to the end of an existing file and creates the file if it does not already exist.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>2.6 with statement</h3><p>with open(...) as file automatically manages the file resource and closes it after the indented block finishes, including when an exception occurs.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic3"><div class="topic-head"><span>TOPIC 03</span><h2>3. Reading Files</h2></div><article class="subtopic"><h3>3.1 read()</h3><p>read() returns file content as one string. You can optionally provide a size to limit how many characters or bytes are read.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>3.2 readline()</h3><p>readline() reads one line at a time. Repeated calls continue from the current file position.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>3.3 readlines()</h3><p>readlines() returns the remaining lines as a list. It is convenient for small files but can use more memory for very large files.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>3.4 Looping through a file</h3><p>A file object is iterable, so for line in file: is an efficient way to process a text file line by line.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>3.5 File pointer</h3><p>The current position can be inspected with tell() and changed with seek().</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>3.6 strip()</h3><p>line.strip() removes surrounding whitespace, including the newline character, making lines easier to process.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic4"><div class="topic-head"><span>TOPIC 04</span><h2>4. Writing and Updating Files</h2></div><article class="subtopic"><h3>4.1 write()</h3><p>write() writes a string to a file and returns the number of characters written.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>4.2 writelines()</h3><p>writelines() writes an iterable of strings. It does not automatically add newline characters, so include them when required.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>4.3 Append records</h3><p>Append mode is useful for adding log entries or new records without deleting previous data.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>4.4 Read and write together</h3><p>Modes such as r+ and w+ allow combinations of reading and writing. Choose the mode carefully because w+ truncates the file.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>4.5 Encoding</h3><p>Text files can be opened with an explicit encoding such as encoding=&#x27;utf-8&#x27; to handle Unicode text reliably.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic5"><div class="topic-head"><span>TOPIC 05</span><h2>5. CSV File Handling</h2></div><article class="subtopic"><h3>5.1 What is CSV?</h3><p>CSV stands for Comma-Separated Values. It is a simple tabular format commonly used for spreadsheets, databases, reports, and data exchange.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>5.2 csv.reader()</h3><p>csv.reader() reads rows as sequences of values. It is useful when you want to process CSV data row by row.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>5.3 csv.writer()</h3><p>csv.writer() writes rows to a CSV file and handles quoting and delimiters.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>5.4 DictReader</h3><p>csv.DictReader reads each row as a dictionary using column headers as keys.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>5.5 DictWriter</h3><p>csv.DictWriter writes dictionary records using a defined list of fieldnames.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>5.6 CSV best practices</h3><p>Use newline=&#x27;&#x27; when opening CSV files with Python&#x27;s csv module, specify encoding when needed, and validate important fields before processing.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic6"><div class="topic-head"><span>TOPIC 06</span><h2>6. JSON File Handling</h2></div><article class="subtopic"><h3>6.1 What is JSON?</h3><p>JSON is a text-based data-interchange format commonly used by APIs and applications. It represents objects, arrays, strings, numbers, booleans, and null.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>6.2 json.dumps()</h3><p>dumps() converts a Python object into a JSON-formatted string.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>6.3 json.loads()</h3><p>loads() converts a JSON string into a Python object.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>6.4 json.dump()</h3><p>dump() writes a Python object directly to a JSON file.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>6.5 json.load()</h3><p>load() reads JSON from a file and converts it into a Python object.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>6.6 JSON formatting</h3><p>indent can make JSON easier for humans to read. sort_keys can provide stable key ordering for readable output.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic7"><div class="topic-head"><span>TOPIC 07</span><h2>7. Exception Handling</h2></div><article class="subtopic"><h3>7.1 What is an exception?</h3><p>An exception is a runtime event that interrupts normal program execution, such as division by zero, invalid conversion, missing files, or invalid indexes.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>7.2 try and except</h3><p>Put risky code inside try and handle expected errors inside except blocks.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>7.3 Multiple exceptions</h3><p>You can handle different exception types using multiple except blocks or a tuple of exception classes.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>7.4 else</h3><p>The else block runs only when the try block completes without raising an exception.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>7.5 finally</h3><p>The finally block runs whether an exception occurs or not. It is useful for cleanup.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>7.6 raise</h3><p>raise allows your program to deliberately generate an exception when a business rule or validation fails.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>7.7 Custom exceptions</h3><p>A custom exception can be created by defining a class that inherits from Exception. This makes application-specific errors clearer.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section><section class="topic" id="topic8"><div class="topic-head"><span>TOPIC 08</span><h2>8. Practical File Projects</h2></div><article class="subtopic"><h3>8.1 Text log system</h3><p>A simple log system can append timestamped messages to a text file and later read them line by line.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>8.2 CSV student records</h3><p>Student data can be stored in CSV rows with fields such as ID, name, course, and marks, then read and calculated by Python.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>8.3 JSON configuration</h3><p>JSON is useful for configuration and structured application data because it maps naturally to Python dictionaries and lists.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>8.4 Safe file processing</h3><p>Validate file existence, use context managers, specify encoding, handle expected exceptions, and avoid overwriting files accidentally.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article><article class="subtopic"><h3>8.5 Common mistakes</h3><p>Typical errors include using w when a should be used, forgetting encoding, assuming every file exists, ignoring malformed CSV/JSON, and catching Exception too broadly.</p>
+<div class="learn-box"><strong>Step-by-step:</strong><ol>
+<li>Identify the file type and the operation you need.</li>
+<li>Select the correct file mode and encoding.</li>
+<li>Open the file using a context manager when possible.</li>
+<li>Perform the read/write/process operation.</li>
+<li>Handle expected errors and verify the result.</li></ol></div></article></section>
+<section id="coding"><div class="section-title"><div class="eyebrow">HANDS-ON PRACTICE</div><h2>30 Coding Questions</h2><p>Try each problem yourself first, then open the step-by-step solution.</p></div><div class="practice-card"><div class="practice-top"><span>Q01</span><h3>Create a text file and write a message.</h3></div>
+<button class="solution-btn" onclick="toggle('code1',this)">Show Step-by-Step Solution</button>
+<div id="code1" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+    file.write(&quot;Hello Python&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q02</span><h3>Read the complete contents of a text file.</h3></div>
+<button class="solution-btn" onclick="toggle('code2',this)">Show Step-by-Step Solution</button>
+<div id="code2" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    content = file.read()
+
+print(content)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q03</span><h3>Read a file line by line.</h3></div>
+<button class="solution-btn" onclick="toggle('code3',this)">Show Step-by-Step Solution</button>
+<div id="code3" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    for line in file:
+        print(line.strip())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q04</span><h3>Read only the first line.</h3></div>
+<button class="solution-btn" onclick="toggle('code4',this)">Show Step-by-Step Solution</button>
+<div id="code4" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    print(file.readline().strip())</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q05</span><h3>Read all lines into a list.</h3></div>
+<button class="solution-btn" onclick="toggle('code5',this)">Show Step-by-Step Solution</button>
+<div id="code5" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    lines = file.readlines()
+
+print(lines)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q06</span><h3>Append a new line to a file.</h3></div>
+<button class="solution-btn" onclick="toggle('code6',this)">Show Step-by-Step Solution</button>
+<div id="code6" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;a&quot;, encoding=&quot;utf-8&quot;) as file:
+    file.write(&quot;\nThis is a new line.&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q07</span><h3>Write multiple lines using writelines().</h3></div>
+<button class="solution-btn" onclick="toggle('code7',this)">Show Step-by-Step Solution</button>
+<div id="code7" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>lines = [&quot;Python\n&quot;, &quot;SQL\n&quot;, &quot;Power BI\n&quot;]
+
+with open(&quot;courses.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+    file.writelines(lines)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q08</span><h3>Count the number of lines in a file.</h3></div>
+<button class="solution-btn" onclick="toggle('code8',this)">Show Step-by-Step Solution</button>
+<div id="code8" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;courses.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    count = sum(1 for line in file)
+
+print(&quot;Lines:&quot;, count)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q09</span><h3>Count words in a text file.</h3></div>
+<button class="solution-btn" onclick="toggle('code9',this)">Show Step-by-Step Solution</button>
+<div id="code9" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    text = file.read()
+
+print(&quot;Words:&quot;, len(text.split()))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q10</span><h3>Count a specific word in a file.</h3></div>
+<button class="solution-btn" onclick="toggle('code10',this)">Show Step-by-Step Solution</button>
+<div id="code10" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    text = file.read().lower()
+
+print(text.split().count(&quot;python&quot;))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q11</span><h3>Use tell() and seek().</h3></div>
+<button class="solution-btn" onclick="toggle('code11',this)">Show Step-by-Step Solution</button>
+<div id="code11" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    print(&quot;Start:&quot;, file.tell())
+    print(file.read(5))
+    print(&quot;After read:&quot;, file.tell())
+    file.seek(0)
+    print(&quot;Again:&quot;, file.read(5))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q12</span><h3>Copy text from one file to another.</h3></div>
+<button class="solution-btn" onclick="toggle('code12',this)">Show Step-by-Step Solution</button>
+<div id="code12" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>with open(&quot;message.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as source:
+    content = source.read()
+
+with open(&quot;backup.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as target:
+    target.write(content)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q13</span><h3>Handle a missing file safely.</h3></div>
+<button class="solution-btn" onclick="toggle('code13',this)">Show Step-by-Step Solution</button>
+<div id="code13" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>try:
+    with open(&quot;missing.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+        print(file.read())
+except FileNotFoundError:
+    print(&quot;File not found&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q14</span><h3>Create a CSV file using csv.writer().</h3></div>
+<button class="solution-btn" onclick="toggle('code14',this)">Show Step-by-Step Solution</button>
+<div id="code14" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import csv
+
+rows = [
+    [&quot;ID&quot;, &quot;Name&quot;, &quot;Marks&quot;],
+    [1, &quot;Ravi&quot;, 85],
+    [2, &quot;Anita&quot;, 92]
+]
+
+with open(&quot;students.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:
+    writer = csv.writer(file)
+    writer.writerows(rows)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q15</span><h3>Read a CSV file using csv.reader().</h3></div>
+<button class="solution-btn" onclick="toggle('code15',this)">Show Step-by-Step Solution</button>
+<div id="code15" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import csv
+
+with open(&quot;students.csv&quot;, &quot;r&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q16</span><h3>Read CSV records using DictReader.</h3></div>
+<button class="solution-btn" onclick="toggle('code16',this)">Show Step-by-Step Solution</button>
+<div id="code16" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import csv
+
+with open(&quot;students.csv&quot;, &quot;r&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row[&quot;Name&quot;], row[&quot;Marks&quot;])</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q17</span><h3>Create a CSV file using DictWriter.</h3></div>
+<button class="solution-btn" onclick="toggle('code17',this)">Show Step-by-Step Solution</button>
+<div id="code17" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import csv
+
+records = [
+    {&quot;ID&quot;: 1, &quot;Name&quot;: &quot;Ravi&quot;, &quot;Marks&quot;: 85},
+    {&quot;ID&quot;: 2, &quot;Name&quot;: &quot;Anita&quot;, &quot;Marks&quot;: 92}
+]
+
+with open(&quot;students2.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:
+    writer = csv.DictWriter(file, fieldnames=[&quot;ID&quot;, &quot;Name&quot;, &quot;Marks&quot;])
+    writer.writeheader()
+    writer.writerows(records)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q18</span><h3>Convert a Python dictionary to a JSON string.</h3></div>
+<button class="solution-btn" onclick="toggle('code18',this)">Show Step-by-Step Solution</button>
+<div id="code18" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import json
+
+student = {&quot;name&quot;: &quot;Ravi&quot;, &quot;age&quot;: 21, &quot;course&quot;: &quot;Python&quot;}
+text = json.dumps(student, indent=2)
+
+print(text)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q19</span><h3>Convert a JSON string to a Python dictionary.</h3></div>
+<button class="solution-btn" onclick="toggle('code19',this)">Show Step-by-Step Solution</button>
+<div id="code19" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import json
+
+text = &#x27;{&quot;name&quot;: &quot;Ravi&quot;, &quot;age&quot;: 21}&#x27;
+student = json.loads(text)
+
+print(student[&quot;name&quot;])</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q20</span><h3>Write a Python dictionary to a JSON file.</h3></div>
+<button class="solution-btn" onclick="toggle('code20',this)">Show Step-by-Step Solution</button>
+<div id="code20" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import json
+
+data = {
+    &quot;name&quot;: &quot;Anita&quot;,
+    &quot;skills&quot;: [&quot;Python&quot;, &quot;SQL&quot;]
+}
+
+with open(&quot;student.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+    json.dump(data, file, indent=2)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q21</span><h3>Read a JSON file.</h3></div>
+<button class="solution-btn" onclick="toggle('code21',this)">Show Step-by-Step Solution</button>
+<div id="code21" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import json
+
+with open(&quot;student.json&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    data = json.load(file)
+
+print(data)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q22</span><h3>Update a JSON value and save it.</h3></div>
+<button class="solution-btn" onclick="toggle('code22',this)">Show Step-by-Step Solution</button>
+<div id="code22" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import json
+
+with open(&quot;student.json&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    data = json.load(file)
+
+data[&quot;name&quot;] = &quot;Anita Sharma&quot;
+
+with open(&quot;student.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+    json.dump(data, file, indent=2)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q23</span><h3>Handle invalid integer input with try/except.</h3></div>
+<button class="solution-btn" onclick="toggle('code23',this)">Show Step-by-Step Solution</button>
+<div id="code23" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>try:
+    age = int(input(&quot;Enter age: &quot;))
+    print(&quot;Age:&quot;, age)
+except ValueError:
+    print(&quot;Please enter a valid integer.&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q24</span><h3>Handle division by zero.</h3></div>
+<button class="solution-btn" onclick="toggle('code24',this)">Show Step-by-Step Solution</button>
+<div id="code24" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>try:
+    a = int(input(&quot;Enter numerator: &quot;))
+    b = int(input(&quot;Enter denominator: &quot;))
+    print(a / b)
+except ZeroDivisionError:
+    print(&quot;Cannot divide by zero.&quot;)
+except ValueError:
+    print(&quot;Enter numbers only.&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q25</span><h3>Use try/except/else/finally.</h3></div>
+<button class="solution-btn" onclick="toggle('code25',this)">Show Step-by-Step Solution</button>
+<div id="code25" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>try:
+    number = int(input(&quot;Enter a number: &quot;))
+except ValueError:
+    print(&quot;Invalid input&quot;)
+else:
+    print(&quot;Square:&quot;, number ** 2)
+finally:
+    print(&quot;Program finished&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q26</span><h3>Raise an exception for an invalid age.</h3></div>
+<button class="solution-btn" onclick="toggle('code26',this)">Show Step-by-Step Solution</button>
+<div id="code26" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>age = int(input(&quot;Enter age: &quot;))
+
+if age &lt; 0:
+    raise ValueError(&quot;Age cannot be negative&quot;)
+
+print(&quot;Valid age:&quot;, age)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q27</span><h3>Create a custom exception.</h3></div>
+<button class="solution-btn" onclick="toggle('code27',this)">Show Step-by-Step Solution</button>
+<div id="code27" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>class InsufficientBalanceError(Exception):
+    pass
+
+balance = 1000
+withdraw = 1500
+
+if withdraw &gt; balance:
+    raise InsufficientBalanceError(&quot;Insufficient balance&quot;)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q28</span><h3>Build a CSV student average calculator.</h3></div>
+<button class="solution-btn" onclick="toggle('code28',this)">Show Step-by-Step Solution</button>
+<div id="code28" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import csv
+
+total = 0
+count = 0
+
+with open(&quot;students.csv&quot;, &quot;r&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        total += float(row[&quot;Marks&quot;])
+        count += 1
+
+print(&quot;Average:&quot;, total / count if count else 0)</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q29</span><h3>Build a JSON-based contact book.</h3></div>
+<button class="solution-btn" onclick="toggle('code29',this)">Show Step-by-Step Solution</button>
+<div id="code29" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>import json
+
+contacts = {
+    &quot;Ravi&quot;: &quot;9876543210&quot;,
+    &quot;Anita&quot;: &quot;9123456780&quot;
+}
+
+with open(&quot;contacts.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+    json.dump(contacts, file, indent=2)
+
+with open(&quot;contacts.json&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+    contacts = json.load(file)
+
+print(contacts.get(&quot;Ravi&quot;))</code></pre></div></div><div class="practice-card"><div class="practice-top"><span>Q30</span><h3>Build a simple text log system.</h3></div>
+<button class="solution-btn" onclick="toggle('code30',this)">Show Step-by-Step Solution</button>
+<div id="code30" class="solution"><div class="steps"><strong>Step 1:</strong> Identify the file operation required.<br>
+<strong>Step 2:</strong> Choose the correct file mode and safe context-manager pattern.<br>
+<strong>Step 3:</strong> Perform the operation and process the result.<br>
+<strong>Step 4:</strong> Run the code and verify the file contents/output.</div>
+<pre><code>from datetime import datetime
+
+message = input(&quot;Enter log message: &quot;)
+
+with open(&quot;app.log&quot;, &quot;a&quot;, encoding=&quot;utf-8&quot;) as file:
+    timestamp = datetime.now().isoformat(timespec=&quot;seconds&quot;)
+    file.write(f&quot;{timestamp} - {message}\n&quot;)
+
+print(&quot;Log saved.&quot;)</code></pre></div></div></section>
+<section id="theory"><div class="section-title"><div class="eyebrow">KNOWLEDGE CHECK</div><h2>30 Theory Questions with Answers</h2><p>Use these for revision, interviews, and classroom practice.</p></div><div class="theory-card"><div class="theory-q"><span>Q01</span><h3>What is file handling?</h3></div>
+<button class="answer-btn" onclick="toggle('theory1',this)">Show Answer</button>
+<div id="theory1" class="answer"><strong>Answer:</strong> File handling is the process of reading, writing, creating, updating, and managing files from a program.</div></div><div class="theory-card"><div class="theory-q"><span>Q02</span><h3>Why are files used in Python programs?</h3></div>
+<button class="answer-btn" onclick="toggle('theory2',this)">Show Answer</button>
+<div id="theory2" class="answer"><strong>Answer:</strong> Files provide persistent storage so data can remain available after the program stops.</div></div><div class="theory-card"><div class="theory-q"><span>Q03</span><h3>What does open() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory3',this)">Show Answer</button>
+<div id="theory3" class="answer"><strong>Answer:</strong> open() opens a file and returns a file object that can be used for reading or writing.</div></div><div class="theory-card"><div class="theory-q"><span>Q04</span><h3>What is the default mode of open()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory4',this)">Show Answer</button>
+<div id="theory4" class="answer"><strong>Answer:</strong> The default mode is r, which opens the file for reading text.</div></div><div class="theory-card"><div class="theory-q"><span>Q05</span><h3>What does r mode mean?</h3></div>
+<button class="answer-btn" onclick="toggle('theory5',this)">Show Answer</button>
+<div id="theory5" class="answer"><strong>Answer:</strong> r opens an existing file for reading and raises FileNotFoundError if it does not exist.</div></div><div class="theory-card"><div class="theory-q"><span>Q06</span><h3>What does w mode mean?</h3></div>
+<button class="answer-btn" onclick="toggle('theory6',this)">Show Answer</button>
+<div id="theory6" class="answer"><strong>Answer:</strong> w opens a file for writing, creating it if needed and truncating existing content.</div></div><div class="theory-card"><div class="theory-q"><span>Q07</span><h3>What does a mode mean?</h3></div>
+<button class="answer-btn" onclick="toggle('theory7',this)">Show Answer</button>
+<div id="theory7" class="answer"><strong>Answer:</strong> a opens a file for appending and places new writes at the end of the file.</div></div><div class="theory-card"><div class="theory-q"><span>Q08</span><h3>What does x mode mean?</h3></div>
+<button class="answer-btn" onclick="toggle('theory8',this)">Show Answer</button>
+<div id="theory8" class="answer"><strong>Answer:</strong> x creates a new file and fails if the file already exists.</div></div><div class="theory-card"><div class="theory-q"><span>Q09</span><h3>What does b mean in a file mode?</h3></div>
+<button class="answer-btn" onclick="toggle('theory9',this)">Show Answer</button>
+<div id="theory9" class="answer"><strong>Answer:</strong> b selects binary mode, allowing bytes to be read or written.</div></div><div class="theory-card"><div class="theory-q"><span>Q10</span><h3>Why use with open()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory10',this)">Show Answer</button>
+<div id="theory10" class="answer"><strong>Answer:</strong> The with statement automatically closes the file and manages the resource safely.</div></div><div class="theory-card"><div class="theory-q"><span>Q11</span><h3>What does read() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory11',this)">Show Answer</button>
+<div id="theory11" class="answer"><strong>Answer:</strong> read() returns file content as a string in text mode, optionally limited by a size.</div></div><div class="theory-card"><div class="theory-q"><span>Q12</span><h3>What does readline() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory12',this)">Show Answer</button>
+<div id="theory12" class="answer"><strong>Answer:</strong> readline() reads one line from the current file position.</div></div><div class="theory-card"><div class="theory-q"><span>Q13</span><h3>What does readlines() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory13',this)">Show Answer</button>
+<div id="theory13" class="answer"><strong>Answer:</strong> readlines() returns the remaining lines as a list.</div></div><div class="theory-card"><div class="theory-q"><span>Q14</span><h3>What does tell() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory14',this)">Show Answer</button>
+<div id="theory14" class="answer"><strong>Answer:</strong> tell() returns the current file position.</div></div><div class="theory-card"><div class="theory-q"><span>Q15</span><h3>What does seek() do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory15',this)">Show Answer</button>
+<div id="theory15" class="answer"><strong>Answer:</strong> seek() changes the current file position.</div></div><div class="theory-card"><div class="theory-q"><span>Q16</span><h3>What does write() return?</h3></div>
+<button class="answer-btn" onclick="toggle('theory16',this)">Show Answer</button>
+<div id="theory16" class="answer"><strong>Answer:</strong> write() returns the number of characters written in text mode.</div></div><div class="theory-card"><div class="theory-q"><span>Q17</span><h3>What is CSV?</h3></div>
+<button class="answer-btn" onclick="toggle('theory17',this)">Show Answer</button>
+<div id="theory17" class="answer"><strong>Answer:</strong> CSV is a simple tabular text format in which records are represented as rows and fields are separated by a delimiter, commonly a comma.</div></div><div class="theory-card"><div class="theory-q"><span>Q18</span><h3>What is csv.reader()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory18',this)">Show Answer</button>
+<div id="theory18" class="answer"><strong>Answer:</strong> It reads CSV rows and returns each row as a sequence of values.</div></div><div class="theory-card"><div class="theory-q"><span>Q19</span><h3>What is csv.writer()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory19',this)">Show Answer</button>
+<div id="theory19" class="answer"><strong>Answer:</strong> It writes rows to a CSV file while handling CSV formatting and quoting.</div></div><div class="theory-card"><div class="theory-q"><span>Q20</span><h3>What is DictReader?</h3></div>
+<button class="answer-btn" onclick="toggle('theory20',this)">Show Answer</button>
+<div id="theory20" class="answer"><strong>Answer:</strong> DictReader maps each CSV row to a dictionary using the header names as keys.</div></div><div class="theory-card"><div class="theory-q"><span>Q21</span><h3>What is JSON?</h3></div>
+<button class="answer-btn" onclick="toggle('theory21',this)">Show Answer</button>
+<div id="theory21" class="answer"><strong>Answer:</strong> JSON is a text-based format used to represent structured data and exchange information between systems.</div></div><div class="theory-card"><div class="theory-q"><span>Q22</span><h3>What is the difference between dumps() and dump()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory22',this)">Show Answer</button>
+<div id="theory22" class="answer"><strong>Answer:</strong> dumps() converts a Python object to a JSON string, while dump() writes the JSON representation directly to a file.</div></div><div class="theory-card"><div class="theory-q"><span>Q23</span><h3>What is the difference between loads() and load()?</h3></div>
+<button class="answer-btn" onclick="toggle('theory23',this)">Show Answer</button>
+<div id="theory23" class="answer"><strong>Answer:</strong> loads() converts a JSON string to a Python object, while load() reads JSON from a file.</div></div><div class="theory-card"><div class="theory-q"><span>Q24</span><h3>What is an exception?</h3></div>
+<button class="answer-btn" onclick="toggle('theory24',this)">Show Answer</button>
+<div id="theory24" class="answer"><strong>Answer:</strong> An exception is an event during execution that interrupts normal program flow.</div></div><div class="theory-card"><div class="theory-q"><span>Q25</span><h3>What is try/except?</h3></div>
+<button class="answer-btn" onclick="toggle('theory25',this)">Show Answer</button>
+<div id="theory25" class="answer"><strong>Answer:</strong> try contains code that may fail, while except handles a specified exception.</div></div><div class="theory-card"><div class="theory-q"><span>Q26</span><h3>What is else in exception handling?</h3></div>
+<button class="answer-btn" onclick="toggle('theory26',this)">Show Answer</button>
+<div id="theory26" class="answer"><strong>Answer:</strong> else runs when the try block completes successfully without an exception.</div></div><div class="theory-card"><div class="theory-q"><span>Q27</span><h3>What is finally?</h3></div>
+<button class="answer-btn" onclick="toggle('theory27',this)">Show Answer</button>
+<div id="theory27" class="answer"><strong>Answer:</strong> finally runs regardless of whether an exception occurs and is useful for cleanup.</div></div><div class="theory-card"><div class="theory-q"><span>Q28</span><h3>What does raise do?</h3></div>
+<button class="answer-btn" onclick="toggle('theory28',this)">Show Answer</button>
+<div id="theory28" class="answer"><strong>Answer:</strong> raise deliberately triggers an exception.</div></div><div class="theory-card"><div class="theory-q"><span>Q29</span><h3>What is a custom exception?</h3></div>
+<button class="answer-btn" onclick="toggle('theory29',this)">Show Answer</button>
+<div id="theory29" class="answer"><strong>Answer:</strong> It is a programmer-defined exception class, usually derived from Exception, representing an application-specific error.</div></div><div class="theory-card"><div class="theory-q"><span>Q30</span><h3>Why should exceptions be specific?</h3></div>
+<button class="answer-btn" onclick="toggle('theory30',this)">Show Answer</button>
+<div id="theory30" class="answer"><strong>Answer:</strong> Handling specific expected exceptions makes programs safer and avoids hiding unrelated programming errors.</div></div></section></main>
+<footer><div class="container"><strong>MODULE 07 — FILE HANDLING</strong><br>KN TECH INSTITUTE · Learn Python step by step<br><a class="footer-back" href="index.html">← Back to Syllabus</a></div></footer>
+<script>function toggle(id,btn){const el=document.getElementById(id);el.classList.toggle('open');if(btn.classList.contains('answer-btn'))btn.textContent=el.classList.contains('open')?'Hide Answer':'Show Answer';else btn.textContent=el.classList.contains('open')?'Hide Solution':'Show Step-by-Step Solution';}</script>
+</body></html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 | Python Functions | KN Tech Institute</title>
+<style>
+:root{--navy:#071a33;--gold:#d8aa35;--gold2:#f3d37a;--white:#f8fafc;--muted:#b7c4d6;--line:#274768}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#061529,#0a2442);color:var(--white);line-height:1.7}
+header{position:sticky;top:0;z-index:50;background:rgba(5,20,39,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav{max-width:1200px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:1px;color:var(--gold2)}.back{text-decoration:none;color:#071a33;background:var(--gold);padding:10px 17px;border-radius:8px;font-weight:700}
+.hero{max-width:1200px;margin:auto;padding:58px 22px 38px}.tag{color:var(--gold2);font-weight:800;letter-spacing:2px}h1{font-size:clamp(34px,5vw,64px);line-height:1.05;margin:10px 0}h1 span{color:var(--gold2)}.lead{max-width:900px;color:var(--muted);font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.stat{background:rgba(16,45,78,.75);border:1px solid var(--line);padding:17px;border-radius:12px;text-align:center}.stat b{display:block;color:var(--gold2);font-size:23px}.stat small{color:var(--muted)}
+.wrap{max-width:1200px;margin:auto;padding:0 22px 70px}.toc{background:rgba(16,45,78,.7);border:1px solid var(--line);border-radius:15px;padding:22px;margin:12px 0 30px}.toc h2{margin-top:0;color:var(--gold2)}.toc a{display:inline-block;color:#fff;text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:7px;margin:5px}.toc a:hover{border-color:var(--gold);color:var(--gold2)}
+.topic{background:rgba(8,31,57,.82);border:1px solid var(--line);border-radius:17px;padding:30px;margin:24px 0}h2{color:var(--gold2);font-size:30px;border-bottom:1px solid var(--line);padding-bottom:10px}h3{color:#fff;font-size:21px;margin-top:28px}p,li{color:#d7e1ee}code{font-family:Consolas,monospace}pre{background:#04101f;border:1px solid #1e3c5d;border-radius:10px;padding:18px;overflow:auto;color:#eaf2ff}.step{background:#102d4e;border-left:4px solid var(--gold);padding:14px 17px;border-radius:8px;margin:15px 0}table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid var(--line);padding:11px;text-align:left}th{color:var(--gold2);background:#0d2948}
+.section-title{margin-top:55px}.qcard,.theory-card{background:rgba(16,45,78,.8);border:1px solid var(--line);border-radius:13px;margin:14px 0;overflow:hidden}.qcard{padding:18px}.qhead{display:flex;gap:15px;align-items:flex-start}.num{min-width:42px;height:42px;display:grid;place-items:center;background:var(--gold);color:#071a33;font-weight:900;border-radius:8px}.qhead p{margin:5px 0 0;color:var(--muted)}.solution-btn{margin-top:14px;border:1px solid var(--gold);background:transparent;color:var(--gold2);padding:9px 13px;border-radius:7px;cursor:pointer;font-weight:700}.solution-btn:hover{background:var(--gold);color:#071a33}.answer,.theory-answer{display:none;margin-top:15px;padding-top:14px;border-top:1px solid var(--line)}.answer.show,.theory-answer.show{display:block}.theory-card button{width:100%;display:flex;justify-content:space-between;gap:20px;background:transparent;color:white;border:0;padding:17px 19px;text-align:left;font-size:16px;cursor:pointer}.plus{color:var(--gold2);font-size:22px}.theory-answer{padding:0 19px 18px;color:#d7e1ee}.footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding-top:30px;margin-top:55px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.nav{padding:13px 15px}.brand{font-size:14px}.back{padding:8px 11px;font-size:13px}.hero{padding-top:40px}.topic{padding:20px}}
+@media(max-width:520px){.stats{grid-template-columns:1fr 1fr;gap:9px}.stat{padding:12px 7px}.stat b{font-size:19px}.stat small{font-size:11px}.wrap{padding:0 13px 50px}.hero{padding-left:15px;padding-right:15px}h2{font-size:25px}h3{font-size:19px}pre{font-size:12px;padding:13px}.qcard{padding:14px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></div></header>
+<section class="hero"><div class="tag">MODULE 04</div><h1>Python <span>Functions</span></h1><p class="lead">Master functions from the basics to practical programming: defining and calling functions, parameters, arguments, return values, scope, *args, **kwargs, lambda, recursion and function design.</p><div class="stats"><div class="stat"><b>9</b><small>Major Topics</small></div><div class="stat"><b>31</b><small>Coding Questions</small></div><div class="stat"><b>31</b><small>Theory Q&A</small></div><div class="stat"><b>Step-by-Step</b><small>Teaching Style</small></div></div></section>
+<main class="wrap"><div class="toc"><h2>Module Contents</h2><a href="#functions">1. Functions</a><a href="#parameters">2. Parameters</a><a href="#return">3. Return Values</a><a href="#scope">4. Scope</a><a href="#types">5. Argument Patterns</a><a href="#design">6. Best Practices</a><a href="#lambda">7. Lambda</a><a href="#recursion">8. Recursion</a><a href="#compare">9. Workflow</a><a href="#coding">Coding Practice</a><a href="#theory">Theory Q&A</a></div>
+
+<section class="topic" id="functions">
+<h2>1. Introduction to Functions</h2>
+<p>A <strong>function</strong> is a reusable block of code designed to perform a specific task. Functions make programs easier to organize, test, reuse and maintain.</p>
+<h3>1.1 Why Functions?</h3>
+<ul><li>Avoid repeating the same code.</li><li>Break large programs into smaller tasks.</li><li>Improve readability and debugging.</li><li>Reuse the same logic with different inputs.</li></ul>
+<h3>1.2 Defining and Calling a Function</h3>
+<pre><code>def greet():
+    print("Hello, Python!")
+
+greet()</code></pre>
+<div class="step"><strong>Step by step:</strong><ol><li><code>def</code> starts the definition.</li><li><code>greet</code> is the function name.</li><li>Parentheses hold parameters when needed.</li><li>The indented block is the function body.</li><li><code>greet()</code> calls the function.</li></ol></div>
+<h3>1.3 Function Execution</h3>
+<pre><code>def message():
+    print("Welcome")
+
+print("Before")
+message()
+print("After")</code></pre>
+<p>Defining a function does not execute its body. The body runs when the function is called.</p>
+</section>
+
+<section class="topic" id="parameters">
+<h2>2. Parameters and Arguments</h2>
+<p><strong>Parameters</strong> are variables in a function definition. <strong>Arguments</strong> are actual values supplied during the call.</p>
+<h3>2.1 One and Multiple Parameters</h3>
+<pre><code>def greet(name):
+    print("Hello", name)
+
+greet("Ravi")
+
+def add(a, b):
+    return a + b
+
+print(add(10, 20))</code></pre>
+<h3>2.2 Positional Arguments</h3>
+<pre><code>def student(name, age):
+    print(name, age)
+
+student("Ravi", 22)</code></pre>
+<p>Arguments are matched according to their position.</p>
+<h3>2.3 Keyword Arguments</h3>
+<pre><code>def student(name, age):
+    print(name, age)
+
+student(age=22, name="Ravi")</code></pre>
+<h3>2.4 Default Parameters</h3>
+<pre><code>def greet(name="Student"):
+    print("Hello", name)
+
+greet()
+greet("Anu")</code></pre>
+<h3>2.5 *args</h3>
+<pre><code>def total(*numbers):
+    return sum(numbers)
+
+print(total(10, 20, 30, 40))</code></pre>
+<p><code>*args</code> collects extra positional arguments into a tuple.</p>
+<h3>2.6 **kwargs</h3>
+<pre><code>def show_profile(**details):
+    for key, value in details.items():
+        print(key, value)
+
+show_profile(name="Ravi", age=22, city="Hyderabad")</code></pre>
+<p><code>**kwargs</code> collects extra keyword arguments into a dictionary.</p>
+</section>
+
+<section class="topic" id="return">
+<h2>3. Return Values</h2>
+<p><code>return</code> sends a result back to the caller and immediately ends that function execution.</p>
+<h3>3.1 print() vs return</h3>
+<pre><code>def add_print(a, b):
+    print(a + b)
+
+def add_return(a, b):
+    return a + b
+
+result = add_return(10, 20)
+print(result)</code></pre>
+<p><code>print()</code> displays information; <code>return</code> creates a reusable result.</p>
+<h3>3.2 Returning Multiple Values</h3>
+<pre><code>def calculate(a, b):
+    return a + b, a - b, a * b
+
+s, d, p = calculate(10, 5)
+print(s, d, p)</code></pre>
+<p>Multiple returned values are commonly packed into a tuple.</p>
+<h3>3.3 Early Return</h3>
+<pre><code>def check_age(age):
+    if age &lt; 18:
+        return "Minor"
+    return "Adult"
+
+print(check_age(20))</code></pre>
+<h3>3.4 No Explicit Return</h3>
+<pre><code>def hello():
+    print("Hello")
+
+result = hello()
+print(result)  # None</code></pre>
+</section>
+
+<section class="topic" id="scope">
+<h2>4. Scope of Variables</h2>
+<p><strong>Scope</strong> determines where a variable name can be accessed.</p>
+<h3>4.1 Local Variable</h3>
+<pre><code>def show():
+    x = 10
+    print(x)
+
+show()
+# print(x)  # NameError</code></pre>
+<h3>4.2 Global Variable</h3>
+<pre><code>x = 100
+
+def show():
+    print(x)
+
+show()</code></pre>
+<h3>4.3 Local vs Global with Same Name</h3>
+<pre><code>x = 100
+
+def test():
+    x = 50
+    print("Inside:", x)
+
+test()
+print("Outside:", x)</code></pre>
+<p>The local variable shadows the global variable inside the function.</p>
+<h3>4.4 global Keyword</h3>
+<pre><code>count = 0
+
+def increment():
+    global count
+    count += 1
+
+increment()
+print(count)</code></pre>
+<h3>4.5 LEGB Rule</h3>
+<p>Python generally searches for names in this order: <strong>Local → Enclosing → Global → Built-in</strong>.</p>
+<h3>4.6 nonlocal Keyword</h3>
+<pre><code>def outer():
+    x = 10
+
+    def inner():
+        nonlocal x
+        x += 5
+
+    inner()
+    print(x)
+
+outer()</code></pre>
+</section>
+
+<section class="topic" id="types">
+<h2>5. Practical Argument Patterns</h2>
+<h3>5.1 Passing a List</h3>
+<pre><code>def total_marks(marks):
+    return sum(marks)
+
+print(total_marks([80, 90, 85]))</code></pre>
+<h3>5.2 Passing a Dictionary</h3>
+<pre><code>def show_student(student):
+    print(student["name"])
+    print(student["marks"])
+
+show_student({"name": "Ravi", "marks": 90})</code></pre>
+<h3>5.3 Mutable Arguments</h3>
+<pre><code>def add_item(items):
+    items.append("Python")
+
+skills = ["SQL"]
+add_item(skills)
+print(skills)</code></pre>
+<p>Mutable objects such as lists can be changed by operations performed inside a function.</p>
+</section>
+
+<section class="topic" id="design">
+<h2>6. Function Design and Best Practices</h2>
+<h3>6.1 One Main Responsibility</h3>
+<pre><code>def calculate_average(marks):
+    return sum(marks) / len(marks)</code></pre>
+<p>Small focused functions are easier to test and reuse.</p>
+<h3>6.2 Docstrings</h3>
+<pre><code>def square(number):
+    '''Return the square of a number.'''
+    return number * number
+
+print(square.__doc__)</code></pre>
+<h3>6.3 Type Hints</h3>
+<pre><code>def add(a: int, b: int) -> int:
+    return a + b</code></pre>
+<p>Type hints document intended types; Python generally does not enforce them automatically at runtime.</p>
+<h3>6.4 Naming</h3>
+<p>Prefer descriptive lowercase names with underscores, such as <code>calculate_total()</code> and <code>find_maximum()</code>.</p>
+</section>
+
+<section class="topic" id="lambda">
+<h2>7. Lambda Functions</h2>
+<p>A <strong>lambda</strong> is a small anonymous function used for short expressions.</p>
+<h3>7.1 Basic Lambda</h3>
+<pre><code>square = lambda x: x * x
+print(square(5))</code></pre>
+<h3>7.2 Multiple Parameters</h3>
+<pre><code>add = lambda a, b: a + b
+print(add(10, 20))</code></pre>
+<h3>7.3 Lambda with sorted()</h3>
+<pre><code>students = [("Ravi", 80), ("Anu", 95), ("Kiran", 75)]
+students.sort(key=lambda item: item[1])
+print(students)</code></pre>
+</section>
+
+<section class="topic" id="recursion">
+<h2>8. Recursion</h2>
+<p><strong>Recursion</strong> occurs when a function calls itself. A recursive function needs a <strong>base case</strong> to stop.</p>
+<h3>8.1 Recursive Factorial</h3>
+<pre><code>def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))</code></pre>
+<div class="step"><strong>Trace:</strong> factorial(5) → 5 × factorial(4) → 5 × 4 × factorial(3) → ... → factorial(0) = 1.</div>
+<h3>8.2 Why Base Cases Matter</h3>
+<p>Without a stopping condition, recursive calls can continue until Python reaches its recursion limit.</p>
+</section>
+
+<section class="topic" id="compare">
+<h2>9. Practical Function Workflow</h2>
+<ol><li>Identify the task.</li><li>Decide required inputs.</li><li>Choose parameters.</li><li>Write the logic.</li><li>Decide whether to print or return.</li><li>Call the function.</li><li>Test normal and boundary cases.</li></ol>
+<h3>9.1 Student Result Example</h3>
+<pre><code>def result(marks):
+    average = sum(marks) / len(marks)
+
+    if average &gt;= 40:
+        return "Pass"
+    return "Fail"
+
+print(result([70, 65, 80]))</code></pre>
+<h3>9.2 Common Mistakes</h3>
+<ul><li>Forgetting to call the function.</li><li>Using print when a reusable result is required.</li><li>Using local variables outside their scope.</li><li>Passing the wrong number of required arguments.</li><li>Putting a positional argument after a keyword argument.</li><li>Forgetting the base case in recursion.</li><li>Using complicated lambda expressions.</li></ul>
+</section>
+
+<section id="coding" class="section-title"><h2>31 Coding Questions — Step-by-Step Solutions</h2><p class="lead">Try each problem yourself first, then reveal the solution.</p><div class="qcard"><div class="qhead"><span class="num">01</span><div><b>Create a simple function</b><p>Define a function that prints Hello Python and call it.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def hello():
+    print("Hello Python")
+
+hello()</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">02</span><div><b>One parameter</b><p>Create greet(name) that prints a greeting.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def greet(name):
+    print("Hello", name)
+
+greet("Ravi")</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">03</span><div><b>Add two numbers</b><p>Return the sum of two numbers.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def add(a, b):
+    return a + b
+
+print(add(10, 20))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">04</span><div><b>Subtract two numbers</b><p>Return a - b.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def subtract(a, b):
+    return a - b
+
+print(subtract(20, 8))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">05</span><div><b>Default parameter</b><p>Create a greeting function with a default name.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def greet(name="Student"):
+    print("Hello", name)
+
+greet()
+greet("Anu")</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">06</span><div><b>Keyword arguments</b><p>Call a function with keyword arguments in a different order.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def student(name, age):
+    print(name, age)
+
+student(age=22, name="Ravi")</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">07</span><div><b>Average of marks</b><p>Return the average of a list of marks.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def average(marks):
+    return sum(marks) / len(marks)
+
+print(average([80, 90, 70]))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">08</span><div><b>Maximum of three</b><p>Return the largest of three numbers.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def maximum(a, b, c):
+    return max(a, b, c)
+
+print(maximum(10, 45, 22))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">09</span><div><b>Even or odd</b><p>Return Even or Odd.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def even_odd(n):
+    if n % 2 == 0:
+        return "Even"
+    return "Odd"
+
+print(even_odd(14))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">10</span><div><b>Positive, negative or zero</b><p>Classify a number.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def classify(n):
+    if n > 0:
+        return "Positive"
+    elif n < 0:
+        return "Negative"
+    return "Zero"
+
+print(classify(-5))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">11</span><div><b>Return multiple values</b><p>Return sum, difference and product.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def calculate(a, b):
+    return a + b, a - b, a * b
+
+s, d, p = calculate(10, 5)
+print(s, d, p)</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">12</span><div><b>String length</b><p>Return the length of a string.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def string_length(text):
+    return len(text)
+
+print(string_length("Python"))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">13</span><div><b>Count vowels</b><p>Return the number of vowels.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def count_vowels(text):
+    count = 0
+    for ch in text.lower():
+        if ch in "aeiou":
+            count += 1
+    return count
+
+print(count_vowels("Programming"))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">14</span><div><b>Reverse string</b><p>Return a reversed string.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def reverse_text(text):
+    return text[::-1]
+
+print(reverse_text("Python"))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">15</span><div><b>List total</b><p>Return the total of a list.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def total(values):
+    return sum(values)
+
+print(total([10, 20, 30, 40]))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">16</span><div><b>Filter even numbers</b><p>Return only even numbers from a list.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def get_evens(numbers):
+    return [n for n in numbers if n % 2 == 0]
+
+print(get_evens([1,2,3,4,5,6]))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">17</span><div><b>Use *args</b><p>Add any number of numeric arguments.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def total(*numbers):
+    return sum(numbers)
+
+print(total(10, 20, 30, 40))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">18</span><div><b>Use **kwargs</b><p>Print all key-value pairs supplied to a function.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def show_profile(**details):
+    for key, value in details.items():
+        print(key, value)
+
+show_profile(name="Ravi", age=22, city="Hyderabad")</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">19</span><div><b>Local variable</b><p>Create and use a local variable.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def show():
+    message = "Local variable"
+    print(message)
+
+show()</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">20</span><div><b>Global variable</b><p>Read a global variable inside a function.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>x = 100
+
+def show():
+    print(x)
+
+show()</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">21</span><div><b>Modify global variable</b><p>Increment a global counter using global.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>count = 0
+
+def increment():
+    global count
+    count += 1
+
+increment()
+increment()
+print(count)</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">22</span><div><b>Nested function</b><p>Create an outer function containing an inner function.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def outer():
+    def inner():
+        print("Inside inner")
+    inner()
+
+outer()</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">23</span><div><b>nonlocal</b><p>Modify an enclosing variable.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def outer():
+    x = 10
+    def inner():
+        nonlocal x
+        x += 5
+    inner()
+    print(x)
+
+outer()</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">24</span><div><b>Docstring</b><p>Add and display a function docstring.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def square(n):
+    '''Return the square of n.'''
+    return n * n
+
+print(square.__doc__)</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">25</span><div><b>Type hints</b><p>Write a typed function that adds two integers.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def add(a: int, b: int) -> int:
+    return a + b
+
+print(add(5, 7))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">26</span><div><b>Lambda square</b><p>Use lambda to calculate a square.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>square = lambda x: x * x
+print(square(6))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">27</span><div><b>Lambda addition</b><p>Use lambda to add two numbers.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>add = lambda a, b: a + b
+print(add(8, 12))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">28</span><div><b>Sort with lambda</b><p>Sort tuples by their second value.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>students = [("Ravi", 80), ("Anu", 95), ("Kiran", 75)]
+students.sort(key=lambda x: x[1])
+print(students)</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">29</span><div><b>Recursive factorial</b><p>Calculate factorial using recursion.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">30</span><div><b>Recursive countdown</b><p>Print n down to 1 using recursion.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def countdown(n):
+    if n == 0:
+        return
+    print(n)
+    countdown(n - 1)
+
+countdown(5)</code></pre></div></div>
+<div class="qcard"><div class="qhead"><span class="num">31</span><div><b>Student result</b><p>Return Pass if average is at least 40, otherwise Fail.</p></div></div><button class="solution-btn" onclick="toggleAnswer(this)">Show Step-by-Step Solution</button><div class="answer"><ol><li>Identify the required inputs and output.</li><li>Define the function using <code>def</code>.</li><li>Write the required logic inside the indented body.</li><li>Call the function and inspect the result.</li></ol><pre><code>def result(marks):
+    average = sum(marks) / len(marks)
+    if average >= 40:
+        return "Pass"
+    return "Fail"
+
+print(result([70, 65, 80]))</code></pre></div></div></section>
+<section id="theory" class="section-title"><h2>31 Theory Questions with Answers</h2><p class="lead">Useful for revision, exams and Python interviews.</p><div class="theory-card"><button onclick="toggleTheory(this)"><span>01. What is a function?</span><span class="plus">+</span></button><div class="theory-answer">A function is a reusable block of code designed to perform a specific task.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>02. Why are functions useful?</span><span class="plus">+</span></button><div class="theory-answer">They reduce repetition and improve organization, readability, testing and reuse.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>03. Which keyword defines a function?</span><span class="plus">+</span></button><div class="theory-answer">The def keyword defines a normal Python function.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>04. What is a function call?</span><span class="plus">+</span></button><div class="theory-answer">A function call executes a function, for example greet().</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>05. What is a parameter?</span><span class="plus">+</span></button><div class="theory-answer">A parameter is a variable in a function definition that receives an argument.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>06. What is an argument?</span><span class="plus">+</span></button><div class="theory-answer">An argument is an actual value supplied when a function is called.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>07. What is a positional argument?</span><span class="plus">+</span></button><div class="theory-answer">An argument matched to a parameter according to its position.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>08. What is a keyword argument?</span><span class="plus">+</span></button><div class="theory-answer">An argument supplied using the parameter name, such as age=22.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>09. What is a default parameter?</span><span class="plus">+</span></button><div class="theory-answer">A parameter with a predefined value used when the caller omits that argument.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>10. What is *args?</span><span class="plus">+</span></button><div class="theory-answer">*args collects extra positional arguments into a tuple.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>11. What is **kwargs?</span><span class="plus">+</span></button><div class="theory-answer">**kwargs collects extra keyword arguments into a dictionary.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>12. What does return do?</span><span class="plus">+</span></button><div class="theory-answer">return sends a value back to the caller and ends the current function execution.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>13. print() vs return?</span><span class="plus">+</span></button><div class="theory-answer">print displays information; return provides a result that can be stored or reused.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>14. What happens without an explicit return?</span><span class="plus">+</span></button><div class="theory-answer">The function returns None when it finishes without an explicit return value.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>15. Can a function return multiple values?</span><span class="plus">+</span></button><div class="theory-answer">Yes. Python commonly packs multiple returned values into a tuple.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>16. What is variable scope?</span><span class="plus">+</span></button><div class="theory-answer">Scope is the region of a program where a variable name can be accessed.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>17. What is a local variable?</span><span class="plus">+</span></button><div class="theory-answer">A variable created inside a function and normally accessible only within that function.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>18. What is a global variable?</span><span class="plus">+</span></button><div class="theory-answer">A variable defined outside functions that can be read from broader program scope.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>19. What does global do?</span><span class="plus">+</span></button><div class="theory-answer">It allows a function to assign to a global variable.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>20. What is the LEGB rule?</span><span class="plus">+</span></button><div class="theory-answer">Python generally searches Local, Enclosing, Global and Built-in scopes.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>21. What does nonlocal do?</span><span class="plus">+</span></button><div class="theory-answer">It lets a nested function modify a variable in an enclosing function scope.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>22. What is a docstring?</span><span class="plus">+</span></button><div class="theory-answer">A string used as the first statement in a function to document its purpose.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>23. What are type hints?</span><span class="plus">+</span></button><div class="theory-answer">Annotations documenting intended parameter and return types.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>24. What is a lambda function?</span><span class="plus">+</span></button><div class="theory-answer">A small anonymous function written using lambda, normally containing one expression.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>25. When should lambda be used?</span><span class="plus">+</span></button><div class="theory-answer">For short, simple operations where a named def function would be unnecessarily verbose.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>26. What is recursion?</span><span class="plus">+</span></button><div class="theory-answer">Recursion is when a function calls itself.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>27. What is a base case?</span><span class="plus">+</span></button><div class="theory-answer">A condition that stops further recursive calls.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>28. Why can recursion fail?</span><span class="plus">+</span></button><div class="theory-answer">Without a proper stopping condition, calls can continue until Python reaches its recursion limit.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>29. Can functions receive lists and dictionaries?</span><span class="plus">+</span></button><div class="theory-answer">Yes. Python functions can accept objects of many data types.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>30. What is function reusability?</span><span class="plus">+</span></button><div class="theory-answer">It means the same function can be called repeatedly with different inputs.</div></div>
+<div class="theory-card"><button onclick="toggleTheory(this)"><span>31. What is good function design?</span><span class="plus">+</span></button><div class="theory-answer">Keep a function focused, use descriptive names, document important behavior and return reusable results.</div></div></section>
+<div class="footer"><a class="back" href="index.html">← Back to Python Course Syllabus</a><p>KN TECH INSTITUTE • Python Course • Module 04</p></div>
+</main>
+<script>
+function toggleAnswer(btn){const box=btn.nextElementSibling;box.classList.toggle('show');btn.textContent=box.classList.contains('show')?'Hide Step-by-Step Solution':'Show Step-by-Step Solution';}
+function toggleTheory(btn){const box=btn.nextElementSibling;box.classList.toggle('show');btn.querySelector('.plus').textContent=box.classList.contains('show')?'−':'+';}
+</script>
+</body>
+</html>
