@@ -3,517 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Python Basics: Introduction, Setup, Syntax, Variables and Data Types">
 <title>Module 01 - Python Basics | KN Tech Institute</title>
 <style>
-*{box-sizing:border-box}
-:root{--navy:#071e3b;--navy2:#102f52;--gold:#f2ae00;--bg:#f5f7fa;--text:#1d2c3d;--muted:#64748b;--line:#d9e0e8;--white:#fff}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
-.header{position:sticky;top:0;z-index:50;background:rgba(7,30,59,.97);color:white;border-bottom:1px solid rgba(255,255,255,.1)}
-.nav{max-width:1250px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-weight:800;letter-spacing:.5px}
-.back{color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);padding:8px 14px;border-radius:7px;font-weight:700}
-.back:hover{border-color:var(--gold);color:var(--gold)}
-.hero{background:linear-gradient(135deg,#071e3b,#163b64);color:white;padding:58px 20px}
-.hero-inner{max-width:1250px;margin:auto}
-.badge{display:inline-block;background:var(--gold);color:#071e3b;padding:7px 12px;border-radius:6px;font-weight:900;font-size:13px}
-h1{font-size:clamp(32px,5vw,54px);line-height:1.12;margin:16px 0 10px}
-.hero p{max-width:850px;color:#dce8f5;font-size:18px;margin:0}
-.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.stat{padding:9px 13px;border:1px solid rgba(255,255,255,.18);border-radius:8px;color:#e8f0f8;font-size:14px}
-.container{max-width:1250px;margin:auto;padding:32px 20px 60px}
-.toc{background:white;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:30px;box-shadow:0 8px 25px rgba(15,23,42,.05)}
-.toc h2{margin-top:0}
-.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.toc a{text-decoration:none;color:var(--navy);padding:10px 12px;border-radius:7px;background:#f4f7fb;font-weight:700}
-.toc a:hover{background:#fff5d6}
-.topic-section{background:white;border:1px solid var(--line);border-radius:14px;margin:24px 0;overflow:hidden;box-shadow:0 8px 25px rgba(15,23,42,.04)}
-.topic-head{display:flex;align-items:center;gap:16px;padding:22px;background:#f8fafc;border-bottom:1px solid var(--line)}
-.topic-no{width:48px;height:48px;flex:0 0 48px;border-radius:8px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-weight:900}
-.topic-head h2{margin:0;color:var(--navy);font-size:25px}
-.topic-head p{margin:2px 0 0;color:var(--muted)}
-.subtopic{padding:20px 25px;border-bottom:1px solid #edf1f5}
-.subtopic:last-child{border-bottom:0}
-.subtopic h3{color:var(--navy);margin:0 0 8px;font-size:18px}
-.content{color:#394b60}
-.content code, .answer code{background:#eef2f7;padding:2px 5px;border-radius:4px}
-.section-title{margin:50px 0 16px;color:var(--navy);font-size:30px}
-.section-intro{color:var(--muted);margin-top:-8px}
-.qa-card,.theory-card{background:white;border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}
-.q-title{display:flex;gap:12px;align-items:center}
-.q-title span,.question-btn span{background:var(--navy);color:white;border-radius:6px;padding:5px 9px;font-weight:800}
-.q-title h3{margin:0;font-size:17px}
-.reveal{margin-top:13px;border:0;background:var(--navy);color:white;padding:9px 14px;border-radius:6px;cursor:pointer;font-weight:700}
-.reveal:hover{background:var(--navy2)}
-.answer{display:none;margin-top:12px}
-.answer.show{display:block}
-pre{margin:0;background:#0b1727;color:#f3f7fb;padding:16px;border-radius:9px;overflow:auto}
-.question-btn{width:100%;display:flex;align-items:center;gap:12px;background:none;border:0;text-align:left;cursor:pointer;color:var(--text);font-size:16px;padding:0}
-.question-btn b{margin-left:auto;font-size:22px;color:var(--gold)}
-.theory-answer{display:none;margin:13px 0 0 48px;padding:13px 15px;background:#f7f9fc;border-left:3px solid var(--gold);border-radius:6px;color:#425466}
-.theory-answer.show{display:block}
-.footer{text-align:center;padding:30px 20px;background:var(--navy);color:#dbe6f2}
-.footer a{color:var(--gold);text-decoration:none;font-weight:700}
-.top-btn{position:fixed;right:20px;bottom:20px;background:var(--gold);color:var(--navy);border:0;border-radius:50%;width:44px;height:44px;font-size:18px;font-weight:900;cursor:pointer;display:none}
-.top-btn.show{display:block}
-@media(max-width:700px){.nav{padding:12px 15px}.hero{padding:42px 15px}.container{padding:24px 14px 50px}.toc-grid{grid-template-columns:1fr}.topic-head{align-items:flex-start;padding:18px 15px}.subtopic{padding:17px 15px}.topic-head h2{font-size:21px}.theory-answer{margin-left:0}}
+*{box-sizing:border-box}:root{--navy:#071e3b;--navy2:#12385f;--gold:#f2ae00;--bg:#f4f7fa;--line:#d8e0e8;--text:#24364a;--muted:#64748b;--white:#fff}
+html{scroll-behavior:smooth}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.header{position:sticky;top:0;z-index:100;background:var(--navy);color:#fff;border-bottom:2px solid var(--gold)}.nav{max-width:1280px;margin:auto;padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-weight:900;letter-spacing:.6px}.back{color:#fff;text-decoration:none;border:1px solid #71839a;border-radius:7px;padding:8px 14px;font-weight:700}.back:hover{border-color:var(--gold);color:var(--gold)}
+.hero{background:linear-gradient(135deg,#071e3b,#163e67);color:#fff;padding:55px 20px}.hero-inner{max-width:1280px;margin:auto}.badge{display:inline-block;background:var(--gold);color:var(--navy);padding:6px 12px;border-radius:6px;font-weight:900}h1{font-size:clamp(32px,5vw,56px);line-height:1.12;margin:14px 0}.hero p{max-width:950px;color:#dbe7f3;font-size:18px;margin:0}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.stat{border:1px solid #54718f;padding:7px 11px;border-radius:7px;font-size:14px}
+.container{max-width:1280px;margin:auto;padding:30px 20px 60px}.toc{background:#fff;border:1px solid var(--line);padding:22px;border-radius:13px;margin-bottom:28px}.toc h2{margin-top:0;color:var(--navy)}.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.toc a{text-decoration:none;color:var(--navy);background:#f2f6fa;padding:9px 12px;border-radius:7px;font-weight:700}.toc a:hover{background:#fff4d0}
+.main-topic{background:#fff;border:1px solid var(--line);border-radius:14px;margin:24px 0;overflow:hidden;box-shadow:0 7px 22px rgba(0,0,0,.04)}.topic-title{display:flex;gap:15px;align-items:center;padding:22px;background:#f8fafc;border-bottom:1px solid var(--line)}.topic-title>span{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;border-radius:8px;font-weight:900;font-size:19px;flex:0 0 52px}.topic-title h2{margin:0;color:var(--navy);font-size:27px}.topic-title p{margin:0;color:var(--muted)}.subtopic{padding:22px 28px;border-bottom:1px solid #e9eef3}.subtopic:last-child{border:0}.subtopic h3{margin:0 0 15px;color:var(--navy);font-size:21px}.explain{margin:14px 0;padding:15px 17px;background:#fbfcfd;border-left:3px solid #dce4ed;border-radius:5px}.explain h4{margin:0 0 6px;color:var(--navy);font-size:16px}.explain p{margin:7px 0}code{background:#edf2f6;padding:2px 5px;border-radius:4px}pre{background:#0a1829;color:#eef5fb;padding:16px;border-radius:8px;overflow:auto;line-height:1.55}pre code{background:none;padding:0;color:inherit}
+.section-title{font-size:31px;color:var(--navy);margin:48px 0 5px}.intro{color:var(--muted);margin-top:0}.coding-card,.theory-card{background:#fff;border:1px solid var(--line);border-radius:12px;margin:14px 0;padding:18px}.coding-title{display:flex;gap:12px;align-items:center}.coding-title span,.theory-card button span{background:var(--navy);color:#fff;border-radius:6px;padding:5px 9px;font-weight:900}.coding-title h3{margin:0;font-size:17px}button{cursor:pointer}.coding-card>button{margin-top:13px;border:0;background:var(--navy);color:#fff;padding:9px 13px;border-radius:6px;font-weight:700}.hidden{display:none}.answer{margin-top:14px}.theory-card button{border:0;background:transparent;width:100%;display:flex;align-items:center;gap:12px;text-align:left;color:var(--text);font-size:16px;padding:0}.theory-card button b{margin-left:auto;color:var(--gold);font-size:22px}.theory-answer{margin:13px 0 0 46px;padding:12px 14px;border-left:3px solid var(--gold);background:#f8fafc;border-radius:5px}.bottom{text-align:center;margin-top:45px}.footer{background:var(--navy);color:#d9e5f1;text-align:center;padding:28px 15px}.footer a{color:var(--gold);text-decoration:none;font-weight:700}
+@media(max-width:700px){.nav{padding:11px 13px}.brand{font-size:14px}.back{padding:7px 10px;font-size:13px}.hero{padding:40px 15px}.container{padding:22px 13px 45px}.toc-grid{grid-template-columns:1fr}.topic-title{padding:17px 15px;align-items:flex-start}.topic-title h2{font-size:21px}.subtopic{padding:18px 15px}.subtopic h3{font-size:19px}.theory-answer{margin-left:0}}
 </style>
 </head>
 <body>
 <header class="header"><nav class="nav"><div class="brand">KN TECH INSTITUTE</div><a class="back" href="index.html">← Back to Syllabus</a></nav></header>
-<section class="hero"><div class="hero-inner">
-<span class="badge">MODULE 01</span>
-<h1>Python Basics</h1>
-<p>Introduction, Setup, Syntax, Variables &amp; Data Types — a complete beginner-friendly module with detailed explanations, examples, coding practice and theory questions.</p>
-<div class="stats"><span class="stat">5 Core Topics</span><span class="stat">40+ Subtopics &amp; Concepts</span><span class="stat">25 Coding Questions</span><span class="stat">30 Theory Questions</span></div>
-</div></section>
+<section class="hero"><div class="hero-inner"><span class="badge">MODULE 01</span><h1>Python Basics</h1><p><strong>Introduction, Setup, Syntax, Variables &amp; Data Types</strong><br>A step-by-step learning page designed to explain every concept from beginner level, with practical examples, coding practice and theory revision.</p><div class="stats"><span class="stat">5 Major Topics</span><span class="stat">Detailed Subtopics</span><span class="stat">25 Coding Questions</span><span class="stat">30 Theory Q&amp;A</span></div></div></section>
 <main class="container">
-<section class="toc"><h2>Module Navigation</h2><div class="toc-grid">
-<a href="#topic-1">01. Introduction to Python</a><a href="#topic-2">02. Python Setup</a>
-<a href="#topic-3">03. Python Syntax</a><a href="#topic-4">04. Variables</a>
-<a href="#topic-5">05. Data Types</a><a href="#coding">06. Coding Questions</a>
-<a href="#theory">07. Theory Questions</a>
-</div></section>
-
-    <section class="topic-section" id="topic-1">
-      <div class="topic-head"><span class="topic-no">01</span><div><h2>1. Introduction to Python</h2><p>Detailed topic-wise and subtopic-wise explanation</p></div></div>
-      
-      <article class="subtopic">
-        <h3>1. What is Python?</h3>
-        <div class="content">Python is a high-level, general-purpose programming language. It is designed to make programs readable and relatively quick to develop. Python is widely used in web development, automation, data analysis, artificial intelligence, machine learning, cybersecurity, testing, scripting and education.</div>
-      </article>
-      <article class="subtopic">
-        <h3>2. Key characteristics of Python</h3>
-        <div class="content">Python is interpreted, dynamically typed, object-oriented, cross-platform, open-source and supported by a very large standard library and third-party ecosystem.</div>
-      </article>
-      <article class="subtopic">
-        <h3>3. Why Python is popular</h3>
-        <div class="content">Its readable syntax, huge ecosystem, strong community, extensive documentation and suitability for both beginners and professional developers make Python useful across many domains.</div>
-      </article>
-      <article class="subtopic">
-        <h3>4. Where Python is used</h3>
-        <div class="content">Common areas include automation, web applications, APIs, data analysis, data science, AI/ML, cybersecurity, DevOps, testing, desktop tools and education.</div>
-      </article>
-      <article class="subtopic">
-        <h3>5. Python implementations</h3>
-        <div class="content">CPython is the standard implementation distributed by Python.org. Other implementations include PyPy and Jython. Most beginners and production projects start with CPython.</div>
-      </article>
-      <article class="subtopic">
-        <h3>6. Python versions</h3>
-        <div class="content">Modern Python uses Python 3. Python 2 is obsolete and should not be used for new projects. Always check the Python version required by a project and its packages.</div>
-      </article>
-    </section>
-    <section class="topic-section" id="topic-2">
-      <div class="topic-head"><span class="topic-no">02</span><div><h2>2. Python Setup</h2><p>Detailed topic-wise and subtopic-wise explanation</p></div></div>
-      
-      <article class="subtopic">
-        <h3>1. Installing Python</h3>
-        <div class="content">Download Python 3 from the official Python website and install it for your operating system. On Windows, enable the option that adds Python to PATH when the installer provides it.</div>
-      </article>
-      <article class="subtopic">
-        <h3>2. Checking the installation</h3>
-        <div class="content">Open a terminal or command prompt and run <code>python --version</code>. On some systems, use <code>python3 --version</code>.</div>
-      </article>
-      <article class="subtopic">
-        <h3>3. Python interactive shell</h3>
-        <div class="content">Running <code>python</code> in a terminal starts the interactive interpreter, where expressions can be executed immediately. This is useful for quick experiments.</div>
-      </article>
-      <article class="subtopic">
-        <h3>4. Editors and IDEs</h3>
-        <div class="content">You can write Python in VS Code, PyCharm, IDLE, Jupyter environments and other editors. An editor helps with syntax highlighting, debugging, navigation and project management.</div>
-      </article>
-      <article class="subtopic">
-        <h3>5. Running a Python file</h3>
-        <div class="content">Save code in a file ending with <code>.py</code>, such as <code>hello.py</code>, and run it from a terminal with <code>python hello.py</code>.</div>
-      </article>
-      <article class="subtopic">
-        <h3>6. Virtual environments</h3>
-        <div class="content">A virtual environment isolates project dependencies. A common workflow is <code>python -m venv .venv</code>, followed by activating the environment before installing project packages.</div>
-      </article>
-      <article class="subtopic">
-        <h3>7. pip and packages</h3>
-        <div class="content">pip is the commonly used package installer for Python. For example, <code>python -m pip install requests</code> installs the Requests package into the active environment.</div>
-      </article>
-    </section>
-    <section class="topic-section" id="topic-3">
-      <div class="topic-head"><span class="topic-no">03</span><div><h2>3. Python Syntax</h2><p>Detailed topic-wise and subtopic-wise explanation</p></div></div>
-      
-      <article class="subtopic">
-        <h3>1. Statements and expressions</h3>
-        <div class="content">A statement performs an action, while an expression produces a value. For example, <code>x = 10</code> is an assignment statement and <code>10 + 5</code> is an expression.</div>
-      </article>
-      <article class="subtopic">
-        <h3>2. Indentation</h3>
-        <div class="content">Python uses indentation to define blocks. Consistent indentation is mandatory. Four spaces are the conventional indentation level.</div>
-      </article>
-      <article class="subtopic">
-        <h3>3. Comments</h3>
-        <div class="content">A single-line comment begins with <code>#</code>. Comments explain intent and improve maintainability. Python does not execute the text of a comment.</div>
-      </article>
-      <article class="subtopic">
-        <h3>4. Case sensitivity</h3>
-        <div class="content">Python is case-sensitive. <code>name</code>, <code>Name</code> and <code>NAME</code> are different identifiers.</div>
-      </article>
-      <article class="subtopic">
-        <h3>5. Identifiers</h3>
-        <div class="content">Identifiers are names for variables, functions, classes and other objects. They can contain letters, digits and underscores, but cannot begin with a digit and cannot be a Python keyword.</div>
-      </article>
-      <article class="subtopic">
-        <h3>6. Keywords</h3>
-        <div class="content">Keywords have special meaning in Python, such as <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>def</code>, <code>class</code>, <code>return</code>, <code>True</code>, <code>False</code> and <code>None</code>.</div>
-      </article>
-      <article class="subtopic">
-        <h3>7. Input and output</h3>
-        <div class="content"><code>print()</code> displays information. <code>input()</code> reads text from the user and returns a string, so numeric input normally needs conversion using <code>int()</code> or <code>float()</code>.</div>
-      </article>
-      <article class="subtopic">
-        <h3>8. Operators</h3>
-        <div class="content">Python supports arithmetic operators such as +, -, *, /, //, %, **; comparison operators such as ==, !=, > and <; logical operators such as and, or, not; and assignment operators such as =, += and -=.</div>
-      </article>
-    </section>
-    <section class="topic-section" id="topic-4">
-      <div class="topic-head"><span class="topic-no">04</span><div><h2>4. Variables</h2><p>Detailed topic-wise and subtopic-wise explanation</p></div></div>
-      
-      <article class="subtopic">
-        <h3>1. What is a variable?</h3>
-        <div class="content">A variable is a name bound to an object/value. Python variables do not require a separate type declaration; the type is associated with the object currently referenced.</div>
-      </article>
-      <article class="subtopic">
-        <h3>2. Creating and assigning variables</h3>
-        <div class="content">Use the assignment operator: <code>age = 26</code>. Python evaluates the right-hand side and binds the name on the left to the resulting object.</div>
-      </article>
-      <article class="subtopic">
-        <h3>3. Dynamic typing</h3>
-        <div class="content">A variable can be rebound to an object of another type. For example, <code>x = 10</code> followed later by <code>x = 'Python'</code> is valid.</div>
-      </article>
-      <article class="subtopic">
-        <h3>4. Multiple assignment</h3>
-        <div class="content">Python supports statements such as <code>a, b = 10, 20</code> and <code>x = y = 0</code>. Multiple assignment can make code concise and readable when used appropriately.</div>
-      </article>
-      <article class="subtopic">
-        <h3>5. Naming conventions</h3>
-        <div class="content">Prefer descriptive names such as <code>student_name</code> and <code>total_marks</code>. PEP 8 commonly recommends snake_case for variables and functions.</div>
-      </article>
-      <article class="subtopic">
-        <h3>6. Constants</h3>
-        <div class="content">Python does not enforce constants at the language level. By convention, a value intended to remain constant is written in uppercase, such as <code>PI = 3.14159</code>.</div>
-      </article>
-      <article class="subtopic">
-        <h3>7. Checking type and identity</h3>
-        <div class="content">Use <code>type(value)</code> to inspect an object's type. The <code>is</code> operator checks object identity; it should not normally be used as a replacement for <code>==</code> when comparing values.</div>
-      </article>
-      <article class="subtopic">
-        <h3>8. Deleting a name</h3>
-        <div class="content">The <code>del</code> statement removes a name binding, for example <code>del x</code>. It does not mean that the object is necessarily immediately destroyed if another reference exists.</div>
-      </article>
-    </section>
-    <section class="topic-section" id="topic-5">
-      <div class="topic-head"><span class="topic-no">05</span><div><h2>5. Data Types</h2><p>Detailed topic-wise and subtopic-wise explanation</p></div></div>
-      
-      <article class="subtopic">
-        <h3>1. Numeric types</h3>
-        <div class="content">Python's main built-in numeric types are <code>int</code>, <code>float</code> and <code>complex</code>. Examples are <code>10</code>, <code>3.14</code> and <code>2+3j</code>.</div>
-      </article>
-      <article class="subtopic">
-        <h3>2. Boolean</h3>
-        <div class="content">The Boolean type <code>bool</code> has two values: <code>True</code> and <code>False</code>. Boolean expressions are commonly used in conditions.</div>
-      </article>
-      <article class="subtopic">
-        <h3>3. Strings</h3>
-        <div class="content">A string is a sequence of Unicode characters. Strings can be written with single, double or triple quotes. They are immutable and support indexing, slicing and many methods.</div>
-      </article>
-      <article class="subtopic">
-        <h3>4. Lists</h3>
-        <div class="content">A list is an ordered, mutable collection. Example: <code>[10, 20, 30]</code>. Lists can contain mixed types and duplicate values.</div>
-      </article>
-      <article class="subtopic">
-        <h3>5. Tuples</h3>
-        <div class="content">A tuple is an ordered, immutable collection. Example: <code>(10, 20, 30)</code>. Tuples are useful for fixed collections and can be used where immutability is desirable.</div>
-      </article>
-      <article class="subtopic">
-        <h3>6. Sets</h3>
-        <div class="content">A set is an unordered collection of unique elements. Sets are useful for removing duplicates and performing mathematical set operations.</div>
-      </article>
-      <article class="subtopic">
-        <h3>7. Dictionaries</h3>
-        <div class="content">A dictionary stores key-value pairs, such as <code>{'name': 'Ravi', 'age': 25}</code>. Keys must satisfy the requirements for dictionary keys and are normally immutable/hashable objects.</div>
-      </article>
-      <article class="subtopic">
-        <h3>8. None</h3>
-        <div class="content"><code>None</code> represents the absence of a value or a null-like state. It is a singleton object and is commonly used as a default or placeholder.</div>
-      </article>
-      <article class="subtopic">
-        <h3>9. Mutable vs immutable</h3>
-        <div class="content">Lists, sets and dictionaries are mutable. Integers, floats, booleans, strings and tuples are immutable. Understanding mutability is important when passing objects to functions and sharing references.</div>
-      </article>
-      <article class="subtopic">
-        <h3>10. Type conversion</h3>
-        <div class="content">Common conversions include <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>, <code>list()</code>, <code>tuple()</code> and <code>set()</code>. Conversion may fail if the supplied value is not compatible.</div>
-      </article>
-    </section>
-<section id="coding"><h2 class="section-title">25 Python Coding Questions</h2><p class="section-intro">Try each problem yourself first. Click “Show Answer” to reveal a reference solution.</p>
-    <div class="qa-card">
-      <div class="q-title"><span>01</span><h3>Print a welcome message</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>print(&#x27;Welcome to Python&#x27;)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>02</span><h3>Print your name, age and city</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>name = &#x27;Naveen&#x27;\nage = 26\ncity = &#x27;Hyderabad&#x27;\nprint(name, age, city)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>03</span><h3>Add two numbers</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>a = 25\nb = 15\nprint(a + b)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>04</span><h3>Calculate area of a rectangle</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>length = 12\nwidth = 5\narea = length * width\nprint(area)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>05</span><h3>Calculate simple interest</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>p = 10000\nr = 7.5\nt = 2\nsi = (p * r * t) / 100\nprint(si)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>06</span><h3>Convert Celsius to Fahrenheit</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>c = 30\nf = (c * 9/5) + 32\nprint(f)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>07</span><h3>Swap two variables</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>a = 10\nb = 20\na, b = b, a\nprint(a, b)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>08</span><h3>Find the type of different values</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>values = [10, 3.14, &#x27;Python&#x27;, True, None]\nfor value in values:\n    print(value, type(value))</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>09</span><h3>Take name as input and greet the user</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>name = input(&#x27;Enter your name: &#x27;)\nprint(&#x27;Hello,&#x27;, name)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>10</span><h3>Take two integers and print their sum</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>a = int(input(&#x27;Enter first number: &#x27;))\nb = int(input(&#x27;Enter second number: &#x27;))\nprint(&#x27;Sum =&#x27;, a + b)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>11</span><h3>Calculate total and average of three marks</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>a = float(input(&#x27;Mark 1: &#x27;))\nb = float(input(&#x27;Mark 2: &#x27;))\nc = float(input(&#x27;Mark 3: &#x27;))\ntotal = a + b + c\naverage = total / 3\nprint(&#x27;Total:&#x27;, total)\nprint(&#x27;Average:&#x27;, average)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>12</span><h3>Create and display a list</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>fruits = [&#x27;Apple&#x27;, &#x27;Banana&#x27;, &#x27;Mango&#x27;]\nprint(fruits)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>13</span><h3>Access the first and last item of a list</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>numbers = [10, 20, 30, 40, 50]\nprint(numbers[0])\nprint(numbers[-1])</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>14</span><h3>Slice a string</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>text = &#x27;PYTHON&#x27;\nprint(text[:3])\nprint(text[3:])</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>15</span><h3>Count characters in a string</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>text = input(&#x27;Enter text: &#x27;)\nprint(&#x27;Length:&#x27;, len(text))</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>16</span><h3>Convert string input to integer and multiply</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>n = int(input(&#x27;Enter a number: &#x27;))\nprint(n * 10)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>17</span><h3>Create a tuple and unpack it</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>person = (&#x27;Naveen&#x27;, 26, &#x27;Hyderabad&#x27;)\nname, age, city = person\nprint(name)\nprint(age)\nprint(city)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>18</span><h3>Remove duplicates using a set</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>numbers = [10, 20, 10, 30, 20, 40]\nunique_numbers = set(numbers)\nprint(unique_numbers)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>19</span><h3>Create a dictionary and access values</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>student = {&#x27;name&#x27;: &#x27;Ravi&#x27;, &#x27;age&#x27;: 21, &#x27;course&#x27;: &#x27;Python&#x27;}\nprint(student[&#x27;name&#x27;])\nprint(student[&#x27;course&#x27;])</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>20</span><h3>Update a dictionary value</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>student = {&#x27;name&#x27;: &#x27;Ravi&#x27;, &#x27;age&#x27;: 21}\nstudent[&#x27;age&#x27;] = 22\nprint(student)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>21</span><h3>Demonstrate arithmetic operators</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>a, b = 17, 5\nprint(a+b)\nprint(a-b)\nprint(a*b)\nprint(a/b)\nprint(a//b)\nprint(a%b)\nprint(a**b)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>22</span><h3>Compare two numbers</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>a = 25\nb = 30\nprint(a &gt; b)\nprint(a &lt; b)\nprint(a == b)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>23</span><h3>Check whether a value is truthy</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>value = input(&#x27;Enter something: &#x27;)\nprint(bool(value))</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>24</span><h3>Demonstrate mutable list behavior</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>items = [1, 2, 3]\nitems.append(4)\nitems[0] = 100\nprint(items)</code></pre></div>
-    </div>
-    <div class="qa-card">
-      <div class="q-title"><span>25</span><h3>Build a small student profile</h3></div>
-      <button class="reveal" onclick="toggleAnswer(this)">Show Answer</button>
-      <div class="answer"><pre><code>name = input(&#x27;Name: &#x27;)\nage = int(input(&#x27;Age: &#x27;))\ncourse = input(&#x27;Course: &#x27;)\nstudent = {&#x27;name&#x27;: name, &#x27;age&#x27;: age, &#x27;course&#x27;: course}\nprint(student)</code></pre></div>
-    </div></section>
-<section id="theory"><h2 class="section-title">30 Theory Questions with Answers</h2><p class="section-intro">Use these for revision, interviews, classroom tests and quick assessment.</p>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>01</span><strong>What is Python?</strong><b>+</b></button>
-      <div class="theory-answer">Python is a high-level, general-purpose programming language with readable syntax and a large ecosystem.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>02</span><strong>Is Python case-sensitive?</strong><b>+</b></button>
-      <div class="theory-answer">Yes. Names such as name and Name are different.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>03</span><strong>What is an interpreter?</strong><b>+</b></button>
-      <div class="theory-answer">An interpreter executes program instructions through a language implementation rather than requiring the same traditional compile-to-native workflow used by some languages.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>04</span><strong>What is the Python file extension?</strong><b>+</b></button>
-      <div class="theory-answer">Python source files normally use the .py extension.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>05</span><strong>What is indentation in Python?</strong><b>+</b></button>
-      <div class="theory-answer">Indentation is whitespace used to define code blocks. Consistent indentation is required.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>06</span><strong>What symbol starts a single-line comment?</strong><b>+</b></button>
-      <div class="theory-answer">#</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>07</span><strong>What is a variable?</strong><b>+</b></button>
-      <div class="theory-answer">A variable is a name bound to an object/value.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>08</span><strong>Does Python require variable type declarations?</strong><b>+</b></button>
-      <div class="theory-answer">No. Python is dynamically typed.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>09</span><strong>What does type() do?</strong><b>+</b></button>
-      <div class="theory-answer">It returns the type/class of an object.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>10</span><strong>What does input() return?</strong><b>+</b></button>
-      <div class="theory-answer">It normally returns the user&#x27;s input as a string.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>11</span><strong>What does print() do?</strong><b>+</b></button>
-      <div class="theory-answer">It writes/display values to standard output.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>12</span><strong>What are identifiers?</strong><b>+</b></button>
-      <div class="theory-answer">Identifiers are names used for variables, functions, classes and other program objects.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>13</span><strong>Can an identifier start with a number?</strong><b>+</b></button>
-      <div class="theory-answer">No. An identifier cannot begin with a digit.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>14</span><strong>What are keywords?</strong><b>+</b></button>
-      <div class="theory-answer">Keywords are reserved words with special meaning in Python.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>15</span><strong>What is an integer?</strong><b>+</b></button>
-      <div class="theory-answer">int represents whole numbers such as -5, 0 and 42.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>16</span><strong>What is a float?</strong><b>+</b></button>
-      <div class="theory-answer">float represents floating-point numbers such as 3.14.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>17</span><strong>What is a Boolean?</strong><b>+</b></button>
-      <div class="theory-answer">bool represents True or False.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>18</span><strong>What is a string?</strong><b>+</b></button>
-      <div class="theory-answer">str represents a sequence of Unicode characters.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>19</span><strong>Are strings mutable?</strong><b>+</b></button>
-      <div class="theory-answer">No. Python strings are immutable.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>20</span><strong>What is a list?</strong><b>+</b></button>
-      <div class="theory-answer">A list is an ordered, mutable collection.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>21</span><strong>What is a tuple?</strong><b>+</b></button>
-      <div class="theory-answer">A tuple is an ordered, immutable collection.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>22</span><strong>What is a set?</strong><b>+</b></button>
-      <div class="theory-answer">A set is a collection of unique elements.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>23</span><strong>What is a dictionary?</strong><b>+</b></button>
-      <div class="theory-answer">A dictionary stores key-value pairs.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>24</span><strong>What is None?</strong><b>+</b></button>
-      <div class="theory-answer">None is a singleton object commonly used to represent no value or an absent result.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>25</span><strong>What is type conversion?</strong><b>+</b></button>
-      <div class="theory-answer">Type conversion changes or constructs a value as another type, such as int(&#x27;10&#x27;) or str(25).</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>26</span><strong>What is dynamic typing?</strong><b>+</b></button>
-      <div class="theory-answer">The type belongs to the object and a variable name can be rebound to objects of different types.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>27</span><strong>What is mutability?</strong><b>+</b></button>
-      <div class="theory-answer">Mutability describes whether an object&#x27;s contents can be changed after creation.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>28</span><strong>What is the difference between == and is?</strong><b>+</b></button>
-      <div class="theory-answer">== compares values for equality; is checks whether two references point to the same object.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>29</span><strong>What is a virtual environment?</strong><b>+</b></button>
-      <div class="theory-answer">It is an isolated Python environment used to keep a project&#x27;s dependencies separate from other projects.</div>
-    </div>
-    <div class="theory-card">
-      <button class="question-btn" onclick="toggleAnswer(this)"><span>30</span><strong>What is pip?</strong><b>+</b></button>
-      <div class="theory-answer">pip is a commonly used Python package installer.</div>
-    </div></section>
-<div style="text-align:center;margin-top:45px"><a class="back" style="display:inline-block;background:#071e3b;border-color:#071e3b" href="index.html">← Back to Course Syllabus</a></div>
+<section class="toc"><h2>📚 Module Contents</h2><div class="toc-grid"><a href="#topic1">01. 1. Introduction to Python</a><a href="#topic2">02. 2. Python Setup</a><a href="#topic3">03. 3. Python Syntax</a><a href="#topic4">04. 4. Variables</a><a href="#topic5">05. 5. Data Types</a><a href="#coding">06. Coding Practice</a><a href="#theory">07. Theory Questions</a></div></section>
+<section class="main-topic" id="topic1"><div class="topic-title"><span>01</span><div><h2>1. Introduction to Python</h2><p>Step-by-step explanation</p></div></div><article class="subtopic"><h3>1.1 What is Python?</h3><div class="explain"><h4>Step 1 — Understand the meaning</h4><div>Python is a high-level, general-purpose programming language. High-level means the syntax is designed for humans to read and write more easily than low-level machine instructions.</div></div><div class="explain"><h4>Step 2 — Understand what a programming language does</h4><div>A programming language lets us give instructions to a computer. For example, we can tell Python to calculate a value, store data, read a file, process a dataset, or display a message.</div></div><div class="explain"><h4>Step 3 — Why Python is different</h4><div>Python emphasizes readable code and uses indentation to organize blocks. Many common tasks can be expressed with relatively few lines of code.</div></div><div class="explain"><h4>Step 4 — Where Python is used</h4><div>Python is used for automation, web development, APIs, data analysis, data science, AI and machine learning, cybersecurity, testing, DevOps, scripting and education.</div></div><div class="explain"><h4>Example</h4><div><pre><code>print("Hello, Python!")</code></pre><p>Here <code>print()</code> is a built-in Python function that displays text.</p></div></div></article><article class="subtopic"><h3>1.2 Features of Python</h3><div class="explain"><h4>Readable syntax</h4><div>Python code is designed to be easy to read. This helps beginners understand programs and helps teams maintain code.</div></div><div class="explain"><h4>Interpreted execution model</h4><div>With the standard CPython implementation, source code is compiled to bytecode and then executed by the Python virtual machine. You normally run the program directly with the Python interpreter.</div></div><div class="explain"><h4>Dynamically typed</h4><div>You do not normally declare a variable's type before assigning a value. The object referenced by the name has a type.</div></div><div class="explain"><h4>Object-oriented</h4><div>Python supports classes, objects, inheritance, polymorphism and other object-oriented programming concepts.</div></div><div class="explain"><h4>Cross-platform</h4><div>Python programs can run on Windows, macOS and Linux when the required Python version and dependencies are available.</div></div><div class="explain"><h4>Large ecosystem</h4><div>Python includes a standard library and a huge collection of third-party packages.</div></div></article><article class="subtopic"><h3>1.3 Python program execution — step by step</h3><div class="explain"><h4>Step 1</h4><div>You write Python source code in a file such as <code>hello.py</code>.</div></div><div class="explain"><h4>Step 2</h4><div>You start Python and ask it to run that file, for example <code>python hello.py</code>.</div></div><div class="explain"><h4>Step 3</h4><div>CPython parses the source and compiles it to bytecode internally.</div></div><div class="explain"><h4>Step 4</h4><div>The Python runtime executes the bytecode and performs the requested operations.</div></div><div class="explain"><h4>Step 5</h4><div>The program produces output, changes data, reads input, writes files or performs another task.</div></div></article><article class="subtopic"><h3>1.4 First Python program</h3><div class="explain"><h4>Step 1</h4><div>Create a file named <code>hello.py</code>.</div></div><div class="explain"><h4>Step 2</h4><div>Write: <code>print("Hello World")</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Save the file.</div></div><div class="explain"><h4>Step 4</h4><div>Open a terminal in that folder.</div></div><div class="explain"><h4>Step 5</h4><div>Run <code>python hello.py</code>.</div></div><div class="explain"><h4>Expected output</h4><div><pre><code>Hello World</code></pre></div></div><div class="explain"><h4>What happened?</h4><div>Python called <code>print()</code>, evaluated the string value, and displayed it on the screen.</div></div></article><article class="subtopic"><h3>1.5 Python applications</h3><div class="explain"><h4>Automation</h4><div>Rename files, process folders, generate reports, send notifications and automate repetitive tasks.</div></div><div class="explain"><h4>Data analysis</h4><div>Use libraries such as pandas and NumPy to clean, transform and analyze data.</div></div><div class="explain"><h4>AI and machine learning</h4><div>Python is widely used with libraries and frameworks for machine learning and AI.</div></div><div class="explain"><h4>Web and APIs</h4><div>Frameworks such as Flask, FastAPI and Django can be used to build web applications and APIs.</div></div><div class="explain"><h4>Cybersecurity</h4><div>Python is useful for scripting, log analysis, automation, testing and defensive security tooling.</div></div></article></section><section class="main-topic" id="topic2"><div class="topic-title"><span>02</span><div><h2>2. Python Setup</h2><p>Step-by-step explanation</p></div></div><article class="subtopic"><h3>2.1 Install Python — step by step</h3><div class="explain"><h4>Step 1</h4><div>Go to the official Python download page and select Python 3 for your operating system.</div></div><div class="explain"><h4>Step 2</h4><div>Run the installer.</div></div><div class="explain"><h4>Step 3</h4><div>On Windows, enable the option to add Python to PATH when it is available in the installer.</div></div><div class="explain"><h4>Step 4</h4><div>Complete the installation.</div></div><div class="explain"><h4>Step 5</h4><div>Open Command Prompt or PowerShell.</div></div><div class="explain"><h4>Step 6</h4><div>Run <code>python --version</code>. If your system uses the alternative command, try <code>python3 --version</code>.</div></div><div class="explain"><h4>Step 7</h4><div>If a Python version is displayed, the command is available from your terminal.</div></div></article><article class="subtopic"><h3>2.2 Understanding Python PATH</h3><div class="explain"><h4>What is PATH?</h4><div>PATH is an operating-system environment variable containing folders where executable programs can be found.</div></div><div class="explain"><h4>Why does it matter?</h4><div>If Python is on PATH, you can type <code>python</code> in a terminal without entering the full installation path.</div></div><div class="explain"><h4>Common issue</h4><div>If <code>python</code> is not recognized, Python may not be installed correctly, may not be on PATH, or your system may use <code>python3</code> instead.</div></div></article><article class="subtopic"><h3>2.3 Python interactive shell</h3><div class="explain"><h4>Step 1</h4><div>Open a terminal.</div></div><div class="explain"><h4>Step 2</h4><div>Run <code>python</code> or <code>python3</code>.</div></div><div class="explain"><h4>Step 3</h4><div>You will see a prompt such as <code>&gt;&gt;&gt;</code>.</div></div><div class="explain"><h4>Step 4</h4><div>Type an expression: <code>10 + 20</code>.</div></div><div class="explain"><h4>Step 5</h4><div>Python immediately displays <code>30</code>.</div></div><div class="explain"><h4>When to use it</h4><div>The interactive shell is excellent for testing a small expression, checking a method, experimenting with types or learning syntax.</div></div></article><article class="subtopic"><h3>2.4 Writing and running a .py file</h3><div class="explain"><h4>Step 1</h4><div>Create a folder for your project.</div></div><div class="explain"><h4>Step 2</h4><div>Create <code>main.py</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Write Python code.</div></div><div class="explain"><h4>Step 4</h4><div>Save it.</div></div><div class="explain"><h4>Step 5</h4><div>Open the terminal in that folder.</div></div><div class="explain"><h4>Step 6</h4><div>Run <code>python main.py</code>.</div></div><div class="explain"><h4>Step 7</h4><div>Read the output or error message.</div></div></article><article class="subtopic"><h3>2.5 Editor vs IDE</h3><div class="explain"><h4>Text editor</h4><div>A code editor such as VS Code provides syntax highlighting, extensions, terminal integration and debugging features.</div></div><div class="explain"><h4>IDE</h4><div>An integrated development environment combines coding, project navigation, debugging and other development tools in one application.</div></div><div class="explain"><h4>Beginner recommendation</h4><div>Use an editor or IDE you are comfortable with. The most important skill is understanding the Python code, not memorizing a particular editor.</div></div></article><article class="subtopic"><h3>2.6 Virtual environment — step by step</h3><div class="explain"><h4>Step 1</h4><div>Open the project folder.</div></div><div class="explain"><h4>Step 2</h4><div>Create an environment with <code>python -m venv .venv</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Activate it using the command appropriate for your operating system.</div></div><div class="explain"><h4>Step 4</h4><div>Install project-specific packages with pip.</div></div><div class="explain"><h4>Step 5</h4><div>Keep the environment associated with that project.</div></div><div class="explain"><h4>Why?</h4><div>Different projects may require different package versions. A virtual environment prevents many dependency conflicts.</div></div></article><article class="subtopic"><h3>2.7 pip and packages</h3><div class="explain"><h4>Step 1</h4><div>Confirm your Python environment is active.</div></div><div class="explain"><h4>Step 2</h4><div>Run <code>python -m pip --version</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Install a package, for example <code>python -m pip install requests</code>.</div></div><div class="explain"><h4>Step 4</h4><div>Import it in Python using <code>import requests</code>.</div></div><div class="explain"><h4>Important</h4><div>Install packages only from trusted sources and understand the dependencies you add to a project.</div></div></article></section><section class="main-topic" id="topic3"><div class="topic-title"><span>03</span><div><h2>3. Python Syntax</h2><p>Step-by-step explanation</p></div></div><article class="subtopic"><h3>3.1 Basic syntax</h3><div class="explain"><h4>Step 1</h4><div>Python reads instructions from your source code.</div></div><div class="explain"><h4>Step 2</h4><div>Statements are generally written one per line.</div></div><div class="explain"><h4>Step 3</h4><div>Indentation groups related statements into blocks.</div></div><div class="explain"><h4>Step 4</h4><div>Expressions calculate or produce values.</div></div><div class="explain"><h4>Example</h4><div><pre><code>x = 10
+y = 20
+print(x + y)</code></pre><p>The first two lines assign values. The third line evaluates <code>x + y</code> and prints the result.</p></div></div></article><article class="subtopic"><h3>3.2 Indentation — very important</h3><div class="explain"><h4>Why indentation matters</h4><div>Python uses indentation to define blocks instead of relying on braces such as <code>{ }</code>.</div></div><div class="explain"><h4>Step 1</h4><div>Start a block after a statement such as <code>if</code>, <code>for</code>, <code>while</code> or <code>def</code>.</div></div><div class="explain"><h4>Step 2</h4><div>End that line with a colon <code>:</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Indent the statements belonging to the block.</div></div><div class="explain"><h4>Example</h4><div><pre><code>age = 20
+if age >= 18:
+    print("Adult")</code></pre></div></div><div class="explain"><h4>Common error</h4><div>Mixing tabs and spaces or using inconsistent indentation can cause indentation errors. Four spaces is the common convention.</div></div></article><article class="subtopic"><h3>3.3 Comments</h3><div class="explain"><h4>Single-line comment</h4><div>Use <code>#</code> before the comment text.</div></div><div class="explain"><h4>Example</h4><div><pre><code># Calculate the total
+total = price * quantity</code></pre></div></div><div class="explain"><h4>Good comments</h4><div>Explain why something is done when the reason is not obvious. Avoid comments that merely repeat the code.</div></div></article><article class="subtopic"><h3>3.4 Identifiers</h3><div class="explain"><h4>Definition</h4><div>An identifier is a name used for a variable, function, class or other program object.</div></div><div class="explain"><h4>Valid examples</h4><div><code>student_name</code>, <code>total_marks</code>, <code>age2</code>, <code>_count</code>.</div></div><div class="explain"><h4>Invalid examples</h4><div><code>2name</code> is invalid because an identifier cannot begin with a digit.</div></div><div class="explain"><h4>Naming tip</h4><div>Use meaningful names instead of vague names such as <code>x</code> when a more descriptive name improves readability.</div></div></article><article class="subtopic"><h3>3.5 Keywords</h3><div class="explain"><h4>Definition</h4><div>Keywords are reserved words that have special meaning in Python.</div></div><div class="explain"><h4>Examples</h4><div><code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>def</code>, <code>class</code>, <code>return</code>, <code>True</code>, <code>False</code>, <code>None</code>.</div></div><div class="explain"><h4>How to see keywords</h4><div><pre><code>import keyword
+print(keyword.kwlist)</code></pre></div></div></article><article class="subtopic"><h3>3.6 print() — step by step</h3><div class="explain"><h4>Step 1</h4><div>Write <code>print()</code>.</div></div><div class="explain"><h4>Step 2</h4><div>Put the value you want to display inside the parentheses.</div></div><div class="explain"><h4>Step 3</h4><div>Use quotes for text.</div></div><div class="explain"><h4>Examples</h4><div><pre><code>print("Python")
+print(100)
+name = "Naveen"
+print(name)</code></pre></div></div><div class="explain"><h4>Multiple values</h4><div><code>print("Age:", 26)</code> displays both values separated by a space by default.</div></div></article><article class="subtopic"><h3>3.7 input() — step by step</h3><div class="explain"><h4>Step 1</h4><div>Call <code>input()</code>.</div></div><div class="explain"><h4>Step 2</h4><div>Optionally provide a prompt.</div></div><div class="explain"><h4>Step 3</h4><div>Python waits for the user to type something and press Enter.</div></div><div class="explain"><h4>Step 4</h4><div>The returned value is a string.</div></div><div class="explain"><h4>Example</h4><div><pre><code>name = input("Enter your name: ")
+print("Hello", name)</code></pre></div></div><div class="explain"><h4>Important</h4><div>If the user enters 25, <code>input()</code> returns <code>"25"</code>, not the integer <code>25</code>.</div></div></article><article class="subtopic"><h3>3.8 Type conversion</h3><div class="explain"><h4>String to integer</h4><div><code>age = int(input("Age: "))</code></div></div><div class="explain"><h4>String to float</h4><div><code>salary = float(input("Salary: "))</code></div></div><div class="explain"><h4>Number to string</h4><div><code>text = str(100)</code></div></div><div class="explain"><h4>Step-by-step example</h4><div><pre><code>a = int(input("First number: "))
+b = int(input("Second number: "))
+print(a + b)</code></pre><p>Both inputs are converted to integers before addition.</p></div></div></article><article class="subtopic"><h3>3.9 Operators</h3><div class="explain"><h4>Arithmetic</h4><div><code>+ - * / // % **</code> perform arithmetic operations.</div></div><div class="explain"><h4>Comparison</h4><div><code>== != &gt; &lt; &gt;= &lt;=</code> compare values and produce Boolean results.</div></div><div class="explain"><h4>Logical</h4><div><code>and</code>, <code>or</code>, <code>not</code> combine or invert Boolean conditions.</div></div><div class="explain"><h4>Assignment</h4><div><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code> and similar operators assign/update values.</div></div></article></section><section class="main-topic" id="topic4"><div class="topic-title"><span>04</span><div><h2>4. Variables</h2><p>Step-by-step explanation</p></div></div><article class="subtopic"><h3>4.1 What is a variable?</h3><div class="explain"><h4>Simple explanation</h4><div>Think of a variable name as a label that refers to an object/value.</div></div><div class="explain"><h4>Step 1</h4><div>Create or obtain a value.</div></div><div class="explain"><h4>Step 2</h4><div>Bind a name to that value using <code>=</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Use the name later to access the referenced object.</div></div><div class="explain"><h4>Example</h4><div><pre><code>age = 26
+print(age)</code></pre></div></div></article><article class="subtopic"><h3>4.2 Assignment operator =</h3><div class="explain"><h4>Important</h4><div><code>=</code> means assignment; it does not mean mathematical equality.</div></div><div class="explain"><h4>Step-by-step</h4><div><pre><code>x = 10</code></pre><p>Python evaluates <code>10</code> and binds the name <code>x</code> to that integer object.</p></div></div><div class="explain"><h4>Comparison</h4><div>For equality testing, Python uses <code>==</code>, for example <code>x == 10</code>.</div></div></article><article class="subtopic"><h3>4.3 Dynamic typing</h3><div class="explain"><h4>Step 1</h4><div>Assign an integer: <code>x = 10</code>.</div></div><div class="explain"><h4>Step 2</h4><div>Reassign the same name: <code>x = "Python"</code>.</div></div><div class="explain"><h4>Step 3</h4><div>Now <code>x</code> refers to a string object.</div></div><div class="explain"><h4>Meaning</h4><div>The variable name does not have a permanently declared type in this example; the referenced object has a type.</div></div></article><article class="subtopic"><h3>4.4 Multiple assignment</h3><div class="explain"><h4>Multiple values</h4><div><pre><code>a, b, c = 10, 20, 30</code></pre></div></div><div class="explain"><h4>Same value</h4><div><pre><code>x = y = 0</code></pre></div></div><div class="explain"><h4>Swap</h4><div><pre><code>a = 10
+b = 20
+a, b = b, a</code></pre></div></div><div class="explain"><h4>Why useful</h4><div>Multiple assignment can make related assignments and swapping concise and readable.</div></div></article><article class="subtopic"><h3>4.5 Naming variables correctly</h3><div class="explain"><h4>Use descriptive names</h4><div><code>student_name</code> is clearer than <code>sn</code>.</div></div><div class="explain"><h4>Use snake_case</h4><div>For ordinary variables and functions, names such as <code>total_marks</code> are conventional.</div></div><div class="explain"><h4>Avoid keywords</h4><div>Do not name a variable <code>class</code>, <code>for</code> or another reserved keyword.</div></div><div class="explain"><h4>Avoid shadowing</h4><div>Avoid replacing important built-in names such as <code>list</code>, <code>str</code> or <code>sum</code> unless you have a specific reason.</div></div></article><article class="subtopic"><h3>4.6 type(), id() and identity</h3><div class="explain"><h4>type()</h4><div><code>type(x)</code> tells you the object's type.</div></div><div class="explain"><h4>id()</h4><div><code>id(x)</code> returns an identity value for the object during its lifetime.</div></div><div class="explain"><h4>is</h4><div><code>a is b</code> checks whether two references refer to the same object.</div></div><div class="explain"><h4>==</h4><div><code>a == b</code> checks value equality.</div></div><div class="explain"><h4>Best practice</h4><div>Use <code>==</code> for normal value comparisons and reserve <code>is</code> for identity checks, especially comparisons with singleton values such as <code>None</code>.</div></div></article><article class="subtopic"><h3>4.7 Constants</h3><div class="explain"><h4>Python convention</h4><div>Python does not enforce a constant declaration keyword. Developers commonly use uppercase names for values intended not to be reassigned.</div></div><div class="explain"><h4>Example</h4><div><pre><code>PI = 3.141592653589793
+MAX_RETRIES = 3</code></pre></div></div></article><article class="subtopic"><h3>4.8 del</h3><div class="explain"><h4>Example</h4><div><pre><code>x = 100
+del x</code></pre></div></div><div class="explain"><h4>Meaning</h4><div><code>del x</code> removes the name binding. It does not guarantee immediate destruction of the object if other references still exist.</div></div></article></section><section class="main-topic" id="topic5"><div class="topic-title"><span>05</span><div><h2>5. Data Types</h2><p>Step-by-step explanation</p></div></div><article class="subtopic"><h3>5.1 Why data types matter</h3><div class="explain"><h4>Step 1</h4><div>Every Python object has a type.</div></div><div class="explain"><h4>Step 2</h4><div>The type determines what operations are supported and how the value behaves.</div></div><div class="explain"><h4>Step 3</h4><div>Choosing the right type makes programs easier to design and maintain.</div></div><div class="explain"><h4>Example</h4><div>You can add integers, concatenate strings, access list elements by index and look up dictionary values by key.</div></div></article><article class="subtopic"><h3>5.2 int</h3><div class="explain"><h4>Definition</h4><div>The <code>int</code> type represents whole numbers.</div></div><div class="explain"><h4>Examples</h4><div><code>0</code>, <code>25</code>, <code>-100</code>.</div></div><div class="explain"><h4>Example</h4><div><pre><code>age = 26
+print(type(age))
+print(age + 4)</code></pre></div></div><div class="explain"><h4>Important</h4><div>Python integers can represent arbitrarily large integers subject to available memory.</div></div></article><article class="subtopic"><h3>5.3 float</h3><div class="explain"><h4>Definition</h4><div>The <code>float</code> type represents floating-point numbers.</div></div><div class="explain"><h4>Examples</h4><div><code>3.14</code>, <code>-0.5</code>, <code>10.0</code>.</div></div><div class="explain"><h4>Example</h4><div><pre><code>price = 99.50
+print(type(price))</code></pre></div></div><div class="explain"><h4>Important</h4><div>Binary floating-point representation can create small rounding effects. Do not assume every decimal fraction is represented exactly.</div></div></article><article class="subtopic"><h3>5.4 complex</h3><div class="explain"><h4>Definition</h4><div>Complex numbers contain real and imaginary components.</div></div><div class="explain"><h4>Example</h4><div><pre><code>z = 2 + 3j
+print(z.real)
+print(z.imag)</code></pre></div></div><div class="explain"><h4>Use</h4><div>Complex numbers are useful in scientific and mathematical applications.</div></div></article><article class="subtopic"><h3>5.5 bool</h3><div class="explain"><h4>Definition</h4><div>A Boolean value is either <code>True</code> or <code>False</code>.</div></div><div class="explain"><h4>Example</h4><div><pre><code>is_logged_in = True
+print(is_logged_in)</code></pre></div></div><div class="explain"><h4>Conditions</h4><div>Comparison expressions such as <code>10 &gt; 5</code> produce Boolean results.</div></div></article><article class="subtopic"><h3>5.6 str</h3><div class="explain"><h4>Definition</h4><div>A string is an immutable sequence of Unicode characters.</div></div><div class="explain"><h4>Creating strings</h4><div>Use single quotes, double quotes or triple quotes.</div></div><div class="explain"><h4>Indexing</h4><div><pre><code>text = "Python"
+print(text[0])
+print(text[-1])</code></pre></div></div><div class="explain"><h4>Slicing</h4><div><pre><code>print(text[0:3])</code></pre><p>This returns characters from index 0 up to, but not including, index 3.</p></div></div><div class="explain"><h4>Useful methods</h4><div>Common methods include <code>upper()</code>, <code>lower()</code>, <code>strip()</code>, <code>replace()</code>, <code>split()</code> and <code>join()</code>.</div></div><div class="explain"><h4>f-strings</h4><div><pre><code>name = "Naveen"
+age = 26
+print(f"{name} is {age} years old")</code></pre></div></div></article><article class="subtopic"><h3>5.7 list</h3><div class="explain"><h4>Definition</h4><div>A list is an ordered, mutable collection.</div></div><div class="explain"><h4>Create</h4><div><pre><code>numbers = [10, 20, 30]</code></pre></div></div><div class="explain"><h4>Access</h4><div><pre><code>print(numbers[0])</code></pre></div></div><div class="explain"><h4>Modify</h4><div><pre><code>numbers[0] = 100
+numbers.append(40)</code></pre></div></div><div class="explain"><h4>Why use it?</h4><div>Use a list when you need an ordered collection that can change.</div></div></article><article class="subtopic"><h3>5.8 tuple</h3><div class="explain"><h4>Definition</h4><div>A tuple is an ordered, immutable collection.</div></div><div class="explain"><h4>Create</h4><div><pre><code>point = (10, 20)</code></pre></div></div><div class="explain"><h4>Unpack</h4><div><pre><code>x, y = point</code></pre></div></div><div class="explain"><h4>Why use it?</h4><div>Tuples are useful for fixed groups of values and can communicate that the collection should not be modified.</div></div></article><article class="subtopic"><h3>5.9 set</h3><div class="explain"><h4>Definition</h4><div>A set is a collection of unique elements.</div></div><div class="explain"><h4>Create</h4><div><pre><code>numbers = {10, 20, 10, 30}
+print(numbers)</code></pre></div></div><div class="explain"><h4>Result</h4><div>Duplicate values are removed.</div></div><div class="explain"><h4>Operations</h4><div>Common set operations include union, intersection, difference and symmetric difference.</div></div></article><article class="subtopic"><h3>5.10 dictionary</h3><div class="explain"><h4>Definition</h4><div>A dictionary stores key-value pairs.</div></div><div class="explain"><h4>Create</h4><div><pre><code>student = {
+    "name": "Ravi",
+    "age": 21
+}</code></pre></div></div><div class="explain"><h4>Access</h4><div><code>student["name"]</code> retrieves the value associated with the key <code>name</code>.</div></div><div class="explain"><h4>Update</h4><div><code>student["age"] = 22</code>.</div></div><div class="explain"><h4>Why use it?</h4><div>Use dictionaries when data is naturally represented as named fields or key-value mappings.</div></div></article><article class="subtopic"><h3>5.11 None</h3><div class="explain"><h4>Definition</h4><div><code>None</code> represents the absence of a value or a null-like state.</div></div><div class="explain"><h4>Example</h4><div><pre><code>result = None
+if result is None:
+    print("No result yet")</code></pre></div></div><div class="explain"><h4>Important</h4><div>Use <code>is None</code> rather than <code>== None</code> for the standard identity check.</div></div></article><article class="subtopic"><h3>5.12 Mutable vs immutable</h3><div class="explain"><h4>Immutable examples</h4><div>int, float, bool, str, tuple and frozenset are immutable.</div></div><div class="explain"><h4>Mutable examples</h4><div>list, dict and set are mutable.</div></div><div class="explain"><h4>Simple test</h4><div>If an operation changes a mutable object in place, the same object can contain the changed data. Immutable objects instead require a new value/object when a different value is needed.</div></div><div class="explain"><h4>Why important</h4><div>Mutability affects assignment, function arguments, aliases and program design.</div></div></article><article class="subtopic"><h3>5.13 Type conversion</h3><div class="explain"><h4>String to int</h4><div><code>int("25")</code> → <code>25</code>.</div></div><div class="explain"><h4>String to float</h4><div><code>float("3.14")</code> → <code>3.14</code>.</div></div><div class="explain"><h4>Number to string</h4><div><code>str(25)</code> → <code>"25"</code>.</div></div><div class="explain"><h4>List to set</h4><div><code>set([1,1,2])</code> → a set containing unique values.</div></div><div class="explain"><h4>Caution</h4><div>Conversions can raise exceptions when the source value cannot be converted, such as <code>int("abc")</code>.</div></div></article><article class="subtopic"><h3>5.14 Checking types with type()</h3><div class="explain"><h4>Example</h4><div><pre><code>items = [10, 3.14, "Python", True, [1, 2]]
+for item in items:
+    print(item, type(item))</code></pre></div></div><div class="explain"><h4>Purpose</h4><div>This is useful during learning and debugging when you need to confirm what type of object you are working with.</div></div></article></section>
+<section id="coding"><h2 class="section-title">25 Python Coding Questions</h2><p class="intro">First try each question yourself. Then open the solution. These exercises cover the exact concepts taught in this module.</p><article class="coding-card"><div class="coding-title"><span>01</span><h3>Print a simple welcome message</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>print(&quot;Welcome to Python&quot;)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>02</span><h3>Store and display your name, age and city</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>name = &quot;Naveen&quot;
+age = 26
+city = &quot;Hyderabad&quot;
+print(name)
+print(age)
+print(city)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>03</span><h3>Add two numbers</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>a = 25
+b = 15
+print(a + b)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>04</span><h3>Calculate the area of a rectangle</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>length = 12
+width = 5
+area = length * width
+print(&quot;Area =&quot;, area)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>05</span><h3>Calculate simple interest</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>principal = 10000
+rate = 7.5
+time = 2
+si = principal * rate * time / 100
+print(&quot;Simple Interest =&quot;, si)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>06</span><h3>Convert Celsius to Fahrenheit</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>celsius = 30
+fahrenheit = (celsius * 9/5) + 32
+print(fahrenheit)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>07</span><h3>Swap two variables</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>a = 10
+b = 20
+a, b = b, a
+print(a, b)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>08</span><h3>Display the type of different values</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>values = [10, 3.14, &quot;Python&quot;, True, None]
+for value in values:
+    print(value, type(value))</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>09</span><h3>Take a name as input and greet the user</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>name = input(&quot;Enter your name: &quot;)
+print(&quot;Hello,&quot;, name)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>10</span><h3>Take two integers and print their sum</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>a = int(input(&quot;Enter first number: &quot;))
+b = int(input(&quot;Enter second number: &quot;))
+print(&quot;Sum =&quot;, a + b)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>11</span><h3>Calculate total and average of three marks</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>m1 = float(input(&quot;Mark 1: &quot;))
+m2 = float(input(&quot;Mark 2: &quot;))
+m3 = float(input(&quot;Mark 3: &quot;))
+total = m1 + m2 + m3
+average = total / 3
+print(&quot;Total =&quot;, total)
+print(&quot;Average =&quot;, average)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>12</span><h3>Create and display a list</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>fruits = [&quot;Apple&quot;, &quot;Banana&quot;, &quot;Mango&quot;]
+print(fruits)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>13</span><h3>Access first and last list items</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>numbers = [10, 20, 30, 40, 50]
+print(&quot;First:&quot;, numbers[0])
+print(&quot;Last:&quot;, numbers[-1])</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>14</span><h3>Slice a string</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>text = &quot;PYTHON&quot;
+print(text[:3])
+print(text[3:])</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>15</span><h3>Find the length of a string</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>text = input(&quot;Enter text: &quot;)
+print(&quot;Length =&quot;, len(text))</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>16</span><h3>Convert input to an integer and multiply it</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>n = int(input(&quot;Enter a number: &quot;))
+print(&quot;Result =&quot;, n * 10)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>17</span><h3>Create a tuple and unpack it</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>person = (&quot;Naveen&quot;, 26, &quot;Hyderabad&quot;)
+name, age, city = person
+print(name, age, city)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>18</span><h3>Remove duplicates from a list using set</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>numbers = [10, 20, 10, 30, 20, 40]
+unique_numbers = set(numbers)
+print(unique_numbers)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>19</span><h3>Create a dictionary and access values</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>student = {&quot;name&quot;: &quot;Ravi&quot;, &quot;age&quot;: 21, &quot;course&quot;: &quot;Python&quot;}
+print(student[&quot;name&quot;])
+print(student[&quot;course&quot;])</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>20</span><h3>Update a dictionary value</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>student = {&quot;name&quot;: &quot;Ravi&quot;, &quot;age&quot;: 21}
+student[&quot;age&quot;] = 22
+print(student)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>21</span><h3>Demonstrate arithmetic operators</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>a, b = 17, 5
+print(&quot;+&quot;, a+b)
+print(&quot;-&quot;, a-b)
+print(&quot;*&quot;, a*b)
+print(&quot;/&quot;, a/b)
+print(&quot;//&quot;, a//b)
+print(&quot;%&quot;, a%b)
+print(&quot;**&quot;, a**b)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>22</span><h3>Compare two numbers</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>a = 25
+b = 30
+print(a &gt; b)
+print(a &lt; b)
+print(a == b)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>23</span><h3>Demonstrate mutable list behavior</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>items = [1, 2, 3]
+items.append(4)
+items[0] = 100
+print(items)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>24</span><h3>Create a student profile from input</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>name = input(&quot;Name: &quot;)
+age = int(input(&quot;Age: &quot;))
+course = input(&quot;Course: &quot;)
+student = {&quot;name&quot;: name, &quot;age&quot;: age, &quot;course&quot;: course}
+print(student)</code></pre></div></article><article class="coding-card"><div class="coding-title"><span>25</span><h3>Demonstrate == versus is</h3></div>
+<button onclick="toggle(this)">Show Step-by-Step Solution</button><div class="hidden answer"><p><strong>Approach:</strong> Read the problem, identify the required values, choose suitable data types, write the expression, then display the result.</p><pre><code>a = [1, 2]
+b = [1, 2]
+c = a
+print(a == b)
+print(a is b)
+print(a is c)</code></pre></div></article></section>
+<section id="theory"><h2 class="section-title">30 Theory Questions with Answers</h2><p class="intro">Click any question to reveal its answer.</p><article class="theory-card"><button onclick="toggle(this)"><span>01</span><strong>What is Python?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Python is a high-level, general-purpose programming language known for readable syntax and a large ecosystem.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>02</span><strong>Why is Python called high-level?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Its syntax abstracts away many low-level machine details and is designed to be relatively easy for humans to read and write.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>03</span><strong>What is an interpreter?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> An interpreter/runtime executes program instructions. In CPython, source is compiled to bytecode and then executed by the Python runtime.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>04</span><strong>What is the extension of a Python source file?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Usually .py.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>05</span><strong>What is indentation?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Whitespace used by Python to define the structure of code blocks.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>06</span><strong>How do you write a single-line comment?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Start the comment with #.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>07</span><strong>Is Python case-sensitive?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Yes. name, Name and NAME are different identifiers.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>08</span><strong>What is an identifier?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A name used to identify a variable, function, class or another object.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>09</span><strong>Can an identifier begin with a number?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> No.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>10</span><strong>What is a keyword?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A reserved word with special meaning in Python.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>11</span><strong>How can you display Python keywords?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Use the keyword module, for example import keyword; print(keyword.kwlist).</div></article><article class="theory-card"><button onclick="toggle(this)"><span>12</span><strong>What does print() do?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> It writes values to standard output.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>13</span><strong>What does input() return?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Normally a string containing the user&#x27;s entered text.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>14</span><strong>Why use int(input(...))?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Because input() returns text and int() converts compatible text to an integer.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>15</span><strong>What does = mean?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Assignment: it binds the name on the left to the value/object produced by the expression on the right.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>16</span><strong>What does == mean?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Value equality comparison.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>17</span><strong>What is a variable?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A name bound to an object/value.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>18</span><strong>What does dynamically typed mean?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> The type belongs to the object and a name can be rebound to objects of different types without a fixed variable declaration.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>19</span><strong>What does type() do?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> It returns the type/class of an object.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>20</span><strong>What is int?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A built-in type representing integers/whole numbers.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>21</span><strong>What is float?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A built-in type representing floating-point numbers.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>22</span><strong>What is bool?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A built-in type with the values True and False.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>23</span><strong>What is a string?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> An immutable sequence of Unicode characters.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>24</span><strong>What is a list?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> An ordered, mutable collection.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>25</span><strong>What is a tuple?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> An ordered, immutable collection.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>26</span><strong>What is a set?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A collection of unique elements.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>27</span><strong>What is a dictionary?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A mapping of keys to values.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>28</span><strong>What is None?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> A singleton object commonly used to represent no value or an absent result.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>29</span><strong>What is mutability?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> Whether an object&#x27;s contents can be changed after the object is created.</div></article><article class="theory-card"><button onclick="toggle(this)"><span>30</span><strong>What is the difference between == and is?</strong><b>+</b></button><div class="hidden theory-answer"><strong>Answer:</strong> == compares values; is checks object identity.</div></article></section>
+<div class="bottom"><a class="back" style="display:inline-block;background:var(--navy);border-color:var(--navy)" href="index.html">← Back to Course Syllabus</a></div>
 </main>
 <footer class="footer">Python Course • Module 01: Python Basics • <a href="index.html">Back to Syllabus</a></footer>
-<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>
-function toggleAnswer(btn){
-  const target = btn.nextElementSibling;
-  target.classList.toggle('show');
-  if(btn.classList.contains('reveal')) btn.textContent = target.classList.contains('show') ? 'Hide Answer' : 'Show Answer';
-  else {
-    const b=btn.querySelector('b');
-    if(b) b.textContent=target.classList.contains('show')?'−':'+';
-  }
+function toggle(btn){
+  const target=btn.nextElementSibling;
+  target.classList.toggle('hidden');
+  const b=btn.querySelector('b');
+  if(b) b.textContent=target.classList.contains('hidden')?'+':'−';
+  if(btn.textContent.includes('Answer')) btn.textContent=target.classList.contains('hidden')?'Show Step-by-Step Solution':'Hide Solution';
 }
-window.addEventListener('scroll',()=>{document.getElementById('topBtn').classList.toggle('show',window.scrollY>500)});
 </script>
 </body>
 </html>
