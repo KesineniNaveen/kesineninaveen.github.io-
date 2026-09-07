@@ -81,7 +81,9 @@ color:#fff;min-height:370px}
 /* SYLLABUS */
 .syllabus{background:#fff}
 .syllabus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.syllabus-card{border:1px solid #d7dfe8;border-radius:7px;padding:12px;display:grid;grid-template-columns:32px 1fr;gap:10px;min-height:74px}
+.syllabus-card{border:1px solid #d7dfe8;border-radius:7px;padding:12px;display:grid;grid-template-columns:32px 1fr;gap:10px;min-height:74px;color:inherit;background:#fff;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.syllabus-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 7px 18px rgba(2,21,46,.12)}
+.syllabus-card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .num{width:30px;height:30px;border-radius:4px;background:#071a35;color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
 .syllabus-card h3{font-size:12px;margin:0 0 4px}
 .syllabus-card p{font-size:10.5px;line-height:1.45;color:#172338}
@@ -213,14 +215,14 @@ footer{background:#03152c;color:#fff;border-top:1px solid rgba(255,255,255,.2);p
 <div class="container">
 <h2 class="section-title">COURSE SYLLABUS</h2>
 <div class="syllabus-grid">
-  <article class="syllabus-card"><div class="num">01</div><div><h3>Python Basics</h3><p>Introduction, Setup, Syntax, Variables, Data Types</p></div></article>
-  <article class="syllabus-card"><div class="num">02</div><div><h3>Control Flow</h3><p>Conditions, Loops, Break, Continue, Pass</p></div></article>
-  <article class="syllabus-card"><div class="num">03</div><div><h3>Data Structures</h3><p>Lists, Tuples, Sets, Dictionaries</p></div></article>
-  <article class="syllabus-card"><div class="num">04</div><div><h3>Functions</h3><p>Defining Functions, Parameters, Scope</p></div></article>
-  <article class="syllabus-card"><div class="num">05</div><div><h3>OOP Concepts</h3><p>Classes, Objects, Inheritance, Polymorphism</p></div></article>
-  <article class="syllabus-card"><div class="num">06</div><div><h3>Modules & Packages</h3><p>Built-in Modules, Importing Modules, User-defined</p></div></article>
-  <article class="syllabus-card"><div class="num">07</div><div><h3>File Handling</h3><p>Read/Write Files, CSV, JSON, Exception Handling</p></div></article>
-  <article class="syllabus-card"><div class="num">08</div><div><h3>Advanced Python</h3><p>Decorators, Generators, Iterators, Lambda</p></div></article>
+  <a class="syllabus-card" href="python_module1.html" aria-label="Open Python Basics module"><div class="num">01</div><div><h3>Python Basics</h3><p>Introduction, Setup, Syntax, Variables, Data Types</p></div></a>
+  <a class="syllabus-card" href="python_module2.html" aria-label="Open Control Flow module"><div class="num">02</div><div><h3>Control Flow</h3><p>Conditions, Loops, Break, Continue, Pass</p></div></a>
+  <a class="syllabus-card" href="python_module3.html" aria-label="Open Data Structures module"><div class="num">03</div><div><h3>Data Structures</h3><p>Lists, Tuples, Sets, Dictionaries</p></div></a>
+  <a class="syllabus-card" href="python_module4.html" aria-label="Open Functions module"><div class="num">04</div><div><h3>Functions</h3><p>Defining Functions, Parameters, Scope</p></div></a>
+  <a class="syllabus-card" href="python_module5.html" aria-label="Open OOP Concepts module"><div class="num">05</div><div><h3>OOP Concepts</h3><p>Classes, Objects, Inheritance, Polymorphism</p></div></a>
+  <a class="syllabus-card" href="python_module6.html" aria-label="Open Modules and Packages module"><div class="num">06</div><div><h3>Modules & Packages</h3><p>Built-in Modules, Importing Modules, User-defined</p></div></a>
+  <a class="syllabus-card" href="python_module7.html" aria-label="Open File Handling module"><div class="num">07</div><div><h3>File Handling</h3><p>Read/Write Files, CSV, JSON, Exception Handling</p></div></a>
+  <a class="syllabus-card" href="python_module8.html" aria-label="Open Advanced Python module"><div class="num">08</div><div><h3>Advanced Python</h3><p>Decorators, Generators, Iterators, Lambda</p></div></a>
 </div>
 <div class="center-btn"><button class="small-btn">View Full Syllabus <i class="fa-solid fa-arrow-right"></i></button></div>
 </div>
