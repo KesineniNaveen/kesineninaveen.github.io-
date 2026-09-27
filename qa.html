@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantitative Aptitude | KN Tech Institute</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#031d36;
+    --navy2:#062846;
+    --deep:#02182d;
+    --gold:#ffc400;
+    --gold2:#ffb000;
+    --white:#ffffff;
+    --muted:#b9c8d7;
+    --line:#45627b;
+    --card:#082945;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#fff;
+    font-size:11px;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:62px;
+    background:var(--navy);
+    border-bottom:1px solid #35516a;
+    display:flex;
+    align-items:center;
+    padding:0 16px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header-inner{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    min-width:145px;
+}
+
+.logo-circle{
+    width:31px;
+    height:31px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    font-size:10px;
+    font-weight:900;
+}
+
+.logo-text{
+    line-height:1;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:13px;
+    color:#fff;
+}
+
+.logo-text span{
+    display:block;
+    color:var(--gold);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.4px;
+}
+
+.logo-text small{
+    display:block;
+    color:#9fb2c3;
+    font-size:5.5px;
+    margin-top:2px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav a{
+    color:#fff;
+    font-size:8px;
+    font-weight:700;
+    position:relative;
+}
+
+.nav a.active,
+.nav a:hover{
+    color:var(--gold);
+}
+
+.nav a.active:after{
+    content:"";
+    position:absolute;
+    height:2px;
+    background:var(--gold);
+    left:0;
+    right:0;
+    bottom:-9px;
+}
+
+.login-btn{
+    border:1px solid var(--gold);
+    color:var(--gold);
+    padding:7px 15px;
+    border-radius:2px;
+    font-size:8px;
+    font-weight:700;
+    background:transparent;
+}
+
+.login-btn:hover{
+    background:var(--gold);
+    color:var(--navy);
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    width:35px;
+    height:30px;
+    border-radius:3px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:190px;
+    background:
+        radial-gradient(circle at 58% 52%,rgba(22,104,153,.35),transparent 24%),
+        linear-gradient(135deg,#031c34,#062d4e);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-inner{
+    width:100%;
+    height:100%;
+    min-height:190px;
+    display:grid;
+    grid-template-columns:1.35fr .85fr;
+    align-items:center;
+    padding:18px 10px 16px;
+}
+
+.breadcrumb{
+    color:#8ea8bb;
+    font-size:6px;
+    margin-bottom:7px;
+}
+
+.breadcrumb span{
+    color:var(--gold);
+}
+
+.hero-label{
+    color:var(--gold);
+    font-size:6px;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:4px;
+}
+
+.hero h1{
+    font-size:26px;
+    line-height:.95;
+    margin-bottom:8px;
+}
+
+.hero h1 span{
+    display:block;
+    color:var(--gold);
+}
+
+.hero-description{
+    color:#e1e9ef;
+    font-size:7px;
+    line-height:1.55;
+    max-width:245px;
+    margin-bottom:10px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.btn{
+    border-radius:2px;
+    padding:6px 12px;
+    font-size:7px;
+    font-weight:800;
+    cursor:pointer;
+    border:1px solid var(--gold);
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:var(--navy);
+}
+
+.btn-dark{
+    background:transparent;
+    color:#fff;
+}
+
+.btn-dark:hover{
+    background:var(--gold);
+    color:var(--navy);
+}
+
+/* calculator visual */
+
+.qa-visual{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+}
+
+.calc-orbit{
+    width:122px;
+    height:122px;
+    border:1px solid #0d75a9;
+    border-radius:50%;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 30px rgba(0,170,255,.08);
+}
+
+.calc-orbit:before,
+.calc-orbit:after{
+    content:"";
+    position:absolute;
+    border:1px dashed #12638c;
+    border-radius:50%;
+}
+
+.calc-orbit:before{
+    inset:9px;
+}
+
+.calc-orbit:after{
+    inset:21px;
+}
+
+.calc-box{
+    width:56px;
+    height:68px;
+    background:#eef5f8;
+    border:3px solid #5b9cbd;
+    border-radius:6px;
+    position:relative;
+    z-index:2;
+    box-shadow:0 5px 20px rgba(0,0,0,.18);
+}
+
+.calc-screen{
+    margin:7px 6px 5px;
+    height:14px;
+    background:#b8d6df;
+    border-radius:2px;
+    color:#123c52;
+    font-size:8px;
+    text-align:right;
+    padding:2px 3px;
+    font-weight:800;
+}
+
+.calc-keys{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3px;
+    padding:0 6px;
+}
+
+.calc-keys i{
+    height:8px;
+    background:#2d789f;
+    border-radius:1px;
+}
+
+/* ================= SMALL INFO STRIP ================= */
+
+.info-strip{
+    width:94%;
+    max-width:540px;
+    margin:-13px auto 0;
+    position:relative;
+    z-index:5;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:#062a47;
+    border:1px solid var(--gold);
+    border-radius:4px;
+    overflow:hidden;
+}
+
+.info-item{
+    padding:7px 5px;
+    text-align:center;
+    border-right:1px solid #49637a;
+}
+
+.info-item:last-child{
+    border-right:0;
+}
+
+.info-item strong{
+    display:block;
+    color:#fff;
+    font-size:7px;
+    margin-bottom:2px;
+}
+
+.info-item span{
+    color:#9fb2c1;
+    font-size:5.5px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    background:#fff;
+    color:#071b2e;
+    padding:12px 8px 10px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:9px;
+}
+
+.section-title h2{
+    color:#071b2e;
+    font-size:10px;
+    text-transform:uppercase;
+    margin-bottom:2px;
+}
+
+.section-title p{
+    color:#6d7d8b;
+    font-size:6px;
+}
+
+.gold-line{
+    width:35px;
+    height:2px;
+    background:var(--gold);
+    margin:4px auto 0;
+}
+
+/* ================= SYLLABUS ================= */
+
+.syllabus-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:5px;
+}
+
+.syllabus-card{
+    min-height:45px;
+    border:1px solid #cbd6df;
+    border-radius:3px;
+    padding:5px 5px 4px;
+    display:flex;
+    gap:5px;
+    background:#fff;
+    transition:.2s;
+}
+
+.syllabus-card:hover{
+    border-color:var(--gold);
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    transform:translateY(-1px);
+}
+
+.chapter-no{
+    min-width:18px;
+    height:18px;
+    background:var(--navy);
+    color:#fff;
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:5.5px;
+    font-weight:800;
+}
+
+.syllabus-card h3{
+    font-size:6.3px;
+    line-height:1.25;
+    color:#14283a;
+    margin-bottom:2px;
+}
+
+.syllabus-card p{
+    font-size:5px;
+    color:#71808c;
+    line-height:1.25;
+}
+
+.syllabus-btn{
+    display:block;
+    width:max-content;
+    margin:6px auto 0;
+    background:var(--navy);
+    color:#fff;
+    border:0;
+    padding:5px 10px;
+    font-size:5.5px;
+    font-weight:700;
+    border-radius:2px;
+}
+
+/* ================= PROJECT / JOB SECTION ================= */
+
+.dark-section{
+    background:var(--navy);
+    color:#fff;
+    padding:10px 8px 11px;
+    border-top:1px solid #173952;
+    border-bottom:1px solid #29465e;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    max-width:540px;
+    margin:auto;
+}
+
+.dark-title{
+    text-align:center;
+    color:#fff;
+    font-size:7px;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+
+.dark-title span{
+    color:var(--gold);
+}
+
+.project-list,
+.job-list{
+    border:1px solid #50677b;
+    border-radius:3px;
+    overflow:hidden;
+}
+
+.project-row,
+.job-row{
+    min-height:19px;
+    display:grid;
+    align-items:center;
+    border-bottom:1px solid #304a60;
+}
+
+.project-row:last-child,
+.job-row:last-child{
+    border-bottom:0;
+}
+
+.project-row{
+    grid-template-columns:22px 1fr 20px;
+}
+
+.job-row{
+    grid-template-columns:1.1fr .9fr .7fr;
+    padding:0 5px;
+}
+
+.project-icon{
+    text-align:center;
+    color:var(--gold);
+    font-size:7px;
+}
+
+.project-text{
+    font-size:5.3px;
+    line-height:1.25;
+    color:#d9e4ed;
+}
+
+.project-text strong{
+    display:block;
+    color:#fff;
+}
+
+.project-action{
+    color:#27d7a2;
+    text-align:center;
+}
+
+.job-row div{
+    font-size:5px;
+    color:#d9e4ed;
+}
+
+.job-row .job-name{
+    color:#fff;
+    font-weight:700;
+}
+
+.job-row .salary{
+    color:#23d69c;
+    font-weight:700;
+}
+
+.job-head{
+    color:var(--gold)!important;
+    font-size:4.5px!important;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.small-action{
+    display:block;
+    width:max-content;
+    margin:6px auto 0;
+    padding:4px 9px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    font-size:5px;
+    border-radius:2px;
+}
+
+/* ================= WHY ================= */
+
+.why{
+    background:var(--navy);
+    padding:16px 32px;
+    width:100%;
+
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:8px;
+    width:100%;
+    max-width:none;
+    margin:0;
+
+}
+
+.why-card{
+    min-height:53px;
+    border:1px solid #52687a;
+    border-radius:3px;
+    padding:6px 4px;
+    text-align:center;
+}
+
+.why-icon{
+    color:var(--gold);
+    font-size:11px;
+    height:15px;
+}
+
+.why-card h3{
+    color:#fff;
+    font-size:5.5px;
+    margin-bottom:3px;
+}
+
+.why-card p{
+    color:#9fb0bf;
+    font-size:4.5px;
+    line-height:1.25;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:var(--navy);
+    border-top:1px solid #345066;
+    padding:14px 32px;
+    width:100%;
+
+}
+
+.cta-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    max-width:none;
+    margin:0;
+    gap:24px;
+
+}
+
+.cta-title{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.cta-icon{
+    color:var(--gold);
+    font-size:19px;
+}
+
+.cta-title h2{
+    font-size:10px;
+}
+
+.cta-title p{
+    color:#aebdca;
+    font-size:5px;
+    margin-top:2px;
+}
+
+.cta-button{
+    background:var(--gold);
+    color:var(--navy);
+    border:0;
+    padding:7px 15px;
+    border-radius:2px;
+    font-size:6px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.whatsapp{
+    color:#20d87f;
+    font-size:5.5px;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#02182c;
+    border-top:1px solid #29445a;
+    padding:16px 32px 10px;
+    width:100%;
+
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.35fr 1fr 1.15fr 1.25fr 1.25fr;
+    gap:28px;
+    width:100%;
+    max-width:none;
+    margin:0;
+
+}
+
+.footer-brand{
+    display:flex;
+    align-items:flex-start;
+    gap:6px;
+}
+
+.footer-brand .logo-circle{
+    width:25px;
+    height:25px;
+    font-size:8px;
+}
+
+.footer-brand strong{
+    display:block;
+    font-size:9px;
+}
+
+.footer-brand span{
+    color:var(--gold);
+    font-size:5px;
+    font-weight:800;
+}
+
+.footer h4{
+    color:#fff;
+    font-size:5.5px;
+    margin-bottom:5px;
+    text-transform:uppercase;
+}
+
+.footer a,
+.footer p{
+    display:block;
+    color:#9baebd;
+    font-size:4.7px;
+    line-height:1.55;
+}
+
+.social{
+    display:flex!important;
+    gap:4px;
+    margin-top:5px;
+}
+
+.social span{
+    width:12px;
+    height:12px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:5px;
+}
+
+.newsletter{
+    border-bottom:1px solid #617487;
+    padding:4px 3px;
+    margin-top:3px;
+    color:#7f92a2;
+    font-size:4.5px;
+}
+
+.footer-bottom{
+    width:100%;
+    max-width:none;
+    margin:10px 0 0;
+    padding-top:7px;
+    border-top:1px solid #29445a;
+    text-align:center;
+    color:#74899a;
+    font-size:4.5px;
+
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(500px,95%);
+    max-height:85vh;
+    overflow:auto;
+    background:#fff;
+    color:#132538;
+    border-radius:8px;
+    padding:18px;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    right:12px;
+    top:9px;
+    border:0;
+    background:none;
+    color:#132538;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.modal-box h2{
+    color:var(--navy);
+    font-size:17px;
+    margin-bottom:4px;
+}
+
+.modal-box .modal-sub{
+    color:#71808e;
+    font-size:9px;
+    margin-bottom:13px;
+}
+
+.modal-topics{
+    display:grid;
+    gap:5px;
+}
+
+.modal-topics div{
+    background:#f5f7f9;
+    border-left:3px solid var(--gold);
+    padding:7px;
+    font-size:8px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+    .why{
+        padding:12px 14px;
+    }
+
+    .cta{
+        padding:12px 14px;
+    }
+
+    .footer{
+        padding:12px 14px 9px;
+    }
+
+    .cta-inner{
+        gap:12px;
+    }
+
+
+    .nav{
+        display:none;
+    }
+
+    .login-btn{
+        margin-left:auto;
+        margin-right:7px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr 160px;
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .why{
+        padding:12px 9px;
+    }
+
+    .cta{
+        padding:11px 9px;
+    }
+
+    .footer{
+        padding:12px 9px 8px;
+    }
+
+    .cta-inner{
+        flex-wrap:wrap;
+    }
+
+
+    body{
+        font-size:10px;
+    }
+
+    .header{
+        height:55px;
+        padding:0 9px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text strong{
+        font-size:11px;
+    }
+
+    .logo-text span{
+        font-size:6px;
+    }
+
+    .login-btn{
+        display:none;
+    }
+
+    .hero{
+        min-height:225px;
+    }
+
+    .hero-inner{
+        min-height:225px;
+        grid-template-columns:1fr;
+        padding:17px 10px 12px;
+    }
+
+    .qa-visual{
+        position:absolute;
+        right:15px;
+        top:65px;
+        transform:scale(.78);
+    }
+
+    .hero h1{
+        font-size:28px;
+        max-width:200px;
+    }
+
+    .hero-description{
+        max-width:245px;
+    }
+
+    .info-strip{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .info-item:nth-child(2){
+        border-right:0;
+    }
+
+    .info-item{
+        border-bottom:1px solid #49637a;
+    }
+
+    .syllabus-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .two-col{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .why-card:last-child{
+        grid-column:1 / -1;
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid > :first-child{
+        grid-column:1 / -1;
+    }
+}
+
+@media(max-width:380px){
+    .syllabus-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+    <div class="header-inner">
+
+        <a href="#" class="logo">
+            <div class="logo-circle">KN</div>
+            <div class="logo-text">
+                <strong>KN TECH</strong>
+                <span>INSTITUTE</span>
+                <small>Learn • Build • Get Hired</small>
+            </div>
+        </a>
+
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#" class="active">Courses</a>
+            <a href="#">Placements</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <a href="#" class="login-btn">♙ &nbsp; Login / Register</a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+    <div class="hero-inner">
+
+        <div>
+            <div class="breadcrumb">
+                Home &nbsp;›&nbsp; Courses &nbsp;›&nbsp;
+                <span>Quantitative Aptitude</span>
+            </div>
+
+            <div class="hero-label">Our Course</div>
+
+            <h1>
+                Quantitative
+                <span>Aptitude</span>
+            </h1>
+
+            <p class="hero-description">
+                From Basics to Advanced — Master Quantitative Aptitude,
+                Logical Reasoning, Business Mathematics and Statistics
+                with practical problem solving.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#syllabus" class="btn btn-primary">
+                    Enroll Now &nbsp; →
+                </a>
+
+                <button class="btn btn-dark" onclick="openIntro()">
+                    ▶ &nbsp; Watch Intro
+                </button>
+            </div>
+        </div>
+
+        <div class="qa-visual">
+            <div class="calc-orbit">
+                <div class="calc-box">
+                    <div class="calc-screen">123 + 45</div>
+                    <div class="calc-keys">
+                        <i></i><i></i><i></i>
+                        <i></i><i></i><i></i>
+                        <i></i><i></i><i></i>
+                        <i></i><i></i><i></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= COURSE INFO ================= -->
+
+<div class="info-strip">
+
+    <div class="info-item">
+        <strong>📚 18 Chapters</strong>
+        <span>Complete Syllabus</span>
+    </div>
+
+    <div class="info-item">
+        <strong>🧠 3 Phases</strong>
+        <span>Structured Roadmap</span>
+    </div>
+
+    <div class="info-item">
+        <strong>🏆 Certification</strong>
+        <span>Industry Recognized</span>
+    </div>
+
+    <div class="info-item">
+        <strong>💼 Placement Support</strong>
+        <span>Interview & Career Support</span>
+    </div>
+
+</div>
+
+
+<!-- ================= SYLLABUS ================= -->
+
+<section class="section" id="syllabus">
+
+    <div class="section-title">
+        <h2>Course Syllabus</h2>
+        <div class="gold-line"></div>
+        <p>Complete Quantitative Aptitude syllabus — 18 chapters across 3 parts.</p>
+    </div>
+
+    <!-- PART A -->
+    <div class="syllabus-part">
+
+        <div class="part-heading">
+            <span class="part-number">PART-A</span>
+            <div>
+                <h3>BUSINESS MATHEMATICS</h3>
+                <p>Chapters 1–8</p>
+            </div>
+        </div>
+
+        <div class="syllabus-list">
+
+            <div class="syllabus-item" onclick="openChapter(1)">
+                <span class="chapter-no">01</span>
+                <div>
+                    <h4>Chapter 1: Ratio and Proportion, Indices, Logarithms</h4>
+                    <p>Ratio and proportion, indices and logarithms</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(2)">
+                <span class="chapter-no">02</span>
+                <div>
+                    <h4>Chapter 2: Equations</h4>
+                    <p>Linear, simultaneous and quadratic equations</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(3)">
+                <span class="chapter-no">03</span>
+                <div>
+                    <h4>Chapter 3: Linear Inequalities</h4>
+                    <p>Inequality rules, number line and applications</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(4)">
+                <span class="chapter-no">04</span>
+                <div>
+                    <h4>Chapter 4: Mathematics of Finance</h4>
+                    <p>Interest, finance, loans and financial calculations</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(5)">
+                <span class="chapter-no">05</span>
+                <div>
+                    <h4>Chapter 5: Basic Concepts of Permutations and Combinations</h4>
+                    <p>Counting, arrangements and selections</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(6)">
+                <span class="chapter-no">06</span>
+                <div>
+                    <h4>Chapter 6: Sequence and Series – Arithmetic and Geometric Progressions</h4>
+                    <p>Arithmetic and geometric progressions</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(7)">
+                <span class="chapter-no">07</span>
+                <div>
+                    <h4>Chapter 7: Sets, Relations and Functions, Basics of Limits and Continuity functions</h4>
+                    <p>Sets, relations, functions, limits and continuity</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(8)">
+                <span class="chapter-no">08</span>
+                <div>
+                    <h4>Chapter 8: Basic Applications of Differential and Integral Calculus in Business and Economics</h4>
+                    <p>Calculus applications in business and economics</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PART B -->
+    <div class="syllabus-part">
+
+        <div class="part-heading">
+            <span class="part-number">PART-B</span>
+            <div>
+                <h3>LOGICAL REASONING</h3>
+                <p>Chapters 9–12</p>
+            </div>
+        </div>
+
+        <div class="syllabus-list">
+
+            <div class="syllabus-item" onclick="openChapter(9)">
+                <span class="chapter-no">09</span>
+                <div>
+                    <h4>Chapter 9: Number Series, Coding and Decoding and Odd Man Out</h4>
+                    <p>Number patterns, coding-decoding and odd-one-out reasoning</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(10)">
+                <span class="chapter-no">10</span>
+                <div>
+                    <h4>Chapter 10: Direction Sense Test</h4>
+                    <p>Directions, turns, distance and position</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(11)">
+                <span class="chapter-no">11</span>
+                <div>
+                    <h4>Chapter 11: Seating Arrangements</h4>
+                    <p>Linear, circular and complex arrangements</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(12)">
+                <span class="chapter-no">12</span>
+                <div>
+                    <h4>Chapter 12: Blood Relations</h4>
+                    <p>Family relationships, generations and family trees</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PART C -->
+    <div class="syllabus-part">
+
+        <div class="part-heading">
+            <span class="part-number">PART-C</span>
+            <div>
+                <h3>STATISTICS</h3>
+                <p>Chapters 13–18</p>
+            </div>
+        </div>
+
+        <div class="syllabus-list">
+
+            <div class="syllabus-item syllabus-with-units" onclick="openChapter(13)">
+                <span class="chapter-no">13</span>
+                <div class="syllabus-content">
+                    <h4>Chapter 13</h4>
+
+                    <div class="unit-list">
+                        <div class="unit">
+                            <span>Unit I</span>
+                            <strong>Statistical Description of Data</strong>
+                        </div>
+
+                        <div class="unit">
+                            <span>Unit II</span>
+                            <strong>Sampling</strong>
+                        </div>
+                    </div>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item syllabus-with-units" onclick="openChapter(14)">
+                <span class="chapter-no">14</span>
+                <div class="syllabus-content">
+                    <h4>Chapter 14: Measures of Central Tendency and Dispersion</h4>
+
+                    <div class="unit-list">
+                        <div class="unit">
+                            <span>Unit I</span>
+                            <strong>Measures of Central Tendency</strong>
+                        </div>
+
+                        <div class="unit">
+                            <span>Unit II</span>
+                            <strong>Dispersion</strong>
+                        </div>
+                    </div>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(15)">
+                <span class="chapter-no">15</span>
+                <div>
+                    <h4>Chapter 15: Probability</h4>
+                    <p>Probability concepts, events and applications</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(16)">
+                <span class="chapter-no">16</span>
+                <div>
+                    <h4>Chapter 16: Theoretical Distributions</h4>
+                    <p>Binomial, Poisson and Normal distributions</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(17)">
+                <span class="chapter-no">17</span>
+                <div>
+                    <h4>Chapter 17: Correlation and Regression</h4>
+                    <p>Correlation, regression and prediction</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+            <div class="syllabus-item" onclick="openChapter(18)">
+                <span class="chapter-no">18</span>
+                <div>
+                    <h4>Chapter 18: Index Numbers</h4>
+                    <p>Price, quantity, value and index number methods</p>
+                </div>
+                <span class="chapter-arrow">→</span>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="syllabus-btn" onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'})">
+        View Full Syllabus &nbsp; →
+    </button>
+
+</section>
+
+
+<style>
+/* =========================================================
+   FULL-WIDTH 18-CHAPTER SYLLABUS
+   Desktop: uses the full available screen width
+   Tablet: 2 columns
+   Mobile: 1 column
+   ========================================================= */
+
+#syllabus{
+    width:100%;
+    padding:14px 24px 16px;
+}
+
+#syllabus .section-title{
+    margin-bottom:14px;
+}
+
+#syllabus .section-title h2{
+    font-size:15px;
+    letter-spacing:.3px;
+}
+
+#syllabus .section-title p{
+    font-size:9px;
+}
+
+.syllabus-part{
+    width:100%;
+    max-width:none;
+    margin:0 0 14px;
+}
+
+.part-heading{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 11px;
+    background:#f5f7f9;
+    border-left:4px solid var(--gold);
+    border-top:1px solid #e1e7ec;
+    border-right:1px solid #e1e7ec;
+    border-bottom:1px solid #e1e7ec;
+    border-radius:3px;
+    margin-bottom:7px;
+}
+
+.part-number{
+    background:var(--navy);
+    color:var(--gold);
+    font-size:8px;
+    font-weight:800;
+    padding:6px 8px;
+    border-radius:3px;
+}
+
+.part-heading h3{
+    color:#071b2e;
+    font-size:11px;
+    line-height:1.1;
+}
+
+.part-heading p{
+    color:#81909c;
+    font-size:8px;
+    margin-top:2px;
+}
+
+.syllabus-list{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:7px;
+}
+
+.syllabus-item{
+    min-height:64px;
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    padding:9px;
+    border:1px solid #cbd6df;
+    border-radius:4px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.syllabus-item:hover{
+    border-color:var(--gold);
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transform:translateY(-1px);
+}
+
+.syllabus-item .chapter-no{
+    flex:0 0 25px;
+    width:25px;
+    height:25px;
+    font-size:7px;
+}
+
+.syllabus-item h4{
+    color:#12304a;
+    font-size:9px;
+    line-height:1.3;
+    margin:0 0 4px;
+}
+
+.syllabus-item p{
+    color:#71808c;
+    font-size:7px;
+    line-height:1.3;
+}
+
+.syllabus-content{
+    flex:1;
+    min-width:0;
+}
+
+.chapter-arrow{
+    margin-left:auto;
+    color:var(--gold2);
+    font-size:13px;
+    font-weight:900;
+    flex:0 0 auto;
+}
+
+.syllabus-with-units{
+    min-height:96px;
+}
+
+.unit-list{
+    display:grid;
+    gap:3px;
+    margin-top:4px;
+}
+
+.unit{
+    display:flex;
+    align-items:flex-start;
+    gap:6px;
+    padding:4px 6px;
+    background:#f7f9fb;
+    border-left:2px solid #dbe3e9;
+}
+
+.unit span{
+    color:#b27800;
+    font-size:6.5px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.unit strong{
+    color:#687986;
+    font-size:7px;
+    font-weight:500;
+    line-height:1.25;
+}
+
+.syllabus-btn{
+    font-size:8px;
+    padding:7px 13px;
+    margin-top:4px;
+}
+
+/* Large desktop: give the syllabus even more breathing room */
+@media(min-width:1400px){
+    #syllabus{
+        padding-left:38px;
+        padding-right:38px;
+    }
+
+    .syllabus-list{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        gap:9px;
+    }
+
+    .syllabus-item{
+        min-height:70px;
+        padding:10px;
+    }
+
+    .syllabus-item h4{
+        font-size:10px;
+    }
+
+    .syllabus-item p{
+        font-size:8px;
+    }
+}
+
+/* Tablet */
+@media(max-width:900px){
+    #syllabus{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .syllabus-list{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+/* Mobile */
+@media(max-width:600px){
+    #syllabus{
+        padding:12px 9px 14px;
+    }
+
+    .syllabus-list{
+        grid-template-columns:1fr;
+    }
+
+    .syllabus-item{
+        min-height:58px;
+    }
+
+    .syllabus-item h4{
+        font-size:8px;
+    }
+
+    .syllabus-item p{
+        font-size:6.5px;
+    }
+
+    .part-heading{
+        margin-top:7px;
+    }
+}
+</style>
+
+<!-- ================= WHY LEARN ================= -->
+
+<section class="why" id="why">
+
+    <div class="section-title" style="margin-bottom:8px;">
+        <h2 style="color:#fff;">Why Learn Quantitative Aptitude?</h2>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <div class="why-icon">◉</div>
+            <h3>Easy to Learn</h3>
+            <p>Simple explanations and step-by-step problem solving.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">★</div>
+            <h3>High Demand</h3>
+            <p>Useful for placements, entrance tests and competitive exams.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">▣</div>
+            <h3>Practical</h3>
+            <p>Learn with real-world examples and aptitude questions.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">◈</div>
+            <h3>Open Practice</h3>
+            <p>Practice questions and revision resources for every chapter.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">♛</div>
+            <h3>Career Growth</h3>
+            <p>Build analytical and logical thinking skills.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+        <div class="cta-title">
+            <div class="cta-icon">🎓</div>
+
+            <div>
+                <h2>Ready to Start Your <span style="color:#ffc400;">Aptitude Journey?</span></h2>
+                <p>Learn concepts, practice problems and prepare for your next opportunity.</p>
+            </div>
+        </div>
+
+        <a href="#syllabus" class="cta-button">
+            Enroll Now &nbsp; →
+        </a>
+
+        <a href="#" class="whatsapp">
+            ● Chat on WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+            <div class="footer-brand">
+                <div class="logo-circle">KN</div>
+                <div>
+                    <strong>KN TECH</strong>
+                    <span>INSTITUTE</span>
+                </div>
+            </div>
+
+            <p style="margin-top:6px;">
+                Empowering students with practical technology,
+                aptitude and career-ready skills.
+            </p>
+
+            <div class="social">
+                <span>f</span>
+                <span>◎</span>
+                <span>in</span>
+                <span>▶</span>
+            </div>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#syllabus">Courses</a>
+            <a href="#">Placements</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div>
+            <h4>Popular Courses</h4>
+            <a href="#">Python</a>
+            <a href="#">SQL</a>
+            <a href="#">Power BI</a>
+            <a href="#">Data Analytics</a>
+            <a href="#">Cyber Security</a>
+            <a href="#">Full Stack Development</a>
+        </div>
+
+        <div>
+            <h4>Contact Us</h4>
+            <p>📍 Hyderabad, Telangana, India</p>
+            <p>☎ +91 XXXXX XXXXX</p>
+            <p>✉ info@kntechinstitute.in</p>
+            <p>🌐 www.kntechinstitute.in</p>
+        </div>
+
+        <div>
+            <h4>Newsletter</h4>
+            <p>Subscribe for course updates, aptitude tips and career resources.</p>
+            <div class="newsletter">
+                Enter your email &nbsp; ➤
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 KN Tech Institute. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- ================= CHAPTER MODAL ================= -->
+
+<div class="modal" id="chapterModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeChapter()">×</button>
+
+        <h2 id="modalTitle">Chapter</h2>
+
+        <p class="modal-sub" id="modalSubtitle"></p>
+
+        <div class="modal-topics" id="modalTopics"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= INTRO MODAL ================= -->
+
+<div class="modal" id="introModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeIntro()">×</button>
+
+        <h2>Quantitative Aptitude Course</h2>
+
+        <p class="modal-sub">
+            Learn mathematics, logical reasoning and statistics
+            through structured lessons and practical questions.
+        </p>
+
+        <div class="modal-topics">
+            <div>✓ Business Mathematics</div>
+            <div>✓ Logical Reasoning</div>
+            <div>✓ Statistics & Probability</div>
+            <div>✓ Placement Aptitude Preparation</div>
+            <div>✓ Chapter-wise Practice</div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const chapterData = {
+
+1:{
+title:"Chapter 1: Ratio and Proportion, Indices, Logarithms",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Ratio fundamentals and equivalent ratios",
+"Proportion and applications",
+"Direct and inverse proportion",
+"Laws of indices and exponents",
+"Logarithms and logarithmic properties",
+"Change of base and aptitude problems"
+]},
+
+2:{
+title:"Chapter 2: Equations",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Linear equations",
+"Simultaneous equations",
+"Quadratic equations",
+"Equations involving fractions",
+"Word problems and applications"
+]},
+
+3:{
+title:"Chapter 3: Linear Inequalities",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Inequality symbols",
+"Solving linear inequalities",
+"Number line representation",
+"Compound inequalities",
+"Application-based questions"
+]},
+
+4:{
+title:"Chapter 4: Mathematics of Finance",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Simple interest",
+"Compound interest",
+"Present and future value",
+"Discounting",
+"Annuities",
+"Loans and installments"
+]},
+
+5:{
+title:"Chapter 5: Basic Concepts of Permutations and Combinations",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Fundamental counting principle",
+"Factorials",
+"Permutations",
+"Combinations",
+"Arrangements and selection problems"
+]},
+
+6:{
+title:"Chapter 6: Sequence and Series",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Number sequences",
+"Arithmetic progression",
+"Nth term and sum of AP",
+"Geometric progression",
+"Nth term and sum of GP"
+]},
+
+7:{
+title:"Chapter 7: Sets, Relations and Functions",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Sets and set operations",
+"Venn diagrams",
+"Relations",
+"Functions, domain and range",
+"Limits and continuity"
+]},
+
+8:{
+title:"Chapter 8: Basic Applications of Differential and Integral Calculus",
+subtitle:"Phase A • Business Mathematics",
+topics:[
+"Basic differentiation",
+"Marginal cost and revenue",
+"Optimization",
+"Maximum and minimum",
+"Basic integration",
+"Business and economics applications"
+]},
+
+9:{
+title:"Chapter 9: Number Series, Coding and Decoding and Odd Man Out",
+subtitle:"Phase B • Logical Reasoning",
+topics:[
+"Number series",
+"Missing number patterns",
+"Coding and decoding",
+"Alphabet coding",
+"Odd man out"
+]},
+
+10:{
+title:"Chapter 10: Direction Sense Test",
+subtitle:"Phase B • Logical Reasoning",
+topics:[
+"Basic directions",
+"Left and right turns",
+"Distance calculations",
+"Position tracking",
+"Shortest distance problems"
+]},
+
+11:{
+title:"Chapter 11: Seating Arrangements",
+subtitle:"Phase B • Logical Reasoning",
+topics:[
+"Linear seating arrangements",
+"Circular arrangements",
+"Facing centre and outside",
+"Position-based deductions",
+"Complex seating puzzles"
+]},
+
+12:{
+title:"Chapter 12: Blood Relations",
+subtitle:"Phase B • Logical Reasoning",
+topics:[
+"Family relationship basics",
+"Generation identification",
+"Family tree method",
+"Maternal and paternal relations",
+"Coded blood relation problems"
+]},
+
+13:{
+title:"Chapter 13: Statistical Description of Data",
+subtitle:"Phase C • Statistics",
+topics:[
+"Unit I: Statistical Description of Data",
+"Types of data",
+"Primary and secondary data",
+"Classification and frequency distributions",
+"Tables, charts and graphs",
+"Unit II: Sampling",
+"Population and sample",
+"Sampling methods",
+"Sampling techniques and applications"
+]},
+
+14:{
+title:"Chapter 14: Measures of Central Tendency and Dispersion",
+subtitle:"Phase C • Statistics",
+topics:[
+"Unit I: Measures of Central Tendency",
+"Arithmetic mean",
+"Median",
+"Mode",
+"Weighted averages",
+"Unit II: Dispersion",
+"Range",
+"Variance",
+"Standard deviation",
+"Coefficient of variation"
+]},
+
+15:{
+title:"Chapter 15: Probability",
+subtitle:"Phase C • Statistics",
+topics:[
+"Sample space",
+"Events",
+"Addition theorem",
+"Multiplication theorem",
+"Conditional probability",
+"Independent events"
+]},
+
+16:{
+title:"Chapter 16: Theoretical Distributions",
+subtitle:"Phase C • Statistics",
+topics:[
+"Random variables",
+"Binomial distribution",
+"Poisson distribution",
+"Normal distribution",
+"Mean and variance"
+]},
+
+17:{
+title:"Chapter 17: Correlation and Regression",
+subtitle:"Phase C • Statistics",
+topics:[
+"Meaning of correlation",
+"Positive and negative correlation",
+"Scatter diagrams",
+"Correlation coefficient",
+"Regression equations",
+"Prediction problems"
+]},
+
+18:{
+title:"Chapter 18: Index Numbers",
+subtitle:"Phase C • Statistics",
+topics:[
+"Meaning of index numbers",
+"Price index",
+"Quantity index",
+"Value index",
+"Weighted index numbers",
+"Consumer price index"
+]}
+
+};
+
+function openChapter(id){
+
+    const chapter=chapterData[id];
+
+    if(!chapter) return;
+
+    document.getElementById("modalTitle").textContent=chapter.title;
+    document.getElementById("modalSubtitle").textContent=chapter.subtitle;
+
+    document.getElementById("modalTopics").innerHTML=
+        chapter.topics.map(topic=>`<div>✓ ${topic}</div>`).join("");
+
+    document.getElementById("chapterModal").classList.add("show");
+}
+
+function closeChapter(){
+    document.getElementById("chapterModal").classList.remove("show");
+}
+
+function openIntro(){
+    document.getElementById("introModal").classList.add("show");
+}
+
+function closeIntro(){
+    document.getElementById("introModal").classList.remove("show");
+}
+
+function toggleMenu(){
+
+    const nav=document.querySelector(".nav");
+
+    if(nav.style.display==="flex"){
+        nav.style.display="";
+    }else{
+        nav.style.display="flex";
+        nav.style.position="absolute";
+        nav.style.top="55px";
+        nav.style.left="0";
+        nav.style.right="0";
+        nav.style.background="#031d36";
+        nav.style.padding="15px";
+        nav.style.flexDirection="column";
+        nav.style.gap="15px";
+        nav.style.borderTop="1px solid #345066";
+    }
+}
+
+window.addEventListener("click",function(e){
+
+    if(e.target===document.getElementById("chapterModal")){
+        closeChapter();
+    }
+
+    if(e.target===document.getElementById("introModal")){
+        closeIntro();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
