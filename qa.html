@@ -999,6 +999,250 @@ button{
     }
 }
 </style>
+
+<style id="perfect-desktop-sizing">
+/* =========================================================
+   PERFECT DESKTOP SIZING
+   Designed for wide desktop screens (1400px+)
+   Makes chapter icons, typography and cards proportionate
+   to the full-width layout.
+   ========================================================= */
+
+@media (min-width: 1200px){
+
+    /* ---------- Course information strip ---------- */
+    .info-strip{
+        max-width:760px;
+        margin:-15px auto 0;
+    }
+
+    .info-item{
+        padding:11px 10px;
+    }
+
+    .info-item strong{
+        font-size:10px;
+        margin-bottom:4px;
+    }
+
+    .info-item span{
+        font-size:8px;
+    }
+
+    /* ---------- Syllabus heading ---------- */
+    #syllabus{
+        padding:18px 45px 20px;
+    }
+
+    #syllabus .section-title{
+        margin-bottom:18px;
+    }
+
+    #syllabus .section-title h2{
+        font-size:20px;
+    }
+
+    #syllabus .section-title p{
+        font-size:11px;
+    }
+
+    /* ---------- Part headers ---------- */
+    .syllabus-part{
+        margin-bottom:17px;
+    }
+
+    .part-heading{
+        min-height:56px;
+        padding:9px 14px;
+        gap:12px;
+        border-left-width:5px;
+        margin-bottom:9px;
+    }
+
+    .part-number{
+        min-width:57px;
+        height:35px;
+        padding:0 10px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:10px;
+    }
+
+    .part-heading h3{
+        font-size:14px;
+    }
+
+    .part-heading p{
+        font-size:9px;
+        margin-top:3px;
+    }
+
+    /* ---------- Chapter cards ---------- */
+    .syllabus-list{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        gap:9px;
+    }
+
+    .syllabus-item{
+        min-height:82px;
+        padding:12px;
+        gap:11px;
+        border-radius:5px;
+    }
+
+    /* IMPORTANT: large chapter number/icon */
+    .syllabus-item .chapter-no{
+        flex:0 0 38px;
+        width:38px;
+        height:38px;
+        min-width:38px;
+        border-radius:4px;
+        font-size:11px;
+        font-weight:900;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .syllabus-item h4{
+        font-size:12px;
+        line-height:1.3;
+        margin-bottom:5px;
+    }
+
+    .syllabus-item p{
+        font-size:8.5px;
+        line-height:1.35;
+    }
+
+    .chapter-arrow{
+        font-size:17px;
+        line-height:1;
+        padding-top:2px;
+    }
+
+    /* Chapters 13 and 14 contain units, so give them room */
+    .syllabus-with-units{
+        min-height:125px;
+    }
+
+    .unit-list{
+        gap:4px;
+        margin-top:5px;
+    }
+
+    .unit{
+        padding:5px 7px;
+    }
+
+    .unit span{
+        font-size:8px;
+    }
+
+    .unit strong{
+        font-size:8px;
+    }
+
+    /* ---------- Full syllabus button ---------- */
+    .syllabus-btn{
+        font-size:9px;
+        padding:9px 17px;
+        margin-top:6px;
+    }
+
+    /* ---------- Hero visual ---------- */
+    .qa-visual{
+        transform:scale(1.12);
+    }
+
+    .calc-orbit{
+        width:140px;
+        height:140px;
+    }
+
+    .calc-box{
+        width:64px;
+        height:78px;
+    }
+
+    /* ---------- Why-learn icons/cards ---------- */
+    .why{
+        padding:20px 45px;
+    }
+
+    .why-grid{
+        gap:10px;
+    }
+
+    .why-card{
+        min-height:75px;
+        padding:9px 7px;
+    }
+
+    .why-icon{
+        font-size:17px;
+        height:22px;
+    }
+
+    .why-card h3{
+        font-size:8px;
+        margin-bottom:4px;
+    }
+
+    .why-card p{
+        font-size:6.5px;
+    }
+}
+
+/* Extra-large desktop */
+@media (min-width: 1600px){
+
+    #syllabus{
+        padding-left:52px;
+        padding-right:52px;
+    }
+
+    .syllabus-list{
+        gap:10px;
+    }
+
+    .syllabus-item{
+        min-height:88px;
+        padding:13px;
+    }
+
+    .syllabus-item .chapter-no{
+        flex-basis:42px;
+        width:42px;
+        height:42px;
+        min-width:42px;
+        font-size:12px;
+    }
+
+    .syllabus-item h4{
+        font-size:13px;
+    }
+
+    .syllabus-item p{
+        font-size:9px;
+    }
+
+    .chapter-arrow{
+        font-size:18px;
+    }
+}
+
+/* Never let the larger desktop sizing affect phones/tablets */
+@media (max-width: 1199px){
+    .syllabus-item .chapter-no{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+}
+</style>
+
 </head>
 
 <body>
