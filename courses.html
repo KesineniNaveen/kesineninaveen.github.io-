@@ -715,6 +715,104 @@
         /* =====================================================
            COURSES GRID
         ===================================================== */
+        
+        .course-card {
+    width: 360px;
+    min-height: 265px;
+    background: #ffffff;
+    border: 1.5px solid #f5ad18;
+    border-radius: 9px;
+    padding: 28px 22px 24px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.course-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.course-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3776ab;
+    font-size: 38px;
+}
+
+.course-header h3 {
+    margin: 0;
+    color: #101a2b;
+    font-size: 20px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+/* Description */
+.course-description {
+    margin: 0 0 27px;
+    color: #687386;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 315px;
+}
+
+/* Course Information */
+.course-info {
+    margin-bottom: 13px;
+}
+
+.course-info div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #687386;
+    font-size: 12px;
+}
+
+.course-info i {
+    color: #f5ad18;
+    width: 10px;
+    text-align: center;
+}
+
+/* Button */
+.view-details {
+    width: 165px;
+    height: 31px;
+    background: #001a33;
+    color: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-details span {
+    color: #f5ad18;
+    font-size: 20px;
+    line-height: 0;
+}
+
+.view-details:hover {
+    background: #f5ad18;
+    color: #001a33;
+}
+
+.view-details:hover span {
+    color: #001a33;
+}
 
         .courses-section {
 
@@ -2270,6 +2368,38 @@
 
         <div class="course-grid"
              id="courseGrid">
+            
+            
+            <div class="course-card">
+    <div class="course-header">
+        <div class="course-icon">
+            <i class="fas fa-calculator"></i>
+        </div>
+
+        <h3>Quantitative<br>Aptitude</h3>
+    </div>
+
+    <p class="course-description">
+        Master quantitative aptitude from basics to advanced and improve your problem-solving skills.
+    </p>
+
+    <div class="course-info">
+        <div>
+            <i class="far fa-clock"></i>
+            <span>3 Months</span>
+        </div>
+
+        <div>
+            <i class="fas fa-chart-bar"></i>
+            <span>Beginner to Advanced</span>
+        </div>
+    </div>
+
+    <a href="#" class="view-details">
+        View Details
+        <span>→</span>
+    </a>
+</div>
 
 
             <!-- PYTHON -->
