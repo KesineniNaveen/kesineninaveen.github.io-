@@ -305,6 +305,137 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </footer>
 
   <a class="floating-whatsapp" id="floatingWhatsApp" href="#enquire" aria-label="Ask about the course via WhatsApp"><span class="wa-icon">✆</span><span>Ask about the course</span></a>
-  <script src="js/main.js"></script>
+  <script>
+/* KN Tech Institute — interactions and enquiry handling */
+"use strict";
+
+// IMPORTANT: Institute WhatsApp number configured.
+// Use country code + number only, with no +, spaces, or dashes. Example format: 919876543210
+const WHATSAPP_NUMBER = "919676630130";
+
+const menuToggle = document.getElementById("menuToggle");
+const siteNav = document.getElementById("siteNav");
+
+function closeMenu() {
+  if (!menuToggle || !siteNav) return;
+  menuToggle.classList.remove("active");
+  siteNav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation menu");
+}
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("open");
+    menuToggle.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  });
+
+  siteNav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+
+  document.addEventListener("click", event => {
+    if (siteNav.classList.contains("open") &&
+        !siteNav.contains(event.target) &&
+        !menuToggle.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 800) closeMenu();
+  });
+}
+
+// Accessible accordion: keep each curriculum module independently expandable.
+document.querySelectorAll(".module-head").forEach(button => {
+  button.addEventListener("click", () => {
+    const module = button.closest(".module");
+    const isOpen = module.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+    const plus = button.querySelector(".module-plus");
+    if (plus) plus.textContent = isOpen ? "−" : "+";
+  });
+});
+
+// FAQ accordion.
+document.querySelectorAll(".faq-item > button").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".faq-item");
+    const isOpen = item.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+    const symbol = button.querySelector("b");
+    if (symbol) symbol.textContent = isOpen ? "−" : "+";
+  });
+});
+
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
+
+const enquiryForm = document.getElementById("enquiryForm");
+const formStatus = document.getElementById("formStatus");
+
+function makeWhatsAppMessage(data) {
+  return [
+    "Hello KN Tech Institute, I would like to enquire about the Cyber Security course.",
+    "",
+    "Name: " + data.fullName,
+    "Phone: " + data.phone,
+    "Current level: " + data.background,
+    "Interested in: " + data.goal,
+    data.message ? "Questions: " + data.message : "",
+    "",
+    "Please share the syllabus, upcoming batch details, timings and course fees."
+  ].filter(Boolean).join("\n");
+}
+
+if (enquiryForm) {
+  enquiryForm.addEventListener("submit", event => {
+    event.preventDefault();
+    if (!enquiryForm.reportValidity()) return;
+
+    const data = {
+      fullName: document.getElementById("fullName").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      background: document.getElementById("background").value,
+      goal: document.getElementById("goal").value,
+      message: document.getElementById("message").value.trim()
+    };
+
+    if (!data.fullName || !data.phone) {
+      if (formStatus) formStatus.textContent = "Please enter your name and phone number.";
+      return;
+    }
+
+    if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
+      if (formStatus) {
+        formStatus.textContent = "Setup needed: open js/main.js and verify the institute WhatsApp number in js/main.js, then submit this form again.";
+      }
+      return;
+    }
+
+    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
+      encodeURIComponent(makeWhatsAppMessage(data));
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (!newWindow) window.location.href = url;
+    if (formStatus) formStatus.textContent = "Your enquiry message is ready in WhatsApp. Review it and tap Send.";
+  });
+}
+
+// Floating CTA takes visitors to the form; the form itself uses the configured number.
+const floatingWhatsApp = document.getElementById("floatingWhatsApp");
+if (floatingWhatsApp) {
+  floatingWhatsApp.addEventListener("click", event => {
+    // If the visitor is already on the page, anchor navigation is enough.
+    // The form submit button creates the personalized WhatsApp message.
+  });
+}
+
+    
+  </script>
 </body>
 </html>
